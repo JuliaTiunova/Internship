@@ -1,24 +1,22 @@
-@import '../../node_modules/normalize.css';
-@import 'colors';
-@import 'fonts';
+@import "../../node_modules/normalize.css";
+@import "assets/colors";
+@import "assets/fonts";
+@import "elements/button";
+@import "elements/card";
+@import "elements/categories";
+@import "elements/link";
+@import "sections/header";
+@import "elements/nav";
+@import "elements/menu";
+@import "elements/slider";
+@import "elements/title";
+@import "elements/top";
+@import "elements/wrapper";
+@import "elements/product";
+@import "sections/arrival";
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-img {
-    width: 200px;
-    height: 200px;
-}
-
-h2 {
-    color: $banner-darkorange;
-    font-family: 'Jost', sans-serif;
-}
-div {
-    height: 200px;
-    width: 200px;
-    background: url("../img/flower.jpg") center center no-repeat;
-    background-size: cover;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

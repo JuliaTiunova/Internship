@@ -1,8 +1,6 @@
 import * as $ from 'jquery'
 import './babel'
-// import './styles/style.css'
 import './styles/styles.scss'
+import './slider'
+import slick from 'slick-carousel'
 
-console.log("hi")
-
-$('pre').addClass('code').html("hi")

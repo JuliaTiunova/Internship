@@ -35,6 +35,8 @@ const cssLoaders = extra => {
 
     return loaders
 }
+
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
@@ -56,7 +58,32 @@ module.exports = {
            
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource'
+                // type: 'asset/resource'
+                use: [
+                    {
+                      loader: 'image-webpack-loader',
+                      options: {
+                        mozjpeg: {
+                          progressive: true,
+                        },
+                        // optipng.enabled: false will disable optipng
+                        optipng: {
+                          enabled: false,
+                        },
+                        pngquant: {
+                          quality: [0.65, 0.90],
+                          speed: 4
+                        },
+                        gifsicle: {
+                          interlaced: false,
+                        },
+                        // the webp option will enable WEBP
+                        webp: {
+                          quality: 75
+                        }
+                      }
+                    },
+                  ],
                
             },
             {

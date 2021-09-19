@@ -1,0 +1,13 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  margin: 0 15px;
+
+  &__img {
+    width: 258px;
+    height: 258px;
+    object-fit: contain;
+  }
+}

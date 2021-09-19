@@ -1,0 +1,31 @@
+.title {
+  font-family: $lobster;
+  font-size: 72px;
+  line-height: 90px;
+  color: $black;
+
+  &-slider {
+    font-family: $lobster;
+    font-size: 21px;
+    line-height: 25px;
+    color: $black-text;
+  }
+}
+
+.title2 {
+  font-family: $lobster;
+  counter-reset: $black-title;
+  font-weight: normal;
+  font-size: 42px;
+  line-height: 50px;
+}
+
+.subtitle {
+  font-family: $qsand;
+  font-weight: 600;
+  color: $green;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,32 @@
+.slider {
+  position: relative;
+  &__img {
+    width: 100vw;
+    height: 100vh;
+
+    &_1 {
+      background: url(../img/vegies_header.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
+    &_2 {
+      background: url(../img/vegies.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
+    &_3 {
+      background: url(../img/vegies_header.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
+    &_4 {
+      background: url(../img/vegies.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
+    &_5 {
+      background: url(../img/vegies_header.jpg) center center no-repeat;
+      background-size: cover;
+    }
+  }
+}

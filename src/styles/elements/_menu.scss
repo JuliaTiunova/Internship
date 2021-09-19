@@ -1,0 +1,38 @@
+.menu {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  list-style-type: none;
+
+  &__item:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  &_small {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    list-style-type: none;
+  }
+
+  &__item_small:not(:first-child) {
+    margin-left: 20px;
+  }
+}
+
+.item {
+  font-family: $jost;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 64px;
+  color: $green-menu;
+  border-bottom: 2px solid $green-menu;
+
+  &_small {
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    text-align: right;
+  }
+}

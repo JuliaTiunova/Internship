@@ -1,0 +1,28 @@
+// @font-face {
+//   font-family: "Jost";
+//   src: url("../fonts/Jost-Regular.ttf") format("truetype");
+// }
+
+// @font-face {
+//   font-family: "JostBold";
+//   src: url("../fonts/Jost-Bold.ttf") format("truetype");
+// }
+
+@font-face {
+  font-family: "Jost";
+  src: url("../fonts/Jost-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "LobsterTwo";
+  src: url("../fonts/LobsterTwo-Regular.ttf") format("truetype");
+}
+
+$lobster: "LobsterTwo", sans-serif;
+$jost: "Jost", sans-serif;
+$qsand: "Quicksand", sans-serif;

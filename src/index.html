@@ -1,30 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="beetroot.png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="beetroot.png" type="image/png" />
+
     <title>OrgaFresh</title>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+  </head>
+  <body>
     <header class="header">
-        <div class="header__top top"></div>
-      <nav class="header__nav nav">
-          <ul class="nav__menu menu">
-              <li class="menu__item item">Home</li>
-              <li class="menu__item item">Shop</li>
-              <li class="menu__item item">About</li>
-              <li class="menu__item item">Blog</li>
-              <li class="menu__item item">Contact</li>
+      <div class="header__wrapper_top wrapper">
+        <div class="header__top top">
+          <ul class="top__info-list info-list">
+            <li class="info-list__info info">
+              <a class="info__link link" href="tel:+800345678"
+                ><i></i>(+800) 345 678</a
+              >
+            </li>
+            <li class="info-list__info info">
+              <a class="info__link link" href="mailto:organicfood@gmail.com"
+                ><i></i>Organicfood@gmail.com</a
+              >
+            </li>
           </ul>
-          <img src="img/Logo.png" alt="OrgaFresh logo">
-      </nav>  
+          <div class="top__options option">
+            <div class="option__item item-lang"><i></i>English</div>
+            <div class="option__item item-currency"><i></i>USD</div>
+          </div>
+        </div>
+      </div>
+      <div class="header__wrapper_nav wrapper">
+        <nav class="header__nav nav">
+          <ul class="nav__menu menu">
+            <li class="menu__item item">Home</li>
+            <li class="menu__item item">Shop</li>
+            <li class="menu__item item">About</li>
+            <li class="menu__item item">Blog</li>
+            <li class="menu__item item">Contact</li>
+          </ul>
+          <img src="img/Logo.png" alt="OrgaFresh logo" class="nav__logo" />
+          <div class="header__icons icons"></div>
+        </nav>
+      </div>
+      <div class="header__wrapper_slider">
+        <div class="header__slider slider">
+          <div class="slider__img slider__img_1"></div>
+          <div class="slider__img slider__img_2"></div>
+          <div class="slider__img slider__img_3"></div>
+          <div class="slider__img slider__img_4"></div>
+          <div class="slider__img slider__img_5"></div>
+        </div>
+        <div class="header__wrapper_content wrapper">
+          <p class="header__subtitle subtitle">fresh and tasty</p>
+          <h1 class="header__title title">
+            Organic shop <br />
+            Fruits & Vegetables
+          </h1>
+          <button class="header__button button">shop now</button>
+        </div>
+        <div class="header__wrapper_categories">
+          <div class="header__categories categories">
+            <div class="categories__card card">
+              <img src="img/vegies.jpg" alt="vegetables" class="card__img" />
+              <!-- <div class="card__img img"></div> -->
+              <p class="card__title-slider title-slider">Vegetables</p>
+              <p class="card__item-count">214 items</p>
+            </div>
+            <div class="categories__card card">
+              <img src="img/vegies.jpg" alt="vegetables" class="card__img" />
+              <!-- <div class="card__img img"></div> -->
+              <p class="card__title-slider title-slider">Fresh Fruits</p>
+              <p class="card__item-count">214 items</p>
+            </div>
+            <div class="categories__card card">
+              <img src="img/vegies.jpg" alt="vegetables" class="card__img" />
+              <!-- <div class="card__img img"></div> -->
+              <p class="card__title-slider title-slider">Grain & Nuts</p>
+              <p class="card__item-count">214 items</p>
+            </div>
+            <div class="categories__card card">
+              <img src="img/vegies.jpg" alt="vegetables" class="card__img" />
+              <!-- <div class="card__img img"></div> -->
+              <p class="card__title-slider title-slider">Fresh Meats</p>
+              <p class="card__item-count">214 items</p>
+            </div>
+            <div class="categories__card card">
+              <img src="img/vegies.jpg" alt="vegetables" class="card__img" />
+              <!-- <div class="card__img img"></div> -->
+              <p class="card__title-slider title-slider">Fresh Smoothie</p>
+              <p class="card__item-count">214 items</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
-    <main>
-        <section>
-            <div></div>
-        </section>
+    <main class="main">
+      <section class="arrival">
+        <div class="arrival__wrapper wrapper">
+          <div class="arrival__wrapper_nav">
+            <h2 class="arrival__title title2">Arrival organic</h2>
+            <nav class="arrival__nav nav-small">
+              <ul class="arrival__menu menu_small">
+                <li class="menu__item_small item_small">All</li>
+                <li class="menu__item_small item_small">Meats</li>
+                <li class="menu__item_small item_small">Vegetables</li>
+                <li class="menu__item_small item_small">Grain</li>
+                <li class="menu__item_small item_small">Fruits</li>
+                <li class="menu__item_small item_small">Other</li>
+              </ul>
+            </nav>
+          </div>
+          <div class="arrival__slider">
+            <div class="slider__product product">
+              <img class="product__img" src="img/vegies.jpg" alt="vegetables" />
+              <div class="product__ratings ratings"></div>
+              <p class="product__name">Exotic delicious</p>
+              <p class="price">$15.0</p>
+            </div>
+            <div class="slider__product product">
+              <img class="product__img" src="img/vegies.jpg" alt="vegetables" />
+              <div class="product__ratings ratings"></div>
+              <p class="product__name">Exotic delicious</p>
+              <p class="price">$15.0</p>
+            </div>
+            <div class="slider__product product">
+              <img class="product__img" src="img/vegies.jpg" alt="vegetables" />
+              <div class="product__ratings ratings"></div>
+              <p class="product__name">Exotic delicious</p>
+              <p class="price">$15.0</p>
+            </div>
+            <div class="slider__product product">
+              <img class="product__img" src="img/vegies.jpg" alt="vegetables" />
+              <div class="product__ratings ratings"></div>
+              <p class="product__name">Exotic delicious</p>
+              <p class="price">$15.0</p>
+            </div>
+            <div class="slider__product product">
+              <img class="product__img" src="img/vegies.jpg" alt="vegetables" />
+              <div class="product__ratings ratings"></div>
+              <p class="product__name">Exotic delicious</p>
+              <p class="price">$15.0</p>
+            </div>
+            <div class="slider__product product">
+              <img class="product__img" src="img/vegies.jpg" alt="vegetables" />
+              <div class="product__ratings ratings"></div>
+              <p class="product__name">Exotic delicious</p>
+              <p class="price">$15.0</p>
+            </div>
+            <div class="slider__product product">
+              <img class="product__img" src="img/vegies.jpg" alt="vegetables" />
+              <div class="product__ratings ratings"></div>
+              <p class="product__name">Exotic delicious</p>
+              <p class="price">$15.0</p>
+            </div>
+            <div class="slider__product product">
+              <img class="product__img" src="img/vegies.jpg" alt="vegetables" />
+              <div class="product__ratings ratings"></div>
+              <p class="product__name">Exotic delicious</p>
+              <p class="price">$15.0</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>

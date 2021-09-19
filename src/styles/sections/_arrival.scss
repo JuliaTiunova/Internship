@@ -1,0 +1,18 @@
+.arrival {
+  padding-top: 205px;
+
+  &__wrapper {
+    &_nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.slick-prev::before,
+.slick-next::before {
+  background-color: #fff;
+  color: $black;
+}
