@@ -12,4 +12,10 @@
     color: $white;
     border-bottom: 2px solid $white;
   }
+  &_phone {
+    font-family: $poppinsBold;
+    font-size: 25px;
+    line-height: 15px;
+    color: $black-title;
+  }
 }

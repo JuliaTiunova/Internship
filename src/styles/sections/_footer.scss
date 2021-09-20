@@ -1,0 +1,169 @@
+.footer {
+  &__info {
+    display: flex;
+    align-items: center;
+
+    &_wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: $footer-pink;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+
+    & i {
+      font-size: 60px;
+      color: $black-title;
+    }
+  }
+
+  &__title {
+    margin-bottom: 6px;
+  }
+  &__text {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    color: $black-title;
+
+    &_left {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__form {
+    margin-top: 19px;
+
+    & input {
+      height: 50px;
+      color: $black-title;
+      padding-left: 20px;
+      font-family: $qsand;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 25px;
+
+      &::placeholder {
+        font-family: $qsand;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 25px;
+        text-align: left;
+
+        color: $grey;
+      }
+    }
+  }
+
+  &__button {
+    font-family: $qsand;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__divider {
+    height: 1px;
+    width: 100%;
+    background-color: $grey;
+  }
+
+  &__about {
+    padding-top: 50px;
+    padding-bottom: 90px;
+  }
+
+  &__copyright {
+    background-color: $black-bg;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    @include flex-between;
+  }
+}
+
+.copyright {
+  &__text {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    color: $white;
+  }
+
+  &__icons i {
+    color: $white;
+    font-size: 18px;
+  }
+
+  &__icons a {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
+.about {
+  display: flex;
+
+  & a {
+    text-decoration: none;
+
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 32px;
+    color: $grey;
+    opacity: 0.7;
+  }
+  &__name {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-right: 200px;
+  }
+
+  &__text {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    color: $black-title;
+  }
+
+  &__table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__adress {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 32px;
+    color: $grey;
+    opacity: 0.7;
+    margin-bottom: 10px;
+  }
+}
