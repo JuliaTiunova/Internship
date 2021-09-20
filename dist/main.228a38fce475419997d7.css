@@ -902,6 +902,50 @@ template {
   background-color: #fff;
   color: #000000; }
 
+.banner {
+  display: flex; }
+  .banner__box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 90px; }
+    .banner__box_left {
+      background-color: #a1b902;
+      align-items: end; }
+    .banner__box_right {
+      background-color: #feba21;
+      align-items: start; }
+  .banner__sale {
+    position: relative;
+    text-align: center;
+    margin-bottom: 5px; }
+    .banner__sale-bg {
+      font-size: 175px;
+      color: #87aa3c;
+      position: absolute;
+      z-index: 1;
+      top: 10px;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+      .banner__sale-bg_green {
+        color: #658907; }
+      .banner__sale-bg_orange {
+        color: #e88c0c; }
+  .banner__title {
+    text-align: center;
+    margin-bottom: 15px; }
+  .banner__link {
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff; }
+
 .deals {
   background-color: #c4c4c4;
   padding-top: 65px;
