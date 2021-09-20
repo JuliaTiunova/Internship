@@ -24,11 +24,11 @@
 @import "sections/deals";
 @import "sections/feature";
 @import "sections/header";
+@import "sections/instagram";
+@import "sections/testimonials";
 @import "sections/why-us";
 
-*,
-::before,
-::after {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

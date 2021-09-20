@@ -4,10 +4,12 @@ import slick from "slick-carousel";
 export default $(".header__slider").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
+  infinite: true,
   autoplay: true,
-  speed: 1000,
+  autoplaySpeed: 3000,
   arrows: false,
   asNavFor: ".categories",
+  cssEase: "linear",
 });
 $(".categories").slick({
   slidesToShow: 5,
@@ -19,8 +21,9 @@ $(".categories").slick({
 $(".arrival__slider").slick({
   slidesToShow: 5,
   slidesToScroll: 2,
+  cssEase: "linear",
   autoplay: true,
-  speed: 1000,
+  autoplaySpeed: 4000,
   arrows: true,
   responsive: [
     {
@@ -40,6 +43,15 @@ $(".arrival__slider").slick({
   ],
 });
 
+$(".testimoniails__slider").slick({
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  arrows: true,
+  centerPadding: "30px",
+  cssEase: "linear",
+});
 // $(".feature__slider").slick({
 //   slidesToShow: 4,
 //   slidesToScroll: 1,
