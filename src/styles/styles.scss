@@ -5,12 +5,11 @@
 @import "elements/button";
 @import "elements/card";
 @import "elements/categories";
-@import "sections/deals";
+@import "elements/content_box";
 @import "elements/hover";
 @import "elements/icon";
 @import "elements/item";
 @import "elements/link";
-@import "sections/header";
 @import "elements/menu";
 @import "elements/nav";
 @import "elements/sale";
@@ -21,6 +20,9 @@
 @import "elements/wrapper";
 @import "elements/product";
 @import "sections/arrival";
+@import "sections/deals";
+@import "sections/header";
+@import "sections/why-us";
 
 *,
 ::before,
