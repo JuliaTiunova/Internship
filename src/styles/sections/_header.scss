@@ -1,9 +1,5 @@
 .header {
   &__wrapper {
-    // &_slider {
-    //   position: relative;
-    // }
-
     &_content {
       position: absolute;
       padding-left: 255px;
@@ -46,9 +42,4 @@
     margin-top: 0;
     margin-bottom: 33px;
   }
-  // &__categories {
-  //   position: absolute;
-  //   bottom: 0;
-  //   transform: translateY(50%);
-  // }
 }

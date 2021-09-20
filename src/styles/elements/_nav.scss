@@ -3,4 +3,9 @@
   grid-template-columns: 1fr auto 1fr;
   padding-top: 14px;
   height: 80px;
+
+  &_small {
+    width: 100%;
+    @include flex-between;
+  }
 }

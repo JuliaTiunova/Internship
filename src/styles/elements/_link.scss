@@ -1,3 +1,15 @@
 .link {
   text-decoration: none;
+
+  &__white {
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $white;
+    border-bottom: 2px solid $white;
+  }
 }

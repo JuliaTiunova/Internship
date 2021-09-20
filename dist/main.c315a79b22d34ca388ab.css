@@ -510,7 +510,8 @@ template {
 .categories {
   margin-left: 13.28125%;
   margin-right: 13.28125%;
-  border-right: 1px solid #ececec; }
+  border-right: 1px solid #ececec;
+  position: relative; }
 
 .box {
   display: grid;
@@ -614,27 +615,45 @@ template {
 
 .link {
   text-decoration: none; }
+  .link__white {
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff; }
 
 .menu {
   display: flex;
   justify-content: start;
   align-items: center;
   list-style-type: none; }
-  .menu__item:not(:last-child) {
-    margin-right: 20px; }
-  .menu_small {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    list-style-type: none; }
-  .menu__item_small:not(:first-child) {
-    margin-left: 20px; }
+
+.list__item:not(:last-child) {
+  margin-right: 20px; }
+
+.list_small {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  list-style-type: none; }
+
+.list__item_small:not(:first-child) {
+  margin-left: 20px; }
 
 .nav {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   padding-top: 14px;
   height: 80px; }
+  .nav_small {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
 
 .sale__text {
   font-family: "Jost", sans-serif;
@@ -677,6 +696,32 @@ template {
     .slider__img_5 {
       background: url(8e75819307d8688f8f6a.png) center center no-repeat;
       background-size: cover; }
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+  font-size: 0;
+  background: none;
+  border: 0;
+  cursor: pointer; }
+
+.slick-prev {
+  position: absolute;
+  right: -50px; }
+  .slick-prev::before {
+    content: "5";
+    font-family: "eleganticonsregular";
+    font-size: 30px; }
+
+.slick-next {
+  position: absolute;
+  left: -50px; }
+  .slick-next::before {
+    content: "4";
+    font-family: "eleganticonsregular";
+    font-size: 30px; }
 
 .time {
   display: flex;
@@ -874,13 +919,17 @@ template {
     top: 0;
     height: 100%; }
   .product_sale_deals::before {
-    left: 50%; }
+    left: 50%;
+    top: 0; }
   .product_new_deals::after {
-    left: 50%; }
+    left: 50%;
+    top: 0; }
   .product_sale_new_deals::before {
-    left: 33%; }
+    left: 33%;
+    top: 0; }
   .product_sale_new_deals::after {
-    left: 66%; }
+    left: 66%;
+    top: 0; }
 
 .ratings {
   font-family: "eleganticonsregular";
@@ -889,18 +938,8 @@ template {
 .arrival {
   padding-top: 205px;
   padding-bottom: 70px; }
-  .arrival__wrapper_nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
   .arrival__title {
     margin-bottom: 7px; }
-
-.slick-prev::before,
-.slick-next::before {
-  background-color: #fff;
-  color: #000000; }
 
 .banner {
   display: flex; }
@@ -935,7 +974,8 @@ template {
   .banner__title {
     text-align: center;
     margin-bottom: 15px; }
-  .banner__link {
+  .banner__link,
+  .banner .feature__link {
     font-family: "Jost", sans-serif;
     font-weight: 600;
     font-size: 15px;
@@ -976,6 +1016,42 @@ template {
   background-color: #ffffff;
   border: 1px solid #f2f2f2;
   box-shadow: 0px 5px 35px rgba(138, 159, 168, 0.2); }
+  .products__product {
+    padding-top: 0; }
+
+.feature {
+  padding-top: 70px;
+  padding-bottom: 73px; }
+  .feature__nav {
+    margin-bottom: 30px; }
+  .feature__content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); }
+    @media (max-width: 1919.98px) {
+      .feature__content {
+        grid-template-columns: repeat(4, 1fr); }
+        .feature__content .feature__product:last-child {
+          display: none; } }
+  .feature__slider {
+    display: flex; }
+  .feature__poster {
+    height: 100%;
+    background-color: #fcbbcf;
+    margin-right: 30px; }
+  .feature__product {
+    padding-top: 0;
+    position: relative; }
+
+.poster__content {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center; }
+
+.poster__title {
+  color: #ffffff;
+  margin-bottom: 2px; }
 
 .header__wrapper_content {
   position: absolute;

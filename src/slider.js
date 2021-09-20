@@ -24,18 +24,41 @@ $(".arrival__slider").slick({
   arrows: true,
   responsive: [
     {
-      breakpoint: 1400,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      },
-    },
-    {
       breakpoint: 1920,
       settings: {
         slidesToShow: 4,
         slidesToScroll: 1,
       },
     },
+    {
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
   ],
 });
+
+// $(".feature__slider").slick({
+//   slidesToShow: 4,
+//   slidesToScroll: 1,
+//   autoplay: true,
+//   arrows: false,
+//   responsive: [
+//     {
+//       breakpoint: 1920,
+//       settings: {
+//         slidesToShow: 4,
+//         slidesToScroll: 1,
+//       },
+//     },
+//     {
+//       breakpoint: 1400,
+//       settings: {
+//         slidesToShow: 3,
+//         slidesToScroll: 1,
+//       },
+//     },
+//   ],
+// });

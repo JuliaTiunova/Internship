@@ -90,18 +90,23 @@
 
   &_sale_deals::before {
     left: 50%;
+    top: 0;
   }
   &_new_deals::after {
     left: 50%;
+    top: 0;
   }
 
   &_sale_new_deals {
     &::before {
       left: 33%;
+
+      top: 0;
     }
 
     &::after {
       left: 66%;
+      top: 0;
     }
   }
 }

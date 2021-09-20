@@ -3,7 +3,9 @@
   justify-content: start;
   align-items: center;
   list-style-type: none;
+}
 
+.list {
   &__item {
     @include not-last-child {
       margin-right: 20px;

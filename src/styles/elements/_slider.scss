@@ -30,3 +30,36 @@
     }
   }
 }
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+  font-size: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.slick-prev {
+  position: absolute;
+  right: -50px;
+
+  &::before {
+    content: "5";
+    font-family: $icons;
+    font-size: 30px;
+  }
+}
+
+.slick-next {
+  position: absolute;
+  left: -50px;
+
+  &::before {
+    content: "4";
+    font-family: $icons;
+    font-size: 30px;
+  }
+}
