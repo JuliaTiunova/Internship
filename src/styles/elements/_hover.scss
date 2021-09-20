@@ -1,0 +1,22 @@
+.hover {
+  opacity: 0;
+  &__box {
+    width: 35px;
+    height: 35px;
+    background: $white;
+    opacity: 0.1;
+    border: 1px solid $black-title;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+  }
+
+  &__button {
+    &_img {
+      margin-right: 15px;
+    }
+  }
+}

@@ -10,12 +10,12 @@
 
   &__img {
     width: 60%;
-    height: 60%;
+    height: 120px;
+    object-fit: cover;
     align-self: center;
-
     margin: 0 auto;
-    background: url(../img/vegies.jpg) center center no-repeat;
-    background-size: cover;
+    // background: url(../img/img.jpg) center center no-repeat;
+    // background-size: cover;
     margin-bottom: 18px;
     text-align: center;
   }

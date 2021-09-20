@@ -1,7 +1,5 @@
 .top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-between;
 }
 
 .info-list {
@@ -31,6 +29,8 @@
   font-size: 15px;
   line-height: 22px;
   color: $white;
+  display: flex;
+  align-items: center;
 }
 
 .option {
@@ -48,5 +48,9 @@
     &:last-child {
       padding-left: 30px;
     }
+  }
+
+  & span {
+    font-family: $icons;
   }
 }

@@ -1,21 +1,30 @@
 @import "../../node_modules/normalize.css";
 @import "assets/colors";
 @import "assets/fonts";
+@import "assets/mixins";
 @import "elements/button";
 @import "elements/card";
 @import "elements/categories";
+@import "sections/deals";
+@import "elements/hover";
+@import "elements/icon";
+@import "elements/item";
 @import "elements/link";
 @import "sections/header";
-@import "elements/nav";
 @import "elements/menu";
+@import "elements/nav";
+@import "elements/sale";
 @import "elements/slider";
+@import "elements/time";
 @import "elements/title";
 @import "elements/top";
 @import "elements/wrapper";
 @import "elements/product";
 @import "sections/arrival";
 
-* {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

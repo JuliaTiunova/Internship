@@ -1,0 +1,59 @@
+.time {
+  display: flex;
+  justify-content: center;
+  font-family: $jost;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 25px;
+  text-align: center;
+  color: $white;
+
+  &__item {
+    @include center-flex;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: dashed 2px $green-text;
+    position: relative;
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+
+    &::after {
+      font-family: $jost;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 22px;
+      color: $white;
+      text-transform: capitalize;
+      position: absolute;
+      right: 0;
+      transform: translateX(85%);
+      background-color: $grey-bg;
+    }
+  }
+}
+
+.days {
+  &::after {
+    content: "days";
+  }
+}
+
+.hours {
+  &::after {
+    content: "hours";
+  }
+}
+
+.minutes {
+  &::after {
+    content: "mins";
+  }
+}
+
+.seconds {
+  &::after {
+    content: "secs";
+  }
+}

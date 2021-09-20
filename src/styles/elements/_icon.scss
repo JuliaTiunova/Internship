@@ -1,0 +1,14 @@
+.icon {
+  font-family: $icons;
+
+  &-phone_call,
+  &-envelope,
+  &-lang,
+  &-coin {
+    margin-right: 8px;
+  }
+}
+
+.fa-phone-volume {
+  transform: rotate(-20deg);
+}

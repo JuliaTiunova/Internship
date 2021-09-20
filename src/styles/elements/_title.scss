@@ -18,6 +18,10 @@
   font-weight: normal;
   font-size: 42px;
   line-height: 50px;
+
+  &_white {
+    color: $white;
+  }
 }
 
 .subtitle {

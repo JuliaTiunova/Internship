@@ -1,6 +1,6 @@
 .button {
   background-color: $green;
-  font-family: Quicksand;
+  font-family: $qsand;
   font-style: normal;
   font-weight: bold;
   font-size: 15px;
@@ -15,5 +15,18 @@
 
   &:hover {
     cursor: pointer;
+  }
+
+  &_small {
+    background-color: $green;
+    padding: 5px 15px;
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $white;
   }
 }

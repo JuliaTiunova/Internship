@@ -1,13 +1,16 @@
 .arrival {
   padding-top: 205px;
+  padding-bottom: 70px;
 
   &__wrapper {
     &_nav {
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include flex-between;
     }
+  }
+
+  &__title {
+    margin-bottom: 7px;
   }
 }
 
