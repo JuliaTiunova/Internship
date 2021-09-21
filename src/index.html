@@ -16,7 +16,58 @@
     <title>OrgaFresh</title>
   </head>
   <body>
+    
     <header class="header">
+      <div class="cart__frame">
+        <div class="cart">
+          <div class="cart__top">
+           <div class="cart__title_wrap">
+          <p class="cart__title title_cart">Shopping cart</p>
+          <button class="cart__button-close">close</button>
+        </div>
+            <div class="cart__reserve reserve">
+              <img class="reserve__img" src="img/img.jpg" alt="item">
+              <div class="reserve__info">
+                <p class="reserve__name">Exotic delicious</p>
+                <div class="reserve__count"><span>1x</span> $12.0</div>
+              </div>
+              <button class="reserve__button"><i class="far fa-times-circle"></i></button>
+            </div>
+            <div class="cart__reserve reserve">
+              <img class="reserve__img" src="img/img.jpg" alt="item">
+              <div class="reserve__info">
+                <p class="reserve__name">Exotic delicious</p>
+                <div class="reserve__count"><span>1x</span> $12.0</div>
+              </div>
+              <button class="reserve__button"><i class="far fa-times-circle"></i></button>
+            </div>
+            <div class="cart__reserve reserve">
+              <img class="reserve__img" src="img/img.jpg" alt="item">
+              <div class="reserve__info">
+                <p class="reserve__name">Exotic delicious</p>
+                <div class="reserve__count"><span>1x</span> $12.0</div>
+              </div>
+              <button class="reserve__button"><i class="far fa-times-circle"></i></button>
+            </div>
+            <div class="cart__reserve reserve">
+              <img class="reserve__img" src="img/img.jpg" alt="item">
+              <div class="reserve__info">
+                <p class="reserve__name">Exotic delicious</p>
+                <div class="reserve__count"><span>1x</span> $12.0</div>
+              </div>
+              <button class="reserve__button"><i class="far fa-times-circle"></i></button>
+            </div>
+          </div>
+          <div class="cart__subtotal subtotal">
+            <div class="subtotal__name">
+              <p class="subtotal__title title_cart">Subtotal</p>
+              <p class="subtotal__price">$135.0</p>
+            </div>
+            <button class="subtotal__button subtotal__button_top">View cart</button>
+            <button class="subtotal__button">Checkout</button>
+          </div>
+        </div>
+      </div>
       <div class="header__wrapper_top wrapper">
         <div class="header__top top">
           <ul class="top__info-list info-list">
@@ -40,8 +91,8 @@
       <div class="header__wrapper_nav wrapper">
         <nav class="header__nav nav">
           <ul class="nav__menu menu">
-            <li class="menu__item item">Home</li>
-            <li class="menu__item item__shop shop item"><p> Shop <span>&#x33</span></p>
+            <li class="menu__item item"><a href="#" class="item__link link">Home</a></li>
+            <li class="menu__item item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
               <div class="shop__dropdown">
                 <div class="dropdown__content">
                   <h5 class="dropdown__title title5">Categories</h5>
@@ -77,11 +128,10 @@
                 </div>
               </div>
             </li>
-            <li class="menu__item item">About</li>
-            <li class="menu__item item">Blog</li>
-            <li class="menu__item item">Contact</li>
+            <li class="menu__item item"><a href="#" class="item__link link">About</a></li>
+            <li class="menu__item item"><a href="#" class="item__link link">Blog</a></li>
+            <li class="menu__item item"><a href="#" class="item__link link">Contact</a></li>
           </ul>
-        
           <img src="img/Logo.png" alt="OrgaFresh logo" class="nav__logo" />
           <div class="header__icons icons">
             <i class="icon-search "></i>
@@ -89,6 +139,7 @@
             <i class="icon-cart header__icon header__icons_active"></i>
           </div>
         </nav>
+    
       </div>
       <div class="header__wrapper_slider">
         <div class="header__slider slider">
@@ -110,31 +161,26 @@
           <div class="header__categories categories">
             <div class="categories__card card">
               <img src="img/img.jpg" alt="vegetables" class="card__img" />
-              <!-- <div class="card__img img"></div> -->
               <p class="card__title-slider title-slider">Vegetables</p>
               <p class="card__item-count">214 items</p>
             </div>
             <div class="categories__card card">
               <img src="img/img_2.jpg" alt="vegetables" class="card__img" />
-              <!-- <div class="card__img img"></div> -->
               <p class="card__title-slider title-slider">Fresh Fruits</p>
               <p class="card__item-count">214 items</p>
             </div>
             <div class="categories__card card">
               <img src="img/img_3.jpg" alt="vegetables" class="card__img" />
-              <!-- <div class="card__img img"></div> -->
               <p class="card__title-slider title-slider">Grain & Nuts</p>
               <p class="card__item-count">214 items</p>
             </div>
             <div class="categories__card card">
               <img src="img/img_4.jpg" alt="vegetables" class="card__img" />
-              <!-- <div class="card__img img"></div> -->
               <p class="card__title-slider title-slider">Fresh Meats</p>
               <p class="card__item-count">214 items</p>
             </div>
             <div class="categories__card card">
               <img src="img/img_5.jpg" alt="vegetables" class="card__img" />
-              <!-- <div class="card__img img"></div> -->
               <p class="card__title-slider title-slider">Fresh Smoothie</p>
               <p class="card__item-count">214 items</p>
             </div>
@@ -273,7 +319,7 @@
               </div></div>
         </div>
       </section>
-      <section class="why-us wrapper">
+      <section id="about" class="why-us wrapper">
           <h2 class="why-us__title title2">Why Choose us</h2>
           <div class="why-us__content content">
             <div class="content__box box box_left">

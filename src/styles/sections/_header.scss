@@ -18,13 +18,19 @@
     &_top {
       background-color: $green-menu;
       opacity: 0.75;
+
+      &.cart-open {
+        background-color: $black-title;
+        opacity: 1;
+      }
     }
 
     &_nav {
       background-color: $white;
       opacity: 1;
       top: 0;
-      z-index: 2;
+      position: relative;
+      z-index: 100;
 
       box-shadow: 0px 5px 25px rgba(138, 159, 168, 0.25);
     }

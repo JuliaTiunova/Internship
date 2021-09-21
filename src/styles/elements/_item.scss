@@ -1,10 +1,18 @@
 .item {
+  &__link {
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 64px;
+    color: $black-title;
+
+    &:hover,
+    &:active {
+      color: $green-text;
+      cursor: pointer;
+    }
+  }
   padding: 0 20px;
-  font-family: $jost;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 64px;
-  color: $black-title;
   border-bottom: 2px solid transparent;
 
   &__shop {
@@ -23,8 +31,10 @@
     line-height: 23px;
     text-align: right;
 
-    &_active {
+    &:hover,
+    &:active {
       color: $green-text;
+      cursor: pointer;
     }
   }
 

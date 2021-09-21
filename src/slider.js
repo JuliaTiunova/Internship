@@ -52,25 +52,3 @@ $(".testimoniails__slider").slick({
   centerPadding: "30px",
   cssEase: "linear",
 });
-// $(".feature__slider").slick({
-//   slidesToShow: 4,
-//   slidesToScroll: 1,
-//   autoplay: true,
-//   arrows: false,
-//   responsive: [
-//     {
-//       breakpoint: 1920,
-//       settings: {
-//         slidesToShow: 4,
-//         slidesToScroll: 1,
-//       },
-//     },
-//     {
-//       breakpoint: 1400,
-//       settings: {
-//         slidesToShow: 3,
-//         slidesToScroll: 1,
-//       },
-//     },
-//   ],
-// });
