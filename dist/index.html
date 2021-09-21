@@ -9,13 +9,8 @@
     
     <script src="https://kit.fontawesome.com/4e5db1bd51.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <!-- <link
-      rel="stylesheet"
-      type="text/css"
-      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
-    /> -->
     <title>OrgaFresh</title>
-  <script defer="defer" src="vendors-node_modules_babel_polyfill_lib_index_js-node_modules_slick-carousel_slick_slick_js.202aef8dca162919b1ca.js"></script><script defer="defer" src="main.202aef8dca162919b1ca.js"></script><link href="main.202aef8dca162919b1ca.css" rel="stylesheet"></head>
+  <script defer="defer" src="vendors-node_modules_babel_polyfill_lib_index_js-node_modules_slick-carousel_slick_slick_js.c9906c0e8ba54b1210ec.js"></script><script defer="defer" src="main.c9906c0e8ba54b1210ec.js"></script><link href="main.c9906c0e8ba54b1210ec.css" rel="stylesheet"></head>
   <body>
     <header class="header">
       <div class="header__wrapper_top wrapper">
@@ -37,14 +32,54 @@
       <div class="header__wrapper_nav wrapper">
         <nav class="header__nav nav">
           <ul class="nav__menu menu">
-            <li class="menu__item item item_active">Home</li>
-            <li class="menu__item item">Shop <span>&#x33</span></li>
+            <li class="menu__item item">Home</li>
+            <li class="menu__item item__shop shop item"><p> Shop <span>&#x33</span></p>
+              <div class="shop__dropdown">
+                <div class="dropdown__content">
+                  <h5 class="dropdown__title title5">Categories</h5>
+                  <ul class="dropdown__list">
+                      <li class="dropdown__item"><a href="#">Fresh fruits Fresh</a></li>
+                      <li class="dropdown__item"><a href="#">Fresh Vegetables</a></li>
+                      <li class="dropdown__item"><a href="#">Meats</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown__content">
+                  <h5 class="dropdown__title title5"></h5>
+                  <ul class="dropdown__list">
+                    <li class="dropdown__item"><a href="#">Grain & Nuts</a></li>
+                    <li class="dropdown__item"><a href="#">Smothies</a></li>
+                    <li class="dropdown__item"><a href="#">Top sale</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown__content">
+                  <h5 class="dropdown__title title5">Shop Layout</h5>
+                  <ul class="dropdown__list">
+                    <li class="dropdown__item"><a href="#">Shop Grid Fullwidth</a></li>
+                    <li class="dropdown__item"><a href="#">Shop Grid Sidebar</a></li>
+                    <li class="dropdown__item"><a href="#">Shop List Sidebar</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown__content">
+                  <h5 class="dropdown__title title5">Shop</h5>
+                  <ul class="dropdown__list">
+                    <li class="dropdown__item"><a href="#">Pages</a></li>
+                    <li class="dropdown__item"><a href="#">Checkout</a></li>
+                    <li class="dropdown__item"><a href="#">Wishlist</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
             <li class="menu__item item">About</li>
             <li class="menu__item item">Blog</li>
             <li class="menu__item item">Contact</li>
           </ul>
+        
           <img src="img/Logo.png" alt="OrgaFresh logo" class="nav__logo">
-          <div class="header__icons icons"></div>
+          <div class="header__icons icons">
+            <i class="icon-search"></i>
+            <i class="icon-like header__icon header__icons_active"></i>
+            <i class="icon-cart header__icon header__icons_active"></i>
+          </div>
         </nav>
       </div>
       <div class="header__wrapper_slider">
@@ -424,18 +459,20 @@
             <h4 class="footer__title title4">Subscribe Newsletter</h4>
             <div class="footer__text">Sign up for weekly newsletter and better ecommercestores</div>
             <form action="" class="footer__form">
-              <input type="text" placeholder="Enter your email">
+              <input type="text" placeholder="Enter your email" required>
               <button class="footer__button button">Subscribe</button>
             </form>
           </div>
         </div>
-      </div>
+        </div>
       <div class="footer__divider"></div>
       <div class="footer__about about wrapper">
         <div class="about__name">
           <img src="img/Logo.png" alt="logo" class="about__logo">
-          <div class="about__text">Monday – Saturday: 8:00 am – 4:00pm <br>
-            Sunday: 9:00 am – 5:00pm</div>
+          <div class="about__text">
+            <p>Monday – Saturday: 8:00 am – 4:00pm</p>
+            <p>Sunday: 9:00 am – 5:00pm</p>
+          </div>
         </div>
         <div class="about__content">
           <div class="about__table">

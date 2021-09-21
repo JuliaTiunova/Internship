@@ -1,0 +1,62 @@
+.shop {
+  position: relative;
+
+  &__dropdown {
+    background-color: $white;
+    opacity: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 210px;
+    padding: 40px 31px 40px;
+    gap: 40px;
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 755px;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.5s, opacity 0.3s;
+  }
+
+  &:hover &__dropdown {
+    opacity: 1;
+    pointer-events: initial;
+    left: 0;
+    top: 100%;
+    transform: translateY(2px);
+  }
+}
+
+.dropdown {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & a {
+      text-decoration: none;
+      font-family: $jost;
+      font-weight: normal;
+      font-size: 15px;
+      color: $black-title;
+
+      &:hover {
+        color: lighten($color: $black-title, $amount: 50);
+      }
+    }
+  }
+
+  &__title {
+    line-height: 32px;
+    margin-bottom: 10px;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__item {
+    line-height: 23px;
+  }
+}

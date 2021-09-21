@@ -7,6 +7,10 @@
   color: $black-title;
   border-bottom: 2px solid transparent;
 
+  &__shop {
+    line-height: 63px;
+  }
+
   &_active {
     color: $green-menu;
     border-bottom: 2px solid $green-menu;
@@ -26,6 +30,8 @@
 
   &:hover {
     cursor: pointer;
+    color: $green-menu;
+    border-bottom: 2px solid $green-menu;
   }
 
   & span {
