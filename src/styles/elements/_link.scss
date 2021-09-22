@@ -17,5 +17,9 @@
     font-size: 25px;
     line-height: 15px;
     color: $black-title;
+
+    @include md {
+      font-size: 20px;
+    }
   }
 }

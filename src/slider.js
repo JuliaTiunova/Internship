@@ -16,6 +16,16 @@ $(".categories").slick({
   asNavFor: ".slider",
   focusOnSelect: true,
   arrows: false,
+
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 });
 
 $(".arrival__slider").slick({
@@ -27,17 +37,26 @@ $(".arrival__slider").slick({
   arrows: true,
   responsive: [
     {
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+    {
       breakpoint: 1920,
       settings: {
         slidesToShow: 4,
         slidesToScroll: 1,
       },
     },
+
     {
-      breakpoint: 1400,
+      breakpoint: 1200,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 1,
+        arrows: false,
       },
     },
   ],
@@ -48,7 +67,17 @@ $(".testimoniails__slider").slick({
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 5000,
+  adaptiveHeight: true,
   arrows: true,
-  centerPadding: "30px",
   cssEase: "linear",
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+      },
+    },
+  ],
 });

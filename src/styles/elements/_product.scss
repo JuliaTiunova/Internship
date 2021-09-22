@@ -6,15 +6,33 @@
   padding-top: 12px;
 
   &__img {
-    width: 258px;
+    width: 100%;
     height: 258px;
     object-fit: cover;
     margin: 0 auto 16px;
-    position: relative;
+    // position: relative;
+
+    @include xxl {
+      height: 200px;
+    }
+
+    &_wrapper {
+      position: relative;
+    }
 
     &_deals {
-      width: 315px;
-      height: 316px;
+      width: 100%;
+      height: 100%;
+
+      @include xxl {
+        width: 315px;
+        height: 315px;
+      }
+
+      @include md {
+        width: 100%;
+        height: 200px;
+      }
     }
   }
 
@@ -82,7 +100,7 @@
   }
 
   &__hover {
-    padding: 22px 14px 0 30px;
+    padding: 12px 30px 0 30px;
     position: absolute;
     top: 0;
     height: 100%;
@@ -109,6 +127,11 @@
       top: 0;
     }
   }
+
+  // &_deals img {
+  //   width: 315px / 1410px * 100%;
+  //   height: 315px / 1410px * 100%;
+  // }
 }
 
 .ratings {

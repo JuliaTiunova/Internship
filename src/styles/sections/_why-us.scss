@@ -2,8 +2,19 @@
   padding-top: 325px;
   padding-bottom: 130px;
 
+  @include xxl {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
   &__title {
     text-align: center;
     margin-bottom: 46px;
+  }
+
+  &__content {
+    @include md {
+      margin-left: 15px;
+    }
   }
 }

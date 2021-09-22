@@ -2,6 +2,7 @@
 @import "assets/colors";
 @import "assets/fonts";
 @import "assets/mixins";
+@import "elements/burger";
 @import "elements/button";
 @import "elements/card";
 @import "elements/cart";
@@ -35,4 +36,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }

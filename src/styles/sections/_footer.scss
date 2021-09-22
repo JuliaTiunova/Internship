@@ -7,6 +7,23 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       padding-bottom: 60px;
+
+      @include md {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+    }
+
+    @include md {
+      @include center-flex-column;
+      text-align: center;
+    }
+
+    &:first-child {
+      @include md {
+        margin-bottom: 30px;
+      }
     }
   }
 
@@ -20,6 +37,10 @@
     align-items: center;
     justify-content: center;
     margin-right: 30px;
+
+    @include md {
+      margin: 0 0 20px;
+    }
 
     & i {
       font-size: 60px;
@@ -45,14 +66,23 @@
   &__form {
     margin-top: 19px;
 
+    @include xxl {
+      display: flex;
+      flex-direction: column;
+    }
+
     & input {
-      height: 50px;
+      height: 51px;
       color: $black-title;
       padding-left: 20px;
       font-family: $qsand;
       font-weight: normal;
       font-size: 16px;
       line-height: 25px;
+
+      @include xxl {
+        margin-bottom: 20px;
+      }
 
       &::placeholder {
         font-family: $qsand;
@@ -86,6 +116,11 @@
   &__about {
     padding-top: 50px;
     padding-bottom: 90px;
+
+    @include md {
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
   }
 
   &__copyright {
@@ -93,6 +128,10 @@
     padding-top: 3px;
     padding-bottom: 3px;
     @include flex-between;
+
+    @include md {
+      flex-direction: column;
+    }
   }
 }
 
@@ -103,6 +142,11 @@
     font-size: 15px;
     line-height: 25px;
     color: $white;
+
+    @include md {
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
   }
 
   &__icons i {
@@ -115,9 +159,20 @@
       margin-right: 20px;
     }
   }
+
+  &__icons {
+    @include md {
+      align-self: center;
+    }
+  }
 }
+
 .about {
   display: flex;
+
+  @include md {
+    flex-direction: column;
+  }
 
   & a {
     text-decoration: none;
@@ -128,11 +183,18 @@
     color: $grey;
     opacity: 0.7;
   }
+
   &__name {
     display: flex;
     flex-direction: column;
     align-items: start;
     margin-right: 200px;
+
+    @include md {
+      margin-right: 0;
+      margin-bottom: 10px;
+      align-items: center;
+    }
   }
 
   &__logo {
@@ -144,15 +206,29 @@
     font-size: 15px;
     line-height: 25px;
     color: $black-title;
+
+    @include md {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__table {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+
+    @include md {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, auto);
+    }
   }
 
   &__title {
     margin-bottom: 25px;
+
+    @include md {
+      margin-bottom: 8px;
+    }
   }
 
   &__list {
@@ -166,6 +242,12 @@
     line-height: 32px;
     color: $grey;
     opacity: 0.7;
+    margin-bottom: 10px;
+  }
+}
+
+.table {
+  &__content {
     margin-bottom: 10px;
   }
 }

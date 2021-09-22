@@ -3,6 +3,14 @@
   justify-content: start;
   align-items: center;
   list-style-type: none;
+
+  @include xxl {
+    justify-content: space-evenly;
+  }
+
+  @include md {
+    display: none;
+  }
 }
 
 .list {
@@ -17,11 +25,19 @@
     justify-content: end;
     align-items: center;
     list-style-type: none;
+
+    @include md {
+      justify-content: space-evenly;
+    }
   }
 
   &__item_small {
     @include not-first-child {
       margin-left: 20px;
+
+      @include md {
+        margin-left: 15px;
+      }
     }
   }
 }

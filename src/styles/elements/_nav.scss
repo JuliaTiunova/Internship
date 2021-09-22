@@ -4,8 +4,28 @@
   padding-top: 14px;
   height: 80px;
 
+  @include md {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+    height: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
   &_small {
     width: 100%;
     @include flex-between;
+
+    @include md {
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    @include md {
+      margin-bottom: 10px;
+    }
   }
 }

@@ -1,5 +1,11 @@
 .top {
   @include flex-between;
+
+  @include md {
+    position: sticky;
+    top: 0;
+    align-items: flex-end;
+  }
 }
 
 .info-list {
@@ -7,17 +13,34 @@
   text-decoration: none;
   display: flex;
 
+  @include md {
+    flex-direction: column;
+  }
+
   &__info {
     padding-top: 7px;
     padding-bottom: 7px;
+
+    @include md {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
 
     &:first-child {
       padding-right: 30px;
       line-height: 100%;
       border-right: 1px solid $white-opacity2;
+
+      @include md {
+        border: 0;
+      }
     }
     &:last-child {
       padding-left: 30px;
+
+      @include md {
+        padding-left: 0;
+      }
     }
   }
 }
@@ -37,16 +60,36 @@
   display: flex;
   align-items: center;
 
+  @include md {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
   &__item {
     padding-top: 7px;
     padding-bottom: 7px;
+
+    @include md {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+
     &:first-child {
       padding-right: 30px;
       line-height: 100%;
       border-right: 1px solid $white-opacity2;
+
+      @include md {
+        border: 0;
+        padding-right: 0;
+      }
     }
     &:last-child {
       padding-left: 30px;
+
+      @include md {
+        padding-left: 0;
+      }
     }
   }
 

@@ -8,19 +8,43 @@
   position: relative;
 
   &__products {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     align-self: center;
     position: absolute;
     bottom: 0;
     transform: translateY(50%);
 
+    @include xxl {
+      position: relative;
+      top: 0;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    @include md {
+      gap: 10px;
+    }
+
     &__product:not(:last-child) {
-      margin-right: 30px;
+      margin-right: 20px;
     }
   }
 
   &__time {
     margin-bottom: 285px;
+
+    @include xxl {
+      margin-bottom: 65px;
+    }
+
+    @include md {
+      margin-bottom: 30px;
+    }
+  }
+
+  @include xxl {
+    padding-bottom: 65px;
   }
 }
 
@@ -34,12 +58,28 @@
 }
 
 .products {
-  padding: 30px 0 30px 30px;
+  height: 90%;
+  width: 1410px / 1920px * 100%;
+  padding: 20px 0 20px 20px;
   background-color: $white;
   border: 1px solid $white-border;
   box-shadow: 0px 5px 35px rgba(138, 159, 168, 0.2);
 
+  @include xxl {
+    height: 100%;
+    transform: translateY(0);
+  }
+
+  @include md {
+    width: 95%;
+    padding: 10px;
+  }
+
   &__product {
     padding-top: 0;
+    @include md {
+      width: 100%;
+      margin-right: 0;
+    }
   }
 }

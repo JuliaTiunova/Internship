@@ -10,9 +10,8 @@
     <script src="https://kit.fontawesome.com/4e5db1bd51.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <title>OrgaFresh</title>
-  <script defer="defer" src="vendors-node_modules_babel_polyfill_lib_index_js-node_modules_slick-carousel_slick_slick_js.dd8bea42b1873df74bdb.js"></script><script defer="defer" src="main.dd8bea42b1873df74bdb.js"></script><link href="main.dd8bea42b1873df74bdb.css" rel="stylesheet"></head>
+  <script defer="defer" src="vendors-node_modules_babel_polyfill_lib_index_js-node_modules_slick-carousel_slick_slick_js.c62c81ffacaf0a73e1e3.js"></script><script defer="defer" src="main.c62c81ffacaf0a73e1e3.js"></script><link href="main.c62c81ffacaf0a73e1e3.css" rel="stylesheet"></head>
   <body>
-    
     <header class="header">
       <div class="cart__frame">
         <div class="cart">
@@ -67,10 +66,10 @@
       <div class="header__wrapper_top wrapper">
         <div class="header__top top">
           <ul class="top__info-list info-list">
-            <li class="info-list__info info">
+            <li class="info-list__info info info_phone">
               <a class="info__link link" href="tel:+800345678"><i class="icon-phone_call"></i> (+800) 345 678</a>
             </li>
-            <li class="info-list__info info">
+            <li class="info-list__info info info_mail">
               <a class="info__link link" href="mailto:organicfood@gmail.com"><i class="icon-envelope"></i> Organicfood@gmail.com</a>
             </li>
           </ul>
@@ -82,6 +81,19 @@
       </div>
       <div class="header__wrapper_nav wrapper">
         <nav class="header__nav nav">
+          <div class="header__burger burger">
+            <button class="burger__button"><span></span>
+            </button>
+            <nav class="burger__menu">
+              <ul class="burger__list">
+                <li class="burger__item"><a href="#" class="burger__link link">Home</a></li>
+                <li class="burger__item"><a href="#" class="burger__link link">Shop</a></li>
+                <li class="burger__item"><a href="#about" class="burger__link link">About</a></li>
+                <li class="burger__item"><a href="#blog" class="burger__link link">Blog</a></li>
+                <li class="burger__item"><a href="#contact" class="burger__link link">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
           <ul class="nav__menu menu">
             <li class="menu__item item"><a href="#" class="item__link link">Home</a></li>
             <li class="menu__item item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
@@ -120,9 +132,9 @@
                 </div>
               </div>
             </li>
-            <li class="menu__item item"><a href="#" class="item__link link">About</a></li>
-            <li class="menu__item item"><a href="#" class="item__link link">Blog</a></li>
-            <li class="menu__item item"><a href="#" class="item__link link">Contact</a></li>
+            <li class="menu__item item"><a href="#about" class="item__link link">About</a></li>
+            <li class="menu__item item"><a href="#blog" class="item__link link">Blog</a></li>
+            <li class="menu__item item"><a href="#contact" class="item__link link">Contact</a></li>
           </ul>
           <img src="img/Logo.png" alt="OrgaFresh logo" class="nav__logo">
           <div class="header__icons icons">
@@ -200,7 +212,17 @@
           <div class="arrival__slider">
             <div class="slider__product product">
               <div class="product__wrapper">
+                <div class="product__img_wrapper">
                 <img class="product__img" src="img/img.jpg" alt="vegetables">
+                <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <div class="hover__button button_small"><img class="hover__button_img" src="img/cart.png" alt="cart">Add to cart</div>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+                </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0</p>
@@ -208,23 +230,35 @@
             </div>
             <div class="slider__product product">
               <div class="product__wrapper product_sale">
+                <div class="product__img_wrapper">
                 <img class="product__img" src="img/img.jpg" alt="vegetables">
+                <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <div class="hover__button button_small"><img class="hover__button_img" src="img/cart.png" alt="cart">Add to cart</div>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+              </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0 <span>$18.0</span></p>
               </div>
-              <div class="product__hover hover">
-                  <div class="hover__box box_like"></div>
-                  <div class="hover__bottom">
-                      <div class="hover__box box_reload"></div>
-                      <div class="hover__button button_small"><img class="hover__button_img" src="img/cart.png" alt="cart">Add to cart</div>
-                      <div class="hover__box box_search"></div>
-                  </div>
-              </div>
             </div>
             <div class="slider__product product">
               <div class="product__wrapper">
+                <div class="product__img_wrapper">
                 <img class="product__img" src="img/img.jpg" alt="vegetables">
+              <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <div class="hover__button button_small"><img class="hover__button_img" src="img/cart.png" alt="cart">Add to cart</div>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+              </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0</p>
@@ -232,7 +266,17 @@
             </div>
             <div class="slider__product product">
               <div class="product__wrapper">
+                <div class="product__img_wrapper">
                 <img class="product__img" src="img/img.jpg" alt="vegetables">
+              <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <div class="hover__button button_small"><img class="hover__button_img" src="img/cart.png" alt="cart">Add to cart</div>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+              </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0</p>
@@ -240,7 +284,17 @@
             </div>
             <div class="slider__product product">
               <div class="product__wrapper product_new">
+                <div class="product__img_wrapper">
                 <img class="product__img" src="img/img.jpg" alt="vegetables">
+              <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <div class="hover__button button_small"><img class="hover__button_img" src="img/cart.png" alt="cart">Add to cart</div>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+              </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0</p>
@@ -248,7 +302,18 @@
             </div>
             <div class="slider__product product">
               <div class="product__wrapper">
+                
+                <div class="product__img_wrapper">
                 <img class="product__img" src="img/img.jpg" alt="vegetables">
+              <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <div class="hover__button button_small"><img class="hover__button_img" src="img/cart.png" alt="cart">Add to cart</div>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+              </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0</p>
@@ -256,7 +321,18 @@
             </div>
             <div class="slider__product product">
               <div class="product__wrapper">
+                
+                <div class="product__img_wrapper">
                 <img class="product__img" src="img/img.jpg" alt="vegetables">
+              <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <div class="hover__button button_small"><img class="hover__button_img" src="img/cart.png" alt="cart">Add to cart</div>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+              </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0</p>
@@ -264,7 +340,18 @@
             </div>
             <div class="slider__product product">
               <div class="product__wrapper">
+                
+                <div class="product__img_wrapper">
                 <img class="product__img" src="img/img.jpg" alt="vegetables">
+              <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <div class="hover__button button_small"><img class="hover__button_img" src="img/cart.png" alt="cart">Add to cart</div>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+              </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0</p>
@@ -311,8 +398,8 @@
               </div></div>
         </div>
       </section>
-      <section id="about" class="why-us wrapper">
-          <h2 class="why-us__title title2">Why Choose us</h2>
+      <section class="why-us wrapper">
+          <h2 id="about" class="why-us__title title2">Why Choose us</h2>
           <div class="why-us__content content">
             <div class="content__box box box_left">
               <div class="box__img"><i class="box__icon icon-ecology"></i><img class="box__icon_bg" src="img/bg_ecology.png" alt="bg_ecology"></div>
@@ -432,11 +519,9 @@
                 <p class="product__price">$15.0</p>
               </div>
             </div>
-           
-            
           </div>
       </section>
-      <section class="testimonials wrapper">
+      <section id="blog" class="testimonials wrapper">
         <div class="testimoniails__slider">
           <div class="testimonials__card">
             <blockquote class="testimonials__text">“Yesterday I received my first box. I was very impressed by the freshness of the produce. I had tried (another delivery service) and had to cancel because of low quality.</blockquote>
@@ -481,15 +566,25 @@
 
       </section>
       <section class="instagram wrapper">
-<div class="instagram__content">
-  <div class="instagram__img"><div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div></div>
-  <div class="instagram__img"><div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div></div>
-  <div class="instagram__img"><div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div></div>
-  <div class="instagram__img"><div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div></div>
-  <div class="instagram__img"><div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div></div>
-</div>
+        <div class="instagram__content">
+          <div class="instagram__img">
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+          </div>
+          <div class="instagram__img">
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+          </div>
+          <div class="instagram__img">
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+          </div>
+          <div class="instagram__img">
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+          </div>
+          <div class="instagram__img">
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+          </div>
+        </div>
       </section>
-      <footer class="footer">
+      <footer id="contact" class="footer">
         <div class="footer__info_wrapper wrapper">
         <div class="footer__info">
           <div class="footer__icon"><i class="icon-headphone"></i></div>
@@ -504,7 +599,7 @@
           <div class="footer__content">
             <h4 class="footer__title title4">Subscribe Newsletter</h4>
             <div class="footer__text">Sign up for weekly newsletter and better ecommercestores</div>
-            <form action="" class="footer__form">
+            <form action="#" class="footer__form">
               <input type="text" placeholder="Enter your email" required>
               <button class="footer__button button">Subscribe</button>
             </form>
@@ -561,7 +656,7 @@
           </div>
         </div>
       </div>
-      <div class="footer__copyright wrapper">
+      <div class="footer__copyright copyright wrapper">
 <p class="copyright__text">Copyright © 2020 Avitexthemes Inc. All rights reserved</p>
 <div class="copyright__icons">
   <a href="#"><i class="fab fa-facebook-f"></i></a>

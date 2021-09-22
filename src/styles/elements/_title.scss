@@ -4,6 +4,12 @@
   line-height: 90px;
   color: $black;
 
+  @include md {
+    font-size: 36px;
+    line-height: 46px;
+    text-align: center;
+  }
+
   &-slider {
     font-family: $lobster;
     font-size: 21px;
@@ -56,4 +62,8 @@
   line-height: 22px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
+
+  @include md {
+    text-align: center;
+  }
 }

@@ -5,6 +5,10 @@
     position: relative;
     z-index: -1;
 
+    @include md {
+      height: 65vh;
+    }
+
     &_1 {
       background: url(../img/bg_img.png) center right no-repeat;
       background-size: cover;
@@ -63,4 +67,8 @@
     font-family: $icons;
     font-size: 30px;
   }
+}
+
+.arrival .slick-slide {
+  margin: 15px;
 }

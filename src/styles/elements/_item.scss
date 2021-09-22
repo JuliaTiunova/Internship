@@ -15,6 +15,10 @@
   padding: 0 20px;
   border-bottom: 2px solid transparent;
 
+  @include xxl {
+    padding: 0 5px;
+  }
+
   &__shop {
     line-height: 63px;
   }
