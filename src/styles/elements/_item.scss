@@ -6,8 +6,15 @@
     line-height: 64px;
     color: $black-title;
 
-    &:hover,
-    &:active {
+    // &:hover,
+    // &:active {
+    //   color: $green-text;
+    //   cursor: pointer;
+    // }
+  }
+  &:hover,
+  &:active {
+    & .item__link {
       color: $green-text;
       cursor: pointer;
     }

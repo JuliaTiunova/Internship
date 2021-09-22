@@ -186,6 +186,7 @@
     padding-bottom: 11px;
     background: 0;
     outline: none;
+    transition: background-color 0.3s;
 
     &:last-child {
       background-color: $black-title;
@@ -197,6 +198,9 @@
       background-color: $green;
       border: 1px solid $green;
       cursor: pointer;
+    }
+    &:active {
+      background: darken($color: $green, $amount: 5);
     }
 
     &_top {

@@ -65,6 +65,7 @@
 
   &__form {
     margin-top: 19px;
+    @include flex-between;
 
     @include xxl {
       display: flex;
@@ -131,38 +132,6 @@
 
     @include md {
       flex-direction: column;
-    }
-  }
-}
-
-.copyright {
-  &__text {
-    font-family: $jost;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 25px;
-    color: $white;
-
-    @include md {
-      margin-bottom: 5px;
-      font-size: 14px;
-    }
-  }
-
-  &__icons i {
-    color: $white;
-    font-size: 18px;
-  }
-
-  &__icons a {
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
-  }
-
-  &__icons {
-    @include md {
-      align-self: center;
     }
   }
 }

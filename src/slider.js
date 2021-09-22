@@ -37,6 +37,13 @@ $(".arrival__slider").slick({
   arrows: true,
   responsive: [
     {
+      breakpoint: 1920,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+      },
+    },
+    {
       breakpoint: 1400,
       settings: {
         slidesToShow: 3,
@@ -44,15 +51,7 @@ $(".arrival__slider").slick({
       },
     },
     {
-      breakpoint: 1920,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-      },
-    },
-
-    {
-      breakpoint: 1200,
+      breakpoint: 768,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
@@ -72,7 +71,7 @@ $(".testimoniails__slider").slick({
   cssEase: "linear",
   responsive: [
     {
-      breakpoint: 1200,
+      breakpoint: 992,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
