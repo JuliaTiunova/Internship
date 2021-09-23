@@ -94,7 +94,7 @@
               <div class="header__icons icons">
                 <i class="icon-search "></i>
                 <i class="icon-like header__icon header__icons_active"></i>
-                <i class="icon-checkout header__icon header__icons_active"></i>
+                <i class="icon-cart header__icon header__icons_active"></i>
               </div>
             </nav>
         
@@ -105,7 +105,22 @@
         <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Checkout</span></p>
     </section>
     <section class="checkout wrapper">
-      <form class="checkout__form" action="get"></form>
+      <form class="checkout__form">
+        <label class="checkout__form-title">Contact information</label>
+        <input class="input__adress" type="text" placeholder="Email or phone number">
+        <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
+        <label class="checkout__form-title">Shipping address</label>
+        <div class="input__wrapper">
+          <input type="text" placeholder="First name">
+          <input type="text" placeholder="Last name">
+          <input class="input__full" type="text" placeholder="Address">
+          <input class="input__full" type="text" placeholder="Apartment, suite, etc">
+          <input class="input__full" type="text" placeholder="City">
+          <input type="text" placeholder="Coundtry/Region">
+          <input type="text" placeholder="Postal code">
+          <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
+        </div>
+      </form>
       <div class="checkout__bill bill">
         <div class="checkout__reserve reserve">
           <img class="reserve__img" src="img/img.jpg" alt="item">
@@ -169,7 +184,7 @@
         </div>
         <div class="checkout__total">
           <p class="total__name">Total</p>
-          <p class="total__value"><span>USD</span>$39.60</p>
+          <p class="total__value"><span>USD </span>$39.60</p>
         </div>
       </div>
     </section>
@@ -195,7 +210,7 @@
               Sign up for weekly newsletter and better ecommercestores
             </div>
             <form action="#" class="footer__form">
-              <input type="text" placeholder="Enter your email" required />
+              <input type="email" name="email" placeholder="Enter your email" required />
               <button class="footer__button button">Subscribe</button>
             </form>
           </div>
