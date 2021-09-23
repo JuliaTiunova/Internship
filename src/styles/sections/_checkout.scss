@@ -1,0 +1,76 @@
+.checkout {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+
+  &__form {
+    padding-right: 74px;
+    height: 100%;
+  }
+
+  &__bill {
+    padding-left: 75px;
+    border-left: 1px solid $grey-border;
+  }
+
+  &__reserve {
+    &:last-child {
+      padding-bottom: 50px;
+      border-bottom: 1px solid $grey-border;
+    }
+  }
+
+  &__count {
+    padding-top: 30px;
+    padding-bottom: 29px;
+    @include flex-between;
+    border-bottom: 1px solid $grey-border;
+  }
+
+  &__total {
+    padding-top: 30px;
+    @include flex-between;
+  }
+}
+
+.count {
+  &__names {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 32px;
+    color: $black-text;
+  }
+
+  &__value {
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 32px;
+    text-align: right;
+    color: $black-title;
+  }
+}
+
+.total {
+  .total__name {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 32px;
+    color: $black-text;
+  }
+  &__value {
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+
+    & span {
+      font-weight: 400;
+      font-size: 15px;
+      color: $grey;
+    }
+  }
+}

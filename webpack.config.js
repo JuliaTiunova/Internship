@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const isDev = process.env.NODE_ENV === "development";
 const isProd = !isDev;
@@ -50,12 +51,22 @@ const jsLoaders = () => {
   }
   return loader;
 };
+let htmlPageNames = ["checkout"];
+
+let multipleHtmlPlugins = htmlPageNames.map((name) => {
+  return new HtmlWebpackPlugin({
+    template: `./${name}.html`,
+    filename: `${name}.html`,
+    chunks: [`${name}`],
+  });
+});
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
   mode: "development",
   entry: {
     main: ["@babel/polyfill", "./index.js"],
+    checkout: "./checkout.js",
   },
   optimization: optimization(),
   devServer: {
@@ -150,10 +161,14 @@ module.exports = {
           from: path.resolve(__dirname, "src/img"),
           to: path.resolve(__dirname, "dist/img"),
         },
+        // {
+        //   from: path.resolve(__dirname, "src/checkout.html"),
+        //   to: path.resolve(__dirname, "dist"),
+        // },
       ],
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[hash].css",
     }),
-  ],
+  ].concat(multipleHtmlPlugins),
 };

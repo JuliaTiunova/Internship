@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/4e5db1bd51.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <title>OrgaFresh</title>
-  <script defer="defer" src="vendors-node_modules_babel_polyfill_lib_index_js-node_modules_jquery_dist_jquery_js.417c6e708191cef357c9.js"></script><script defer="defer" src="main.417c6e708191cef357c9.js"></script><link href="main.417c6e708191cef357c9.css" rel="stylesheet"></head>
+  <script defer="defer" src="vendors-node_modules_babel_polyfill_lib_index_js-node_modules_jquery_dist_jquery_js.86ed12e57b214da5f34e.js"></script><script defer="defer" src="main.86ed12e57b214da5f34e.js"></script><script defer="defer" src="checkout.86ed12e57b214da5f34e.js"></script><link href="node_modules_normalize_css_normalize_css-styles_styles_scss.86ed12e57b214da5f34e.css" rel="stylesheet"></head>
   <body>
     <header class="header">
       <div class="cart__frame">
@@ -57,7 +57,7 @@
               <p class="subtotal__price">$135.0</p>
             </div>
             <button class="subtotal__button subtotal__button_top">View cart</button>
-            <button class="subtotal__button">Checkout</button>
+            <button onclick="window.location.href='/checkout.html'" class="subtotal__button">Checkout</button>
           </div>
         </div>
       </div>
@@ -602,7 +602,6 @@
           </div>
         </div>
         </div>
-      <div class="footer__divider"></div>
       <div class="footer__about about wrapper">
         <div class="about__name">
           <img src="img/Logo.png" alt="logo" class="about__logo">

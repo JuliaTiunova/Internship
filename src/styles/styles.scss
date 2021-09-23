@@ -2,6 +2,7 @@
 @import "assets/colors";
 @import "assets/fonts";
 @import "assets/mixins";
+
 @import "elements/burger";
 @import "elements/button";
 @import "elements/card";
@@ -16,6 +17,7 @@
 @import "elements/link";
 @import "elements/menu";
 @import "elements/nav";
+@import "elements/reserve";
 @import "elements/sale";
 @import "elements/slider";
 @import "elements/time";
@@ -23,11 +25,15 @@
 @import "elements/top";
 @import "elements/wrapper";
 @import "elements/product";
+
 @import "sections/arrival";
 @import "sections/banner";
+@import "sections/breadcrumb";
+@import "sections/checkout";
 @import "sections/deals";
 @import "sections/feature";
 @import "sections/footer";
+@import "sections/footer_black";
 @import "sections/header";
 @import "sections/instagram";
 @import "sections/testimonials";

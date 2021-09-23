@@ -29,7 +29,8 @@
       background-color: $green-menu;
       opacity: 0.75;
 
-      &.cart-open {
+      &.cart-open,
+      &.top_black {
         background-color: $black-title;
         opacity: 1;
       }

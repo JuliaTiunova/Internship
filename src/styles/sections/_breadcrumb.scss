@@ -1,0 +1,22 @@
+.breadcrumb {
+  background-color: $bread-bg;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &__path,
+  &__link {
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 25px;
+    color: $black-text;
+
+    & span {
+      color: $green;
+    }
+  }
+
+  & i {
+    margin: 0 15px;
+  }
+}
