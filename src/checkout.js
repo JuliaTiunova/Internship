@@ -1,4 +1,6 @@
 import "./styles/styles.scss";
+// import * as $ from "jquery";
+// import "jquery-mask-plugin";
 
 const burgerButton = document.querySelector(
   ".checkout__header .burger__button"

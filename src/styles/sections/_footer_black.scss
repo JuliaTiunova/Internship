@@ -18,12 +18,25 @@
         border-bottom: 1px solid $white-opacity1;
       }
 
+      @include md {
+        padding-top: 0;
+        margin-top: -50px;
+      }
+
       &:first-child {
         border-right: 1px solid $white-opacity1;
+
+        @include md {
+          margin-top: 30px;
+        }
       }
 
       &:last-child {
         margin-left: 70px;
+
+        @include md {
+          margin-left: 0;
+        }
       }
     }
   }

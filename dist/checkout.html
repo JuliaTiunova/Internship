@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     ></script>
     <title>OrgaFresh checkout</title>
-  <script defer src="checkout.37705859c90e49ddb028.js"></script><link href="node_modules_normalize_css_normalize_css-styles_styles_scss.37705859c90e49ddb028.css" rel="stylesheet"></head>
+  <script defer src="checkout.69ead5a1ffdd0f3aafed.js"></script><link href="node_modules_normalize_css_normalize_css-styles_styles_scss.69ead5a1ffdd0f3aafed.css" rel="stylesheet"></head>
   <body>
     <header class="header checkout__header">
         <div class="header__wrapper_top top_black wrapper">
@@ -105,7 +105,9 @@
         <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Checkout</span></p>
     </section>
     <section class="checkout wrapper">
+     
       <form class="checkout__form">
+        <p class="checkout__text form-text">Already have an account? <a class="checkout__link link" href="#">Log in</a></p>
         <label class="checkout__form-title">Contact information</label>
         <input class="input__adress" type="text" placeholder="Email or phone number">
         <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
@@ -120,16 +122,17 @@
           <input type="text" placeholder="Postal code">
           <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
         </div>
+        <label class="checkout__form-title">Billing info</label>
+        <div class="input__wrapper">
+          <input class="card-number" type="number" placeholder="Card number">
+          <input type="text" placeholder="expiration date">
+          <input class="input__full" type="text" placeholder="Address">
+          <input class="input__full" type="text" placeholder="Apartment, suite, etc">
+          <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
+        </div>
+        <a href="#" class="checkout__return_link return_link link"><span>J</span> Return cart</a>
       </form>
       <div class="checkout__bill bill">
-        <div class="checkout__reserve reserve">
-          <img class="reserve__img" src="img/img.jpg" alt="item">
-          <div class="reserve__info">
-            <p class="reserve__name">Exotic delicious</p>
-            <div class="reserve__weight"><span>1</span>kg</div>
-          </div>
-          <p class="reserve__price">$8.0</p>
-        </div>
         <div class="checkout__reserve reserve">
           <img class="reserve__img" src="img/img.jpg" alt="item">
           <div class="reserve__info">
