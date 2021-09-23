@@ -12,6 +12,10 @@
   justify-content: space-between;
   transition: transform 0.5s;
 
+  @include md {
+    top: 152px;
+  }
+
   &-open {
     transform: translateX(0);
     pointer-events: initial;
@@ -86,10 +90,18 @@
   align-items: center;
   width: 390px;
 
+  @include md {
+    width: 300px;
+  }
+
   &__img {
     width: 90px;
     height: 90px;
     margin-right: 27px;
+
+    @include md {
+      margin-right: 10px;
+    }
   }
 
   &__info {
