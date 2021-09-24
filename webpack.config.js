@@ -51,7 +51,7 @@ const jsLoaders = () => {
   }
   return loader;
 };
-let htmlPageNames = ["checkout"];
+let htmlPageNames = ["forms"];
 
 let multipleHtmlPlugins = htmlPageNames.map((name) => {
   return new HtmlWebpackPlugin({
@@ -66,7 +66,7 @@ module.exports = {
   mode: "development",
   entry: {
     main: ["@babel/polyfill", "./index.js"],
-    checkout: "./checkout.js",
+    forms: "./forms.js",
   },
   optimization: optimization(),
   devServer: {
@@ -162,7 +162,7 @@ module.exports = {
           to: path.resolve(__dirname, "dist/img"),
         },
         // {
-        //   from: path.resolve(__dirname, "src/checkout.html"),
+        //   from: path.resolve(__dirname, "src/forms.html"),
         //   to: path.resolve(__dirname, "dist"),
         // },
       ],

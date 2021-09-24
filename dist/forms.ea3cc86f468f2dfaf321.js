@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./checkout.js":
-/*!*********************!*\
-  !*** ./checkout.js ***!
-  \*********************/
+/***/ "./forms.js":
+/*!******************!*\
+  !*** ./forms.js ***!
+  \******************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.scss */ \"./styles/styles.scss\");\n // import * as $ from \"jquery\";\n// import \"jquery-mask-plugin\";\n\nvar burgerButton = document.querySelector(\".checkout__header .burger__button\");\nvar burgerMenu = document.querySelector(\".burger__menu\");\nvar burgerLInk = document.querySelectorAll(\".burger__item\");\nburgerButton.addEventListener(\"click\", function () {\n  burgerButton.classList.toggle(\"menu_open\");\n  burgerMenu.classList.toggle(\"menu_open\");\n});\n\nfunction closeMenu(el) {\n  return el.addEventListener(\"click\", function () {\n    burgerButton.classList.toggle(\"menu_open\");\n    burgerMenu.classList.toggle(\"menu_open\");\n  });\n}\n\nburgerLInk.forEach(function (el) {\n  return closeMenu(el);\n});\n\n//# sourceURL=webpack:///./checkout.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.scss */ \"./styles/styles.scss\");\n/* harmony import */ var js_datepicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-datepicker */ \"../node_modules/js-datepicker/dist/datepicker.min.js\");\n/* harmony import */ var js_datepicker__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(js_datepicker__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jquery-mask-plugin */ \"../node_modules/jquery-mask-plugin/dist/jquery.mask.js\");\n/* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\njquery__WEBPACK_IMPORTED_MODULE_2__(\".phone\").mask(\"+ZZ (ZZZ) ZZZ ZZ ZZ\", {\n  translation: {\n    Z: {\n      pattern: /[0-9]/\n    }\n  }\n});\njquery__WEBPACK_IMPORTED_MODULE_2__(\".card-number\").mask(\"ZZZZ ZZZZ ZZZZ ZZZZ\", {\n  translation: {\n    Z: {\n      pattern: /[0-9]/\n    }\n  }\n});\njquery__WEBPACK_IMPORTED_MODULE_2__(\".card-exp\").mask(\"00 / 0000\");\njquery__WEBPACK_IMPORTED_MODULE_2__(\".card-password\").mask(\"ZZZ\", {\n  translation: {\n    Z: {\n      pattern: /[0-9]/\n    }\n  }\n});\njquery__WEBPACK_IMPORTED_MODULE_2__(\".tip\").mask(\"000.000.000,00\", {\n  reverse: true\n});\nvar burgerButton = document.querySelector(\".checkout__header .burger__button\");\nvar burgerMenu = document.querySelector(\".burger__menu\");\nvar burgerLInk = document.querySelectorAll(\".burger__item\");\nburgerButton.addEventListener(\"click\", function () {\n  burgerButton.classList.toggle(\"menu_open\");\n  burgerMenu.classList.toggle(\"menu_open\");\n});\n\nfunction closeMenu(el) {\n  return el.addEventListener(\"click\", function () {\n    burgerButton.classList.toggle(\"menu_open\");\n    burgerMenu.classList.toggle(\"menu_open\");\n  });\n}\n\nburgerLInk.forEach(function (el) {\n  return closeMenu(el);\n});\nvar loginButton = document.querySelector(\".link-to-login\");\nvar loginWindow = document.querySelector(\".login__window\");\nvar loginClose = document.querySelector(\".login__button_close\");\nloginButton.addEventListener(\"click\", function () {\n  loginWindow.classList.toggle(\"login_open\");\n});\nloginClose.addEventListener(\"click\", function () {\n  loginWindow.classList.toggle(\"login_open\");\n});\njs_datepicker__WEBPACK_IMPORTED_MODULE_1___default()(\".date__delivery\"); // datepicker(\".date__exp\");\n\nvar start = js_datepicker__WEBPACK_IMPORTED_MODULE_1___default()(\".date__start\", {\n  id: 1\n});\nvar end = js_datepicker__WEBPACK_IMPORTED_MODULE_1___default()(\".date__end\", {\n  id: 1\n});\nconsole.log(start.getRange()); // undefined yet/\n\nconsole.log(end.getRange());\n\n//# sourceURL=webpack:///./forms.js?");
 
 /***/ }),
 
@@ -50,7 +50,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -94,6 +94,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		};
 /******/ 	}();
 /******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	!function() {
 /******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
@@ -118,7 +142,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"checkout": 0,
+/******/ 			"forms": 0,
 /******/ 			"node_modules_normalize_css_normalize_css-styles_styles_scss": 0
 /******/ 		};
 /******/ 		
@@ -171,7 +195,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["node_modules_normalize_css_normalize_css-styles_styles_scss"], function() { return __webpack_require__("./checkout.js"); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_jquery_dist_jquery_js","vendors-node_modules_jquery-mask-plugin_dist_jquery_mask_js-node_modules_js-datepicker_dist_d-daf6db","node_modules_normalize_css_normalize_css-styles_styles_scss"], function() { return __webpack_require__("./forms.js"); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -20,7 +20,7 @@
           <div class="cart__top">
            <div class="cart__title_wrap">
           <p class="cart__title title_cart">Shopping cart</p>
-          <button class="cart__button-close">close</button>
+          <button class="cart__button-close button_close">close</button>
         </div>
             <div class="cart__reserve reserve">
               <img class="reserve__img" src="img/img.jpg" alt="item">
@@ -55,14 +55,14 @@
               <button class="reserve__button"><i class="far fa-times-circle"></i></button>
             </div>
           </div>
-          <div class="cart__subtotal subtotal">
+          <form action="/forms.html" class="cart__subtotal subtotal">
             <div class="subtotal__name">
               <p class="subtotal__title title_cart">Subtotal</p>
               <p class="subtotal__price">$135.0</p>
             </div>
             <button class="subtotal__button subtotal__button_top">View cart</button>
-            <button onclick="window.location.href='/checkout.html'" class="subtotal__button">Checkout</button>
-          </div>
+            <button type="submit" class="subtotal__button">Checkout</button>
+          </form>
         </div>
       </div>
       <div class="header__wrapper_top wrapper">

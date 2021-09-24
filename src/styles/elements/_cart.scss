@@ -29,7 +29,7 @@
     left: 0;
     right: 0;
     height: 300vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: $black-bg-modal;
     z-index: 99;
     pointer-events: none;
     opacity: 0;
@@ -69,18 +69,6 @@
 
       margin-bottom: 50px;
     }
-  }
-
-  &__button-close {
-    border: none;
-    outline: none;
-    background: none;
-    font-family: $jost;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 22px;
-    color: $grey;
-    cursor: pointer;
   }
 }
 

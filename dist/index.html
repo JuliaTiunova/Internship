@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/4e5db1bd51.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <title>OrgaFresh</title>
-  <script defer="defer" src="vendors-node_modules_babel_polyfill_lib_index_js-node_modules_jquery_dist_jquery_js.69ead5a1ffdd0f3aafed.js"></script><script defer="defer" src="main.69ead5a1ffdd0f3aafed.js"></script><script defer="defer" src="checkout.69ead5a1ffdd0f3aafed.js"></script><link href="node_modules_normalize_css_normalize_css-styles_styles_scss.69ead5a1ffdd0f3aafed.css" rel="stylesheet"></head>
+  <script defer="defer" src="vendors-node_modules_jquery_dist_jquery_js.ea3cc86f468f2dfaf321.js"></script><script defer="defer" src="vendors-node_modules_babel_polyfill_lib_index_js.ea3cc86f468f2dfaf321.js"></script><script defer="defer" src="main.ea3cc86f468f2dfaf321.js"></script><script defer="defer" src="vendors-node_modules_jquery-mask-plugin_dist_jquery_mask_js-node_modules_js-datepicker_dist_d-daf6db.ea3cc86f468f2dfaf321.js"></script><script defer="defer" src="forms.ea3cc86f468f2dfaf321.js"></script><link href="node_modules_normalize_css_normalize_css-styles_styles_scss.ea3cc86f468f2dfaf321.css" rel="stylesheet"></head>
   <body>
     <header class="header">
       <div class="cart__frame">
@@ -16,7 +16,7 @@
           <div class="cart__top">
            <div class="cart__title_wrap">
           <p class="cart__title title_cart">Shopping cart</p>
-          <button class="cart__button-close">close</button>
+          <button class="cart__button-close button_close">close</button>
         </div>
             <div class="cart__reserve reserve">
               <img class="reserve__img" src="img/img.jpg" alt="item">
@@ -51,14 +51,14 @@
               <button class="reserve__button"><i class="far fa-times-circle"></i></button>
             </div>
           </div>
-          <div class="cart__subtotal subtotal">
+          <form action="/forms.html" class="cart__subtotal subtotal">
             <div class="subtotal__name">
               <p class="subtotal__title title_cart">Subtotal</p>
               <p class="subtotal__price">$135.0</p>
             </div>
             <button class="subtotal__button subtotal__button_top">View cart</button>
-            <button onclick="window.location.href='/checkout.html'" class="subtotal__button">Checkout</button>
-          </div>
+            <button type="submit" class="subtotal__button">Checkout</button>
+          </form>
         </div>
       </div>
       <div class="header__wrapper_top wrapper">

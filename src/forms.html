@@ -105,30 +105,94 @@
         <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Checkout</span></p>
     </section>
     <section class="checkout wrapper">
-     
-      <form class="checkout__form">
-        <p class="checkout__text form-text">Already have an account? <a class="checkout__link link" href="#">Log in</a></p>
-        <label class="checkout__form-title">Contact information</label>
+     <div class="login__window">
+       <div class="login__page">
+         <button class="login__button_close button_close">Close</button>
+         <form class="login__form">
+           <label class="login__form-title form-title">Log in</label>
+           <div class="input__wrapper">
+             <input class="input__full" type="text" name="username" placeholder="User name">
+             <input class="input__full" type="password" name="loginPassword" id="loginPassword" placeholder="Password">
+             <button class="button login__button" type="submit">Submit</button>
+             <button class="button login__button" type="reset">Reset</button>           
+            </div>
+            <div class="login__text_wrapper">
+              <p class="login__text form-text">Not a member yet?
+              <a href="#" class="login__link link">Register</a></p>
+            </div>
+         </form>
+       </div>
+     </div>
+      <form action="./index.html" method="GET" class="checkout__form" novalidate>
+        <p class="checkout__text form-text">Already have an account? <a class="checkout__link link-to-login link">Log in</a></p>
+        <label class="checkout__form-title form-title">Contact information</label>
         <input class="input__adress" type="text" placeholder="Email or phone number">
         <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
-        <label class="checkout__form-title">Shipping address</label>
+        <label class="checkout__form-title form-title">Shipping address</label>
         <div class="input__wrapper">
-          <input type="text" placeholder="First name">
-          <input type="text" placeholder="Last name">
+          <input class="first-name" type="text" maxlength="15" name="firstName" id="firstName" placeholder="First name">
+          <input class="last-name" type="text" maxlength="15" name="lastName" id="lastName" placeholder="Last name">
           <input class="input__full" type="text" placeholder="Address">
           <input class="input__full" type="text" placeholder="Apartment, suite, etc">
           <input class="input__full" type="text" placeholder="City">
           <input type="text" placeholder="Coundtry/Region">
           <input type="text" placeholder="Postal code">
-          <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
-        </div>
-        <label class="checkout__form-title">Billing info</label>
+          <input class="input__full phone" type="tel" name="tel" id="tel" placeholder="Phone number">
+         </div>
+        <label class="checkout__form-title form-title">Billing info</label>
         <div class="input__wrapper">
-          <input class="card-number" type="number" placeholder="Card number">
-          <input type="text" placeholder="expiration date">
-          <input class="input__full" type="text" placeholder="Address">
-          <input class="input__full" type="text" placeholder="Apartment, suite, etc">
-          <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
+          <label class="input__full"><input type="radio" name="card" id=""> Master Card</label>
+          <label class="input__full"><input type="radio" name="card" id=""> Visa</label>
+          <input class="input__full card-number" type="text" placeholder="Card number">
+          <input class="input__full" type="text" placeholder="Full Name">
+          <input class="card-exp" type="text" placeholder="Expiration date mm / yyyy">
+          <input class="card-password" type="password" maxlength="3" placeholder="CVV">
+          </div>
+        <label class="checkout__form-title form-title">How much will you tip?</label>
+        <div class="input__wrapper">
+          <input class="tip input__full" type="text" name="tip" id="tip">
+        </div>
+        <label class="checkout__form-title form-title">Date of shipping</label>
+        <div class="input__wrapper">
+          <input  class="input__full date__delivery" type="text" placeholder="Choose delivery date">
+          <textarea class="input__full" name="message" id="message" cols="30" rows="10" placeholder="Your message..."></textarea>
+          </div>
+        <label class="checkout__form-title form-title">Going on vacation?</label>
+        <div class="input__wrapper">
+          <input class="date__start" type="text" name="start" id="start" placeholder="start date">
+          <input class="date__end" type="text" name="end" id="end" placeholder="end date">
+        </div>
+        <label class="checkout__form-title form-title">Share a link to your video</label>
+        <input type="url" name="videoLink" id="" class="input__full" placeholder="http://example.com">
+        <label class="checkout__form-title form-title">Upload a photo</label>
+        <div class="input__wrapper">
+          <input class="input__full" type="file" name="photo" id="photo">
+          <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>       
+        </div>
+        <label class="checkout__form-title form-title">Choose your favorite Vegetable colour</label>
+        <div class="input__wrapper">
+          <input class="input__color input__full" type="color" name="color" id="" value="#ffA200">
+        </div>
+        <label class="checkout__form-title form-title">Gift card?</label>
+        <div action="checkout__gift-card">
+          <div class="input__wrapper ">
+            <label class="gift-card__label input__full" for="gift10">
+              <input class="input__full" type="checkbox" name="gift" id="gift10"> Gift card $10
+            </label>
+            <input class="gift-card__number" type="number" name="amount" min="1" max="10">
+            <label class="gift-card__label input__full" for="gift25">
+              <input class="input__full" type="checkbox" name="gift" id="gift25"> Gift card $25
+            </label>
+            <input class="gift-card__number" type="number"  name="amount" min="1">
+            <label class="gift-card__label input__full" for="gift50">
+              <input class="input__full" type="checkbox" name="gift" id="gift50"> Gift card $50
+            </label>
+            <input class="gift-card__number" type="number" name="amount" min="1">
+          </div>
+        </div>
+        <div class="checkout__button_wrapper">
+          <button type="submit" class="button checkout__button">Submit</button>
+          <button type="reset" class="button checkout__button">Reset</button>
         </div>
         <a href="#" class="checkout__return_link return_link link"><span>J</span> Return cart</a>
       </form>
