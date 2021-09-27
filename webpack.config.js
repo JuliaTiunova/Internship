@@ -80,6 +80,18 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.(gif|png|jpe?g)$/i,
+      //   use: [
+      //     {
+      //       loader: "file-loader",
+      //       options: {
+      //         name: "/img/[name].[ext]",
+      //         output: "/img",
+      //       },
+      //     },
+      //   ],
+      // },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         // type: 'asset/resource'
@@ -112,6 +124,15 @@ module.exports = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
+
+        // use: [
+        //   {
+        //     loader: "file-loader",
+        //     options: {
+        //       outputPath: "/fonts",
+        //     },
+        //   },
+        // ],
       },
       {
         test: /\.(csv|tsv)$/i,
@@ -133,13 +154,6 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: jsLoaders(),
-        // use: {
-        //   loader: "babel-loader",
-        //   options: {
-        //     presets: ["@babel/preset-env"],
-        //   },
-        //   plugins: ["babel-eslint"],
-        // },
       },
     ],
   },
@@ -161,10 +175,6 @@ module.exports = {
           from: path.resolve(__dirname, "src/img"),
           to: path.resolve(__dirname, "dist/img"),
         },
-        // {
-        //   from: path.resolve(__dirname, "src/forms.html"),
-        //   to: path.resolve(__dirname, "dist"),
-        // },
       ],
     }),
     new MiniCssExtractPlugin({

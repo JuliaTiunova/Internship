@@ -1,1 +1,4 @@
 node_modules
+dist
+.forms_validation.js
+.babel.js

@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     ></script>
     <title>OrgaFresh checkout</title>
-  <script defer src="vendors-node_modules_jquery_dist_jquery_js.ea3cc86f468f2dfaf321.js"></script><script defer src="vendors-node_modules_jquery-mask-plugin_dist_jquery_mask_js-node_modules_js-datepicker_dist_d-daf6db.ea3cc86f468f2dfaf321.js"></script><script defer src="forms.ea3cc86f468f2dfaf321.js"></script><link href="node_modules_normalize_css_normalize_css-styles_styles_scss.ea3cc86f468f2dfaf321.css" rel="stylesheet"></head>
+  <script defer src="vendors-node_modules_jquery_dist_jquery_js.453a403319d66291fff2.js"></script><script defer src="vendors-node_modules_jquery-mask-plugin_dist_jquery_mask_js-node_modules_js-datepicker_dist_d-daf6db.453a403319d66291fff2.js"></script><script defer src="forms.453a403319d66291fff2.js"></script><link href="node_modules_normalize_css_normalize_css-styles_styles_scss.453a403319d66291fff2.css" rel="stylesheet"></head>
   <body>
     <header class="header checkout__header">
         <div class="header__wrapper_top top_black wrapper">
@@ -111,8 +111,8 @@
          <form class="login__form">
            <label class="login__form-title form-title">Log in</label>
            <div class="input__wrapper">
-             <input class="input__full" type="text" name="username" placeholder="User name">
-             <input class="input__full" type="password" name="loginPassword" id="loginPassword" placeholder="Password">
+             <input class="input__full login__username" type="text" name="username" minlength="4" placeholder="User name" required>
+             <input class="input__full login__password" type="password" name="loginPassword" id="loginPassword" minlength="8" placeholder="Password" required>
              <button class="button login__button" type="submit">Submit</button>
              <button class="button login__button" type="reset">Reset</button>           
             </div>
@@ -123,34 +123,40 @@
          </form>
        </div>
      </div>
-      <form action="./index.html" method="GET" class="checkout__form" novalidate>
+      <form class="checkout__form" novalidate>
+        <div class="error-message">Error message</div>
         <p class="checkout__text form-text">Already have an account? <a class="checkout__link link-to-login link">Log in</a></p>
         <label class="checkout__form-title form-title">Contact information</label>
-        <input class="input__adress" type="text" placeholder="Email or phone number">
+        <input class="input__adress checkout-mail" type="email" placeholder="Email">
         <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
         <label class="checkout__form-title form-title">Shipping address</label>
         <div class="input__wrapper">
-          <input class="first-name" type="text" maxlength="15" name="firstName" id="firstName" placeholder="First name">
-          <input class="last-name" type="text" maxlength="15" name="lastName" id="lastName" placeholder="Last name">
+          <input class="first-name" type="text" minlength="3" maxlength="15" name="firstName" id="firstName" placeholder="First name">
+          <input class="last-name" type="text" minlength="3" maxlength="15" name="lastName" id="lastName" placeholder="Last name">
           <input class="input__full" type="text" placeholder="Address">
           <input class="input__full" type="text" placeholder="Apartment, suite, etc">
-          <input class="input__full" type="text" placeholder="City">
-          <input type="text" placeholder="Coundtry/Region">
-          <input type="text" placeholder="Postal code">
-          <input class="input__full phone" type="tel" name="tel" id="tel" placeholder="Phone number">
+          <select class="input__full city" name="city" id="" placeholder="Enter a city">
+            <option value="Kyiv">Kyiv</option>
+            <option value="Lviv">Lviv</option>
+            <option value="Kharkiv">Kharkiv</option>
+            <option value="Chernivtsi">Chernivtsi</option>
+          </select>
+          <input type="text" placeholder="Coundtry/Region" value="Ukraine">
+          <input class="postal-code" maxlength="5" type="text" placeholder="Postal code">
+          <input class="input__full phone" type="tel" name="tel" id="tel" minlength="19" placeholder="Phone number">
          </div>
         <label class="checkout__form-title form-title">Billing info</label>
         <div class="input__wrapper">
-          <label class="input__full"><input type="radio" name="card" id=""> Master Card</label>
-          <label class="input__full"><input type="radio" name="card" id=""> Visa</label>
-          <input class="input__full card-number" type="text" placeholder="Card number">
-          <input class="input__full" type="text" placeholder="Full Name">
-          <input class="card-exp" type="text" placeholder="Expiration date mm / yyyy">
-          <input class="card-password" type="password" maxlength="3" placeholder="CVV">
+          <label class="input__full"><input type="radio" name="card" checked> Master Card</label>
+          <label class="input__full"><input type="radio" name="card"> Visa</label>
+          <input class="input__full card-number" type="text" maxlength="19" minlength="19" placeholder="Card number">
+          <input class="input__full card-full-name" type="text" placeholder="Full Name">
+          <input class="card-exp" type="text" minlength="9" placeholder="Expiration date mm / yyyy">
+          <input class="card-password" type="password" minlength="3" placeholder="CVV">
           </div>
         <label class="checkout__form-title form-title">How much will you tip?</label>
         <div class="input__wrapper">
-          <input class="tip input__full" type="text" name="tip" id="tip">
+          <input class="checkout-tip input__full" minlength="4" type="text" name="tip" id="tip">
         </div>
         <label class="checkout__form-title form-title">Date of shipping</label>
         <div class="input__wrapper">
@@ -163,16 +169,18 @@
           <input class="date__end" type="text" name="end" id="end" placeholder="end date">
         </div>
         <label class="checkout__form-title form-title">Share a link to your video</label>
-        <input type="url" name="videoLink" id="" class="input__full" placeholder="http://example.com">
+        <input type="url" name="videoLink" class="input__full checkout-url" placeholder="http://example.com" >
         <label class="checkout__form-title form-title">Upload a photo</label>
         <div class="input__wrapper">
-          <input class="input__full" type="file" name="photo" id="photo">
+          <input class="input__full checkout-file" type="file" name="photo" id="photo">
           <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>       
         </div>
         <label class="checkout__form-title form-title">Choose your favorite Vegetable colour</label>
         <div class="input__wrapper">
-          <input class="input__color input__full" type="color" name="color" id="" value="#ffA200">
+          <input class="input__color input__full" type="color" name="color" value="#ffA200">
         </div>
+        <!-- <label class="checkout__form-title form-title">How many plates fit on your table?</label>
+        <input class="input__range" type="range" name="plates" id="plates"> -->
         <label class="checkout__form-title form-title">Gift card?</label>
         <div action="checkout__gift-card">
           <div class="input__wrapper ">
