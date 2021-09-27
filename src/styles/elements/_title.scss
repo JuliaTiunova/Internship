@@ -1,0 +1,69 @@
+.title {
+  font-family: $lobster;
+  font-size: 72px;
+  line-height: 90px;
+  color: $black;
+
+  @include md {
+    font-size: 36px;
+    line-height: 46px;
+    text-align: center;
+  }
+
+  &-slider {
+    font-family: $lobster;
+    font-size: 21px;
+    line-height: 25px;
+    color: $black-text;
+  }
+
+  &_cart {
+    font-family: $jost;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: $black-title;
+  }
+}
+
+.title2 {
+  font-family: $lobster;
+  counter-reset: $black-title;
+  font-weight: normal;
+  font-size: 42px;
+  line-height: 50px;
+
+  &_white {
+    color: $white;
+  }
+}
+
+.title4 {
+  font-family: $lobster;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 25px;
+  color: $black-title;
+}
+
+.title5 {
+  font-family: $jost;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+  color: $black-title;
+}
+
+.subtitle {
+  font-family: $qsand;
+  font-weight: 600;
+  color: $green;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+
+  @include md {
+    text-align: center;
+  }
+}

@@ -1,0 +1,14 @@
+.wrapper {
+  padding-left: 255px / 1920px * 100%;
+  padding-right: 255px / 1920px * 100%;
+
+  @include xxl {
+    padding-left: 200px / 1920px * 100%;
+    padding-right: 200px / 1920px * 100%;
+  }
+
+  @include md {
+    padding-left: 60px / 1920px * 100%;
+    padding-right: 60px / 1920px * 100%;
+  }
+}

@@ -1,0 +1,44 @@
+@import "../../node_modules/normalize.css";
+@import "assets/colors";
+@import "assets/fonts";
+@import "assets/mixins";
+@import "elements/burger";
+@import "elements/button";
+@import "elements/card";
+@import "elements/cart";
+@import "elements/categories";
+@import "elements/content_box";
+@import "elements/copyright";
+@import "elements/dropdown_content";
+@import "elements/hover";
+@import "elements/icon";
+@import "elements/item";
+@import "elements/link";
+@import "elements/menu";
+@import "elements/nav";
+@import "elements/sale";
+@import "elements/slider";
+@import "elements/time";
+@import "elements/title";
+@import "elements/top";
+@import "elements/wrapper";
+@import "elements/product";
+@import "sections/arrival";
+@import "sections/banner";
+@import "sections/deals";
+@import "sections/feature";
+@import "sections/footer";
+@import "sections/header";
+@import "sections/instagram";
+@import "sections/testimonials";
+@import "sections/why-us";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}

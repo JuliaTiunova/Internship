@@ -1,0 +1,31 @@
+.link {
+  text-decoration: none;
+
+  &__white {
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $white;
+    border-bottom: 2px solid $white;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      text-shadow: 1px 1px 3px $grey-bg;
+    }
+  }
+  &_phone {
+    font-family: $poppinsBold;
+    font-size: 25px;
+    line-height: 15px;
+    color: $black-title;
+
+    @include md {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.card {
+  padding: 30px 0 0;
+  background-color: $white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $grey-border;
+  border-left: 1px solid $grey-border;
+  border-bottom: 1px solid $grey-border;
+
+  &__img {
+    width: 60%;
+    height: 120px;
+    object-fit: cover;
+    align-self: center;
+    margin: 0 auto;
+    // background: url(../img/img.jpg) center center no-repeat;
+    // background-size: cover;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  &__item-count {
+    font-family: $jost;
+    font-size: 15px;
+    line-height: 22px;
+    color: $green-text;
+    margin-bottom: 39px;
+  }
+
+  &:hover {
+    background-color: $green-text;
+    cursor: pointer;
+  }
+  &:hover .card__title-slider {
+    color: $white;
+  }
+
+  &:hover .card__item-count {
+    color: $white;
+  }
+}

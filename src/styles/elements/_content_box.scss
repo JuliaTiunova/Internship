@@ -1,0 +1,78 @@
+.box {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px;
+  width: 433px / 700px * 100%;
+
+  @include xxl {
+    width: 80%;
+  }
+
+  @include md {
+    grid-template: 15px;
+    width: 100%;
+  }
+
+  &_right {
+    justify-self: end;
+    text-align: right;
+    &_2 {
+      grid-column-start: 1;
+      grid-row-start: 1;
+
+      @include md {
+        grid-column-start: 2;
+      }
+    }
+
+    @include md {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-family: $poppinsBold;
+    font-size: 21px;
+    line-height: 25px;
+    color: $black-title;
+  }
+
+  &__text {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    color: $black-text;
+  }
+
+  &__img {
+    position: relative;
+  }
+
+  &__icon {
+    font-size: 50px;
+    position: relative;
+    z-index: 2;
+
+    &_bg {
+      position: absolute;
+      left: -20px;
+      top: -10px;
+      z-index: 1;
+    }
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+
+  @include md {
+    @include center-flex-column;
+  }
+
+  &__box {
+    margin-bottom: 40px;
+  }
+}

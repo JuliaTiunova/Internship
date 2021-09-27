@@ -1,0 +1,229 @@
+.cart {
+  padding: 20px 30px 60px;
+  position: absolute;
+  z-index: 99;
+  right: 0;
+  transform: translateX(100%);
+  top: 116px;
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  transition: transform 0.5s;
+
+  @include md {
+    top: 152px;
+  }
+
+  &-open {
+    transform: translateX(0);
+    pointer-events: initial;
+  }
+
+  &__frame {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    &.cart-open {
+      opacity: 1;
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  &__top {
+    padding-bottom: 30px;
+
+    &::before {
+      content: "";
+      background-color: $grey-border;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: 80px;
+      right: 0;
+    }
+  }
+
+  &__title {
+    &_wrap {
+      @include flex-between;
+
+      margin-bottom: 50px;
+    }
+  }
+
+  &__button-close {
+    border: none;
+    outline: none;
+    background: none;
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: $grey;
+    cursor: pointer;
+  }
+}
+
+.reserve {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  width: 390px;
+
+  @include md {
+    width: 300px;
+  }
+
+  &__img {
+    width: 90px;
+    height: 90px;
+    margin-right: 27px;
+
+    @include md {
+      margin-right: 10px;
+    }
+  }
+
+  &__info {
+    justify-self: start;
+  }
+
+  &__name {
+    font-family: $jost;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  &__count {
+    font-family: $jost;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    & span {
+      font-family: $jost;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 25px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: $green;
+    }
+  }
+
+  & i {
+    text-align: right;
+    color: $red-sale;
+    font-size: 18px;
+  }
+
+  @include not-last-child {
+    margin-bottom: 30px;
+  }
+
+  &__button {
+    background: 0;
+    border: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.subtotal {
+  position: relative;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: "";
+    background-color: $grey-border;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0;
+  }
+
+  &__name {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__price {
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: $green;
+  }
+
+  &__button {
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 10px;
+    padding-bottom: 11px;
+    background: 0;
+    outline: none;
+    transition: background-color 0.3s;
+
+    &:last-child {
+      background-color: $black-title;
+      border: 1px solid $black-title;
+      color: $white;
+    }
+
+    &:hover {
+      background-color: $green;
+      border: 1px solid $green;
+      cursor: pointer;
+    }
+    &:active {
+      background: darken($color: $green, $amount: 5);
+    }
+
+    &_top {
+      margin-bottom: 20px;
+
+      background-color: $white;
+      border: 1px solid $black-title;
+      color: $black-title;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}

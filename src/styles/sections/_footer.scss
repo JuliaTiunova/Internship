@@ -1,0 +1,222 @@
+.footer {
+  &__info {
+    display: flex;
+    align-items: center;
+
+    &_wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-bottom: 60px;
+
+      @include md {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+    }
+
+    @include md {
+      @include center-flex-column;
+      text-align: center;
+    }
+
+    &:first-child {
+      @include md {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: $footer-pink;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+
+    @include md {
+      margin: 0 0 20px;
+    }
+
+    & i {
+      font-size: 60px;
+      color: $black-title;
+    }
+  }
+
+  &__title {
+    margin-bottom: 6px;
+  }
+  &__text {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    color: $black-title;
+
+    &_left {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__form {
+    margin-top: 19px;
+    @include flex-between;
+
+    @include xxl {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & input {
+      height: 51px;
+      color: $black-title;
+      padding-left: 20px;
+      font-family: $qsand;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 25px;
+
+      @include xxl {
+        margin-bottom: 20px;
+      }
+
+      &::placeholder {
+        font-family: $qsand;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 25px;
+        text-align: left;
+
+        color: $grey;
+      }
+    }
+  }
+
+  &__button {
+    font-family: $qsand;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__divider {
+    height: 1px;
+    width: 100%;
+    background-color: $grey;
+  }
+
+  &__about {
+    padding-top: 50px;
+    padding-bottom: 90px;
+
+    @include md {
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__copyright {
+    background-color: $black-bg;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    @include flex-between;
+
+    @include md {
+      flex-direction: column;
+    }
+  }
+}
+
+.about {
+  display: flex;
+
+  @include md {
+    flex-direction: column;
+  }
+
+  & a {
+    text-decoration: none;
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 32px;
+    color: $grey;
+    opacity: 0.7;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-right: 200px;
+
+    @include md {
+      margin-right: 0;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 22px;
+  }
+  &__text {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    color: $black-title;
+
+    @include md {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @include md {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, auto);
+    }
+  }
+
+  &__title {
+    margin-bottom: 25px;
+
+    @include md {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__adress {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 32px;
+    color: $grey;
+    opacity: 0.7;
+    margin-bottom: 10px;
+  }
+}
+
+.table {
+  &__content {
+    margin-bottom: 10px;
+  }
+}

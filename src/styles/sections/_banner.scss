@@ -1,0 +1,79 @@
+.banner {
+  display: flex;
+
+  @include md {
+    flex-direction: column;
+  }
+
+  &__box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 90px;
+
+    @include md {
+      padding: 60px 20px;
+      width: 100%;
+    }
+
+    &_left {
+      background-color: $banner-lightgreen;
+      align-items: end;
+
+      @include md {
+        align-items: center;
+      }
+    }
+
+    &_right {
+      background-color: $banner-lightorange;
+      align-items: start;
+
+      @include md {
+        align-items: center;
+      }
+    }
+  }
+
+  &__sale {
+    position: relative;
+    text-align: center;
+    margin-bottom: 5px;
+    &-bg {
+      font-size: 175px;
+      color: $green-text;
+      position: absolute;
+      z-index: 1;
+      top: 10px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &_green {
+        color: $banner-darkgreen;
+      }
+
+      &_orange {
+        color: $banner-darkorange;
+      }
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &__link,
+  .feature__link {
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $white;
+    border-bottom: 2px solid $white;
+  }
+}

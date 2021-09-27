@@ -1,0 +1,61 @@
+.item {
+  &__link {
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 64px;
+    color: $black-title;
+
+    // &:hover,
+    // &:active {
+    //   color: $green-text;
+    //   cursor: pointer;
+    // }
+  }
+  &:hover,
+  &:active {
+    & .item__link {
+      color: $green-text;
+      cursor: pointer;
+    }
+  }
+  padding: 0 20px;
+  border-bottom: 2px solid transparent;
+
+  @include xxl {
+    padding: 0 5px;
+  }
+
+  &__shop {
+    line-height: 63px;
+  }
+
+  &_active {
+    color: $green-menu;
+    border-bottom: 2px solid $green-menu;
+  }
+
+  &_small {
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    text-align: right;
+
+    &:hover,
+    &:active {
+      color: $green-text;
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $green-menu;
+    border-bottom: 2px solid $green-menu;
+  }
+
+  & span {
+    font-family: $icons;
+  }
+}

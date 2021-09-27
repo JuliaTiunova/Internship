@@ -1,0 +1,105 @@
+.burger {
+  position: relative;
+
+  &__button {
+    position: fixed;
+    right: 0;
+    top: 70px;
+    transform: translate(-50%, 80%);
+    width: 42px;
+    height: 24px;
+    background: none;
+    border: 0;
+    padding: 0;
+    z-index: 103;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s;
+
+    @include md {
+      opacity: 1;
+      pointer-events: initial;
+    }
+
+    & span,
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 90%;
+      height: 2px;
+      background-color: $black-title;
+      box-shadow: 1px 1px 2px $grey;
+      transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s,
+        opacity 0.3s;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    padding-top: 52px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 102;
+    background: rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+  }
+
+  &__list {
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 23px;
+    text-align: center;
+    color: $black-title;
+  }
+
+  &__item {
+    padding: 20px 0;
+    border-bottom: 1px solid $grey-bg;
+    background-color: $white;
+  }
+
+  &__link {
+    color: $black-title;
+  }
+}
+
+.menu_open {
+  &.burger__button {
+    transform: translateX(-50%);
+    & span {
+      opacity: 0;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+      top: 11px;
+    }
+
+    &::after {
+      transform: rotate(-405deg);
+      bottom: 11px;
+    }
+  }
+
+  &.burger__menu {
+    transform: translateX(0);
+  }
+}

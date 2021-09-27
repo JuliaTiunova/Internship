@@ -1,0 +1,24 @@
+.sale {
+  &__text {
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: $white;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__bg {
+    font-size: 175px;
+    color: $green-text;
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

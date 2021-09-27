@@ -1,0 +1,140 @@
+.product {
+  position: relative;
+  @include center-flex-column;
+  text-align: center;
+  margin-right: 30px;
+  padding-top: 12px;
+
+  &__img {
+    width: 100%;
+    height: 258px;
+    object-fit: cover;
+    margin: 0 auto 16px;
+    // position: relative;
+
+    @include xxl {
+      height: 200px;
+    }
+
+    &_wrapper {
+      position: relative;
+    }
+
+    &_deals {
+      width: 100%;
+      height: 100%;
+
+      @include xxl {
+        width: 315px;
+        height: 315px;
+      }
+
+      @include md {
+        width: 100%;
+        height: 200px;
+      }
+    }
+  }
+
+  &__name {
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  &__price {
+    font-family: $jost;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 29px;
+  }
+
+  &_sale &__price span {
+    font-family: $jost;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    text-decoration: line-through;
+    color: $grey;
+  }
+  &:hover {
+    box-shadow: 0px 5px 25px rgba(138, 159, 168, 0.2);
+  }
+
+  &_sale::before {
+    content: "-20%";
+    position: absolute;
+    padding: 0 10px;
+    top: 12px;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    background-color: $red-sale;
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &_new::after {
+    content: "new";
+    position: absolute;
+    padding: 0 10px;
+    top: 12px;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    background-color: $blue-new;
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__hover {
+    padding: 12px 30px 0 30px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+
+  &_sale_deals::before {
+    left: 50%;
+    top: 0;
+  }
+  &_new_deals::after {
+    left: 50%;
+    top: 0;
+  }
+
+  &_sale_new_deals {
+    &::before {
+      left: 33%;
+
+      top: 0;
+    }
+
+    &::after {
+      left: 66%;
+      top: 0;
+    }
+  }
+
+  // &_deals img {
+  //   width: 315px / 1410px * 100%;
+  //   height: 315px / 1410px * 100%;
+  // }
+}
+
+.ratings {
+  font-family: $icons;
+  color: $star-orange;
+}

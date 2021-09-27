@@ -1,0 +1,141 @@
+.header {
+  &__wrapper {
+    &_content {
+      position: absolute;
+      padding-top: 155px;
+      z-index: 1;
+      top: 0;
+
+      @include xxl {
+        padding-top: 100px;
+      }
+
+      @include md {
+        padding-top: 60px;
+        @include center-flex-column;
+        align-items: center;
+        width: 100%;
+      }
+    }
+
+    &_categories {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      transform: translateY(50%);
+    }
+
+    &_top {
+      background-color: $green-menu;
+      opacity: 0.75;
+
+      &.cart-open {
+        background-color: $black-title;
+        opacity: 1;
+      }
+    }
+
+    &_nav {
+      background-color: $white;
+      opacity: 1;
+      top: 0;
+      position: relative;
+      z-index: 100;
+      box-shadow: 0px 5px 25px rgba(138, 159, 168, 0.25);
+    }
+
+    &_slider {
+      position: relative;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 25px;
+
+    @include md {
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    & i {
+      @include not-first-child {
+        margin-left: 30px;
+
+        @include md {
+          margin-left: 0;
+        }
+      }
+    }
+
+    & i {
+      @include md {
+        margin: 0 30px;
+      }
+    }
+
+    &_active {
+      position: relative;
+
+      &.header__icon::after {
+        content: "2";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $green;
+        font-family: $jost;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 17px;
+        text-align: center;
+        color: $white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+
+        @include md {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 7px;
+
+    @include md {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 33px;
+
+    @include md {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__button {
+    @include md {
+      width: 70%;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @include md {
+      display: block;
+    }
+  }
+}
