@@ -1,7 +1,6 @@
 .checkout {
   padding-top: 80px;
   padding-bottom: 80px;
-  //   display: flex;
   display: grid;
   grid-template-columns: 1fr auto;
 
@@ -9,12 +8,6 @@
     padding-top: 20px;
     padding-bottom: 20px;
   }
-
-  //   @include md {
-  //     // flex-direction: column;
-
-  //     display: grid;
-  //   }
 
   &__link {
     color: $green;
@@ -166,18 +159,6 @@
     visibility: visible;
   }
 }
-
-// .error {
-//   //   width: 200%;
-//   padding: 0;
-//   font-size: 80%;
-//   color: $black-title;
-//   border-radius: 0 5px 5px 5px;
-
-//   &.active {
-//     padding: 0.3em;
-//   }
-// }
 
 .return_link {
   font-family: $jost;

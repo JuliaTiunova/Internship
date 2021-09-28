@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ImageMinPlugin = require("imagemin-webpack-plugin").default;
 
 const isDev = process.env.NODE_ENV === "development";
 const isProd = !isDev;
@@ -80,59 +81,19 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(gif|png|jpe?g)$/i,
-      //   use: [
-      //     {
-      //       loader: "file-loader",
-      //       options: {
-      //         name: "/img/[name].[ext]",
-      //         output: "/img",
-      //       },
-      //     },
-      //   ],
-      // },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        // type: 'asset/resource'
-        use: [
-          {
-            loader: "image-webpack-loader",
-            options: {
-              mozjpeg: {
-                progressive: true,
-              },
-              // optipng.enabled: false will disable optipng
-              optipng: {
-                enabled: false,
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              // the webp option will enable WEBP
-              webp: {
-                quality: 75,
-              },
-            },
-          },
-        ],
+        type: "asset/resource",
+        generator: {
+          filename: "[path][name][ext]",
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
-
-        // use: [
-        //   {
-        //     loader: "file-loader",
-        //     options: {
-        //       outputPath: "/fonts",
-        //     },
-        //   },
-        // ],
+        generator: {
+          filename: "[path][name][ext]",
+        },
       },
       {
         test: /\.(csv|tsv)$/i,
@@ -176,6 +137,11 @@ module.exports = {
           to: path.resolve(__dirname, "dist/img"),
         },
       ],
+    }),
+    new ImageMinPlugin({
+      disable: process.env.NODE_ENV !== "production",
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      pngquant: { quality: 80 },
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[hash].css",

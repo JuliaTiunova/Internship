@@ -1,4 +1,3 @@
 node_modules
 dist
-.forms_validation.js
-.babel.js
+forms_validation.js
