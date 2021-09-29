@@ -142,21 +142,21 @@
             <option value="Chernivtsi">Chernivtsi</option>
           </select>
           <input type="text" placeholder="Coundtry/Region" value="Ukraine">
-          <input class="postal-code" maxlength="5" type="text" placeholder="Postal code">
-          <input class="input__full phone" type="tel" name="tel" id="tel" minlength="19" placeholder="Phone number">
+          <input class="postal-code" minlength="5" type="text" placeholder="Postal code">
+          <input class="input__full phone" type="text" minlength="12" name="tel" id="tel" placeholder="Phone number">
          </div>
         <label class="checkout__form-title form-title">Billing info</label>
         <div class="input__wrapper">
           <label class="input__full"><input type="radio" name="card" checked> Master Card</label>
           <label class="input__full"><input type="radio" name="card"> Visa</label>
-          <input class="input__full card-number" type="text" maxlength="19" minlength="19" placeholder="Card number">
+          <input class="input__full card-number" type="text" minlength="16" placeholder="Card number">
           <input class="input__full card-full-name" type="text" placeholder="Full Name">
-          <input class="card-exp" type="text" minlength="9" placeholder="Expiration date mm / yyyy">
+          <input class="card-exp" type="text" minlength="6" placeholder="Expiration date mm / yyyy">
           <input class="card-password" type="password" minlength="3" placeholder="CVV">
           </div>
         <label class="checkout__form-title form-title">How much will you tip?</label>
         <div class="input__wrapper">
-          <input class="checkout-tip input__full" minlength="4" type="text" name="tip" id="tip">
+          <input class="checkout-tip input__full" minlength="3" type="text" name="tip" id="tip">
         </div>
         <label class="checkout__form-title form-title">Date of shipping</label>
         <div class="input__wrapper">

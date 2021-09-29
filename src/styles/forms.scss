@@ -1,3 +1,4 @@
+@import "~js-datepicker/src/datepicker";
 @import "../../node_modules/normalize.css";
 @import "assets/colors";
 @import "assets/fonts";
@@ -20,24 +21,16 @@
 @import "elements/nav";
 @import "elements/reserve";
 @import "elements/sale";
-@import "elements/slider";
-@import "elements/time";
 @import "elements/title";
 @import "elements/top";
 @import "elements/wrapper";
 @import "elements/product";
 
-@import "sections/arrival";
-@import "sections/banner";
 @import "sections/checkout";
-@import "sections/deals";
-@import "sections/feature";
+@import "sections/breadcrumb";
 @import "sections/footer";
 @import "sections/footer_black";
 @import "sections/header";
-@import "sections/instagram";
-@import "sections/testimonials";
-@import "sections/why-us";
 
 * {
   margin: 0;

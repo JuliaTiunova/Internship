@@ -38,7 +38,7 @@
       }
     }
 
-    & input:not([type="range"]),
+    & input,
     & textarea,
     & select {
       background-color: $grey-input-bg;
@@ -65,8 +65,14 @@
         color: $grey;
       }
 
-      &:invalid,
-      &:focus:invalid {
+      // &:invalid,
+      // &:focus:invalid {
+      //   border-color: $red-sale;
+      //   background-color: lighten($color: $red-sale, $amount: 45);
+      // }
+
+      &.error,
+      &:focus.error {
         border-color: $red-sale;
         background-color: lighten($color: $red-sale, $amount: 45);
       }
