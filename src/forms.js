@@ -2,6 +2,7 @@ import "./styles/forms.scss";
 import datepicker from "js-datepicker";
 import * as $ from "jquery";
 import "jquery-mask-plugin";
+import burger from "./scripts/burger";
 
 $(".phone").mask("+00 (000) 000 00 00");
 
@@ -50,38 +51,11 @@ $(".checkout-tip").mask("ZZZ.ZZZ.ZZZ,ZZ", {
 const burgerButton = document.querySelector(
   ".checkout__header .burger__button"
 );
-const burgerMenu = document.querySelector(".burger__menu");
-const burgerLInk = document.querySelectorAll(".burger__item");
-
-burgerButton.addEventListener("click", () => {
-  burgerButton.classList.toggle("menu_open");
-  burgerMenu.classList.toggle("menu_open");
-});
-
-function closeMenu(el) {
-  return el.addEventListener("click", () => {
-    burgerButton.classList.toggle("menu_open");
-    burgerMenu.classList.toggle("menu_open");
-  });
-}
-
-burgerLInk.forEach((el) => closeMenu(el));
+burger(burgerButton);
 
 const loginButton = document.querySelector(".link-to-login");
 const loginWindow = document.querySelector(".login__window");
 const loginClose = document.querySelector(".login__button_close");
-
-loginButton.addEventListener("click", () => {
-  loginWindow.classList.toggle("login_open");
-});
-
-loginClose.addEventListener("click", () => {
-  loginWindow.classList.toggle("login_open");
-});
-
-datepicker(".date__delivery");
-datepicker(".date__start", { id: 1 });
-datepicker(".date__end", { id: 1 });
 
 const username = document.querySelector(".login__username");
 const password = document.querySelector(".login__password");
@@ -101,6 +75,34 @@ const form = document.querySelector(".checkout__form");
 const errorMessage = document.querySelector(".error-message");
 
 $(".checkout__form").attr("autocomplete", "off");
+
+datepicker(".date__delivery");
+datepicker(".date__start", { id: 1 });
+datepicker(".date__end", { id: 1 });
+
+function showErrorMessage(message, element) {
+  errorMessage.className = "error-message active";
+  errorMessage.textContent = message;
+  element.classList.add("error");
+  element.focus();
+}
+
+function removeError(element) {
+  errorMessage.className = "error-message";
+  element.classList.remove("error");
+}
+
+const transformFirstLetter = (el) => {
+  el.value = el.value[0].toLocaleUpperCase() + el.value.slice(1);
+};
+
+loginButton.addEventListener("click", () => {
+  loginWindow.classList.toggle("login_open");
+});
+
+loginClose.addEventListener("click", () => {
+  loginWindow.classList.toggle("login_open");
+});
 
 username.addEventListener("input", () => {
   if (username.validity.valueMissing) {
@@ -125,22 +127,6 @@ password.addEventListener("input", () => {
     password.setCustomValidity("");
   }
 });
-
-function showErrorMessage(message, element) {
-  errorMessage.className = "error-message active";
-  errorMessage.textContent = message;
-  element.classList.add("error");
-  element.focus();
-}
-
-function removeError(element) {
-  errorMessage.className = "error-message";
-  element.classList.remove("error");
-}
-
-const transformFirstLetter = (el) => {
-  el.value = el.value[0].toLocaleUpperCase() + el.value.slice(1);
-};
 
 form.addEventListener("submit", (e) => {
   if (email.value === "") {
@@ -217,12 +203,10 @@ form.addEventListener("submit", (e) => {
 
 email.addEventListener("input", function() {
   let emailValue = email.value.split("@");
-  console.log(emailValue);
   let beforeDot;
   if (emailValue[1]) {
     beforeDot = emailValue[1].split(".");
   }
-  console.log(beforeDot);
 
   if (email.value === "") {
     showErrorMessage("Please enter an e-mail", email);
@@ -396,7 +380,6 @@ filePhoto.addEventListener("change", () => {
     .split(".")
     .pop()
     .toLowerCase();
-  console.log(fileExt);
 
   for (let i = 0; i <= allowed.length; i++) {
     if (allowed[i] !== fileExt) {

@@ -6,5 +6,6 @@ import burger from "./scripts/burger";
 import countdown from "./scripts/countdown";
 
 cart();
-burger();
+const burgerButton = document.getElementById("index-burger");
+burger(burgerButton);
 countdown();
