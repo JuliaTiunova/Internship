@@ -17,7 +17,8 @@
     color: $black-text;
   }
 
-  &_cart {
+  &_cart,
+  &_wishlist {
     font-family: $jost;
     font-style: normal;
     font-weight: 600;

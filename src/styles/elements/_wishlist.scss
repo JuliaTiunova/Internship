@@ -1,4 +1,4 @@
-.cart {
+.wishlist {
   padding: 136px 30px 60px;
   position: fixed;
   overflow: scroll;
@@ -33,7 +33,7 @@
     opacity: 0;
     transition: opacity 0.5s;
 
-    &.cart-open {
+    &.wishlist-open {
       opacity: 1;
     }
   }
@@ -113,12 +113,9 @@
     background: 0;
     outline: none;
     transition: background-color 0.3s;
-
-    &:last-child {
-      background-color: $black-title;
-      border: 1px solid $black-title;
-      color: $white;
-    }
+    background-color: $black-title;
+    border: 1px solid $black-title;
+    color: $white;
 
     &:hover {
       background-color: $green;
@@ -131,7 +128,6 @@
 
     &_top {
       margin-bottom: 20px;
-
       background-color: $white;
       border: 1px solid $black-title;
       color: $black-title;

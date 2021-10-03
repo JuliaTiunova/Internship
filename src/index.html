@@ -14,15 +14,72 @@
     <title>OrgaFresh</title>
   </head>
   <body>
+    <div class="page-loading">
+      <img src="./beetroot.png" alt="beetroot">
+      <h2 class="loader">Loading...</h2>
+    </div>
     <header class="header">
       <div class="cart__frame">
-        <div class="cart">
+        <aside class="cart">
           <div class="cart__top">
            <div class="cart__title_wrap">
           <p class="cart__title title_cart">Shopping cart</p>
           <button class="cart__button-close button_close">close</button>
+          </div>
+          <div class="cart__items">
+            <div class="cart__reserve reserve">
+              <img class="reserve__img" src="img/img.jpg" alt="item">
+              <div class="reserve__info">
+                <p class="reserve__name">Exotic delicious</p>
+                <div class="reserve__count"><span class="reserve__count_price">1x</span> $12.0</div>
+              </div>
+              <button class="reserve__button"><i class="far fa-times-circle"></i></button>
+            </div>
+            <div class="cart__reserve reserve">
+              <img class="reserve__img" src="img/img.jpg" alt="item">
+              <div class="reserve__info">
+                <p class="reserve__name">Exotic delicious</p>
+                <div class="reserve__count"><span class="reserve__count_price">1x</span> $12.0</div>
+              </div>
+              <button class="reserve__button"><i class="far fa-times-circle"></i></button>
+            </div>
+            <div class="cart__reserve reserve">
+              <img class="reserve__img" src="img/img.jpg" alt="item">
+              <div class="reserve__info">
+                <p class="reserve__name">Exotic delicious</p>
+                <div class="reserve__count"><span class="reserve__count_price">1x</span> $12.0</div>
+              </div>
+              <button class="reserve__button"><i class="far fa-times-circle"></i></button>
+            </div>
+            <div class="cart__reserve reserve">
+              <img class="reserve__img" src="img/img.jpg" alt="item">
+              <div class="reserve__info">
+                <p class="reserve__name">Exotic delicious</p>
+                <div class="reserve__count"><span class="reserve__count_price">1x</span> $12.0</div>
+              </div>
+              <button class="reserve__button"><i class="far fa-times-circle"></i></button>
+            </div>
+          </div>
         </div>
-            <div class="cart__reserve reserve">
+          <div class="cart__subtotal subtotal">
+            <div class="subtotal__name">
+              <p class="subtotal__title title_cart">Subtotal</p>
+              <p class="subtotal__price">$135.0</p>
+            </div>
+            <a href="#" class="subtotal__button subtotal__button_top link">View cart</a>
+            <a href="./forms.html" class="subtotal__button link">Checkout</a>
+          </div>
+      </aside>
+    </div>
+      <div class="wishlist__frame">
+        <aside class="wishlist">
+          <div class="wishlist__top">
+           <div class="wishlist__title_wrap">
+          <p class="wishlist__title title_wishlist">Wishlist</p>
+          <button class="wishlist__button-close button_close">close</button>
+          </div>
+          <div class="wishlist__items">
+            <div class="wishlist__reserve reserve">
               <img class="reserve__img" src="img/img.jpg" alt="item">
               <div class="reserve__info">
                 <p class="reserve__name">Exotic delicious</p>
@@ -30,7 +87,7 @@
               </div>
               <button class="reserve__button"><i class="far fa-times-circle"></i></button>
             </div>
-            <div class="cart__reserve reserve">
+            <div class="wishlist__reserve reserve">
               <img class="reserve__img" src="img/img.jpg" alt="item">
               <div class="reserve__info">
                 <p class="reserve__name">Exotic delicious</p>
@@ -38,7 +95,7 @@
               </div>
               <button class="reserve__button"><i class="far fa-times-circle"></i></button>
             </div>
-            <div class="cart__reserve reserve">
+            <div class="wishlist__reserve reserve">
               <img class="reserve__img" src="img/img.jpg" alt="item">
               <div class="reserve__info">
                 <p class="reserve__name">Exotic delicious</p>
@@ -46,7 +103,7 @@
               </div>
               <button class="reserve__button"><i class="far fa-times-circle"></i></button>
             </div>
-            <div class="cart__reserve reserve">
+            <div class="wishlist__reserve reserve">
               <img class="reserve__img" src="img/img.jpg" alt="item">
               <div class="reserve__info">
                 <p class="reserve__name">Exotic delicious</p>
@@ -55,16 +112,16 @@
               <button class="reserve__button"><i class="far fa-times-circle"></i></button>
             </div>
           </div>
-          <form action="/forms.html" class="cart__subtotal subtotal">
-            <div class="subtotal__name">
-              <p class="subtotal__title title_cart">Subtotal</p>
-              <p class="subtotal__price">$135.0</p>
-            </div>
-            <button class="subtotal__button subtotal__button_top">View cart</button>
-            <button type="submit" class="subtotal__button">Checkout</button>
-          </form>
         </div>
-      </div>
+          <div class="wishlist__subtotal subtotal">
+            <div class="subtotal__name">
+              <p class="subtotal__title title_wishlist">Subtotal</p>
+              <p class="subtotal__price subtotal__price_wishlist">$135.0</p>
+            </div>
+            <a href="#" class="subtotal__button subtotal__button_top link">View wishlist</a>
+          </div>
+      </aside>
+    </div>
       <div class="header__wrapper_top wrapper">
         <div class="header__top top">
           <ul class="top__info-list info-list">
@@ -101,7 +158,7 @@
             </nav>
           </div>
           <ul class="nav__menu menu">
-            <li class="menu__item item"><a href="#" class="item__link link">Home</a></li>
+            <li class="menu__item item item_active"><a href="#" class="item__link link">Home</a></li>
             <li class="menu__item item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
               <div class="shop__dropdown">
                 <div class="dropdown__content">
@@ -143,10 +200,18 @@
             <li class="menu__item item"><a href="#contact" class="item__link link">Contact</a></li>
           </ul>
           <img src="img/Logo.png" alt="OrgaFresh logo" class="nav__logo" />
-          <div class="header__icons icons">
-            <i class="icon-search "></i>
-            <i class="icon-like header__icon header__icons_active"></i>
-            <i class="icon-cart header__icon header__icons_active"></i>
+          <div class="header__icons nav__icons icons">
+            <button class="header__icon-buttons icon-buttons header__icon_search">
+              <i class="icon-search "></i>
+            </button>
+            <button class="header__icon-buttons icon-buttons button-like">
+              <i class="icon-like header__icon header__icons_active"></i>
+              <span class="icon__counter wishlist__counter">2</span>
+            </button>
+            <button class="header__icon-buttons icon-buttons button-cart">
+              <i class="icon-cart header__icon header__icons_active"></i>
+              <span class="icon__counter cart__counter">2</span>
+            </button>
           </div>
         </nav>
     
@@ -216,151 +281,7 @@
             </nav>
           </div>
           <div class="arrival__slider">
-            <div class="slider__product product">
-              <div class="product__wrapper">
-                <div class="product__img_wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-                <div class="product__hover hover">
-                  <div class="hover__box box_like"><i class="icon-like"></i></div>
-                  <div class="hover__bottom">
-                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
-                      <div class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</div>
-                      <div class="hover__box box_search"><i class="icon-search"></i></div>
-                  </div>
-                </div>
-                </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
-            <div class="slider__product product">
-              <div class="product__wrapper product_sale">
-                <div class="product__img_wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-                <div class="product__hover hover">
-                  <div class="hover__box box_like"><i class="icon-like"></i></div>
-                  <div class="hover__bottom">
-                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
-                      <div class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</div>
-                      <div class="hover__box box_search"><i class="icon-search"></i></div>
-                  </div>
-                </div>
-              </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0 <span>$18.0</span></p>
-              </div>
-            </div>
-            <div class="slider__product product">
-              <div class="product__wrapper">
-                <div class="product__img_wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-              <div class="product__hover hover">
-                  <div class="hover__box box_like"><i class="icon-like"></i></div>
-                  <div class="hover__bottom">
-                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
-                      <div class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</div>
-                      <div class="hover__box box_search"><i class="icon-search"></i></div>
-                  </div>
-                </div>
-              </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
-            <div class="slider__product product">
-              <div class="product__wrapper">
-                <div class="product__img_wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-              <div class="product__hover hover">
-                  <div class="hover__box box_like"><i class="icon-like"></i></div>
-                  <div class="hover__bottom">
-                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
-                      <div class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</div>
-                      <div class="hover__box box_search"><i class="icon-search"></i></div>
-                  </div>
-                </div>
-              </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
-            <div class="slider__product product">
-              <div class="product__wrapper product_new">
-                <div class="product__img_wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-              <div class="product__hover hover">
-                  <div class="hover__box box_like"><i class="icon-like"></i></div>
-                  <div class="hover__bottom">
-                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
-                      <div class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</div>
-                      <div class="hover__box box_search"><i class="icon-search"></i></div>
-                  </div>
-                </div>
-              </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
-            <div class="slider__product product">
-              <div class="product__wrapper">
-                
-                <div class="product__img_wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-              <div class="product__hover hover">
-                  <div class="hover__box box_like"><i class="icon-like"></i></div>
-                  <div class="hover__bottom">
-                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
-                      <div class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</div>
-                      <div class="hover__box box_search"><i class="icon-search"></i></div>
-                  </div>
-                </div>
-              </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
-            <div class="slider__product product">
-              <div class="product__wrapper">
-                <div class="product__img_wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-              <div class="product__hover hover">
-                  <div class="hover__box box_like"><i class="icon-like"></i></div>
-                  <div class="hover__bottom">
-                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
-                      <div class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</div>
-                      <div class="hover__box box_search"><i class="icon-search"></i></div>
-                  </div>
-                </div>
-              </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
-            <div class="slider__product product">
-              <div class="product__wrapper">
-                <div class="product__img_wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-              <div class="product__hover hover">
-                  <div class="hover__box box_like"><i class="icon-like"></i></div>
-                  <div class="hover__bottom">
-                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
-                      <div class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</div>
-                      <div class="hover__box box_search"><i class="icon-search"></i></div>
-                  </div>
-                </div>
-              </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
+            <h3 class="loader">Loading...</h3>
           </div>
       </section>
       <section class="deals wrapper">
@@ -375,31 +296,75 @@
           <div class="time__item time__seconds seconds"></div>
         </div>
         <div class="deals__products products">
-          <div class="products__product product">
+          <article class="products__product product">
              <div class="product__wrapper product_sale product_sale_deals">
+               <div class="product__img_wrapper">
                 <img class="product__img product__img_deals" src="img/img.jpg" alt="vegetables" />
+                <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <button class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</button>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+              </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0 <span>$18.0</span></p>
-              </div></div>
-          <div class="products__product product"> <div class="product__wrapper product_sale product_new product_sale_new_deals">
+              </div>
+          </article>
+          <article class="products__product product"> <div class="product__wrapper product_sale product_new product_sale_new_deals">
+            <div class="product__img_wrapper">
                 <img class="product__img product__img_deals" src="img/img.jpg" alt="vegetables" />
+                <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <button class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</button>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+                </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0 <span>$18.0</span></p>
-              </div></div>
-          <div class="products__product product"> <div class="product__wrapper product_sale product_sale_deals">
+              </div>
+          </article>
+          <article class="products__product product"> <div class="product__wrapper product_sale product_sale_deals">
+            <div class="product__img_wrapper">
                 <img class="product__img product__img_deals" src="img/img.jpg" alt="vegetables" />
+                <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <button class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</button>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+                </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0 <span>$18.0</span></p>
-              </div></div>
-          <div class="products__product product"> <div class="product__wrapper product_sale product_sale_deals">
+              </div>
+          </article>
+          <article class="products__product product"> <div class="product__wrapper product_sale product_sale_deals">
+            <div class="product__img_wrapper">
                 <img class="product__img product__img_deals" src="img/img.jpg" alt="vegetables" />
+                <div class="product__hover hover">
+                  <div class="hover__box box_like"><i class="icon-like"></i></div>
+                  <div class="hover__bottom">
+                      <div class="hover__box box_reload"><i class="icon-reload"></i></div>
+                      <button class="hover__button button_small"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</button>
+                      <div class="hover__box box_search"><i class="icon-search"></i></div>
+                  </div>
+                </div>
+                </div>
                 <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
                 <p class="product__name">Exotic delicious</p>
                 <p class="product__price">$15.0 <span>$18.0</span></p>
-              </div></div>
+              </div>
+          </article>
         </div>
       </section>
       <section class="why-us wrapper">
@@ -484,43 +449,12 @@
             </nav>
           </div>
           <div class="feature__content">
+            <h3 class="loader feature__loader">Loading...</h3>
             <div class="feature__poster">
               <div class="poster__content ">
                 <div class="poster_sale"><p class="sale__text">New arrivals</p></div>
                 <h2 class="poster__title title2">50% UP</h2>
                 <a href="#" class="poster__link link__white link">SHOP NOW</a>
-              </div>
-            </div>
-              <div class="feature__product product">
-              <div class="product__wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
-             <div class="feature__product product">
-              <div class="product__wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
-              <div class="feature__product product product_new product_new_deals">
-              <div class="product__wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
-              </div>
-            </div>
-              <div class="feature__product product product_new product_new_deals">
-              <div class="product__wrapper">
-                <img class="product__img" src="img/img.jpg" alt="vegetables" />
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-                <p class="product__name">Exotic delicious</p>
-                <p class="product__price">$15.0</p>
               </div>
             </div>
           </div>
@@ -588,6 +522,7 @@
           </div>
         </div>
       </section>
+    </main>
       <footer id="contact" class="footer">
         <div class="footer__info_wrapper wrapper">
         <div class="footer__info">
@@ -667,7 +602,7 @@
           <a href="#"><i class="fab fa-instagram"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a></div>
       </div>
-      </footer>
-    </main>
+    </footer>
+    
   </body>
 </html>

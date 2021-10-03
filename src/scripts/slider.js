@@ -28,39 +28,6 @@ export default import("slick-carousel").then(() => {
     ],
   });
 
-  $(".arrival__slider").slick({
-    slidesToShow: 5,
-    slidesToScroll: 2,
-    cssEase: "linear",
-    autoplay: true,
-    autoplaySpeed: 4000,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 1920,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          arrows: false,
-        },
-      },
-    ],
-  });
-
   $(".testimoniails__slider").slick({
     slidesToShow: 2,
     slidesToScroll: 1,

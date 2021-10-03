@@ -51,6 +51,14 @@
       margin-bottom: 10px;
     }
   }
+
+  &__loader {
+    font-family: $qsand;
+    font-size: 32px;
+    line-height: 100px;
+    grid-column: 1/6;
+    text-align: center;
+  }
 }
 
 .poster {

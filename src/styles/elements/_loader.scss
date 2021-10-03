@@ -1,0 +1,23 @@
+.page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: $white;
+  @include center-flex-column;
+  align-items: center;
+  justify-content: center;
+
+  & img {
+    width: 200px;
+  }
+}
+
+.loader {
+  font-family: $qsand;
+  font-size: 32px;
+  line-height: 75px;
+  text-align: center;
+}

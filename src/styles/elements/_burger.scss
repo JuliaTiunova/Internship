@@ -3,9 +3,8 @@
 
   &__button {
     position: fixed;
-    right: 0;
-    top: 70px;
-    transform: translate(-50%, 80%);
+    top: 65px;
+    transform: translateX(30%);
     width: 42px;
     height: 24px;
     background: none;
@@ -33,7 +32,6 @@
       width: 90%;
       height: 2px;
       background-color: $black-title;
-      box-shadow: 1px 1px 2px $grey;
       transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s,
         opacity 0.3s;
     }
@@ -88,18 +86,26 @@
 .menu_open {
   &.burger__button {
     transform: translateX(-50%);
+    right: 0;
     & span {
-      opacity: 0;
+      transform: rotate(-45deg);
+      top: 11px;
+      right: 10px;
+      transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
     }
 
     &::before {
-      transform: rotate(45deg);
+      transform: rotate(-45deg);
       top: 11px;
+      right: 25px;
+      transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.7s;
     }
 
     &::after {
-      transform: rotate(-405deg);
+      transform: rotate(-45deg);
       bottom: 11px;
+      right: 45px;
+      transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.9s;
     }
   }
 

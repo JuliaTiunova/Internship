@@ -1,5 +1,7 @@
+import { getElement } from "./assets";
+
 export default function burger(button) {
-  const burgerMenu = document.querySelector(".burger__menu");
+  const burgerMenu = getElement(".burger__menu");
   const burgerLInk = document.querySelectorAll(".burger__item");
 
   button.addEventListener("click", () => {
