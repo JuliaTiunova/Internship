@@ -16,6 +16,10 @@
     pointer-events: none;
     transition: transform 0.3s;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     @include md {
       opacity: 1;
       pointer-events: initial;

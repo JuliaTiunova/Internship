@@ -39,4 +39,19 @@
     text-align: center;
     color: $white;
   }
+
+  &_close {
+    border: none;
+    outline: none;
+    background: none;
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: $grey;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

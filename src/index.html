@@ -20,7 +20,7 @@
           <div class="cart__top">
            <div class="cart__title_wrap">
           <p class="cart__title title_cart">Shopping cart</p>
-          <button class="cart__button-close">close</button>
+          <button class="cart__button-close button_close">close</button>
         </div>
             <div class="cart__reserve reserve">
               <img class="reserve__img" src="img/img.jpg" alt="item">
@@ -55,14 +55,14 @@
               <button class="reserve__button"><i class="far fa-times-circle"></i></button>
             </div>
           </div>
-          <div class="cart__subtotal subtotal">
+          <form action="/forms.html" class="cart__subtotal subtotal">
             <div class="subtotal__name">
               <p class="subtotal__title title_cart">Subtotal</p>
               <p class="subtotal__price">$135.0</p>
             </div>
             <button class="subtotal__button subtotal__button_top">View cart</button>
-            <button class="subtotal__button">Checkout</button>
-          </div>
+            <button type="submit" class="subtotal__button">Checkout</button>
+          </form>
         </div>
       </div>
       <div class="header__wrapper_top wrapper">
@@ -88,7 +88,7 @@
       <div class="header__wrapper_nav wrapper">
         <nav class="header__nav nav">
           <div class="header__burger burger">
-            <button class="burger__button"><span></span>
+            <button class="burger__button" id="index-burger"><span></span>
             </button>
             <nav class="burger__menu">
               <ul class="burger__list">
@@ -170,27 +170,27 @@
         <div class="header__wrapper_categories">
           <div class="header__categories categories">
             <div class="categories__card card">
-              <img src="img/img.jpg" alt="vegetables" class="card__img" />
+              <img src="/img/img.jpg" alt="vegetables" class="card__img" />
               <p class="card__title-slider title-slider">Vegetables</p>
               <p class="card__item-count">214 items</p>
             </div>
             <div class="categories__card card">
-              <img src="img/img_2.jpg" alt="vegetables" class="card__img" />
+              <img src="/img/img_2.jpg" alt="vegetables" class="card__img" />
               <p class="card__title-slider title-slider">Fresh Fruits</p>
               <p class="card__item-count">214 items</p>
             </div>
             <div class="categories__card card">
-              <img src="img/img_3.jpg" alt="vegetables" class="card__img" />
+              <img src="/img/img_3.jpg" alt="vegetables" class="card__img" />
               <p class="card__title-slider title-slider">Grain & Nuts</p>
               <p class="card__item-count">214 items</p>
             </div>
             <div class="categories__card card">
-              <img src="img/img_4.jpg" alt="vegetables" class="card__img" />
+              <img src="/img/img_4.jpg" alt="vegetables" class="card__img" />
               <p class="card__title-slider title-slider">Fresh Meats</p>
               <p class="card__item-count">214 items</p>
             </div>
             <div class="categories__card card">
-              <img src="img/img_5.jpg" alt="vegetables" class="card__img" />
+              <img src="/img/img_5.jpg" alt="vegetables" class="card__img" />
               <p class="card__title-slider title-slider">Fresh Smoothie</p>
               <p class="card__item-count">214 items</p>
             </div>
@@ -604,13 +604,12 @@
             <h4 class="footer__title title4">Subscribe Newsletter</h4>
             <div class="footer__text">Sign up for weekly newsletter and better ecommercestores</div>
             <form action="#" class="footer__form">
-              <input type="text" placeholder="Enter your email" required>
+              <input type="email" name="email" placeholder="Enter your email" required>
               <button class="footer__button button">Subscribe</button>
             </form>
           </div>
         </div>
         </div>
-      <div class="footer__divider"></div>
       <div class="footer__about about wrapper">
         <div class="about__name">
           <img src="img/Logo.png" alt="logo" class="about__logo">

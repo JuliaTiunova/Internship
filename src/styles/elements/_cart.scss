@@ -29,7 +29,7 @@
     left: 0;
     right: 0;
     height: 300vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: $black-bg-modal;
     z-index: 99;
     pointer-events: none;
     opacity: 0;
@@ -68,90 +68,6 @@
       @include flex-between;
 
       margin-bottom: 50px;
-    }
-  }
-
-  &__button-close {
-    border: none;
-    outline: none;
-    background: none;
-    font-family: $jost;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 22px;
-    color: $grey;
-    cursor: pointer;
-  }
-}
-
-.reserve {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  width: 390px;
-
-  @include md {
-    width: 300px;
-  }
-
-  &__img {
-    width: 90px;
-    height: 90px;
-    margin-right: 27px;
-
-    @include md {
-      margin-right: 10px;
-    }
-  }
-
-  &__info {
-    justify-self: start;
-  }
-
-  &__name {
-    font-family: $jost;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 25px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-
-  &__count {
-    font-family: $jost;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 25px;
-    letter-spacing: 0em;
-    text-align: left;
-
-    & span {
-      font-family: $jost;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 25px;
-      letter-spacing: 0em;
-      text-align: left;
-      color: $green;
-    }
-  }
-
-  & i {
-    text-align: right;
-    color: $red-sale;
-    font-size: 18px;
-  }
-
-  @include not-last-child {
-    margin-bottom: 30px;
-  }
-
-  &__button {
-    background: 0;
-    border: 0;
-
-    &:hover {
-      cursor: pointer;
     }
   }
 }

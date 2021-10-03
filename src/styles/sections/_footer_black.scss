@@ -1,0 +1,56 @@
+.footer_black {
+  background-color: $black-footer;
+
+  & *,
+  & i,
+  & a {
+    color: $white;
+  }
+
+  .footer {
+    &__icon {
+      background: $white-opacity1;
+    }
+
+    &__info {
+      padding-top: 60px;
+      &_wrapper {
+        border-bottom: 1px solid $white-opacity1;
+      }
+
+      @include md {
+        padding-top: 0;
+        margin-top: -50px;
+      }
+
+      &:first-child {
+        border-right: 1px solid $white-opacity1;
+
+        @include md {
+          margin-top: 30px;
+        }
+      }
+
+      &:last-child {
+        margin-left: 70px;
+
+        @include md {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .about {
+    &__logo_black {
+      font-family: $lobster;
+      font-weight: bold;
+      font-size: 42px;
+      line-height: 52px;
+
+      & span {
+        color: $green;
+      }
+    }
+  }
+}

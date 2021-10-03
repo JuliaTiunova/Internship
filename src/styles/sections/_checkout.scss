@@ -1,0 +1,282 @@
+.checkout {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  @include md {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__link {
+    color: $green;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__form {
+    padding-right: 74px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 30px;
+    position: relative;
+
+    @include md {
+      margin-top: 20px;
+      padding: 40px 10px 10px;
+      grid-row-start: 2;
+    }
+
+    &-title {
+      margin-bottom: 30px;
+
+      &:not(:first-of-type) {
+        margin-top: 40px;
+      }
+    }
+
+    & input,
+    & textarea,
+    & select {
+      background-color: $grey-input-bg;
+      padding: 12px 20px;
+      border: 0;
+      border-left: 5px solid transparent;
+      outline: none;
+      font-family: $jost;
+      font-size: 16px;
+      line-height: 22px;
+      color: $black-text;
+
+      &:focus,
+      &:active {
+        background-color: darken($color: $grey-input-bg, $amount: 5);
+        border-left: 5px solid $grey;
+      }
+
+      &::placeholder {
+        font-family: $jost;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 22px;
+        color: $grey;
+      }
+
+      // &:invalid,
+      // &:focus:invalid {
+      //   border-color: $red-sale;
+      //   background-color: lighten($color: $red-sale, $amount: 45);
+      // }
+
+      &.error,
+      &:focus.error {
+        border-color: $red-sale;
+        background-color: lighten($color: $red-sale, $amount: 45);
+      }
+    }
+  }
+  &__text {
+    position: absolute;
+    top: 0;
+    right: 74px;
+  }
+
+  &__box {
+    font-family: $jost;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 36px;
+    grid-column: 1 / 3;
+
+    @include md {
+      font-size: 14px;
+      grid-column: 1 /2;
+    }
+  }
+
+  &__bill {
+    padding-left: 75px;
+    border-left: 1px solid $grey-border;
+
+    @include md {
+      padding-left: 10px;
+      padding-right: 10px;
+      border: 0;
+    }
+  }
+
+  &__reserve:last-child {
+    padding-bottom: 50px;
+  }
+
+  &__count {
+    border-top: 1px solid $grey-border;
+    padding-top: 30px;
+    padding-bottom: 29px;
+    @include flex-between;
+    border-bottom: 1px solid $grey-border;
+  }
+
+  &__total {
+    padding-top: 30px;
+    @include flex-between;
+  }
+
+  &__return_link {
+    position: absolute;
+    bottom: 0;
+    right: 74px;
+
+    @include md {
+      right: 10px;
+    }
+  }
+
+  &__button {
+    @include md {
+      grid-column: 1 /3;
+    }
+
+    &_wrapper {
+      grid-column: 1 /3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+  }
+}
+
+.error-message {
+  background-color: lighten($color: $red-sale, $amount: 45);
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  width: 300px;
+  padding: 20px;
+  border-left: 5px solid $red-sale;
+  z-index: 99;
+  visibility: hidden;
+
+  &.active {
+    visibility: visible;
+  }
+}
+
+.return_link {
+  font-family: $jost;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: right;
+  color: $red-sale;
+
+  & span {
+    font-family: $icons;
+  }
+}
+
+.form-title {
+  font-family: $jost;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: $black;
+}
+
+.form-text {
+  font-family: $jost;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: right;
+  color: $black-title;
+}
+
+.count {
+  &__names {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 32px;
+    color: $black-text;
+  }
+
+  &__value {
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 32px;
+    text-align: right;
+    color: $black-title;
+  }
+}
+
+.total {
+  .total__name {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 32px;
+    color: $black-text;
+  }
+  &__value {
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+
+    & span {
+      font-weight: 400;
+      font-size: 15px;
+      color: $grey;
+    }
+  }
+}
+
+.input {
+  &__range {
+    padding: 0;
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @include md {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__full {
+    grid-column: 1 / 3;
+
+    @include md {
+      grid-column: 1 /2;
+    }
+  }
+
+  &__adress {
+    margin-bottom: 5px;
+  }
+}
+
+.amount {
+  text-align: right;
+}
+
+.input {
+  &__color {
+    padding: 0;
+    height: 50px;
+    width: 100%;
+  }
+}
+
+label {
+  font-family: $jost;
+  font-size: 16px;
+}

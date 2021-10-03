@@ -1,11 +1,11 @@
-import "./babel";
 import "./styles/styles.scss";
-import "./slider";
+import "./scripts/slider";
 
-import cart from "./cart";
-import burger from "./burger";
-import countdown from "./countdown";
+import cart from "./scripts/cart";
+import burger from "./scripts/burger";
+import countdown from "./scripts/countdown";
 
 cart();
-burger();
+const burgerButton = document.getElementById("index-burger");
+burger(burgerButton);
 countdown();
