@@ -66,7 +66,7 @@ module.exports = {
   context: path.resolve(__dirname, "src"),
   mode: "development",
   entry: {
-    main: ["@babel/polyfill", "./index.js"],
+    index: ["@babel/polyfill", "./index.js"],
     forms: "./forms.js",
   },
   optimization: optimization(),
@@ -121,6 +121,8 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: "./index.html",
+      filename: "index.html",
+      chunks: ["index"],
       minify: {
         collapseWhitespace: isProd,
       },
