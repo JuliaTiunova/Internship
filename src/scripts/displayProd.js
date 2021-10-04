@@ -1,5 +1,5 @@
-import { openCart, openWishlist } from "./cart";
 import { formatPrice } from "./formatPrice";
+import { addToCart, addToWishlist } from "./setupCart";
 
 const display = (products, element) => {
   const article = (id, name, price) => {
@@ -27,9 +27,9 @@ const display = (products, element) => {
     element.addEventListener("click", function(e) {
       const parent = e.target.parentElement;
       if (e.target.classList.contains("hover__button")) {
-        openCart();
+        addToCart(e.target.dataset.id);
       } else if (parent.classList.contains("box_like")) {
-        openWishlist();
+        addToWishlist(parent.dataset.id);
       }
     });
   };

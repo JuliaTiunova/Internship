@@ -1,6 +1,6 @@
 import "./styles/styles.scss";
 import "./scripts/slider";
-// import "./scripts/setupCart";
+import "./scripts/setupCart";
 
 import * as $ from "jquery";
 import { getElement } from "./scripts/assets";

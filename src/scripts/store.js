@@ -16,7 +16,6 @@ const setUpStore = (products) => {
 
 const findProduct = (id) => {
   let product = store.find((product) => product.id === id);
-  console.log(store);
   return product;
 };
 
