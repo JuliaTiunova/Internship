@@ -5,8 +5,8 @@ import { getElement } from "./scripts/assets";
 import datepicker from "js-datepicker";
 import * as $ from "jquery";
 import "jquery-mask-plugin";
-import burger from "./scripts/burger";
-import { cart, wishlist } from "./scripts/cart";
+import "./scripts/burger";
+import "./scripts/cart";
 
 $(".phone").mask("+00 (000) 000 00 00");
 
@@ -52,9 +52,6 @@ $(".checkout-tip").mask("ZZZ.ZZZ.ZZZ,ZZ", {
   },
 });
 
-const burgerButton = document.getElementById("forms-burger");
-const cartButton = getElement(".icon-cart");
-const wishlistButton = getElement(".button-like");
 const loginButton = getElement(".link-to-login");
 const loginWindow = getElement(".login__window");
 const loginClose = getElement(".login__button_close");
@@ -75,10 +72,6 @@ const url = getElement(".checkout-url");
 const filePhoto = getElement(".checkout-file");
 const form = getElement(".checkout__form");
 const errorMessage = getElement(".error-message");
-
-burger(burgerButton);
-cart(cartButton);
-wishlist(wishlistButton);
 
 $(".checkout__form").attr("autocomplete", "off");
 

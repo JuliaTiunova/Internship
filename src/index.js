@@ -4,21 +4,15 @@ import "./scripts/setupCart";
 
 import * as $ from "jquery";
 import { getElement } from "./scripts/assets";
-import { cart, wishlist } from "./scripts/cart";
-import burger from "./scripts/burger";
+import "./scripts/cart";
+import "./scripts/burger";
 import countdown from "./scripts/countdown";
 import fetchProducts from "./scripts/fetchProducts";
 import { setUpStore, store } from "./scripts/store";
 import display from "./scripts/displayProd";
 
-const cartButton = getElement(".button-cart");
-const wishlistButton = getElement(".button-like");
-const burgerButton = document.getElementById("index-burger");
 const loading = getElement(".page-loading");
 
-burger(burgerButton);
-wishlist(wishlistButton);
-cart(cartButton);
 countdown();
 
 const init = async () => {
