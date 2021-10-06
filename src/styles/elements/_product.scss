@@ -107,6 +107,10 @@
     position: absolute;
     top: 0;
     height: 100%;
+
+    @media (max-width: 1919.98px) {
+      padding: 0;
+    }
   }
 
   &_sale_deals::before {

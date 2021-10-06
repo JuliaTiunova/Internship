@@ -43,6 +43,10 @@
       color: $green-text;
       cursor: pointer;
     }
+
+    &_active {
+      color: $green-text;
+    }
   }
 
   &:hover {

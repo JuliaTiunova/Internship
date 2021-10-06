@@ -10,6 +10,7 @@ import countdown from "./scripts/countdown";
 import fetchProducts from "./scripts/fetchProducts";
 import { setUpStore, store } from "./scripts/store";
 import display from "./scripts/displayProd";
+import setUpCategories from "./scripts/filter";
 
 const loading = getElement(".page-loading");
 
@@ -20,7 +21,24 @@ const init = async () => {
   if (products) {
     setUpStore(products);
     const all = store.filter((product) => product);
+    const featured = store.filter((product) => product);
+
     display(all, getElement(".arrival__slider"));
+    display(featured, getElement(".feature__products"));
+    display(all.slice(-4), getElement(".deals__products"));
+
+    setUpCategories(
+      store,
+      getElement(".feature__list"),
+      getElement(".feature__products")
+    );
+
+    setUpCategories(
+      store,
+      getElement(".arrival__list"),
+      getElement(".arrival__slider")
+    );
+
     $(".arrival__slider").slick({
       slidesToShow: 5,
       slidesToScroll: 2,
@@ -46,15 +64,43 @@ const init = async () => {
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 1,
             slidesToScroll: 1,
             arrows: false,
           },
         },
       ],
     });
-    const featured = store.filter((product) => product).slice(0, 4);
-    display(featured, getElement(".feature__content"));
+    $(".feature__products").slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      cssEase: "linear",
+      autoplay: true,
+      autoplaySpeed: 4000,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 1400,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 578,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
   }
 };
 
