@@ -69,10 +69,10 @@
 
 .slick-prev {
   position: absolute;
-  right: -50px;
+  left: -50px;
 
   &::before {
-    content: "5";
+    content: "4";
     font-family: $icons;
     font-size: 30px;
     z-index: 99;
@@ -81,10 +81,10 @@
 
 .slick-next {
   position: absolute;
-  left: -50px;
+  right: -50px;
 
   &::before {
-    content: "4";
+    content: "5";
     font-family: $icons;
     font-size: 30px;
     z-index: 99;
