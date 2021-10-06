@@ -52,6 +52,8 @@ $(".checkout-tip").mask("ZZZ.ZZZ.ZZZ,ZZ", {
   },
 });
 
+const loading = getElement(".page-loading");
+
 const loginButton = getElement(".link-to-login");
 const loginWindow = getElement(".login__window");
 const loginClose = getElement(".login__button_close");
@@ -70,6 +72,7 @@ const cardCvv = getElement(".card-password");
 const tip = getElement(".checkout-tip");
 const url = getElement(".checkout-url");
 const filePhoto = getElement(".checkout-file");
+const formLogin = getElement(".login__form");
 const form = getElement(".checkout__form");
 const errorMessage = getElement(".error-message");
 
@@ -198,6 +201,23 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     showErrorMessage(`file must be a photo`, filePhoto);
   }
+
+  e.preventDefault();
+  let formInfo = new FormData(form);
+
+  let data = {};
+
+  for (let [name, value] of formInfo) {
+    data[name] = value;
+  }
+
+  let json = JSON.stringify(data);
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/", true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+  xhr.send(json);
+  xhr.onload = () => console.log(json);
 });
 
 email.addEventListener("input", function() {
@@ -394,5 +414,23 @@ filePhoto.addEventListener("change", () => {
   }
 });
 
-const loading = getElement(".page-loading");
+formLogin.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let formInfo = new FormData(formLogin);
+
+  let data = {};
+
+  for (let [name, value] of formInfo) {
+    data[name] = value;
+  }
+
+  let json = JSON.stringify(data);
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/", true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+  xhr.send(json);
+  xhr.onload = () => console.log(json);
+});
+
 loading.style.display = "none";
