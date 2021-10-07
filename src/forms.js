@@ -52,6 +52,8 @@ $(".checkout-tip").mask("ZZZ.ZZZ.ZZZ,ZZ", {
   },
 });
 
+const loading = getElement(".page-loading");
+
 const loginButton = getElement(".link-to-login");
 const loginWindow = getElement(".login__window");
 const loginClose = getElement(".login__button_close");
@@ -61,6 +63,8 @@ const password = getElement(".login__password");
 const email = getElement(".checkout-mail");
 const firstName = getElement(".first-name");
 const lastName = getElement(".last-name");
+const adress = getElement(".adress");
+const apartment = getElement(".apartment");
 const postalCode = getElement(".postal-code");
 const phoneNumber = getElement(".phone");
 const cardNumber = getElement(".card-number");
@@ -70,6 +74,7 @@ const cardCvv = getElement(".card-password");
 const tip = getElement(".checkout-tip");
 const url = getElement(".checkout-url");
 const filePhoto = getElement(".checkout-file");
+const formLogin = getElement(".login__form");
 const form = getElement(".checkout__form");
 const errorMessage = getElement(".error-message");
 
@@ -127,6 +132,25 @@ password.addEventListener("input", () => {
   }
 });
 
+formLogin.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let formInfo = new FormData(formLogin);
+
+  let data = {};
+
+  for (let [name, value] of formInfo) {
+    data[name] = value;
+  }
+
+  let json = JSON.stringify(data);
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/", true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+  xhr.send(json);
+  xhr.onload = () => console.log(json);
+});
+
 form.addEventListener("submit", (e) => {
   if (email.value === "") {
     e.preventDefault();
@@ -149,6 +173,12 @@ form.addEventListener("submit", (e) => {
   } else if (lastName.classList.contains("error")) {
     e.preventDefault();
     showErrorMessage(`Please check your last name`, lastName);
+  } else if (adress.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter an adress", adress);
+  } else if (apartment.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter an apartment", apartment);
   } else if (postalCode.value === "") {
     e.preventDefault();
     showErrorMessage("Please enter postcode", postalCode);
@@ -197,6 +227,23 @@ form.addEventListener("submit", (e) => {
   } else if (filePhoto.classList.contains("error")) {
     e.preventDefault();
     showErrorMessage(`file must be a photo`, filePhoto);
+  } else {
+    e.preventDefault();
+
+    let data = {};
+    let formInfo = new FormData(form);
+
+    for (let [name, value] of formInfo) {
+      data[name] = value;
+    }
+
+    let json = JSON.stringify(data);
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/", true);
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.send(json);
+    xhr.onload = () => console.log(json);
   }
 });
 
@@ -254,6 +301,22 @@ lastName.addEventListener("input", function() {
   } else {
     transformFirstLetter(lastName);
     removeError(lastName);
+  }
+});
+
+adress.addEventListener("input", function() {
+  if (adress.value === "") {
+    showErrorMessage(`Please enter an adress`);
+  } else {
+    removeError(adress);
+  }
+});
+
+apartment.addEventListener("input", function() {
+  if (apartment.value === "") {
+    showErrorMessage(`Please enter an apartment`);
+  } else {
+    removeError(apartment);
   }
 });
 
@@ -394,5 +457,4 @@ filePhoto.addEventListener("change", () => {
   }
 });
 
-const loading = getElement(".page-loading");
 loading.style.display = "none";

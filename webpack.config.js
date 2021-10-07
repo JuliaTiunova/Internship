@@ -75,7 +75,7 @@ module.exports = {
     static: "./dist",
   },
   output: {
-    filename: "[name].[hash].js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
