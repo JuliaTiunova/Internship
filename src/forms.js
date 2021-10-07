@@ -8,6 +8,32 @@ import "jquery-mask-plugin";
 import "./scripts/burger";
 import "./scripts/cart";
 
+const loading = getElement(".page-loading");
+
+const loginButton = getElement(".link-to-login");
+const loginWindow = getElement(".login__window");
+const loginClose = getElement(".login__button_close");
+
+const username = getElement(".login__username");
+const password = getElement(".login__password");
+const email = getElement(".checkout-mail");
+const firstName = getElement(".first-name");
+const lastName = getElement(".last-name");
+const adress = getElement(".adress");
+const apartment = getElement(".apartment");
+const postalCode = getElement(".postal-code");
+const phoneNumber = getElement(".phone");
+const cardNumber = getElement(".card-number");
+const cardFullName = getElement(".card-full-name");
+const cardExpiration = getElement(".card-exp");
+const cardCvv = getElement(".card-password");
+const tip = getElement(".checkout-tip");
+const url = getElement(".checkout-url");
+const filePhoto = getElement(".checkout-file");
+const formLogin = getElement(".login__form");
+const form = getElement(".checkout__form");
+const errorMessage = getElement(".error-message");
+
 $(".phone").mask("+00 (000) 000 00 00");
 
 $(".postal-code").mask("ZZZZZ", {
@@ -51,32 +77,6 @@ $(".checkout-tip").mask("ZZZ.ZZZ.ZZZ,ZZ", {
     },
   },
 });
-
-const loading = getElement(".page-loading");
-
-const loginButton = getElement(".link-to-login");
-const loginWindow = getElement(".login__window");
-const loginClose = getElement(".login__button_close");
-
-const username = getElement(".login__username");
-const password = getElement(".login__password");
-const email = getElement(".checkout-mail");
-const firstName = getElement(".first-name");
-const lastName = getElement(".last-name");
-const adress = getElement(".adress");
-const apartment = getElement(".apartment");
-const postalCode = getElement(".postal-code");
-const phoneNumber = getElement(".phone");
-const cardNumber = getElement(".card-number");
-const cardFullName = getElement(".card-full-name");
-const cardExpiration = getElement(".card-exp");
-const cardCvv = getElement(".card-password");
-const tip = getElement(".checkout-tip");
-const url = getElement(".checkout-url");
-const filePhoto = getElement(".checkout-file");
-const formLogin = getElement(".login__form");
-const form = getElement(".checkout__form");
-const errorMessage = getElement(".error-message");
 
 $(".checkout__form").attr("autocomplete", "off");
 
@@ -129,121 +129,6 @@ password.addEventListener("input", () => {
     );
   } else {
     password.setCustomValidity("");
-  }
-});
-
-formLogin.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let formInfo = new FormData(formLogin);
-
-  let data = {};
-
-  for (let [name, value] of formInfo) {
-    data[name] = value;
-  }
-
-  let json = JSON.stringify(data);
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "/", true);
-  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-  xhr.send(json);
-  xhr.onload = () => console.log(json);
-});
-
-form.addEventListener("submit", (e) => {
-  if (email.value === "") {
-    e.preventDefault();
-    showErrorMessage("Please enter an e-mail", email);
-  } else if (email.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage("Please enter a valid e-mail", email);
-  } else if (firstName.value === "") {
-    e.preventDefault();
-    showErrorMessage("Please enter your name", firstName);
-  } else if (firstName.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage(`Please enter your real name`, firstName);
-  } else if (lastName.value === "") {
-    e.preventDefault();
-    showErrorMessage(
-      `Please enter your last name, must be at least ${lastName.minLength} characters`,
-      lastName
-    );
-  } else if (lastName.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage(`Please check your last name`, lastName);
-  } else if (adress.value === "") {
-    e.preventDefault();
-    showErrorMessage("Please enter an adress", adress);
-  } else if (apartment.value === "") {
-    e.preventDefault();
-    showErrorMessage("Please enter an apartment", apartment);
-  } else if (postalCode.value === "") {
-    e.preventDefault();
-    showErrorMessage("Please enter postcode", postalCode);
-  } else if (postalCode.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage("Please enter a real postcode", postalCode);
-  } else if (phoneNumber.value === "") {
-    e.preventDefault();
-    showErrorMessage(`Please enter a phone number`, phoneNumber);
-  } else if (phoneNumber.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage(`Please enter a valid phone number`, phoneNumber);
-  } else if (cardNumber.value === "") {
-    e.preventDefault();
-    showErrorMessage("Please enter your card number", cardNumber);
-  } else if (cardNumber.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage(`Please enter more digits`, cardNumber);
-  } else if (cardFullName.value === "") {
-    e.preventDefault();
-    showErrorMessage(`Please enter the full name`, cardFullName);
-  } else if (cardFullName.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage(`Please enter the full name`, cardFullName);
-  } else if (cardExpiration.value === "") {
-    e.preventDefault();
-    showErrorMessage("Please enter the expiration date", cardExpiration);
-  } else if (cardExpiration.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage(`Please enter a valid expiration date`, cardExpiration);
-  } else if (cardCvv.value === "") {
-    e.preventDefault();
-    showErrorMessage("Please enter a CVV number", cardCvv);
-  } else if (cardCvv.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage("Please enter a CVV number", cardCvv);
-  } else if (tip.value === "") {
-    e.preventDefault();
-    showErrorMessage(`Please give us some money`, tip);
-  } else if (tip.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage(`Why so cheap? Only $${tip.value}?`, tip);
-  } else if (url.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage("Please enter a valid URL", url);
-  } else if (filePhoto.classList.contains("error")) {
-    e.preventDefault();
-    showErrorMessage(`file must be a photo`, filePhoto);
-  } else {
-    e.preventDefault();
-
-    let data = {};
-    let formInfo = new FormData(form);
-
-    for (let [name, value] of formInfo) {
-      data[name] = value;
-    }
-
-    let json = JSON.stringify(data);
-
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/", true);
-    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    xhr.send(json);
-    xhr.onload = () => console.log(json);
   }
 });
 
@@ -366,11 +251,16 @@ cardNumber.addEventListener("input", function() {
 
 cardFullName.addEventListener("input", () => {
   let nameLength = cardFullName.value.split(" ");
+  let regExp = /^[a-zA-Z]+$/;
+
   if (cardFullName.value === "") {
     showErrorMessage(`Please enter the full name`, cardFullName);
   } else if (nameLength.length < 2) {
     cardFullName.value = cardFullName.value.toLocaleUpperCase();
     showErrorMessage(`Please enter the full name`, cardFullName);
+  } else if (!regExp.test(cardFullName.value)) {
+    cardFullName.value = cardFullName.value.toLocaleUpperCase();
+    showErrorMessage(`Please enter your real name`, cardFullName);
   } else {
     cardFullName.value = cardFullName.value.toLocaleUpperCase();
     removeError(cardFullName);
@@ -456,5 +346,109 @@ filePhoto.addEventListener("change", () => {
     removeError(filePhoto);
   }
 });
+
+formLogin.addEventListener("submit", (e) => {
+  e.preventDefault();
+  getData(formLogin);
+});
+
+form.addEventListener("submit", (e) => {
+  if (email.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter an e-mail", email);
+  } else if (email.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage("Please enter a valid e-mail", email);
+  } else if (firstName.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter your name", firstName);
+  } else if (firstName.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage(`Please enter your real name`, firstName);
+  } else if (lastName.value === "") {
+    e.preventDefault();
+    showErrorMessage(
+      `Please enter your last name, must be at least ${lastName.minLength} characters`,
+      lastName
+    );
+  } else if (lastName.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage(`Please check your last name`, lastName);
+  } else if (adress.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter an adress", adress);
+  } else if (apartment.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter an apartment", apartment);
+  } else if (postalCode.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter postcode", postalCode);
+  } else if (postalCode.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage("Please enter a real postcode", postalCode);
+  } else if (phoneNumber.value === "") {
+    e.preventDefault();
+    showErrorMessage(`Please enter a phone number`, phoneNumber);
+  } else if (phoneNumber.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage(`Please enter a valid phone number`, phoneNumber);
+  } else if (cardNumber.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter your card number", cardNumber);
+  } else if (cardNumber.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage(`Please enter more digits`, cardNumber);
+  } else if (cardFullName.value === "") {
+    e.preventDefault();
+    showErrorMessage(`Please enter the full name`, cardFullName);
+  } else if (cardFullName.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage(`Please enter the full name`, cardFullName);
+  } else if (cardExpiration.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter the expiration date", cardExpiration);
+  } else if (cardExpiration.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage(`Please enter a valid expiration date`, cardExpiration);
+  } else if (cardCvv.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter a CVV number", cardCvv);
+  } else if (cardCvv.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage("Please enter a CVV number", cardCvv);
+  } else if (tip.value === "") {
+    e.preventDefault();
+    showErrorMessage(`Please give us some money`, tip);
+  } else if (tip.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage(`Why so cheap? Only $${tip.value}?`, tip);
+  } else if (url.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage("Please enter a valid URL", url);
+  } else if (filePhoto.classList.contains("error")) {
+    e.preventDefault();
+    showErrorMessage(`file must be a photo`, filePhoto);
+  } else {
+    e.preventDefault();
+    getData(form);
+  }
+});
+
+function getData(form) {
+  let data = {};
+  let formInfo = new FormData(form);
+
+  for (let [name, value] of formInfo) {
+    data[name] = value;
+  }
+
+  let json = JSON.stringify(data);
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/", true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+  xhr.send(json);
+  xhr.onload = () => console.log(json);
+}
 
 loading.style.display = "none";
