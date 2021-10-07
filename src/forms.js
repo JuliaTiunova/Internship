@@ -63,6 +63,8 @@ const password = getElement(".login__password");
 const email = getElement(".checkout-mail");
 const firstName = getElement(".first-name");
 const lastName = getElement(".last-name");
+const adress = getElement(".adress");
+const apartment = getElement(".apartment");
 const postalCode = getElement(".postal-code");
 const phoneNumber = getElement(".phone");
 const cardNumber = getElement(".card-number");
@@ -130,6 +132,25 @@ password.addEventListener("input", () => {
   }
 });
 
+formLogin.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let formInfo = new FormData(formLogin);
+
+  let data = {};
+
+  for (let [name, value] of formInfo) {
+    data[name] = value;
+  }
+
+  let json = JSON.stringify(data);
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/", true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+  xhr.send(json);
+  xhr.onload = () => console.log(json);
+});
+
 form.addEventListener("submit", (e) => {
   if (email.value === "") {
     e.preventDefault();
@@ -152,6 +173,12 @@ form.addEventListener("submit", (e) => {
   } else if (lastName.classList.contains("error")) {
     e.preventDefault();
     showErrorMessage(`Please check your last name`, lastName);
+  } else if (adress.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter an adress", adress);
+  } else if (apartment.value === "") {
+    e.preventDefault();
+    showErrorMessage("Please enter an apartment", apartment);
   } else if (postalCode.value === "") {
     e.preventDefault();
     showErrorMessage("Please enter postcode", postalCode);
@@ -200,24 +227,24 @@ form.addEventListener("submit", (e) => {
   } else if (filePhoto.classList.contains("error")) {
     e.preventDefault();
     showErrorMessage(`file must be a photo`, filePhoto);
+  } else {
+    e.preventDefault();
+
+    let data = {};
+    let formInfo = new FormData(form);
+
+    for (let [name, value] of formInfo) {
+      data[name] = value;
+    }
+
+    let json = JSON.stringify(data);
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/", true);
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.send(json);
+    xhr.onload = () => console.log(json);
   }
-
-  e.preventDefault();
-  let formInfo = new FormData(form);
-
-  let data = {};
-
-  for (let [name, value] of formInfo) {
-    data[name] = value;
-  }
-
-  let json = JSON.stringify(data);
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "/", true);
-  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-  xhr.send(json);
-  xhr.onload = () => console.log(json);
 });
 
 email.addEventListener("input", function() {
@@ -274,6 +301,22 @@ lastName.addEventListener("input", function() {
   } else {
     transformFirstLetter(lastName);
     removeError(lastName);
+  }
+});
+
+adress.addEventListener("input", function() {
+  if (adress.value === "") {
+    showErrorMessage(`Please enter an adress`);
+  } else {
+    removeError(adress);
+  }
+});
+
+apartment.addEventListener("input", function() {
+  if (apartment.value === "") {
+    showErrorMessage(`Please enter an apartment`);
+  } else {
+    removeError(apartment);
   }
 });
 
@@ -412,25 +455,6 @@ filePhoto.addEventListener("change", () => {
   if (filePhoto.value === "") {
     removeError(filePhoto);
   }
-});
-
-formLogin.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let formInfo = new FormData(formLogin);
-
-  let data = {};
-
-  for (let [name, value] of formInfo) {
-    data[name] = value;
-  }
-
-  let json = JSON.stringify(data);
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "/", true);
-  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-  xhr.send(json);
-  xhr.onload = () => console.log(json);
 });
 
 loading.style.display = "none";
