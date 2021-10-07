@@ -29,6 +29,8 @@
 
   &_small {
     background-color: $green;
+    border: 0;
+    outline: none;
     padding: 5px 15px;
     font-family: $jost;
     font-weight: 500;

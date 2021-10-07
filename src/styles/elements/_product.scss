@@ -3,13 +3,11 @@
   @include center-flex-column;
   text-align: center;
   margin-right: 30px;
-  padding-top: 12px;
 
   &__img {
     width: 100%;
     height: 258px;
     object-fit: cover;
-    margin: 0 auto 16px;
 
     @include xxl {
       height: 200px;
@@ -17,6 +15,8 @@
 
     &_wrapper {
       position: relative;
+
+      margin: 0 auto 16px;
     }
 
     &_deals {
@@ -24,7 +24,6 @@
       height: 100%;
 
       @include xxl {
-        width: 315px;
         height: 315px;
       }
 
@@ -48,9 +47,14 @@
     font-size: 18px;
     line-height: 25px;
     margin-bottom: 29px;
+
+    & span {
+      display: none;
+    }
   }
 
   &_sale &__price span {
+    display: inline;
     font-family: $jost;
     font-weight: 400;
     font-size: 15px;
@@ -66,7 +70,7 @@
     content: "-20%";
     position: absolute;
     padding: 0 10px;
-    top: 12px;
+    top: 3px;
     z-index: 1;
     transform: translate(-50%, -50%);
     background-color: $red-sale;
@@ -84,7 +88,7 @@
     content: "new";
     position: absolute;
     padding: 0 10px;
-    top: 12px;
+    top: 3px;
     z-index: 1;
     transform: translate(-50%, -50%);
     background-color: $blue-new;
@@ -103,27 +107,31 @@
     position: absolute;
     top: 0;
     height: 100%;
+
+    @media (max-width: 1919.98px) {
+      padding: 0;
+    }
   }
 
   &_sale_deals::before {
     left: 50%;
-    top: 0;
+    top: 5px;
   }
   &_new_deals::after {
     left: 50%;
-    top: 0;
+    top: 5px;
   }
 
   &_sale_new_deals {
     &::before {
       left: 33%;
 
-      top: 0;
+      top: 5px;
     }
 
     &::after {
       left: 66%;
-      top: 0;
+      top: 5px;
     }
   }
 }

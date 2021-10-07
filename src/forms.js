@@ -1,8 +1,12 @@
 import "./styles/forms.scss";
+import "./scripts/setupCart";
+
+import { getElement } from "./scripts/assets";
 import datepicker from "js-datepicker";
 import * as $ from "jquery";
 import "jquery-mask-plugin";
-import burger from "./scripts/burger";
+import "./scripts/burger";
+import "./scripts/cart";
 
 $(".phone").mask("+00 (000) 000 00 00");
 
@@ -48,31 +52,26 @@ $(".checkout-tip").mask("ZZZ.ZZZ.ZZZ,ZZ", {
   },
 });
 
-const burgerButton = document.querySelector(
-  ".checkout__header .burger__button"
-);
-burger(burgerButton);
+const loginButton = getElement(".link-to-login");
+const loginWindow = getElement(".login__window");
+const loginClose = getElement(".login__button_close");
 
-const loginButton = document.querySelector(".link-to-login");
-const loginWindow = document.querySelector(".login__window");
-const loginClose = document.querySelector(".login__button_close");
-
-const username = document.querySelector(".login__username");
-const password = document.querySelector(".login__password");
-const email = document.querySelector(".checkout-mail");
-const firstName = document.querySelector(".first-name");
-const lastName = document.querySelector(".last-name");
-const postalCode = document.querySelector(".postal-code");
-const phoneNumber = document.querySelector(".phone");
-const cardNumber = document.querySelector(".card-number");
-const cardFullName = document.querySelector(".card-full-name");
-const cardExpiration = document.querySelector(".card-exp");
-const cardCvv = document.querySelector(".card-password");
-const tip = document.querySelector(".checkout-tip");
-const url = document.querySelector(".checkout-url");
-const filePhoto = document.querySelector(".checkout-file");
-const form = document.querySelector(".checkout__form");
-const errorMessage = document.querySelector(".error-message");
+const username = getElement(".login__username");
+const password = getElement(".login__password");
+const email = getElement(".checkout-mail");
+const firstName = getElement(".first-name");
+const lastName = getElement(".last-name");
+const postalCode = getElement(".postal-code");
+const phoneNumber = getElement(".phone");
+const cardNumber = getElement(".card-number");
+const cardFullName = getElement(".card-full-name");
+const cardExpiration = getElement(".card-exp");
+const cardCvv = getElement(".card-password");
+const tip = getElement(".checkout-tip");
+const url = getElement(".checkout-url");
+const filePhoto = getElement(".checkout-file");
+const form = getElement(".checkout__form");
+const errorMessage = getElement(".error-message");
 
 $(".checkout__form").attr("autocomplete", "off");
 
@@ -394,3 +393,6 @@ filePhoto.addEventListener("change", () => {
     removeError(filePhoto);
   }
 });
+
+const loading = getElement(".page-loading");
+loading.style.display = "none";

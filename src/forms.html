@@ -12,7 +12,50 @@
     <title>OrgaFresh checkout</title>
   </head>
   <body>
+    <div class="page-loading">
+      <img src="./beetroot.png" alt="beetroot">
+      <h2 class="loader">Loading...</h2>
+    </div>
     <header class="header checkout__header">
+      <div class="cart__frame">
+        <aside class="cart">
+          <div class="cart__top">
+           <div class="cart__title_wrap">
+          <p class="cart__title title_cart">Shopping cart</p>
+          <button class="cart__button-close button_close">close</button>
+        </div>
+          <div class="cart__items">
+          </div>
+          </div>
+          <div class="cart__subtotal subtotal">
+            <div class="subtotal__name">
+              <p class="subtotal__title title_cart">Subtotal</p>
+              <p class="subtotal__price">$135.0</p>
+            </div>
+            <a href="#" class="subtotal__button subtotal__button_top link">View cart</a>
+            <a href="./forms.html" class="subtotal__button link">Checkout</a>
+          </div>
+      </aside>
+    </div>
+      <div class="wishlist__frame">
+        <aside class="wishlist">
+          <div class="wishlist__top">
+           <div class="wishlist__title_wrap">
+          <p class="wishlist__title title_wishlist">Wishlist</p>
+          <button class="wishlist__button-close button_close">close</button>
+        </div>
+        <div class="wishlist__items">
+          </div>
+        </div>
+          <div class="wishlist__subtotal subtotal">
+            <div class="subtotal__name">
+              <p class="subtotal__title title_wishlist">Subtotal</p>
+              <p class="subtotal__price subtotal__price_wishlist">$135.0</p>
+            </div>
+            <a href="#" class="subtotal__button subtotal__button_top link">View wishlist</a>
+          </div>
+      </aside>
+    </div>
         <div class="header__wrapper_top top_black wrapper">
             <div class="header__top top">
               <ul class="top__info-list info-list">
@@ -36,20 +79,20 @@
           <div class="header__wrapper_nav wrapper">
             <nav class="header__nav nav">
               <div class="header__burger burger">
-                <button class="burger__button"><span></span>
+                <button class="burger__button" id="forms-burger"><span></span>
                 </button>
                 <nav class="burger__menu">
                   <ul class="burger__list">
-                    <li class="burger__item"><a href="#" class="burger__link link">Home</a></li>
+                    <li class="burger__item"><a href="./index.html" class="burger__link link">Home</a></li>
                     <li class="burger__item"><a href="#" class="burger__link link">Shop</a></li>
-                    <li class="burger__item"><a href="#about" class="burger__link link">About</a></li>
-                    <li class="burger__item"><a href="#blog" class="burger__link link">Blog</a></li>
-                    <li class="burger__item"><a href="#contact" class="burger__link link">Contact</a></li>
+                    <li class="burger__item"><a href="#" class="burger__link link">About</a></li>
+                    <li class="burger__item"><a href="#" class="burger__link link">Blog</a></li>
+                    <li class="burger__item"><a href="#" class="burger__link link">Contact</a></li>
                   </ul>
                 </nav>
               </div>
               <ul class="nav__menu menu">
-                <li class="menu__item item"><a href="#" class="item__link link">Home</a></li>
+                <li class="menu__item item"><a href="./index.html" class="item__link link">Home</a></li>
                 <li class="menu__item item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
                   <div class="shop__dropdown">
                     <div class="dropdown__content">
@@ -91,10 +134,18 @@
                 <li class="menu__item item"><a href="#contact" class="item__link link">Contact</a></li>
               </ul>
               <img src="img/Logo.png" alt="OrgaFresh logo" class="nav__logo" />
-              <div class="header__icons icons">
-                <i class="icon-search "></i>
-                <i class="icon-like header__icon header__icons_active"></i>
-                <i class="icon-cart header__icon header__icons_active"></i>
+              <div class="header__icons nav__icons icons">
+                <button class="header__icon-buttons icon-buttons">
+                  <i class="icon-search "></i>
+                </button>
+                <button class="header__icon-buttons icon-buttons button-like">
+                  <i class="icon-like header__icon header__icons_active"></i>
+                  <span class="icon__counter wishlist__counter">0</span>
+                </button>
+                <button class="header__icon-buttons icon-buttons button-cart">
+                  <i class="icon-cart header__icon header__icons_active"></i>
+                  <span class="icon__counter cart__counter">0</span>
+                </button>
               </div>
             </nav>
         

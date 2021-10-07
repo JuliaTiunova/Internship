@@ -11,12 +11,12 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-self: center;
-    position: absolute;
+    position: relative;
     bottom: 0;
     transform: translateY(50%);
+    gap: 30px;
 
     @include xxl {
-      position: relative;
       top: 0;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
@@ -24,6 +24,8 @@
 
     @include md {
       gap: 10px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
     }
 
     &__product:not(:last-child) {
@@ -32,7 +34,7 @@
   }
 
   &__time {
-    margin-bottom: 285px;
+    margin-bottom: -100px;
 
     @include xxl {
       margin-bottom: 65px;
@@ -58,9 +60,8 @@
 }
 
 .products {
-  height: 90%;
-  width: 1410px / 1920px * 100%;
-  padding: 20px 0 20px 20px;
+  width: 100%;
+  padding: 30px;
   background-color: $white;
   border: 1px solid $white-border;
   box-shadow: 0px 5px 35px rgba(138, 159, 168, 0.2);
@@ -81,5 +82,9 @@
       width: 100%;
       margin-right: 0;
     }
+  }
+
+  & .product {
+    margin-right: 0;
   }
 }

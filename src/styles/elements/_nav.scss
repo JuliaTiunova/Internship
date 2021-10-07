@@ -5,11 +5,16 @@
   height: 80px;
 
   @include md {
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
     height: 100%;
     padding-bottom: 10px;
     padding-top: 10px;
+  }
+
+  &__icons {
+    @include md {
+      grid-column: 3 /4;
+    }
   }
 
   &_small {
@@ -25,7 +30,8 @@
 
   &__logo {
     @include md {
-      margin-bottom: 10px;
+      margin-left: -30px;
+      width: 90%;
     }
   }
 }

@@ -65,12 +65,6 @@
         color: $grey;
       }
 
-      // &:invalid,
-      // &:focus:invalid {
-      //   border-color: $red-sale;
-      //   background-color: lighten($color: $red-sale, $amount: 45);
-      // }
-
       &.error,
       &:focus.error {
         border-color: $red-sale;
@@ -158,8 +152,13 @@
   width: 300px;
   padding: 20px;
   border-left: 5px solid $red-sale;
-  z-index: 99;
+  z-index: 101;
   visibility: hidden;
+
+  @include md {
+    top: 100px;
+    left: 20px;
+  }
 
   &.active {
     visibility: visible;

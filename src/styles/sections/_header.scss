@@ -28,11 +28,16 @@
     &_top {
       background-color: $green-menu;
       opacity: 0.75;
+      position: relative;
+      z-index: 999;
+      transition: all 0.3s 0.2s;
 
       &.cart-open,
+      &.wishlist-open,
       &.top_black {
         background-color: $black-title;
         opacity: 1;
+        transition: all 0.2s;
       }
     }
 
@@ -57,31 +62,13 @@
     font-size: 25px;
 
     @include md {
-      justify-content: center;
       font-size: 18px;
-    }
-
-    & i {
-      @include not-first-child {
-        margin-left: 30px;
-
-        @include md {
-          margin-left: 0;
-        }
-      }
-    }
-
-    & i {
-      @include md {
-        margin: 0 30px;
-      }
     }
 
     &_active {
       position: relative;
 
-      &.header__icon::after {
-        content: "2";
+      & + .icon__counter {
         width: 20px;
         height: 20px;
         border-radius: 50%;
@@ -103,7 +90,17 @@
         }
       }
     }
+  }
 
+  &__icon-buttons {
+    position: relative;
+    @include not-first-child {
+      margin-left: 30px;
+    }
+
+    @include md {
+      margin: 0;
+    }
     &:hover {
       cursor: pointer;
     }
