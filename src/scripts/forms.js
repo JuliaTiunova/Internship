@@ -1,12 +1,12 @@
-import "./styles/forms.scss";
-import "./scripts/setupCart";
+import "../styles/forms.scss";
+import "./setupCart";
 
-import { getElement } from "./scripts/assets";
+import { getElement } from "./assets";
 import datepicker from "js-datepicker";
 import * as $ from "jquery";
 import "jquery-mask-plugin";
-import "./scripts/burger";
-import "./scripts/cart";
+import "./burger";
+import "./cart";
 
 const loading = getElement(".page-loading");
 
