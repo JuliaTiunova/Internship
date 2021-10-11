@@ -4,19 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="beetroot.png" type="image/png" />
-    <script
-      src="https://kit.fontawesome.com/4e5db1bd51.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>OrgaFresh checkout</title>
+    <title>Muse's product</title>
   </head>
   <body>
-    <div class="page-loading">
-      <img src="./beetroot.png" alt="beetroot">
-      <h2 class="loader">Loading...</h2>
-    </div>
-    <header class="header checkout__header">
+    <header class="header products__header">
       <div class="cart__frame">
         <aside class="cart">
           <div class="cart__top">
@@ -84,7 +75,7 @@
                 <nav class="burger__menu">
                   <ul class="burger__list">
                     <li class="burger__item"><a href="index.html" class="burger__link link">Home</a></li>
-                    <li class="burger__item"><a href="products.html" class="burger__link link">Shop</a></li>
+                    <li class="burger__item"><a href="#" class="burger__link link">Shop</a></li>
                     <li class="burger__item"><a href="#" class="burger__link link">About</a></li>
                     <li class="burger__item"><a href="#" class="burger__link link">Blog</a></li>
                     <li class="burger__item"><a href="#" class="burger__link link">Contact</a></li>
@@ -93,7 +84,7 @@
               </div>
               <ul class="nav__menu menu">
                 <li class="menu__item item"><a href="index.html" class="item__link link">Home</a></li>
-                <li class="menu__item item__shop shop item item__link"><a href="products.html" class="item__link link"><p> Shop <span>&#x33</span></p></a> 
+                <li class="menu__item item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
                   <div class="shop__dropdown">
                     <div class="dropdown__content">
                       <h5 class="dropdown__title title5">Categories</h5>
@@ -152,167 +143,10 @@
           </div>
     </header>
     <section class="breadcrumb wrapper">
-        <h2 class="breadcrumb__title title2">Checkout</h2>
+        <h2 class="breadcrumb__title title2">Shop Grid Sidebar</h2>
         <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Checkout</span></p>
     </section>
-    <section class="checkout wrapper">
-     <div class="login__window">
-       <div class="login__page">
-         <button class="login__button_close button_close">Close</button>
-         <form  class="login__form" name="login__form">
-           <label class="login__form-title form-title">Log in</label>
-           <div class="input__wrapper">
-             <input class="input__full login__username" type="text" name="username" minlength="4" placeholder="User name" required>
-             <input class="input__full login__password" type="password" name="loginPassword" id="loginPassword" minlength="8" placeholder="Password" required>
-             <button class="button login__button" type="submit">Submit</button>
-             <button class="button login__button" type="reset">Reset</button>           
-            </div>
-            <div class="login__text_wrapper">
-              <p class="login__text form-text">Not a member yet?
-              <a href="#" class="login__link link">Register</a></p>
-            </div>
-         </form>
-       </div>
-     </div>
-      <form  class="checkout__form" name="checkout__form" novalidate>
-        <div class="error-message">Error message</div>
-        <p class="checkout__text form-text">Already have an account? <a class="checkout__link link-to-login link">Log in</a></p>
-        <label class="checkout__form-title form-title">Contact information</label>
-        <input class="input__adress checkout-mail" type="email" name="e-mail" placeholder="Email" required>
-        <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>
-        <label class="checkout__form-title form-title">Shipping address</label>
-        <div class="input__wrapper">
-          <input class="first-name" type="text" minlength="3" maxlength="15" name="firstName" id="firstName" placeholder="First name">
-          <input class="last-name" type="text" minlength="3" maxlength="15" name="lastName" id="lastName" placeholder="Last name">
-          <input class="input__full adress" type="text" name="adress" placeholder="Address">
-          <input class="input__full apartment" type="text" name="apartment" placeholder="Apartment, suite, etc">
-          <select class="input__full city" name="city" id="" placeholder="Enter a city">
-            <option value="Kyiv">Kyiv</option>
-            <option value="Lviv">Lviv</option>
-            <option value="Kharkiv">Kharkiv</option>
-            <option value="Chernivtsi">Chernivtsi</option>
-          </select>
-          <input type="text"  name="country" placeholder="Coundtry/Region" value="Ukraine">
-          <input class="postal-code" name="postal" minlength="5" type="text" placeholder="Postal code">
-          <input class="input__full phone" name="tel" type="text" minlength="12"  id="tel" placeholder="Phone number">
-         </div>
-        <label class="checkout__form-title form-title">Billing info</label>
-        <div class="input__wrapper">
-          <label class="input__full"><input type="radio" name="card" value="Master Card" checked> Master Card</label>
-          <label class="input__full"><input type="radio" name="card" value="Visa"> Visa</label>
-          <input class="input__full card-number" name="cardNumber" type="text" minlength="16" placeholder="Card number">
-          <input class="input__full card-full-name" name="fullNameCard" type="text" placeholder="Full Name">
-          <input class="card-exp" name="cardExp" type="text" minlength="6" placeholder="Expiration date mm / yyyy">
-          <input class="card-password" name="cardPass" type="password" minlength="3" placeholder="CVV">
-          </div>
-        <label class="checkout__form-title form-title">How much will you tip?</label>
-        <div class="input__wrapper">
-          <input class="checkout-tip input__full" name="tip" minlength="3" type="text"  id="tip">
-        </div>
-        <label class="checkout__form-title form-title">Date of shipping</label>
-        <div class="input__wrapper">
-          <input  class="input__full date__delivery" name="delievery" type="text" placeholder="Choose delivery date">
-          <textarea class="input__full" name="message" id="message" cols="30" rows="10" placeholder="Your message..."></textarea>
-          </div>
-        <label class="checkout__form-title form-title">Going on vacation?</label>
-        <div class="input__wrapper">
-          <input class="date__start" type="text" name="start" id="start" placeholder="start date">
-          <input class="date__end" type="text" name="end" id="end" placeholder="end date">
-        </div>
-        <label class="checkout__form-title form-title">Share a link to your video</label>
-        <input type="url" name="videoLink" class="input__full checkout-url" placeholder="http://example.com" >
-        <label class="checkout__form-title form-title">Upload a photo</label>
-        <div class="input__wrapper">
-          <input class="input__full checkout-file" type="file" name="photo" id="photo">
-          <label class="checkout__box"><input type="checkbox" name="keepUpTo"> Keep me up to date on news and exclusive offers</label>       
-        </div>
-        <label class="checkout__form-title form-title">Choose your favorite Vegetable colour</label>
-        <div class="input__wrapper">
-          <input class="input__color input__full" name="color" type="color" value="#ffA200">
-        </div>
-        <label class="checkout__form-title form-title">Gift card?</label>
-        <div action="checkout__gift-card">
-          <div class="input__wrapper ">
-            <label class="gift-card__label input__full" for="gift10">
-              <input class="input__full" type="checkbox" name="gift" id="gift10"> Gift card $10
-            </label>
-            <input class="gift-card__number" type="number" name="amount" min="1" max="10">
-            <label class="gift-card__label input__full" for="gift25">
-              <input class="input__full" type="checkbox" name="gift" id="gift25"> Gift card $25
-            </label>
-            <input class="gift-card__number" type="number"  name="amount" min="1">
-            <label class="gift-card__label input__full" for="gift50">
-              <input class="input__full" type="checkbox" name="gift" id="gift50"> Gift card $50
-            </label>
-            <input class="gift-card__number" type="number" name="amount" min="1">
-          </div>
-        </div>
-        <div class="checkout__button_wrapper">
-          <button type="submit" class="button checkout__button">Submit</button>
-          <button type="reset" class="button checkout__button">Reset</button>
-        </div>
-        <a href="#" class="checkout__return_link return_link link"><span>J</span> Return cart</a>
-      </form>
-      <div class="checkout__bill bill">
-        <div class="checkout__reserve reserve">
-          <img class="reserve__img" src="../img/img.jpg" alt="item">
-          <div class="reserve__info">
-            <p class="reserve__name">Exotic delicious</p>
-            <div class="reserve__weight"><span>1</span>kg</div>
-          </div>
-          <p class="reserve__price">$8.0</p>
-        </div>
-        <div class="checkout__reserve reserve">
-          <img class="reserve__img" src="../img/img.jpg" alt="item">
-          <div class="reserve__info">
-            <p class="reserve__name">Exotic delicious</p>
-            <div class="reserve__weight"><span>1</span>kg</div>
-          </div>
-          <p class="reserve__price">$8.0</p>
-        </div>
-        <div class="checkout__reserve reserve">
-          <img class="reserve__img" src="../img/img.jpg" alt="item">
-          <div class="reserve__info">
-            <p class="reserve__name">Exotic delicious</p>
-            <div class="reserve__weight"><span>1</span>kg</div>
-          </div>
-          <p class="reserve__price">$8.0</p>
-        </div>
-        <div class="checkout__reserve reserve">
-          <img class="reserve__img" src="../img/img.jpg" alt="item">
-          <div class="reserve__info">
-            <p class="reserve__name">Exotic delicious</p>
-            <div class="reserve__weight"><span>1</span>kg</div>
-          </div>
-          <p class="reserve__price">$8.0</p>
-        </div>
-        <div class="checkout__reserve reserve">
-          <img class="reserve__img" src="../img/img.jpg" alt="item">
-          <div class="reserve__info">
-            <p class="reserve__name">Exotic delicious</p>
-            <div class="reserve__weight"><span>1</span>kg</div>
-          </div>
-          <p class="reserve__price">$8.0</p>
-        </div>
-        <div class="checkout__count">
-          <div class="count__names">
-            <p class="count__name">Subtotal</p>
-            <p class="count__name">Shipping</p>
-            <p class="count__name">Taxes</p>
-          </div>
-          <div class="count__values">
-            <p class="count__value">$36.00</p>
-            <p class="count__value">Calculated at next step</p>
-            <p class="count__value">$3.60</p>
-          </div>
-        </div>
-        <div class="checkout__total">
-          <p class="total__name">Total</p>
-          <p class="total__value"><span>USD </span>$39.60</p>
-        </div>
-      </div>
-    </section>
-    <footer class="footer checkout__footer footer_black">
+    <footer class="footer products__footer footer_black">
       <div class="footer__info_wrapper wrapper">
         <div class="footer__info">
           <div class="footer__icon"><i class="icon-headphone"></i></div>
