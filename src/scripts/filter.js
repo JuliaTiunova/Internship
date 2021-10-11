@@ -78,8 +78,6 @@ const setUpCategories = (store, categoriesDOM, slider) => {
             },
           ],
         });
-
-        console.log(slider.classList);
       });
     }
 
