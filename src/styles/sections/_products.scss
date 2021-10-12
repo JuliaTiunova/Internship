@@ -1,0 +1,214 @@
+.products {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  display: flex;
+  width: 100%;
+
+  &__container {
+    width: 100%;
+  }
+  &__top {
+    @include flex-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $grey-border;
+  }
+
+  &__layout {
+    width: 40px;
+    height: 40px;
+    background: 0;
+    border: 0;
+    border: 1px solid $grey-border;
+    outline: none;
+    color: $black;
+
+    &_active,
+    &:hover {
+      background-color: $green;
+      color: $white;
+    }
+  }
+
+  &__result {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    color: $black-text;
+  }
+
+  &__sorting {
+    padding: 5px 20px;
+    height: 40px;
+    border: 0;
+    border: 1px solid $grey-border;
+    outline: none;
+    font-family: $jost;
+    font-size: 16px;
+    line-height: 22px;
+    color: $black-text;
+
+    &::placeholder {
+      font-family: $jost;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 30px;
+      color: $grey;
+    }
+
+    & options {
+      color: $grey;
+    }
+  }
+
+  &__display {
+    padding-top: 40px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 50px;
+
+    & .product {
+      margin-right: 0;
+    }
+
+    & .hover {
+      justify-content: flex-end;
+      padding-bottom: 18px;
+    }
+  }
+
+  &__page {
+    width: 46px;
+    height: 46px;
+    background: 0;
+    border: 0;
+    border: 1px solid $grey-border-input;
+    outline: none;
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    color: $grey;
+
+    &_active {
+      color: $black-title;
+      border-color: $black-title;
+    }
+
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+}
+.hover__button {
+  &_round {
+    position: relative;
+    margin: 0 5px;
+    width: 35px;
+    height: 35px;
+    background-color: $white;
+    border-radius: 50%;
+    border: 0;
+    outline: none;
+    color: $black;
+    box-shadow: 0px 1px 4px rgba(138, 159, 168, 0.15);
+
+    &:hover {
+      background-color: $green;
+      color: $white;
+    }
+
+    & i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.filters {
+  padding-top: 5px;
+  padding-right: 70px;
+  &__form {
+    position: relative;
+  }
+
+  &__search {
+    padding: 5px 20px;
+    height: 40px;
+    border: 0;
+    border: 1px solid $grey-border;
+    outline: none;
+    font-family: $jost;
+    font-size: 16px;
+    line-height: 22px;
+    color: $black-text;
+    margin-bottom: 66px;
+
+    &::placeholder {
+      font-family: $jost;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 30px;
+      color: $grey;
+    }
+
+    &-button {
+      background: 0;
+      border: 0;
+      outline: none;
+      font-size: 20px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-50%, 28%);
+    }
+  }
+
+  &__title {
+    font-family: $poppinsBold;
+    font-size: 18px;
+    line-height: 25px;
+    color: $black;
+    margin-bottom: 15px;
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 51px;
+  }
+
+  &__price {
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 30px;
+    color: $grey;
+
+    & span {
+      color: $black-text;
+    }
+  }
+}
+
+.category {
+  &__button {
+    background: 0;
+    border: 0;
+    outline: none;
+    font-family: $jost;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 30px;
+    color: $grey;
+
+    &_active {
+      color: $black-text;
+    }
+  }
+}

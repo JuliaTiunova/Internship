@@ -2,13 +2,13 @@ import "./styles/styles.scss";
 import "./scripts/slider";
 import "./scripts/setupCart";
 
-import * as $ from "jquery";
+// import * as $ from "jquery";
 import { allCategoriesURL, getElement } from "./scripts/assets";
 import "./scripts/cart";
 import "./scripts/burger";
 import countdown from "./scripts/countdown";
 // import fetchProducts from "./scripts/fetchProducts";
-import { setUpFullStore, setUpOptions, setUpStore } from "./scripts/store";
+import { setUpOptions } from "./scripts/store";
 // import display from "./scripts/displayProd";
 // import setUpCategories from "./scripts/filter";
 import displayList from "./scripts/displayList";
@@ -21,11 +21,6 @@ const loading = getElement(".page-loading");
 countdown();
 
 const init = async () => {
-  // setUpFullStore();
-  // const products = await fetchProducts();
-  // if (products) {
-  //   setUpFullStore();
-  // }
   let categories = new XMLHttpRequest();
   categories.open("GET", allCategoriesURL);
   categories.responseType = "json";
@@ -38,7 +33,7 @@ const init = async () => {
     // setUpFullStore();
     displayList(arr, getElement(".arrival__list"));
     displayList(arr, getElement(".feature__list"));
-    displayCategory(arr, getElement(".header__categories"));
+    displayCategory(arr, getElement(".header__categories.categories"));
     displayMain(getElement(".arrival__slider"));
     displayMain(getElement(".feature__products"));
     buttonListener(
@@ -49,39 +44,6 @@ const init = async () => {
       getElement(".feature__list"),
       getElement(".feature__products")
     );
-    // buttonListener(getElement(".arrival__list"));
-    // $(".arrival__slider").slick({
-    //   slidesToShow: 5,
-    //   slidesToScroll: 2,
-    //   cssEase: "linear",
-    //   autoplay: true,
-    //   autoplaySpeed: 4000,
-    //   arrows: true,
-    //   responsive: [
-    //     {
-    //       breakpoint: 1920,
-    //       settings: {
-    //         slidesToShow: 4,
-    //         slidesToScroll: 1,
-    //       },
-    //     },
-    //     {
-    //       breakpoint: 1400,
-    //       settings: {
-    //         slidesToShow: 3,
-    //         slidesToScroll: 1,
-    //       },
-    //     },
-    //     {
-    //       breakpoint: 768,
-    //       settings: {
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1,
-    //         arrows: false,
-    //       },
-    //     },
-    //   ],
-    // });
   };
 
   // let products = new XMLHttpRequest();

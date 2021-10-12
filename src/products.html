@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="beetroot.png" type="image/png" />
+    <script
+      src="https://kit.fontawesome.com/4e5db1bd51.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Muse's product</title>
   </head>
   <body>
@@ -84,7 +89,7 @@
               </div>
               <ul class="nav__menu menu">
                 <li class="menu__item item"><a href="index.html" class="item__link link">Home</a></li>
-                <li class="menu__item item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
+                <li class="menu__item item_active item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
                   <div class="shop__dropdown">
                     <div class="dropdown__content">
                       <h5 class="dropdown__title title5">Categories</h5>
@@ -142,10 +147,54 @@
         
           </div>
     </header>
-    <section class="breadcrumb wrapper">
-        <h2 class="breadcrumb__title title2">Shop Grid Sidebar</h2>
-        <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Checkout</span></p>
-    </section>
+    <nav class="breadcrumb wrapper">
+      <h2 class="breadcrumb__title title2">Shop Grid Sidebar</h2>
+      <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Shop Grid Sidebar</span></p>
+    </nav>
+    <main>
+      <section class="products wrapper">
+        <div class="filters">
+          <form class="filters__form">
+            <input class="filters__search" type="search" name="search" id="search" placeholder="Search">
+            <button class="filters__search-button" ><i class="icon-search"></i></button>
+          </form>
+          <h3 class="filters__title">Product Categories</h3>
+          <article class="filters__categories">
+            <button class="category__button category__button_active">Category</button>
+            <button class="category__button">Category</button>
+            <button class="category__button">Category</button>
+            <button class="category__button">Category</button>
+            <button class="category__button">Category</button>
+          </article>
+          <h3 class="filters__title">Filter by price</h3>
+          <form action="filters__form-price">
+            <input type="range" name="price" id="price" min="0" max="100">
+          </form>
+          <p class="filters__price">Price: <span></span> </p>
+        </div>
+        <div class="products__container">
+          <div class="products__top">
+            <p class="products__result">Showing</p>
+            <div class="products__buttons_wrapper">
+              <button class="products__layout products__layout_active layout_grid"><i class="fas fa-th-large"></i></button>
+              <button class="products__layout layout_list"><i class="fas fa-list"></i></button>
+              <select class="products__sorting" name="sorting" id="sorting">
+                <option value="deafault">Default sorting</option>
+                <option value="popular">Sort by popularity</option>
+                <option value="rating">Sort by rating</option>
+                <option value="latest">Sort by latest</option>
+                <option value="low">Sort by price: low to high</option>
+                <option value="high">Sort by price: high to low</option>
+              </select>
+              <!-- <input type="text"> -->
+            </div>
+          </div>
+          <div class="products__display display">
+          </div>
+          <div class="pagination"></div>
+        </div>
+      </section>
+    </main>
     <footer class="footer products__footer footer_black">
       <div class="footer__info_wrapper wrapper">
         <div class="footer__info">
