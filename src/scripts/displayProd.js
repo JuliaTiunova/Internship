@@ -125,40 +125,8 @@ const display = (skip) => {
       let info = productsAll.response;
       let arr = info.data;
       let total = info.total;
-      let totalLeft = (total / 12).toFixed();
-      totalLeft = totalLeft * 1;
-      const pages = getElement(".pagination");
-      let count = [];
-      if (total - 12 > 0) {
-        for (let i = 0; i < totalLeft; i++) {
-          count.push(i + 1);
-        }
-        pages.innerHTML = count
-          .map((item) => {
-            return `<button class="products__page">${item}</button>`;
-          })
-          .join("");
-        pages.innerHTML += `<button class="products__page"><i class="fas fa-chevron-right"></i></button>`;
-      } else {
-        pages.innerHTML = `<button class="products__page">1</button>`;
-      }
-
-      let pagesButton = document.querySelectorAll(".products__page");
-      if (skip > 0) {
-        let number = skip / 12 + 1;
-        pagesButton.forEach((item) => {
-          item.innerHTML == number
-            ? item.classList.add("products__page_active")
-            : item;
-        });
-      } else {
-        pagesButton.forEach((item) => {
-          item.innerHTML == "1"
-            ? item.classList.add("products__page_active")
-            : item;
-        });
-      }
-
+      addPagination(total, skip);
+      showTotal(total, skip);
       element.innerHTML = arr
         .map((product) => {
           const { id, name, price, image } = product;
@@ -212,6 +180,55 @@ const buttonsListenerCart = (element, name) => {
   });
 };
 
+const addPagination = (total, skip) => {
+  let totalLeft = (total / 12).toFixed();
+  totalLeft = totalLeft * 1;
+  const pages = getElement(".pagination");
+  let count = [];
+  if (total - 12 > 0) {
+    for (let i = 0; i <= totalLeft; i++) {
+      count.push(i + 1);
+    }
+    pages.innerHTML = count
+      .map((item) => {
+        return `<button class="products__page">${item}</button>`;
+      })
+      .join("");
+    pages.innerHTML += `<button class="products__page"><i class="fas fa-chevron-right"></i></button>`;
+  } else {
+    pages.innerHTML = `<button class="products__page">1</button>`;
+  }
+
+  let pagesButton = document.querySelectorAll(".products__page");
+  if (skip > 0) {
+    let number = skip / 12 + 1;
+    pagesButton.forEach((item) => {
+      item.innerHTML == number
+        ? item.classList.add("products__page_active")
+        : item;
+    });
+  } else {
+    pagesButton.forEach((item) => {
+      item.innerHTML == "1"
+        ? item.classList.add("products__page_active")
+        : item;
+    });
+  }
+};
+
+const showTotal = (total, skip) => {
+  let show = getElement(".products__result");
+  console.log(skip);
+  if (skip + 12 < total) {
+    show.innerHTML = `Showing ${skip + 1} - ${skip + 12} of ${total}`;
+  } else if (skip + 1 == total) {
+    show.innerHTML = `Showing ${total} of ${total}`;
+  } else if (total > 12) {
+    show.innerHTML = `Showing ${skip + 1} - ${total} of ${total}`;
+  } else {
+    show.innerHTML = `Showing ${skip + 1} - ${total} of ${total}`;
+  }
+};
 export {
   display,
   displayMain,
