@@ -117,6 +117,10 @@ module.exports = {
         exclude: /node_modules/,
         use: jsLoaders(),
       },
+      {
+        test: /\.handlebars$/,
+        use: ["handlebars-loader"],
+      },
     ],
   },
   plugins: [
@@ -147,7 +151,7 @@ module.exports = {
       pngquant: { quality: 80 },
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[hash].css",
+      filename: "./styles/[name].[hash].css",
     }),
   ].concat(multipleHtmlPlugins),
 };

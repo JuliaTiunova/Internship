@@ -53,7 +53,5 @@ const fetchProducts = async () => {
 //     names.push(sub[i].name);
 //   }
 
-//   // console.log(result);
 // };
-// console.log(products.response);
 export default fetchProducts;

@@ -22,7 +22,6 @@ const setUpOptions = (products) => {
 
 // const setUpFullStore = () => {
 //   storeArr.push(...guitars, ...folk, ...ampsEffect, ...drums, ...strings);
-//   console.log(storeArr);
 //   setStorageItem("store", storeArr);
 // };
 
@@ -53,8 +52,6 @@ const setUpOptions = (products) => {
 //     productsAll.onload = function() {
 //       let products = productsAll.response;
 //       let arr = products.data;
-//       // console.log(arr);
-//       // console.log(products.total);
 //       let number = 0;
 //       let total = products.total;
 //       fullArr = JSON.parse(JSON.stringify(arr));
@@ -82,7 +79,6 @@ const setUpOptions = (products) => {
 //         };
 //       }
 //       setFullStorage(arr, name);
-//       console.log(fullArr);
 //       // let guitars = getStorageItem("Guitars");
 //       // let folk = getStorageItem("Folk Instruments");
 //       // let ampsEffect = getStorageItem("Amps & Effects");
@@ -90,7 +86,6 @@ const setUpOptions = (products) => {
 //       // let strings = getStorageItem("String Instruments");
 //       // let storeArr = [];
 //       // storeArr.push(...guitars, ...folk, ...ampsEffect, ...drums, ...strings);
-//       // console.log(storeArr);
 //       // setStorageItem("store", storeArr);
 //       // loading.style.display = "none";
 //     };
@@ -126,10 +121,7 @@ const setUpOptions = (products) => {
 // }
 
 const findProduct = (id, name) => {
-  console.log(name);
-  console.log(id);
   let store = getStorageItem(name);
-  console.log(store);
   // let product = store.find((product) => product.id === id);
   for (let product of store) {
     if (product.id == id) {

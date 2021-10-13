@@ -6,6 +6,7 @@ import displayList from "./displayList";
 import {
   buttonListenerProducts,
   buttonPageListener,
+  buttonSearchListener,
   display,
 } from "./displayProd";
 import "./setupCart";
@@ -20,11 +21,14 @@ const init = () => {
   categories.send();
   categories.onload = function() {
     let result = categories.response;
-    let arr = result.data;
-    displayList(arr, getElement(".filters__categories"));
+    displayList(result, getElement(".filters__categories"));
     display(0);
     buttonListenerProducts(getElement(".filters__categories"));
     buttonPageListener();
+    buttonSearchListener(
+      getElement(".filters__search-button"),
+      getElement(".filters__search")
+    );
   };
 };
 

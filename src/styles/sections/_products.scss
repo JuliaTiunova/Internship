@@ -102,6 +102,7 @@
     }
   }
 }
+
 .hover__button {
   &_round {
     position: relative;
@@ -118,6 +119,7 @@
     &:hover {
       background-color: $green;
       color: $white;
+      cursor: pointer;
     }
 
     & i {
@@ -137,7 +139,7 @@
   }
 
   &__search {
-    padding: 5px 20px;
+    padding: 5px 30px 5px 20px;
     height: 40px;
     border: 0;
     border: 1px solid $grey-border;
@@ -164,7 +166,16 @@
       position: absolute;
       top: 0;
       right: 0;
-      transform: translate(-50%, 28%);
+      transform: translate(-50%, 40%);
+    }
+
+    &::-webkit-search-cancel-button {
+      position: relative;
+      right: 0;
+      -webkit-appearance: none;
+      height: 18px;
+      width: 18px;
+      content: url(../img/clear_button.png);
     }
   }
 
@@ -194,6 +205,18 @@
       color: $black-text;
     }
   }
+
+  &__error {
+    font-family: $jost;
+    font-size: 28px;
+    color: $black-text;
+    text-align: center;
+    grid-column: 2 / 4;
+
+    & span {
+      color: $green;
+    }
+  }
 }
 
 .category {
@@ -209,6 +232,11 @@
 
     &_active {
       color: $black-text;
+    }
+
+    &:hover {
+      color: $black-text;
+      cursor: pointer;
     }
   }
 }

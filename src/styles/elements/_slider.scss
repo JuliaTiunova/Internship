@@ -5,52 +5,60 @@
     position: relative;
     z-index: -1;
 
+    background-position: center center no-repeat;
+    background-size: cover;
+
     @include md {
       height: 65vh;
     }
 
     &_1 {
-      background: url(../img/bg_img.png) center right no-repeat;
-      background-size: cover;
+      background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+        url(../img/violin.jpg);
 
       @include md {
-        background: url(../img/bg_img_mobile.png) center center no-repeat;
+        background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+          url(../img/violin_mobile.jpg);
       }
     }
 
     &_2 {
-      background: url(../img/bg_img_2.png) center center no-repeat;
-      background-size: cover;
+      background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+        url(../img/guitar.jpg);
 
       @include md {
-        background: url(../img/bg_img_2_mobile.png) center center no-repeat;
+        background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+          url(../img/guitar_mobile.jpg);
       }
     }
 
     &_3 {
-      background: url(../img/bg_img_3.png) center center no-repeat;
-      background-size: cover;
+      background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+        url(../img/amps.jpg);
 
       @include md {
-        background: url(../img/bg_img_3_mobile.png) center center no-repeat;
+        background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+          url(../img/amps_mobile.jpg);
       }
     }
 
     &_4 {
-      background: url(../img/bg_img_4.png) center center no-repeat;
-      background-size: cover;
+      background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+        url(../img/drums.jpg);
 
       @include md {
-        background: url(../img/bg_img_4_mobile.png) center center no-repeat;
+        background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+          url(../img/drums_mobile.jpg);
       }
     }
 
     &_5 {
-      background: url(../img/bg_img_5.png) center center no-repeat;
-      background-size: cover;
+      background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+        url(../img/mandolin.jpg);
 
       @include md {
-        background: url(../img/bg_img_5_mobile.png) center center no-repeat;
+        background-image: linear-gradient($blue-bg 0%, $blue-bg 100%),
+          url(../img/mandolin_mobile.jpg);
       }
     }
   }

@@ -31,8 +31,8 @@ const init = async () => {
     setUpOptions(arr);
     // setUpStore(arr);
     // setUpFullStore();
-    displayList(arr, getElement(".arrival__list"));
-    displayList(arr, getElement(".feature__list"));
+    displayList(result, getElement(".arrival__list"));
+    displayList(result, getElement(".feature__list"));
     displayCategory(arr, getElement(".header__categories.categories"));
     displayMain(getElement(".arrival__slider"));
     displayMain(getElement(".feature__products"));
@@ -56,7 +56,6 @@ const init = async () => {
   //   let result = categoryGuitar.response;
   //   let total = result.total;
   //   let arr = result.data;
-  //   console.log(arr);
   //   // displayCategory(arr, "Guitars", total, getElement(".header__categories"));
   // };
   // const products = await fetchProducts();

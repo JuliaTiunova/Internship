@@ -22,4 +22,6 @@
   font-size: 32px;
   line-height: 75px;
   text-align: center;
+  @include center-flex;
+  min-height: 300px;
 }
