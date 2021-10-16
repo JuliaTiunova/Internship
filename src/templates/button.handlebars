@@ -1,3 +1,11 @@
 {{#each data}}
-<button class="category__button" data-id="{{id}}">{{name}}</button>
+
+    <button class="filter category__button category__button_main" data-id="{{id}}">{{name}} <span>3</span></button>
+    <div class="category__wrapper">
+    {{#each subCategories}}
+        <button class="filter category__button category__button_sub" data-id="{{id}}">{{name}}</button>
+    
+    {{/each}}
+    </div>
+
 {{/each}}

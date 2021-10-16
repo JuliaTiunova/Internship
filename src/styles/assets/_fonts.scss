@@ -30,11 +30,11 @@
 
 @font-face {
   font-family: "icomoon";
-  src: url("../fonts/icomoon.eot?hlg8p9");
-  src: url("../fonts/icomoon.eot?hlg8p9#iefix") format("embedded-opentype"),
-    url("../fonts/icomoon.ttf?hlg8p9") format("truetype"),
-    url("../fonts/icomoon.woff?hlg8p9") format("woff"),
-    url("../fonts/icomoon.svg?hlg8p9#icomoon") format("svg");
+  src: url("../fonts/icomoon1.eot?9cg7cl");
+  src: url("../fonts/icomoon1.eot?9cg7cl#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon1.ttf?9cg7cl") format("truetype"),
+    url("../fonts/icomoon1.woff?9cg7cl") format("woff"),
+    url("../fonts/icomoon1.svg?9cg7cl#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -54,29 +54,35 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-baby_food:before {
+.icon-guitar:before {
   content: "\e900";
+}
+.icon-drums:before {
+  content: "\e902";
+}
+.icon-folk-mandolinom:before {
+  content: "\e904";
+}
+.icon-music-desk:before {
+  content: "\e907";
+}
+.icon-music-ear:before {
+  content: "\e90c";
+}
+.icon-violin:before {
+  content: "\e910";
 }
 .icon-coin:before {
   content: "\e901";
 }
-.icon-ecology:before {
-  content: "\e902";
-}
 .icon-envelope:before {
   content: "\e903";
-}
-.icon-field:before {
-  content: "\e904";
 }
 .icon-Frame:before {
   content: "\e905";
 }
 .icon-headphone:before {
   content: "\e906";
-}
-.icon-healthy-eating:before {
-  content: "\e907";
 }
 .icon-lang:before {
   content: "\e908";
@@ -90,9 +96,6 @@
 .icon-search:before {
   content: "\e90b";
 }
-.icon-overall:before {
-  content: "\e90c";
-}
 .icon-phone_call:before {
   content: "\e90d";
 }
@@ -101,9 +104,6 @@
 }
 .icon-cart:before {
   content: "\e90f";
-}
-.icon-vegetable:before {
-  content: "\e910";
 }
 
 $lobster: "LobsterTwo", sans-serif;

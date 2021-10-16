@@ -9,7 +9,7 @@ const displayCategory = (arr, element) => {
           <img src="${oneCategoryImage(
             id
           )}" alt="${name}" class="card__img" data-id="${id}"/>
-          <a href="./products.html" class="card__title-slider title-slider link">${name}</a>
+          <a href="./products.html?${id}" class="card__title-slider title-slider link">${name}</a>
           <p class="card__item-count" data-id="${id}"> ${oneCategoryTotal(
         id
       )}</p>

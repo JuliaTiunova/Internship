@@ -56,12 +56,14 @@ export function sliderFeature() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          arrows: false,
         },
       },
       {
         breakpoint: 578,
         settings: {
           slidesToShow: 1,
+          arrows: false,
         },
       },
     ],

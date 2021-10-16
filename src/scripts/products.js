@@ -4,9 +4,12 @@ import "./burger";
 import "./cart";
 import displayList from "./displayList";
 import {
+  buttonCompany,
+  buttonLayoutListener,
   buttonListenerProducts,
   buttonPageListener,
   buttonSearchListener,
+  buttonSubCategories,
   display,
 } from "./displayProd";
 import "./setupCart";
@@ -29,7 +32,10 @@ const init = () => {
       getElement(".filters__search-button"),
       getElement(".filters__search")
     );
+    buttonSubCategories();
+    buttonCompany();
   };
+  buttonLayoutListener();
 };
 
 window.addEventListener("DOMContentLoaded", init);
