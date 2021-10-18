@@ -1,12 +1,13 @@
 import "../styles/forms.scss";
 import "./setupCart";
 
-import { getElement } from "./assets";
+import { allCategoriesURL, getElement } from "./assets";
 import datepicker from "js-datepicker";
 import * as $ from "jquery";
 import "jquery-mask-plugin";
 import "./burger";
 import "./cart";
+import { displayMenu } from "./displayMenu";
 
 const loading = getElement(".page-loading");
 
@@ -33,6 +34,15 @@ const filePhoto = getElement(".checkout-file");
 const formLogin = getElement(".login__form");
 const form = getElement(".checkout__form");
 const errorMessage = getElement(".error-message");
+
+let categories = new XMLHttpRequest();
+categories.open("GET", allCategoriesURL);
+categories.responseType = "json";
+categories.send();
+categories.onload = function() {
+  let result = categories.response;
+  displayMenu(result);
+};
 
 $(".phone").mask("+00 (000) 000 00 00");
 

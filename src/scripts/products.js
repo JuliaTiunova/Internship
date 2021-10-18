@@ -16,6 +16,7 @@ import {
 } from "./displayProd";
 import { getPriceRange } from "./priceRange";
 import { sortButtonListener } from "./sortingProducts";
+import { displayMenu } from "./displayMenu";
 
 $(".filters__form").attr("autocomplete", "off");
 
@@ -28,6 +29,7 @@ const init = () => {
     let result = categories.response;
     displayList(result, getElement(".filters__categories"));
     display(0);
+    displayMenu(result);
     buttonListenerProducts(getElement(".filters__categories"));
     buttonPageListener();
     buttonSearchListener(

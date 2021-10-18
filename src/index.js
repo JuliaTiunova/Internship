@@ -10,6 +10,7 @@ import displayCategory from "./scripts/displayCategoriesMain";
 import { buttonListener, displayMain } from "./scripts/displayProd";
 import displayList from "./scripts/displayList";
 import { setUpOptions } from "./scripts/store";
+import { displayMenu } from "./scripts/displayMenu";
 
 const loading = getElement(".page-loading");
 
@@ -25,6 +26,7 @@ const init = () => {
     setUpOptions(arr);
     displayList(result, getElement(".arrival__list"));
     displayList(result, getElement(".feature__list"));
+    displayMenu(result);
     displayCategory(arr, getElement(".header__categories"));
     displayMain(getElement(".arrival__slider"));
     displayMain(getElement(".feature__products"));

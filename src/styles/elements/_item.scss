@@ -3,7 +3,7 @@
     font-family: $jost;
     font-weight: 500;
     font-size: 16px;
-    line-height: 64px;
+    line-height: 63px;
     color: $black-title;
     &:hover,
     &:active {
@@ -59,4 +59,9 @@
   & span {
     font-family: $icons;
   }
+}
+
+.menu__item:hover .item__link {
+  color: $green-text;
+  cursor: pointer;
 }
