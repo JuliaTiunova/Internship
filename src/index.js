@@ -6,16 +6,15 @@ import { allCategoriesURL, getElement } from "./scripts/assets";
 import "./scripts/cart";
 import "./scripts/burger";
 import countdown from "./scripts/countdown";
-import { setUpOptions } from "./scripts/store";
 import displayCategory from "./scripts/displayCategoriesMain";
 import { buttonListener, displayMain } from "./scripts/displayProd";
 import displayList from "./scripts/displayList";
+import { setUpOptions } from "./scripts/store";
 
 const loading = getElement(".page-loading");
 
-countdown();
-
-const init = async () => {
+const init = () => {
+  countdown();
   let categories = new XMLHttpRequest();
   categories.open("GET", allCategoriesURL);
   categories.responseType = "json";
@@ -38,17 +37,6 @@ const init = async () => {
       getElement(".feature__list"),
       getElement(".feature__products")
     );
-    let button = document.querySelectorAll(".card__title-slider");
-    button.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        e.preventDefault();
-        console.log(item.href);
-        let id = item.href.split("?");
-        id = id.slice(-1);
-        console.log(id.toString());
-        window.open("./products.html", "_self");
-      });
-    });
   };
 };
 

@@ -56,14 +56,24 @@ const displayMain = (slider, arr) => {
   buttonsListenerCart(slider, text);
 };
 
-const display = (skip, manufacturer, price) => {
-  let input = getElement(".filters__search");
-  let element = getElement(".products__display");
-  let item = getElement(".category__button_active");
-  let elementCompany = getElement(".filters__companies");
-  let textId = item.dataset.id;
-  let priceDisplay = document.querySelectorAll(".filters__price span");
+const display = (skip, manufacturer, price, button) => {
+  const API_URL = `http://localhost:3030/products`;
+  const input = getElement(".filters__search");
+  const element = getElement(".products__display");
+  const item = getElement(".category__button_active");
+  const elementCompany = getElement(".filters__companies");
+  const textId = item.dataset.id;
+  const priceDisplay = document.querySelectorAll(".filters__price span");
+  const productsLayout = document.querySelectorAll(".products__layout");
   let productsAll = new XMLHttpRequest();
+
+  productsLayout.forEach((button) => {
+    if (button.classList.contains("products__layout_active")) {
+      if (button.classList.contains("layout_list")) {
+        list = true;
+      }
+    }
+  });
 
   if (list) {
     number = 5;
@@ -77,47 +87,40 @@ const display = (skip, manufacturer, price) => {
     getPriceRange();
   }
 
+  let link = `${API_URL}?$limit=${number}&$skip=${skip}&category.id=${textId}`;
+
+  if (button) {
+    if (button.value == "priceLow") {
+      link += `&$sort[price]=1`;
+    } else if (button.value == "priceHigh") {
+      link += `&$sort[price]=-1`;
+    }
+  }
+
   if (price && manufacturer == "") {
     let max = price[1] * 1;
     let min = price[0] * 1;
-    productsAll.open(
-      "GET",
-      `http://localhost:3030/products?$limit=${number}&price[$lte]=${max}&price[$gt]=${min}&$skip=${skip}&category.id=${textId}`
-    );
+    link += `&price[$lte]=${max}&price[$gt]=${min}&name[$like]=*${input.value}*`;
+    productsAll.open("GET", link);
   } else if (price && manufacturer) {
     let max = price[1] * 1;
     let min = price[0] * 1;
-    productsAll.open(
-      "GET",
-      `http://localhost:3030/products?$limit=${number}&price[$lte]=${max}&price[$gt]=${min}&manufacturer=${manufacturer}&$skip=${skip}&category.id=${textId}`
-    );
-  } else if (manufacturer) {
-    productsAll.open(
-      "GET",
-      `http://localhost:3030/products?$limit=${number}&$skip=${skip}&name[$like]=*${input.value}*&manufacturer=${manufacturer}&category.id=${textId}`
-    );
+    link += `&price[$lte]=${max}&price[$gt]=${min}&name[$like]=*${input.value}*&manufacturer=${manufacturer}`;
+    productsAll.open("GET", link);
+  } else if (manufacturer && !input.value) {
+    link += `&manufacturer=${manufacturer}`;
+    productsAll.open("GET", link);
+  } else if (input.value && manufacturer) {
+    link += `&name[$like]=*${input.value}*&manufacturer=${manufacturer}`;
+    productsAll.open("GET", link);
   } else if (input.value && skip > 0) {
-    productsAll.open(
-      "GET",
-      `http://localhost:3030/products?$limit=${number}&$skip=${skip}&name[$like]=*${input.value}*&category.id=${textId}`
-    );
+    link += `&name[$like]=*${input.value}*`;
+    productsAll.open("GET", link);
   } else if (input.value) {
-    productsAll.open(
-      "GET",
-      `http://localhost:3030/products?$limit=${number}&name[$like]=*${input.value}*&category.id=${textId}`
-    );
+    link += `&name[$like]=*${input.value}*`;
+    productsAll.open("GET", link);
   } else {
-    if (skip > 0) {
-      productsAll.open(
-        "GET",
-        `http://localhost:3030/products?$limit=${number}&$skip=${skip}&category.id=${textId}`
-      );
-    } else {
-      productsAll.open(
-        "GET",
-        `http://localhost:3030/products?$limit=${number}&&category.id=${textId}`
-      );
-    }
+    productsAll.open("GET", link);
   }
 
   productsAll.responseType = "json";
@@ -213,6 +216,8 @@ const buttonListener = (categoriesDOM, el) => {
 
 const buttonCompany = () => {
   const names = getElement(".filters__companies");
+  const ranges = document.querySelectorAll(".filters__input");
+  const sortingButton = getElement(".products__sorting");
 
   names.addEventListener("click", (e) => {
     const element = e.target;
@@ -222,18 +227,19 @@ const buttonCompany = () => {
         ? item.classList.remove("company__button_active")
         : item
     );
-
+    let price = [ranges[0].value, ranges[1].value];
     element.classList.add("company__button_active");
-    display(0, element.innerHTML);
+    display(0, element.innerHTML, price, sortingButton);
   });
 };
 
 const buttonLayoutListener = () => {
   const productsLayout = document.querySelectorAll(".products__layout");
+  const ranges = document.querySelectorAll(".filters__input");
+  const sortingButton = getElement(".products__sorting");
 
   productsLayout.forEach((button) => {
     button.addEventListener("click", (e) => {
-      const input = getElement(".filters__search");
       const companies = document.querySelectorAll(".company__button");
       const title = getElement(".breadcrumb__title");
       const subtitle = getElement(".breadcrumb__path span");
@@ -261,13 +267,11 @@ const buttonLayoutListener = () => {
         title.textContent = "shop grid sidebar";
         subtitle.textContent = "shop grid sidebar";
       }
-
+      let price = [ranges[0].value, ranges[1].value];
       if (company.length == 1) {
-        display(0, input.value, company[0]);
-      } else if (input.value && company.length != 1) {
-        display(0, input.value);
+        display(0, company[0], price, sortingButton);
       } else {
-        display(0);
+        display(0, "", price, sortingButton);
       }
     });
   });
@@ -276,7 +280,8 @@ const buttonLayoutListener = () => {
 const buttonPageListener = () => {
   const pages = getElement(".pagination");
   const productWindow = getElement(".products");
-  const input = getElement(".filters__search");
+  const sortingButton = getElement(".products__sorting");
+  const ranges = document.querySelectorAll(".filters__input");
 
   let skip = 0;
 
@@ -321,19 +326,19 @@ const buttonPageListener = () => {
       }
     }
     productWindow.scrollIntoView();
+    let price = [ranges[0].value, ranges[1].value];
 
     if (company.length == 1) {
-      display(skip, input.value, company[0]);
-    } else if (input.value && company.length != 1) {
-      display(skip, input.value);
+      display(skip, company[0], price, sortingButton);
     } else {
-      display(skip);
+      display(skip, "", price, sortingButton);
     }
   });
 };
 
 const buttonListenerProducts = (categoriesDOM) => {
   const buttonItem = document.querySelectorAll(".category__button");
+  const sortingButton = getElement(".products__sorting");
 
   categoriesDOM.addEventListener("click", (e) => {
     const element = e.target;
@@ -352,7 +357,7 @@ const buttonListenerProducts = (categoriesDOM) => {
       }
     }
 
-    display(0);
+    display(0, "", "", sortingButton);
   });
 };
 
@@ -367,10 +372,9 @@ const buttonsListenerCart = (element, name) => {
   });
 };
 
-const buttonSearchListener = (button, input) => {
+const buttonSearchListener = (button) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
-    let name = input.value;
 
     const companies = document.querySelectorAll(".company__button");
     let company = [];
@@ -380,9 +384,9 @@ const buttonSearchListener = (button, input) => {
         : item
     );
     if (company.length == 1) {
-      display(0, name, company[0]);
+      display(0, company[0]);
     } else {
-      display(0, name);
+      display(0);
     }
   });
 };

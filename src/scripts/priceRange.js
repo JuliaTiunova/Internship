@@ -1,8 +1,10 @@
+import { getElement } from "./assets";
 import { display } from "./displayProd";
 
 export function getPriceRange() {
   const ranges = document.querySelectorAll(".filters__input");
   const numbers = document.querySelectorAll(".filters__price span");
+  const sortingButton = getElement(".products__sorting");
   ranges[1].style.background = `linear-gradient(to right, #000 0%, #000 100%)`;
 
   ranges.forEach((el) => {
@@ -41,9 +43,9 @@ export function getPriceRange() {
 
       let price = [ranges[0].value, ranges[1].value];
       if (company) {
-        display(0, company, price);
+        display(0, company, price, sortingButton);
       } else {
-        display(0, "", price);
+        display(0, "", price, sortingButton);
       }
     };
   });

@@ -22,11 +22,13 @@
     border: 1px solid $grey-border;
     outline: none;
     color: $black;
+    margin-right: 10px;
 
     &_active,
     &:hover {
       background-color: $green;
       color: $white;
+      cursor: pointer;
     }
   }
 
@@ -38,16 +40,31 @@
     color: $black-text;
   }
 
+  &__buttons_wrapper {
+    display: flex;
+  }
+
   &__sorting {
-    padding: 5px 20px;
+    padding: 5px 11px 5px 30px;
+    width: 222px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 40px;
     border: 0;
+    background: 0;
     border: 1px solid $grey-border;
     outline: none;
     font-family: $jost;
     font-size: 16px;
     line-height: 22px;
     color: $black-text;
+    position: relative;
+
+    & i {
+      color: $grey;
+      font-size: 16px;
+    }
 
     &::placeholder {
       font-family: $jost;
@@ -56,9 +73,57 @@
       line-height: 30px;
       color: $grey;
     }
+    &:hover {
+      box-shadow: 0px 5px 25px rgba(138, 159, 168, 0.25);
+      cursor: pointer;
+      & + .products__sorting-option_wrapper {
+        opacity: 1;
+        pointer-events: initial;
+        transform: translateY(0);
+        transition: transform 0.5s, opacity 0.4s 0.1s;
+        cursor: pointer;
+      }
+    }
 
-    & options {
+    &-option {
+      padding: 5px 11px 5px 30px;
+      width: 222px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      border: 0;
+      background: 0;
+      background-color: $white;
+      border: 1px solid $grey-border;
+      outline: none;
+      font-family: $jost;
+      font-size: 16px;
+      line-height: 22px;
       color: $grey;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &_wrapper {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        opacity: 0;
+        transform: translateY(-100%);
+        z-index: 2;
+        box-shadow: 0px 5px 25px rgba(138, 159, 168, 0.25);
+        pointer-events: none;
+        transition: transform 0.5s, opacity 0.1s;
+
+        &:hover {
+          opacity: 1;
+          pointer-events: initial;
+          transform: translateY(0);
+          cursor: pointer;
+        }
+      }
     }
   }
 
@@ -209,6 +274,11 @@
     flex-direction: column;
     align-items: start;
     margin-bottom: 51px;
+  }
+
+  &__companies {
+    max-height: 300px;
+    overflow: scroll;
   }
 
   &__price {

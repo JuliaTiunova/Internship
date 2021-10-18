@@ -1,7 +1,9 @@
+import * as $ from "jquery";
 import "../styles/products.scss";
-import { allCategoriesURL, getElement } from "./assets";
 import "./burger";
 import "./cart";
+import "./setupCart";
+import { allCategoriesURL, getElement } from "./assets";
 import displayList from "./displayList";
 import {
   buttonCompany,
@@ -12,9 +14,8 @@ import {
   buttonSubCategories,
   display,
 } from "./displayProd";
-import "./setupCart";
-import * as $ from "jquery";
 import { getPriceRange } from "./priceRange";
+import { sortButtonListener } from "./sortingProducts";
 
 $(".filters__form").attr("autocomplete", "off");
 
@@ -35,9 +36,9 @@ const init = () => {
     );
     buttonSubCategories();
     buttonCompany();
-
     getPriceRange();
   };
+  sortButtonListener();
   buttonLayoutListener();
 };
 

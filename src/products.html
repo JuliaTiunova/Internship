@@ -111,8 +111,8 @@
                       <h5 class="dropdown__title title5">Shop Layout</h5>
                       <ul class="dropdown__list">
                         <li class="dropdown__item"><a href="#">Shop Grid Fullwidth</a></li>
-                        <li class="dropdown__item"><a href="#">Shop Grid Sidebar</a></li>
-                        <li class="dropdown__item"><a href="#">Shop List Sidebar</a></li>
+                        <li class="dropdown__item"><a href="./products.html?grid">Shop Grid Sidebar</a></li>
+                    <li class="dropdown__item"><a href="./products.html?list">Shop List Sidebar</a></li>
                       </ul>
                     </div>
                     <div class="dropdown__content">
@@ -174,14 +174,16 @@
           <div class="products__top">
             <p class="products__result"></p>
             <div class="products__buttons_wrapper">
-              <button class="products__layout products__layout_active layout_grid"><i class="fas fa-th-large"></i></button>
+              <button class="products__layout layout_grid"><i class="fas fa-th-large"></i></button>
               <button class="products__layout layout_list"><i class="fas fa-list"></i></button>
-              <select class="products__sorting" name="sorting" id="sorting">
-                <option value="deafault">Default sorting</option>
-                <option value="rating">Sort by rating</option>
-                <option value="low">Sort by price: low to high</option>
-                <option value="high">Sort by price: high to low</option>
-              </select>
+              <div class="products__sorting_wrapper">
+                <button class="products__sorting" value="default" name="sorting">Default sorting <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="products__sorting-option_wrapper">
+                    <button class="products__sorting-option" value="priceLow">Price: low to high</button>
+                    <button class="products__sorting-option" value="priceHigh">Price: high to low</button>
+                </div>
+              </div>
             </div>
           </div>
           <div class="products__display display">
