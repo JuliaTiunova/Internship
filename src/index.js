@@ -26,7 +26,7 @@ const init = async () => {
     setUpOptions(arr);
     displayList(result, getElement(".arrival__list"));
     displayList(result, getElement(".feature__list"));
-    displayCategory(arr, getElement(".header__categories.categories"));
+    displayCategory(arr, getElement(".header__categories"));
     displayMain(getElement(".arrival__slider"));
     displayMain(getElement(".feature__products"));
     displayMain(getElement(".deals__products"), arr);

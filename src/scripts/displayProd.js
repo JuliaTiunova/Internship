@@ -8,8 +8,10 @@ import headerProducts from "../templates/headerProducts.handlebars";
 import displayProd from "../templates/displayProd.handlebars";
 
 import errorMessage from "../templates/errorMessage.handlebars";
+import { getMaxPrice, getMinPrice, getPriceRange } from "./priceRange";
 
 let list = false;
+let number = 0;
 
 const displayMain = (slider, arr) => {
   slider.className = slider.classList[0];
@@ -54,38 +56,66 @@ const displayMain = (slider, arr) => {
   buttonsListenerCart(slider, text);
 };
 
-const display = (skip, name, manufacturer) => {
+const display = (skip, manufacturer, price) => {
+  let input = getElement(".filters__search");
   let element = getElement(".products__display");
   let item = getElement(".category__button_active");
   let elementCompany = getElement(".filters__companies");
   let textId = item.dataset.id;
+  let priceDisplay = document.querySelectorAll(".filters__price span");
   let productsAll = new XMLHttpRequest();
 
-  if (manufacturer) {
+  if (list) {
+    number = 5;
+  } else {
+    number = 12;
+  }
+
+  if (!price) {
+    getMaxPrice(priceDisplay, textId, manufacturer);
+    getMinPrice(priceDisplay, textId, manufacturer);
+    getPriceRange();
+  }
+
+  if (price && manufacturer == "") {
+    let max = price[1] * 1;
+    let min = price[0] * 1;
     productsAll.open(
       "GET",
-      `http://localhost:3030/products?$limit=12&$skip=${skip}&name[$like]=*${name}*&manufacturer=${manufacturer}&category.id=${textId}`
+      `http://localhost:3030/products?$limit=${number}&price[$lte]=${max}&price[$gt]=${min}&$skip=${skip}&category.id=${textId}`
     );
-  } else if (name && skip > 0) {
+  } else if (price && manufacturer) {
+    let max = price[1] * 1;
+    let min = price[0] * 1;
     productsAll.open(
       "GET",
-      `http://localhost:3030/products?$limit=12&$skip=${skip}&name[$like]=*${name}*&category.id=${textId}`
+      `http://localhost:3030/products?$limit=${number}&price[$lte]=${max}&price[$gt]=${min}&manufacturer=${manufacturer}&$skip=${skip}&category.id=${textId}`
     );
-  } else if (name) {
+  } else if (manufacturer) {
     productsAll.open(
       "GET",
-      `http://localhost:3030/products?$limit=12&name[$like]=*${name}*&category.id=${textId}`
+      `http://localhost:3030/products?$limit=${number}&$skip=${skip}&name[$like]=*${input.value}*&manufacturer=${manufacturer}&category.id=${textId}`
+    );
+  } else if (input.value && skip > 0) {
+    productsAll.open(
+      "GET",
+      `http://localhost:3030/products?$limit=${number}&$skip=${skip}&name[$like]=*${input.value}*&category.id=${textId}`
+    );
+  } else if (input.value) {
+    productsAll.open(
+      "GET",
+      `http://localhost:3030/products?$limit=${number}&name[$like]=*${input.value}*&category.id=${textId}`
     );
   } else {
     if (skip > 0) {
       productsAll.open(
         "GET",
-        `http://localhost:3030/products?$limit=12&$skip=${skip}&category.id=${textId}`
+        `http://localhost:3030/products?$limit=${number}&$skip=${skip}&category.id=${textId}`
       );
     } else {
       productsAll.open(
         "GET",
-        `http://localhost:3030/products?$limit=12&&category.id=${textId}`
+        `http://localhost:3030/products?$limit=${number}&&category.id=${textId}`
       );
     }
   }
@@ -152,10 +182,7 @@ const display = (skip, name, manufacturer) => {
       }
 
       if (total < 1) {
-        element.innerHTML = errorMessage({
-          product: name,
-          category: item.textContent,
-        });
+        element.innerHTML = errorMessage();
       } else if (list) {
         element.innerHTML = productsList(info);
         element.classList.add("product__list");
@@ -197,7 +224,7 @@ const buttonCompany = () => {
     );
 
     element.classList.add("company__button_active");
-    display(0, "", element.innerHTML);
+    display(0, element.innerHTML);
   });
 };
 
@@ -208,6 +235,8 @@ const buttonLayoutListener = () => {
     button.addEventListener("click", (e) => {
       const input = getElement(".filters__search");
       const companies = document.querySelectorAll(".company__button");
+      const title = getElement(".breadcrumb__title");
+      const subtitle = getElement(".breadcrumb__path span");
       let company = [];
       companies.forEach((item) =>
         item.classList.contains("company__button_active")
@@ -224,9 +253,13 @@ const buttonLayoutListener = () => {
         button.previousElementSibling.classList.remove(
           "products__layout_active"
         );
+        title.textContent = "shop list sidebar";
+        subtitle.textContent = "shop list sidebar";
       } else {
         list = false;
         button.nextElementSibling.classList.remove("products__layout_active");
+        title.textContent = "shop grid sidebar";
+        subtitle.textContent = "shop grid sidebar";
       }
 
       if (company.length == 1) {
@@ -247,6 +280,12 @@ const buttonPageListener = () => {
 
   let skip = 0;
 
+  if (list) {
+    number = 5;
+  } else {
+    number = 12;
+  }
+
   pages.addEventListener("click", (e) => {
     const element = e.target;
     let active = getElement(".products__page_active");
@@ -263,12 +302,12 @@ const buttonPageListener = () => {
       element.classList.contains("products__page_next") ||
       element.classList.contains("fas")
     ) {
-      skip = active.innerHTML * 12;
+      skip = active.innerHTML * number;
       if (
         active.nextElementSibling.classList.contains("products__page_next") ||
         active.nextElementSibling.classList.contains("fas")
       ) {
-        skip = (active.innerHTML - 1) * 12;
+        skip = (active.innerHTML - 1) * number;
       } else {
         active.classList.remove(".products__page_active");
         active.nextElementSibling.classList.add(".products__page_active");
@@ -276,7 +315,7 @@ const buttonPageListener = () => {
     } else {
       element.classList.add("products__page_active");
       if (element.innerHTML > 1) {
-        skip = (element.innerHTML - 1) * 12;
+        skip = (element.innerHTML - 1) * number;
       } else {
         skip = 0;
       }
@@ -313,8 +352,6 @@ const buttonListenerProducts = (categoriesDOM) => {
       }
     }
 
-    const productWindow = getElement(".products");
-    productWindow.scrollIntoView();
     display(0);
   });
 };
@@ -355,11 +392,17 @@ const buttonSubCategories = () => {
 };
 
 const addPagination = (total, skip) => {
-  let totalLeft = Math.floor(total / 12);
+  if (list) {
+    number = 5;
+  } else {
+    number = 12;
+  }
+
+  let totalLeft = Math.floor(total / number);
   totalLeft = totalLeft * 1;
   const pages = getElement(".pagination");
   let count = [];
-  if (total - 12 > 0) {
+  if (total - number > 0) {
     for (let i = 0; i <= totalLeft; i++) {
       count.push(i + 1);
     }
@@ -375,9 +418,9 @@ const addPagination = (total, skip) => {
 
   let pagesButton = document.querySelectorAll(".products__page");
   if (skip > 0) {
-    let number = skip / 12 + 1;
+    let newNumber = skip / number + 1;
     pagesButton.forEach((item) => {
-      item.innerHTML == number
+      item.innerHTML == newNumber
         ? item.classList.add("products__page_active")
         : item;
     });
@@ -389,7 +432,7 @@ const addPagination = (total, skip) => {
     });
   }
 
-  if (total - 12 > 0) {
+  if (total - number > 0) {
     const active = getElement(".products__page_active");
     const next = getElement(".products__page_next");
 
@@ -400,12 +443,18 @@ const addPagination = (total, skip) => {
 };
 
 const showTotal = (total, skip) => {
+  if (list) {
+    number = 5;
+  } else {
+    number = 12;
+  }
+
   let show = getElement(".products__result");
-  if (skip + 12 < total) {
-    show.innerHTML = `Showing ${skip + 1} - ${skip + 12} of ${total}`;
+  if (skip + number < total) {
+    show.innerHTML = `Showing ${skip + 1} - ${skip + number} of ${total}`;
   } else if (skip + 1 == total) {
     show.innerHTML = `Showing ${total} of ${total}`;
-  } else if (total > 12) {
+  } else if (total > number) {
     show.innerHTML = `Showing ${skip + 1} - ${total} of ${total}`;
   } else if (skip < 1 && total < 1) {
     show.innerHTML = `Showing ${total}`;

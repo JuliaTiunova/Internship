@@ -14,6 +14,7 @@ import {
 } from "./displayProd";
 import "./setupCart";
 import * as $ from "jquery";
+import { getPriceRange } from "./priceRange";
 
 $(".filters__form").attr("autocomplete", "off");
 
@@ -34,6 +35,8 @@ const init = () => {
     );
     buttonSubCategories();
     buttonCompany();
+
+    getPriceRange();
   };
   buttonLayoutListener();
 };

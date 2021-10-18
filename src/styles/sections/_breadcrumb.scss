@@ -15,10 +15,15 @@
     font-size: 15px;
     line-height: 25px;
     color: $black-text;
+    text-transform: capitalize;
 
     & span {
       color: $green;
     }
+  }
+
+  &__title {
+    text-transform: capitalize;
   }
 
   & i {
