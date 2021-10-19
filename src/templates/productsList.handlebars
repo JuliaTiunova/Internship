@@ -5,7 +5,7 @@
         <img class="product__img" src="{{image}}" alt="{{name}}" />
       </div>
       <div class="product__description">
-            <p class="product__name">{{name}}</p>
+            <a href="./product.html?id={{id}}" class="product__name" title="product details">{{name}}</a>
             <p class="product__price">${{price}}</p>
             <p>{{description}}</p>
       </div>
@@ -14,7 +14,7 @@
             <button class="hover__button_round"><i class="icon-like"></i></button>
             <button class="hover__button_round"><i class="icon-reload"></i></button>
             <button class="hover__button_round"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i></button>
-            <button class="hover__button_round"><i class="icon-search"></i></button>
+            <a href="./product.html?id={{id}}" class="hover__button_round" title="product details"><i class="icon-search"></i></a>
         </div>
       </div>
     </div>

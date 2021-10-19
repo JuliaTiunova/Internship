@@ -13,9 +13,9 @@ import {
   buttonSearchListener,
   buttonSubCategories,
   display,
-} from "./displayProd";
-import { getPriceRange } from "./priceRange";
-import { sortButtonListener } from "./sortingProducts";
+} from "./products/displayProd";
+import { getPriceRange } from "./products/priceRange";
+import { sortButtonListener } from "./products/sortingProducts";
 import { displayMenu } from "./displayMenu";
 
 $(".filters__form").attr("autocomplete", "off");

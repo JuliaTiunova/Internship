@@ -39,6 +39,13 @@
     font-weight: 500;
     font-size: 15px;
     line-height: 25px;
+    text-decoration: none;
+    color: $black-text;
+
+    &:hover {
+      cursor: pointer;
+      color: $green;
+    }
   }
 
   &__price {
@@ -106,6 +113,7 @@
     padding: 12px 30px 0 30px;
     position: absolute;
     top: 0;
+    left: 0;
     height: 100%;
 
     @media (max-width: 1919.98px) {

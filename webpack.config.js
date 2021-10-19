@@ -52,7 +52,7 @@ const jsLoaders = () => {
   }
   return loader;
 };
-let htmlPageNames = ["forms", "products"];
+let htmlPageNames = ["forms", "products", "product"];
 
 let multipleHtmlPlugins = htmlPageNames.map((name) => {
   return new HtmlWebpackPlugin({
@@ -69,6 +69,7 @@ module.exports = {
     index: ["@babel/polyfill", "./index.js"],
     forms: "./scripts/forms.js",
     products: "./scripts/products.js",
+    product: "./scripts/product.js",
   },
   optimization: optimization(),
   devServer: {

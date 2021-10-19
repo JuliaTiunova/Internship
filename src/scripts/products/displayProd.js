@@ -1,13 +1,13 @@
 import * as $ from "jquery";
-import { getElement } from "./assets";
-import { addToCart, addToWishlist } from "./setupCart";
-import { sliderArrival, sliderFeature } from "./slider";
-import products from "../templates/products.handlebars";
-import productsList from "../templates/productsList.handlebars";
-import headerProducts from "../templates/headerProducts.handlebars";
-import displayProd from "../templates/displayProd.handlebars";
+import { getElement } from "../assets";
+import { addToCart, addToWishlist } from "../setupCart";
+import { sliderArrival, sliderFeature } from "../slider";
+import products from "../../templates/products.handlebars";
+import productsList from "../../templates/productsList.handlebars";
+import headerProducts from "../../templates/headerProducts.handlebars";
+import displayProd from "../../templates/displayProd.handlebars";
 
-import errorMessage from "../templates/errorMessage.handlebars";
+import errorMessage from "../../templates/errorMessage.handlebars";
 import { getMaxPrice, getMinPrice, getPriceRange } from "./priceRange";
 
 let list = false;
