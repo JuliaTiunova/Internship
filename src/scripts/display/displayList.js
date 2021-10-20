@@ -1,6 +1,6 @@
-import { getElement } from "./assets";
-import button from "../templates/button.handlebars";
-import list from "../templates/list.handlebars";
+import { getElement } from "../assets";
+import button from "../../templates/button.handlebars";
+import list from "../../templates/list.handlebars";
 
 const displayList = (categories, element) => {
   if (element.className === "filters__categories") {

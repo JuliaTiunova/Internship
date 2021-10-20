@@ -1,6 +1,6 @@
-import { getElement } from "./assets";
-import printMenu from "../templates/menu.handlebars";
-import printMenuFooter from "../templates/menuFooter.handlebars";
+import { getElement } from "../assets";
+import printMenu from "../../templates/menu.handlebars";
+import printMenuFooter from "../../templates/menuFooter.handlebars";
 
 export function displayMenu(arr) {
   const menu = getElement(".dropdown__content_main");

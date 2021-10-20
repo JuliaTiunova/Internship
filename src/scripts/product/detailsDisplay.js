@@ -6,6 +6,11 @@ import { sliderProduct, sliderViewedProd } from "../slider";
 import { getRelated } from "./related";
 import { setLastViewed } from "./setLastViewed";
 import { getLastViewed } from "./getLAstViewed";
+import { countListener } from "./countListener";
+import { descriptListener } from "./descriptListener";
+import { addReview } from "./addReview";
+import { changeShippingText } from "./shippingSet";
+import { postReview } from "./postReview";
 
 export function displayProduct() {
   const sliderTop = getElement(".pic__slider_top");
@@ -31,6 +36,11 @@ export function displayProduct() {
       sliderProduct();
     });
     sliderViewedProd();
+    countListener();
+    descriptListener();
+    addReview(data.id, data.name);
+    changeShippingText();
+    postReview(data.name);
 
     for (let i = 4; i >= 0; i--) {
       if (data.categories[i]) {

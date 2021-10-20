@@ -4,7 +4,7 @@ import "./cart";
 import "./setupCart";
 
 import { allCategoriesURL } from "./assets";
-import { displayMenu } from "./displayMenu";
+import { displayMenu } from "./display/displayMenu";
 import { displayProduct } from "./product/detailsDisplay";
 
 const init = () => {

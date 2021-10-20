@@ -1,4 +1,4 @@
-import { sliderHeader } from "./slider";
+import { sliderHeader } from "../slider";
 
 const displayCategory = (arr, element) => {
   element.innerHTML = arr

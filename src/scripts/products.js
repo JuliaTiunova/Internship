@@ -4,7 +4,7 @@ import "./burger";
 import "./cart";
 import "./setupCart";
 import { allCategoriesURL, getElement } from "./assets";
-import displayList from "./displayList";
+import displayList from "./display/displayList";
 import {
   buttonCompany,
   buttonLayoutListener,
@@ -16,7 +16,7 @@ import {
 } from "./products/displayProd";
 import { getPriceRange } from "./products/priceRange";
 import { sortButtonListener } from "./products/sortingProducts";
-import { displayMenu } from "./displayMenu";
+import { displayMenu } from "./display/displayMenu";
 
 $(".filters__form").attr("autocomplete", "off");
 

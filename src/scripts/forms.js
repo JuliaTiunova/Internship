@@ -7,7 +7,7 @@ import * as $ from "jquery";
 import "jquery-mask-plugin";
 import "./burger";
 import "./cart";
-import { displayMenu } from "./displayMenu";
+import { displayMenu } from "./display/displayMenu";
 
 const loading = getElement(".page-loading");
 

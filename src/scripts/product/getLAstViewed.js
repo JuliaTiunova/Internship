@@ -3,8 +3,7 @@ import products from "../../templates/products.handlebars";
 
 export function getLastViewed() {
   const sliderView = getElement(".view__slider");
-  let list = localStorage.getItem("lastViewed");
-  list = list.split(",");
+  let list = JSON.parse(localStorage.getItem("lastViewed"));
 
   list.forEach((item) => {
     let view = new XMLHttpRequest();
