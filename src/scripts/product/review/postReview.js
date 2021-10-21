@@ -53,6 +53,14 @@ export function postReview() {
         return article(message, name, rating);
       })
       .join("");
+  } else {
+    const starRatingCount = getElement(".info__name_ratings");
+    let icons = "";
+    for (let i = 0; i < 5; i++) {
+      icons += `<i class="rating__star far fa-star"></i>`;
+    }
+    icons += `<span> No reviews yet</span>`;
+    starRatingCount.innerHTML = icons;
   }
 
   getStarRating();
