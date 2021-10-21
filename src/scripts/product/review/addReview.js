@@ -1,18 +1,31 @@
-import { getElement } from "../assets";
+import { getElement } from "../../assets";
+import * as $ from "jquery";
 
 export function addReview(id, productName) {
   const form = getElement(".review__form");
   const name = getElement(".inputs__name");
   const mail = getElement(".inputs__email");
   const message = getElement(".inputs__message");
+  const checkbox = getElement(".input__checkbox");
+  const error = getElement(".error-message");
   const labels = document.querySelectorAll(".inputs label");
+
+  $(error).hide();
 
   form.setAttribute("autocomplete", "off");
 
   function setError(element, e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     element.classList.add("error");
     element.focus();
+    $(error).show(400);
+  }
+
+  function removeError(element) {
+    element.classList.remove("error");
+    $(error).hide(400);
   }
 
   name.addEventListener("input", () => {
@@ -25,10 +38,10 @@ export function addReview(id, productName) {
     }
 
     if (name.value === "") {
-      name.classList.add("error");
-      name.focus();
+      setError(name);
+      error.textContent = `Please enter your name`;
     } else {
-      name.classList.remove("error");
+      removeError(name);
     }
   });
 
@@ -41,11 +54,20 @@ export function addReview(id, productName) {
       });
     }
 
+    let emailValue = mail.value.split("@");
+    let beforeDot;
+    if (emailValue[1]) {
+      beforeDot = emailValue[1].split(".");
+    }
+
     if (mail.value === "") {
-      mail.classList.add("error");
-      mail.focus();
+      setError(mail);
+      error.textContent = `Please enter an e-mail`;
+    } else if (!emailValue[1] || !beforeDot[1] || beforeDot[1].length < 2) {
+      setError(mail);
+      error.textContent = `Please enter a valid e-mail`;
     } else {
-      mail.classList.remove("error");
+      removeError(mail);
     }
   });
 
@@ -59,20 +81,31 @@ export function addReview(id, productName) {
     }
 
     if (message.value === "") {
-      message.classList.add("error");
-      message.focus();
+      setError(message);
+    } else if (message.value.length < 10) {
+      setError(message);
+      error.textContent = `Please say more`;
     } else {
-      message.classList.remove("error");
+      removeError(message);
     }
   });
 
   form.addEventListener("submit", (e) => {
     if (name.value === "") {
       setError(name, e);
+      error.textContent = `Please enter your name`;
     } else if (mail.value === "") {
       setError(mail, e);
+      error.textContent = `Please enter an e-mail`;
+    } else if (mail.classList.contains("error")) {
+      setError(mail, e);
+      error.textContent = `Please enter a valid e-mail`;
     } else if (message.value === "") {
       setError(message, e);
+      error.textContent = `Please say something`;
+    } else if (message.classList.contains("error")) {
+      setError(message, e);
+      error.textContent = `Please say more`;
     } else {
       e.preventDefault();
       const stars = [...document.querySelectorAll(".review__star")];
@@ -90,14 +123,26 @@ export function addReview(id, productName) {
       data.id = id;
       data.product = productName;
       data.rating = number;
+
       let info = [];
       info.push(data);
+
       if (localStorage.getItem("review")) {
         let reviews = JSON.parse(localStorage.getItem("review"));
         reviews.push(data);
         localStorage.setItem("review", JSON.stringify(reviews));
       } else {
         localStorage.setItem("review", JSON.stringify(info));
+      }
+
+      if (checkbox.checked) {
+        let user = [
+          {
+            name: `${name.value}`,
+            email: `${mail.value}`,
+          },
+        ];
+        localStorage.setItem("user info", JSON.stringify(user));
       }
       window.open(`./product.html?id=${id}`, "_self");
     }

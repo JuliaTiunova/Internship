@@ -273,10 +273,6 @@
     display: flex;
     margin-bottom: 28px;
 
-    // & i.fas {
-    //   display: none;
-    // }
-
     &:hover {
       cursor: pointer;
     }
@@ -336,6 +332,7 @@
         font-size: 14px;
         line-height: 22px;
         color: $grey;
+        pointer-events: none;
 
         &:last-of-type {
           top: 20px;
@@ -351,7 +348,39 @@
 
   &__button {
     margin-bottom: 10px;
+
+    &_more {
+      font-family: $jost;
+      font-size: 16px;
+      line-height: 24px;
+      width: 100%;
+      color: $star-orange;
+      background: 0;
+      border: none;
+      outline: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      & p:not(span):hover {
+        cursor: pointer;
+        color: $green;
+      }
+
+      & span {
+        color: $black-text;
+      }
+    }
   }
+}
+
+.error-message {
+  background-color: lighten($color: $red-sale, $amount: 45);
+  width: 100%;
+  padding: 10px 20px;
+  border-left: 5px solid $red-sale;
+  margin-bottom: 20px;
 }
 
 .author {
@@ -365,9 +394,8 @@
     background-color: $grey-bg;
     margin-right: 25px;
 
-    @include md {
-      margin-right: 0;
-      margin-bottom: 10px;
+    & img {
+      width: 100%;
     }
   }
   &__info {

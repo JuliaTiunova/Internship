@@ -6,19 +6,23 @@ export function getStarRating() {
     const starClassInactive = "review__star far fa-star";
     const starsLength = stars.length;
     let i;
+
+    function setClass(arr, el) {
+      if (el.className === starClassInactive) {
+        for (i; i >= 0; i--) {
+          arr[i].className = starClassActive;
+        }
+      } else {
+        for (i; i < starsLength; i++) {
+          arr[i].className = starClassInactive;
+        }
+      }
+    }
     stars.map((star) => {
       star.onmouseover = () => {
         i = stars.indexOf(star);
 
-        if (star.className === starClassInactive) {
-          for (i; i >= 0; i--) {
-            stars[i].className = starClassActive;
-          }
-        } else {
-          for (i; i < starsLength; i++) {
-            stars[i].className = starClassInactive;
-          }
-        }
+        setClass(stars, star);
       };
     });
     stars.map((star) => {
@@ -30,15 +34,7 @@ export function getStarRating() {
           };
         });
         i = stars.indexOf(star);
-        if (star.className === starClassInactive) {
-          for (i; i >= 0; i--) {
-            stars[i].className = starClassActive;
-          }
-        } else {
-          for (i; i < starsLength; i++) {
-            stars[i].className = starClassInactive;
-          }
-        }
+        setClass(stars, star);
       };
     });
   }
