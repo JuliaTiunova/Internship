@@ -11,7 +11,11 @@ export function countRatings(newSet) {
       zeros += 1;
     }
   }
-  ratings = sum / (ratings.length - zeros);
+  if (sum != 0) {
+    ratings = sum / (ratings.length - zeros);
+  } else {
+    return sum;
+  }
 
   return ratings;
 }

@@ -5,6 +5,7 @@ export function displayIcons(newSet) {
   const starRatingCount = getElement(".info__name_ratings");
   let ratingNumber = countRatings(newSet);
   let icons = "";
+  console.log(ratingNumber);
 
   if (newSet.length == 0) {
     for (let i = 0; i < 5; i++) {
