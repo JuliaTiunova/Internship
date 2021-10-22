@@ -1,0 +1,45 @@
+@import "~js-datepicker/src/datepicker";
+@import "../../node_modules/normalize.css";
+@import "assets/colors";
+@import "assets/fonts";
+@import "assets/mixins";
+
+@import "elements/burger";
+@import "elements/button";
+@import "elements/card";
+@import "elements/cart";
+@import "elements/categories";
+@import "elements/content_box";
+@import "elements/copyright";
+@import "elements/dropdown_content";
+@import "elements/hover";
+@import "elements/icon";
+@import "elements/item";
+@import "elements/link";
+@import "elements/loader";
+@import "elements/login";
+@import "elements/menu";
+@import "elements/nav";
+@import "elements/reserve";
+@import "elements/sale";
+@import "elements/title";
+@import "elements/top";
+@import "elements/wrapper";
+@import "elements/product";
+@import "elements/wishlist";
+
+@import "sections/breadcrumb";
+@import "sections/footer";
+@import "sections/footer_black";
+@import "sections/header";
+@import "sections/products";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}

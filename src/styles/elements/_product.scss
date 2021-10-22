@@ -7,7 +7,7 @@
   &__img {
     width: 100%;
     height: 258px;
-    object-fit: cover;
+    object-fit: contain;
 
     @include xxl {
       height: 200px;
@@ -15,13 +15,13 @@
 
     &_wrapper {
       position: relative;
-
       margin: 0 auto 16px;
+      padding: 5px;
+      background-color: $white;
     }
 
     &_deals {
       width: 100%;
-      height: 100%;
 
       @include xxl {
         height: 315px;
@@ -115,23 +115,93 @@
 
   &_sale_deals::before {
     left: 50%;
-    top: 5px;
+    top: 0;
   }
   &_new_deals::after {
     left: 50%;
-    top: 5px;
+    top: 0;
   }
 
   &_sale_new_deals {
     &::before {
       left: 33%;
 
-      top: 5px;
+      top: 0;
     }
 
     &::after {
       left: 66%;
-      top: 5px;
+      top: 0;
+    }
+  }
+}
+
+.products__display.product__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  & .hover {
+    justify-content: center;
+  }
+}
+
+.product__list .product {
+  &__wrapper {
+    padding: 24px 0 24px 30px;
+    display: flex;
+    font-family: $jost;
+    align-items: center;
+    border: 1px solid $grey-border-input;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 45px 0 45px 48px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    padding-right: 198px / 1920px * 100%;
+  }
+
+  &__img {
+    &_wrapper {
+      margin: 0;
+    }
+
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+  }
+
+  &__price {
+    color: $green;
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 32px;
+    margin-bottom: 8px;
+  }
+
+  &__hover {
+    position: relative;
+    opacity: 1;
+    width: unset;
+    padding: 0 50px;
+
+    border-left: 1px solid $grey-border-input;
+
+    & .hover__bottom {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__bottom {
+      padding-left: 50px;
     }
   }
 }

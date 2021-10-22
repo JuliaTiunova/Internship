@@ -11,7 +11,8 @@
   &__img {
     width: 60%;
     height: 120px;
-    object-fit: cover;
+    background-color: $white;
+    object-fit: contain;
     align-self: center;
     margin: 0 auto;
     margin-bottom: 18px;

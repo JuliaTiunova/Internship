@@ -52,7 +52,7 @@ const jsLoaders = () => {
   }
   return loader;
 };
-let htmlPageNames = ["forms"];
+let htmlPageNames = ["forms", "products"];
 
 let multipleHtmlPlugins = htmlPageNames.map((name) => {
   return new HtmlWebpackPlugin({
@@ -67,7 +67,8 @@ module.exports = {
   mode: "development",
   entry: {
     index: ["@babel/polyfill", "./index.js"],
-    forms: "./forms.js",
+    forms: "./scripts/forms.js",
+    products: "./scripts/products.js",
   },
   optimization: optimization(),
   devServer: {
@@ -75,7 +76,7 @@ module.exports = {
     static: "./dist",
   },
   output: {
-    filename: "[name].js",
+    filename: "./scripts/[name].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
@@ -116,6 +117,10 @@ module.exports = {
         exclude: /node_modules/,
         use: jsLoaders(),
       },
+      {
+        test: /\.handlebars$/,
+        use: ["handlebars-loader"],
+      },
     ],
   },
   plugins: [
@@ -146,7 +151,7 @@ module.exports = {
       pngquant: { quality: 80 },
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[hash].css",
+      filename: "./styles/[name].[hash].css",
     }),
   ].concat(multipleHtmlPlugins),
 };

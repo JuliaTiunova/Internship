@@ -2,106 +2,44 @@ import "./styles/styles.scss";
 import "./scripts/slider";
 import "./scripts/setupCart";
 
-import * as $ from "jquery";
-import { getElement } from "./scripts/assets";
+import { allCategoriesURL, getElement } from "./scripts/assets";
 import "./scripts/cart";
 import "./scripts/burger";
 import countdown from "./scripts/countdown";
-import fetchProducts from "./scripts/fetchProducts";
-import { setUpStore, store } from "./scripts/store";
-import display from "./scripts/displayProd";
-import setUpCategories from "./scripts/filter";
+import displayCategory from "./scripts/displayCategoriesMain";
+import { buttonListener, displayMain } from "./scripts/displayProd";
+import displayList from "./scripts/displayList";
+import { setUpOptions } from "./scripts/store";
+import { displayMenu } from "./scripts/displayMenu";
 
 const loading = getElement(".page-loading");
 
-countdown();
-
-const init = async () => {
-  const products = await fetchProducts();
-  if (products) {
-    setUpStore(products);
-    const all = store.filter((product) => product);
-    const featured = store.filter((product) => product);
-
-    display(all, getElement(".arrival__slider"));
-    display(featured, getElement(".feature__products"));
-    display(all.slice(-4), getElement(".deals__products"));
-
-    setUpCategories(
-      store,
-      getElement(".feature__list"),
-      getElement(".feature__products")
-    );
-
-    setUpCategories(
-      store,
+const init = () => {
+  countdown();
+  let categories = new XMLHttpRequest();
+  categories.open("GET", allCategoriesURL);
+  categories.responseType = "json";
+  categories.send();
+  categories.onload = function() {
+    let result = categories.response;
+    let arr = result.data;
+    setUpOptions(arr);
+    displayList(result, getElement(".arrival__list"));
+    displayList(result, getElement(".feature__list"));
+    displayMenu(result);
+    displayCategory(arr, getElement(".header__categories"));
+    displayMain(getElement(".arrival__slider"));
+    displayMain(getElement(".feature__products"));
+    displayMain(getElement(".deals__products"), arr);
+    buttonListener(
       getElement(".arrival__list"),
       getElement(".arrival__slider")
     );
-
-    $(".arrival__slider").slick({
-      slidesToShow: 5,
-      slidesToScroll: 2,
-      cssEase: "linear",
-      autoplay: true,
-      autoplaySpeed: 4000,
-      arrows: true,
-      responsive: [
-        {
-          breakpoint: 1920,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 1,
-          },
-        },
-        {
-          breakpoint: 1400,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-          },
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-          },
-        },
-      ],
-    });
-    $(".feature__products").slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      cssEase: "linear",
-      autoplay: true,
-      autoplaySpeed: 4000,
-      arrows: true,
-      responsive: [
-        {
-          breakpoint: 1400,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-          },
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-          },
-        },
-        {
-          breakpoint: 578,
-          settings: {
-            slidesToShow: 1,
-          },
-        },
-      ],
-    });
-  }
+    buttonListener(
+      getElement(".feature__list"),
+      getElement(".feature__products")
+    );
+  };
 };
 
 window.addEventListener("DOMContentLoaded", init);

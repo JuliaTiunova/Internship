@@ -32,6 +32,7 @@
 
   &__title {
     font-family: $poppinsBold;
+    text-transform: capitalize;
     font-size: 21px;
     line-height: 25px;
     color: $black-title;
@@ -50,13 +51,13 @@
   }
 
   &__icon {
-    font-size: 50px;
+    font-size: 55px;
     position: relative;
     z-index: 2;
 
     &_bg {
       position: absolute;
-      left: -20px;
+      left: -15px;
       top: -10px;
       z-index: 1;
     }

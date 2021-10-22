@@ -1,5 +1,11 @@
 const allProductsUrl = "https://course-api.com/javascript-store-products";
 
+const allCategoriesURL =
+  "http://localhost:3030/categories?$limit=25&name=Guitars&name=Amps %26 Effects&name=Folk Instruments&name=Drums %26 Percussion&name=String Instruments";
+
+const guitarURL =
+  "http://localhost:3030/products?$limit=25&category.name=Guitars";
+
 const singleProductUrl =
   "https://course-api.com/javascript-store-single-product";
 
@@ -28,6 +34,8 @@ const getStorageItem = (item) => {
 export {
   allProductsUrl,
   singleProductUrl,
+  allCategoriesURL,
+  guitarURL,
   getElement,
   setStorageItem,
   getStorageItem,

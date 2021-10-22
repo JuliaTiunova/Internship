@@ -2,7 +2,7 @@
   font-family: $lobster;
   font-size: 72px;
   line-height: 90px;
-  color: $black;
+  color: $white;
 
   @include md {
     font-size: 36px;
@@ -15,6 +15,10 @@
     font-size: 21px;
     line-height: 25px;
     color: $black-text;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &_cart,
@@ -59,6 +63,7 @@
   font-family: $qsand;
   font-weight: 600;
   color: $green;
+  text-shadow: 1px 1px 1px $white;
   font-size: 18px;
   line-height: 22px;
   letter-spacing: 0.5em;

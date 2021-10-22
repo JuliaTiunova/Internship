@@ -1,22 +1,22 @@
 import { getStorageItem, setStorageItem } from "./assets";
 
-let store = getStorageItem("shop");
+let categories = getStorageItem("categories");
 
-const setUpStore = (products) => {
-  store = products.map((product) => {
-    const {
-      id,
-      fields: { featured, name, price, company },
-    } = product;
-
-    return { id, featured, name, price, company };
+const setUpOptions = (products) => {
+  categories = products.map((product) => {
+    const { name, id, subCategories } = product;
+    return { name, id, subCategories };
   });
-  setStorageItem("shop", store);
+  setStorageItem("categories", categories);
 };
 
-const findProduct = (id) => {
-  let product = store.find((product) => product.id === id);
-  return product;
+const findProduct = (id, name) => {
+  let store = getStorageItem(name);
+  for (let product of store) {
+    if (product.id == id) {
+      return product;
+    }
+  }
 };
 
-export { store, setUpStore, findProduct };
+export { categories, findProduct, setUpOptions };

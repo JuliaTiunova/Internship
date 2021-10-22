@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="beetroot.png" type="image/png" />
+    <link rel="shortcut icon" href="./img/music.png" type="image/png" />
     <script src="https://kit.fontawesome.com/4e5db1bd51.js" crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
       type="text/css"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-    <title>OrgaFresh</title>
+    <title>Fresh Muse</title>
   </head>
   <body>
     <div class="page-loading">
@@ -67,8 +67,8 @@
               >
             </li>
             <li class="info-list__info info info_mail">
-              <a class="info__link link" href="mailto:organicfood@gmail.com"
-                ><i class="icon-envelope"></i> Organicfood@gmail.com</a
+              <a class="info__link link" href="mailto:Museinspired@gmail.com"
+                ><i class="icon-envelope"></i>Museinspired@gmail.com</a
               >
             </li>
           </ul>
@@ -86,7 +86,11 @@
             <nav class="burger__menu">
               <ul class="burger__list">
                 <li class="burger__item"><a href="#" class="burger__link link">Home</a></li>
-                <li class="burger__item"><a href="#" class="burger__link link">Shop</a></li>
+                <li class="burger__item burger__item_shop">
+                  <a href="products.html" class="burger__link link">Shop</a>
+                  <ul class="shop__menu_wrapper">
+                  </ul>
+                </li>
                 <li class="burger__item"><a href="#about" class="burger__link link">About</a></li>
                 <li class="burger__item"><a href="#blog" class="burger__link link">Blog</a></li>
                 <li class="burger__item"><a href="#contact" class="burger__link link">Contact</a></li>
@@ -95,37 +99,23 @@
           </div>
           <ul class="nav__menu menu">
             <li class="menu__item item item_active"><a href="#" class="item__link link">Home</a></li>
-            <li class="menu__item item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
+            <li class="menu__item item__shop shop item item__link"><a href="products.html" class="item__link link"><p> Shop <span>&#x33</span></p></a>
               <div class="shop__dropdown">
-                <div class="dropdown__content">
-                  <h5 class="dropdown__title title5">Categories</h5>
-                  <ul class="dropdown__list">
-                      <li class="dropdown__item"><a href="#">Fresh fruits Fresh</a></li>
-                      <li class="dropdown__item"><a href="#">Fresh Vegetables</a></li>
-                      <li class="dropdown__item"><a href="#">Meats</a></li>
-                  </ul>
-                </div>
-                <div class="dropdown__content">
-                  <h5 class="dropdown__title title5"></h5>
-                  <ul class="dropdown__list">
-                    <li class="dropdown__item"><a href="#">Grain & Nuts</a></li>
-                    <li class="dropdown__item"><a href="#">Smothies</a></li>
-                    <li class="dropdown__item"><a href="#">Top sale</a></li>
-                  </ul>
+                <div class="dropdown__content dropdown__content_main">
                 </div>
                 <div class="dropdown__content">
                   <h5 class="dropdown__title title5">Shop Layout</h5>
                   <ul class="dropdown__list">
                     <li class="dropdown__item"><a href="#">Shop Grid Fullwidth</a></li>
-                    <li class="dropdown__item"><a href="#">Shop Grid Sidebar</a></li>
-                    <li class="dropdown__item"><a href="#">Shop List Sidebar</a></li>
+                    <li class="dropdown__item"><a href="./products.html?grid">Shop Grid Sidebar</a></li>
+                    <li class="dropdown__item"><a href="./products.html?list">Shop List Sidebar</a></li>
                   </ul>
                 </div>
                 <div class="dropdown__content">
                   <h5 class="dropdown__title title5">Shop</h5>
                   <ul class="dropdown__list">
                     <li class="dropdown__item"><a href="#">Pages</a></li>
-                    <li class="dropdown__item"><a href="#">Checkout</a></li>
+                    <li class="dropdown__item"><a href="./forms.html">Checkout</a></li>
                     <li class="dropdown__item"><a href="#">Wishlist</a></li>
                   </ul>
                 </div>
@@ -161,40 +151,15 @@
           <div class="slider__img slider__img_5"></div>
         </div>
         <div class="header__wrapper_content wrapper">
-          <p class="header__subtitle subtitle">fresh and tasty</p>
+          <p class="header__subtitle subtitle">inspired and tastefull</p>
           <h1 class="header__title title">
-            Organic shop <br />
-            Fruits & Vegetables
+            Music shop <br />
+            Instruments & Effects
           </h1>
-          <button class="header__button button">shop now</button>
+          <a href="./products.html" class="header__button button link">shop now</a>
         </div>
         <div class="header__wrapper_categories">
-          <div class="header__categories categories">
-            <div class="categories__card card">
-              <img src="/img/img.jpg" alt="vegetables" class="card__img" />
-              <p class="card__title-slider title-slider">Vegetables</p>
-              <p class="card__item-count">214 items</p>
-            </div>
-            <div class="categories__card card">
-              <img src="/img/img_2.jpg" alt="vegetables" class="card__img" />
-              <p class="card__title-slider title-slider">Fresh Fruits</p>
-              <p class="card__item-count">214 items</p>
-            </div>
-            <div class="categories__card card">
-              <img src="/img/img_3.jpg" alt="vegetables" class="card__img" />
-              <p class="card__title-slider title-slider">Grain & Nuts</p>
-              <p class="card__item-count">214 items</p>
-            </div>
-            <div class="categories__card card">
-              <img src="/img/img_4.jpg" alt="vegetables" class="card__img" />
-              <p class="card__title-slider title-slider">Fresh Meats</p>
-              <p class="card__item-count">214 items</p>
-            </div>
-            <div class="categories__card card">
-              <img src="/img/img_5.jpg" alt="vegetables" class="card__img" />
-              <p class="card__title-slider title-slider">Fresh Smoothie</p>
-              <p class="card__item-count">214 items</p>
-            </div>
+          <div class="header__categories categories" id="categories">
           </div>
         </div>
       </div>
@@ -202,16 +167,9 @@
     <main class="main">
       <section class="arrival wrapper">
           <div class="arrival__nav nav_small">
-            <h2 class="arrival__title title2">Arrival organic</h2>
+            <h2 class="arrival__title title2">Arrival acoustic</h2>
             <nav class="arrival__menu">
-              <ul class="arrival__list list_small">
-                <li class="list__item_small item_small item_small_active">All</li>
-                <li class="list__item_small item_small">Meats</li>
-                <li class="list__item_small item_small">Vegetables</li>
-                <li class="list__item_small item_small">Grain</li>
-                <li class="list__item_small item_small">Fruits</li>
-                <li class="list__item_small item_small">Other</li>
-              </ul>
+              <ul class="arrival__list list_small"></ul>
             </nav>
           </div>
           <div class="arrival__slider">
@@ -233,7 +191,7 @@
           <article class="products__product product">
              <div class="product__wrapper product_sale product_sale_deals">
                <div class="product__img_wrapper">
-                <img class="product__img product__img_deals" src="img/img.jpg" alt="vegetables" />
+                <img class="product__img product__img_deals" src="img/drums_mobile.jpg" alt="vegetables" />
                 <div class="product__hover hover">
                   <div class="hover__box box_like"><i class="icon-like"></i></div>
                   <div class="hover__bottom">
@@ -250,7 +208,7 @@
           </article>
           <article class="products__product product"> <div class="product__wrapper product_sale product_new product_sale_new_deals">
             <div class="product__img_wrapper">
-                <img class="product__img product__img_deals" src="img/img.jpg" alt="vegetables" />
+                <img class="product__img product__img_deals" src="img/drums_mobile.jpg" alt="vegetables" />
                 <div class="product__hover hover">
                   <div class="hover__box box_like"><i class="icon-like"></i></div>
                   <div class="hover__bottom">
@@ -267,7 +225,7 @@
           </article>
           <article class="products__product product"> <div class="product__wrapper product_sale product_sale_deals">
             <div class="product__img_wrapper">
-                <img class="product__img product__img_deals" src="img/img.jpg" alt="vegetables" />
+                <img class="product__img product__img_deals" src="img/drums_mobile.jpg" alt="vegetables" />
                 <div class="product__hover hover">
                   <div class="hover__box box_like"><i class="icon-like"></i></div>
                   <div class="hover__bottom">
@@ -284,7 +242,7 @@
           </article>
           <article class="products__product product"> <div class="product__wrapper product_sale product_sale_deals">
             <div class="product__img_wrapper">
-                <img class="product__img product__img_deals" src="img/img.jpg" alt="vegetables" />
+                <img class="product__img product__img_deals" src="img/drums_mobile.jpg" alt="vegetables" />
                 <div class="product__hover hover">
                   <div class="hover__box box_like"><i class="icon-like"></i></div>
                   <div class="hover__bottom">
@@ -305,44 +263,44 @@
           <h2  id="about"  class="why-us__title title2">Why Choose us</h2>
           <div class="why-us__content content">
             <div class="content__box box box_left">
-              <div class="box__img"><i class="box__icon icon-ecology"></i><img class="box__icon_bg" src="img/bg_ecology.png" alt="bg_ecology"></div>
+              <div class="box__img"><i class="box__icon icon-music-ear"></i><img class="box__icon_bg" src="img/bg_ecology.png" alt="bg_ecology"></div>
               <div class="box__info">
-                <div class="box__title">100% Naturalt</div>
+                <div class="box__title">100% musical</div>
                 <div class="box__text">Ipsum dolor sit amet, consectetur adipiscing elit, sed do cididunt ut labore lorem...</div>
               </div>
             </div>
             <div class="content__box box box_right">
-              <div class="box__img box_right_1"><i class="box__icon icon-field"></i><img class="box__icon_bg" src="img/bg_fiels.png" alt="bg_fiels"></div>
+              <div class="box__img box_right_1"><i class="box__icon icon-folk-mandolinom"></i><img class="box__icon_bg" src="img/bg_fiels.png" alt="bg_fiels"></div>
               <div class="box__info box_right_2">
                 <div class="box__title">Curated Products</div>
                 <div class="box__text">Ipsum dolor sit amet, consectetur adipiscing elit, sed do cididunt ut labore lorem...</div>
               </div>
             </div>
             <div class="content__box box box_left">
-              <div class="box__img"><i class="box__icon icon-vegetable"></i><img class="box__icon_bg" src="img/bg_vegetable.png" alt="bg_vegetable"></div>
+              <div class="box__img"><i class="box__icon icon-guitar "></i><img class="box__icon_bg" src="img/bg_vegetable.png" alt="bg_vegetable"></div>
               <div class="box__info">
-                <div class="box__title">Always Fresh</div>
+                <div class="box__title">Always tuned</div>
                 <div class="box__text">Ipsum dolor sit amet, consectetur adipiscing elit, sed do cididunt ut labore lorem...</div>
               </div>
             </div>
             <div class="content__box box box_right">
-              <div class="box__img box_right_1"><i class="box__icon icon-baby_food"></i><img class="box__icon_bg" src="img/bg_baby_food.png" alt="bg_baby_food"></div>
+              <div class="box__img box_right_1"><i class="box__icon icon-music-desk"></i><img class="box__icon_bg" src="img/bg_baby_food.png" alt="bg_baby_food"></div>
               <div class="box__info box_right_2">
-                <div class="box__title">Good For Arteries</div>
+                <div class="box__title">Good For parties</div>
                 <div class="box__text">Ipsum dolor sit amet, consectetur adipiscing elit, sed do cididunt ut labore lorem...</div>
               </div>
             </div>
             <div class="content__box box box_left">
-              <div class="box__img"><i class="box__icon icon-overall"></i><img class="box__icon_bg" src="img/bg_overall.png" alt="bg_overall"></div>
+              <div class="box__img"><i class="box__icon icon-violin"></i><img class="box__icon_bg" src="img/bg_overall.png" alt="bg_overall"></div>
               <div class="box__info">
-                <div class="box__title">Overall Healthy</div>
+                <div class="box__title">Overall inspiring</div>
                 <div class="box__text">Ipsum dolor sit amet, consectetur adipiscing elit, sed do cididunt ut labore lorem...</div>
               </div>
             </div>
             <div class="content__box box box_right">
-              <div class="box__img box_right_1"><i class="box__icon icon-healthy-eating"></i><img class="box__icon_bg" src="img/bg_healthy_eating.png" alt="bg_healthy_eating"></div>
+              <div class="box__img box_right_1"><i class="box__icon icon-drums"></i><img class="box__icon_bg" src="img/bg_healthy_eating.png" alt="bg_healthy_eating"></div>
               <div class="box__info box_right_2">
-                <div class="box__title">Antioxidant Capacity</div>
+                <div class="box__title">Antineighbor Capacity</div>
                 <div class="box__text">Ipsum dolor sit amet, consectetur adipiscing elit, sed do cididunt ut labore lorem...</div>
               </div>
             </div>
@@ -353,7 +311,7 @@
           <div class="banner__content ">
           <div class="box_left__sale banner__sale"><p class="sale__text">New arrivals</p><i class="icon-Frame banner__sale-bg banner__sale-bg_green"></i></div>
           <h2 class="box_left__title banner__title title2">Discover Real <br>
-            Organic Flavors</h2>
+            Classical Sounds</h2>
           <a href="#" class="box__link link__white link">SHOP NOW</a>
         </div>
       </div>
@@ -371,12 +329,6 @@
             <h2 class="feature__title title2">Feature products</h2>
             <nav class="feature__menu">
               <ul class="feature__list list_small">
-                <li class="list__item_small item_small item_small_active">All</li>
-                <li class="list__item_small item_small">Meats</li>
-                <li class="list__item_small item_small">Vegetables</li>
-                <li class="list__item_small item_small">Grain</li>
-                <li class="list__item_small item_small">Fruits</li>
-                <li class="list__item_small item_small">Other</li>
               </ul>
             </nav>
           </div>
@@ -388,13 +340,15 @@
                 <a href="#" class="poster__link link__white link">SHOP NOW</a>
               </div>
             </div>
-            <div class="feature__products"></div>
+            <div class="feature__products">
+              <h3 class="loader">Loading...</h3>
+            </div>
           </div>
       </section>
       <section id="blog" class="testimonials wrapper">
         <div class="testimoniails__slider">
           <div class="testimonials__card">
-            <blockquote class="testimonials__text">“Yesterday I received my first box. I was very impressed by the freshness of the produce. I had tried (another delivery service) and had to cancel because of low quality.</blockquote>
+            <blockquote class="testimonials__text">“Yesterday I've received my first violin. I was very impressed by the sound. I had tried (another music shop) and had to cancel because of lack of strings."</blockquote>
             <div class="testimonials__author author">
               <div class="author__wrapper">
               <div class="author__img"></div>
@@ -407,7 +361,7 @@
           </div>
           </div>
          <div class="testimonials__card">
-            <blockquote class="testimonials__text">“I wanted to email you and tell you how fantastic my first order was. I am so happy with the quality of the foods you provide. I know I will be a loyal customer for a long time to come!!” </blockquote>
+            <blockquote class="testimonials__text">“I wanted to email you and tell you how fantastic my guitar is. I am so happy with the service you provide. I know I will be a loyal customer for a long time to come!!” </blockquote>
             <div class="testimonials__author author">
               <div class="author__wrapper">
               <div class="author__img"></div>
@@ -420,7 +374,7 @@
           </div>
           </div>
           <div class="testimonials__card">
-            <blockquote class="testimonials__text">“Yesterday I received my first box. I was very impressed by the freshness of the produce. I had tried (another delivery service) and had to cancel because of low quality.</blockquote>
+            <blockquote class="testimonials__text">“Yesterday I've received my first violin. I was very impressed by the sound. I had tried (another music shop) and had to cancel because of lack of strings."</blockquote>
             <div class="testimonials__author author">
               <div class="author__wrapper">
               <div class="author__img"></div>
@@ -432,25 +386,24 @@
           
           </div>
           </div>
-           </div>
-
+        </div>
       </section>
       <section class="instagram wrapper">
         <div class="instagram__content">
           <div class="instagram__img">
-            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@museinspired</a></div>
           </div>
           <div class="instagram__img">
-            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@museinspired</a></div>
           </div>
           <div class="instagram__img">
-            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@museinspired</a></div>
           </div>
           <div class="instagram__img">
-            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@museinspired</a></div>
           </div>
           <div class="instagram__img">
-            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@organicfood</a></div>
+            <div class="instagram__img_hover">Follow us on Instagram <a href="#">@museinspired</a></div>
           </div>
         </div>
       </section>
@@ -492,20 +445,12 @@
             <ul class="about__list">
               <li class="about__item"><a href="#">About us</a></li>
               <li class="about__item"><a href="#">Blog</a> </li>
-              <li class="about__item"><a href="#">Check out</a></li>
+              <li class="about__item"><a href="./forms.html">Check out</a></li>
               <li class="about__item"><a href="#">Contact</a> </li>
               <li class="about__item"><a href="#">Service</a> </li>
             </ul>
            </div>
-          <div class="table__content">
-            <h5 class="about__title title5">Categories</h5>
-            <ul class="about__list">
-              <li class="about__item"><a href="#">Vegetable Fresh  </a></li>
-              <li class="about__item"><a href="#">Fruits Fresh</a></li>
-              <li class="about__item"><a href="#">Meats</a></li>
-              <li class="about__item"><a href="#">Grain & Nuts</a></li>
-              <li class="about__item"><a href="#">Smothie</a></li>
-            </ul>
+          <div class="table__content table__content_dynamic">
           </div>
             <div class="table__content">
               <h5 class="about__title title5">Help Center</h5>
@@ -520,7 +465,7 @@
             <div class="table__content">
             <h5 class="about__title title5">Contact info</h5>
             <p class="about__adress">29 Rue du Bourg Tibourg, 75004 Paris, France</p>
-            <a href="mailto:organicfood@gmail.com">Organicfood@gmail.com</a>
+            <a href="mailto:Museinspired@gmail.com">Museinspired@gmail.com</a>
               
             </div>
           </div>

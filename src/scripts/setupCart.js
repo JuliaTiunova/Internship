@@ -16,10 +16,10 @@ const wishlistTotalDOM = getElement(".subtotal__price_wishlist");
 let cart = getStorageItem("cart");
 let wishlist = getStorageItem("wishlist");
 
-export const addToCart = (id) => {
-  let item = cart.find((cartItem) => cartItem.id === id);
+export const addToCart = (id, name) => {
+  let item = cart.find((cartItem) => cartItem.id == id);
   if (!item) {
-    let product = findProduct(id);
+    let product = findProduct(id, name);
     product = { ...product, amount: 1 };
     cart = [...cart, product];
     addToCartDOM(product);

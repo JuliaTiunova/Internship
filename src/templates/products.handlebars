@@ -1,0 +1,20 @@
+{{#each data}}
+  <article class="display__product product" data-id="{{id}}">
+    <div class="product__wrapper">
+      <div class="product__img_wrapper">
+      <img class="product__img" src="{{image}}" alt="{{name}}" />
+      <div class="product__hover hover">
+        <div class="hover__bottom">
+            <button class="hover__button_round"><i class="icon-like"></i></button>
+            <button class="hover__button_round"><i class="icon-reload"></i></button>
+            <button class="hover__button_round"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i></button>
+            <button class="hover__button_round"><i class="icon-search"></i></button>
+        </div>
+      </div>
+      </div>
+      <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
+      <p class="product__name">{{name}}</p>
+      <p class="product__price">${{price}}</p>
+    </div>
+  </article>
+  {{/each}}
