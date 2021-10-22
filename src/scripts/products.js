@@ -5,18 +5,16 @@ import "./cart";
 import "./setupCart";
 import { allCategoriesURL, getElement } from "./assets";
 import displayList from "./display/displayList";
-import {
-  buttonCompany,
-  buttonLayoutListener,
-  buttonListenerProducts,
-  buttonPageListener,
-  buttonSearchListener,
-  buttonSubCategories,
-  display,
-} from "./products/displayProd";
+import { display } from "./products/displayProd";
 import { getPriceRange } from "./products/priceRange";
 import { sortButtonListener } from "./products/sortingProducts";
 import { displayMenu } from "./display/displayMenu";
+import { buttonPageListener } from "./products/buttonPageListener";
+import { buttonLayoutListener } from "./products/buttonLayoutListener";
+import { buttonCompany } from "./products/buttonCompanyListener";
+import { buttonListenerProducts } from "./products/buttonProdListener";
+import { buttonSearchListener } from "./products/buttonSearchListener";
+import { buttonSubCategories } from "./products/hideSubcategories";
 
 $(".filters__form").attr("autocomplete", "off");
 

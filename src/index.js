@@ -7,7 +7,7 @@ import "./scripts/cart";
 import "./scripts/burger";
 import countdown from "./scripts/countdown";
 import displayCategory from "./scripts//display/displayCategoriesMain";
-import { buttonListener, displayMain } from "./scripts/products/displayProd";
+import { buttonListener, displayMain } from "./scripts/display/displayMain";
 import { setUpOptions } from "./scripts/store";
 import { displayMenu } from "./scripts/display/displayMenu";
 import displayList from "./scripts/display/displayList";
