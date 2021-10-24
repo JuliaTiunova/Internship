@@ -36,7 +36,7 @@ export function displayProduct() {
       sliderProduct();
     });
     sliderViewedProd();
-    countListener();
+    countListener("quantity");
     descriptListener();
     addReview(data.id, data.name);
     changeShippingText();

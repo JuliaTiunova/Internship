@@ -4,6 +4,8 @@
 
   &__basket {
     display: grid;
+
+    border-bottom: 1px solid $grey-border;
   }
 
   &__top {
@@ -13,6 +15,12 @@
     font-size: 18px;
     line-height: 25px;
     color: $black;
+  }
+
+  &__bottom {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -30,6 +38,10 @@
 }
 
 .basket {
+  &__product {
+    position: relative;
+    margin-bottom: 39px;
+  }
   &__button {
     font-family: $icons;
     color: $grey;
@@ -100,5 +112,79 @@
     font-size: 15px;
     line-height: 25px;
     color: $grey;
+  }
+
+  &__delete {
+    position: absolute;
+    font-size: 25px;
+    color: $red-sale;
+    right: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.bottom {
+  &__button {
+    background-image: linear-gradient(-145deg, $white 50%, $grey-border 50%);
+    border: 1px solid transparent;
+    letter-spacing: 0.1em;
+
+    &:first-of-type {
+      margin-right: 20px;
+    }
+
+    &:hover {
+      border: 1px solid $grey-border;
+    }
+
+    &_checkout {
+      background-image: linear-gradient(-145deg, $white 50%, $black-text 50%);
+      border: 1px solid transparent;
+      letter-spacing: 0.1em;
+      color: $white;
+
+      &:hover {
+        border: 1px solid $black-text;
+        color: $black;
+      }
+    }
+  }
+
+  &__totals {
+    padding: 12px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    font-family: $jost;
+    color: $black-text;
+    background: $grey-input-bg;
+  }
+
+  &__name {
+    padding-bottom: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid $grey-border;
+  }
+
+  &__total {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    &_wrapper {
+      @include flex-between;
+      padding-top: 25px;
+      margin-bottom: 30px;
+    }
+  }
+  &__price {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
   }
 }
