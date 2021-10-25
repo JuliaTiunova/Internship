@@ -11,6 +11,7 @@ import { descriptListener } from "./descriptListener";
 import { addReview } from "./review/addReview";
 import { changeShippingText } from "./shippingSet";
 import { postReview } from "./review/postReview";
+import { buttonsListenerCart } from "../display/listeners";
 
 export function displayProduct() {
   const sliderTop = getElement(".pic__slider_top");
@@ -21,6 +22,8 @@ export function displayProduct() {
   let id = urlCut[1];
   setLastViewed(id);
   getLastViewed();
+
+  buttonsListenerCart(detailsInfo);
 
   let product = new XMLHttpRequest();
   product.open("GET", `http://localhost:3030/products?id=${id}`);

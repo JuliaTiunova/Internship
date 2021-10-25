@@ -53,9 +53,9 @@ export const buttonPageListener = () => {
     let price = [ranges[0].value, ranges[1].value];
 
     if (company.length == 1) {
-      display(skip, company[0], price, sortingButton);
+      display(skip, company[0], price, sortingButton, true);
     } else {
-      display(skip, "", price, sortingButton);
+      display(skip, "", price, sortingButton, true);
     }
   });
 };

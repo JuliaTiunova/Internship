@@ -48,9 +48,9 @@ export function getPriceRange() {
 
       let price = [ranges[0].value, ranges[1].value];
       if (company) {
-        display(0, company, price, sortingButton);
+        display(0, company, price, sortingButton, true);
       } else {
-        display(0, "", price, sortingButton);
+        display(0, "", price, sortingButton, true);
       }
     };
   });

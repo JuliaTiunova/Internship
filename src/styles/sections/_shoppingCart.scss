@@ -84,12 +84,20 @@
   }
 
   &__img {
-    width: 130px;
+    min-width: 130px;
     height: 130px;
     object-fit: contain;
     background-color: $grey-input-bg;
     border: 1px solid $grey-border-input;
     margin-right: 30px;
+    padding: 5px;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: $white;
+    }
   }
   &__info {
     display: flex;
@@ -106,6 +114,17 @@
     color: $black-text;
   }
 
+  &__name {
+    &:hover {
+      cursor: pointer;
+      color: $green;
+    }
+
+    &_wrapper {
+      padding-right: 30px;
+    }
+  }
+
   &__category {
     font-family: $jost;
     font-weight: 400;
@@ -119,9 +138,11 @@
     font-size: 25px;
     color: $red-sale;
     right: 0;
+    transition: color 0.5s;
 
     &:hover {
       cursor: pointer;
+      color: $grey;
     }
   }
 }

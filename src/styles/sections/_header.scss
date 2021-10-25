@@ -80,6 +80,9 @@
         text-align: center;
         color: $white;
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         top: 0;
         right: 0;
         transform: translate(50%, -50%);

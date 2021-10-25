@@ -1,5 +1,6 @@
 import { getElement } from "../assets";
 import products from "../../templates/products.handlebars";
+import { buttonsListenerCart } from "../display/listeners";
 
 export function getLastViewed() {
   const sliderView = getElement(".view__slider");
@@ -15,4 +16,5 @@ export function getLastViewed() {
       return (sliderView.innerHTML += products(response));
     };
   });
+  buttonsListenerCart(sliderView);
 }

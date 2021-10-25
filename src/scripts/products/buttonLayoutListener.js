@@ -35,9 +35,9 @@ export const buttonLayoutListener = () => {
       }
       let price = [ranges[0].value, ranges[1].value];
       if (company.length == 1) {
-        display(0, company[0], price, sortingButton);
+        display(0, company[0], price, sortingButton, true);
       } else {
-        display(0, "", price, sortingButton);
+        display(0, "", price, sortingButton, true);
       }
     });
   });

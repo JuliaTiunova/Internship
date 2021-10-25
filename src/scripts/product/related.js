@@ -2,6 +2,7 @@ import { getElement } from "../assets";
 import products from "../../templates/products.handlebars";
 import { sliderRelatedProd } from "../slider";
 import { deleteComma } from "./deleteComma";
+import { buttonsListenerCart } from "../display/listeners";
 
 export function getRelated(id) {
   const sliderRelated = getElement(".related__slider");
@@ -13,9 +14,11 @@ export function getRelated(id) {
   related.responseType = "json";
   related.send();
   related.onload = function() {
-    deleteComma();
+    let line = getElement(".info__categories");
+    deleteComma(line);
     let info = related.response;
     sliderRelated.innerHTML = products(info);
     sliderRelatedProd();
+    buttonsListenerCart(sliderRelated);
   };
 }

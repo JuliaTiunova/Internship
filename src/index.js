@@ -1,6 +1,6 @@
 import "./styles/styles.scss";
 import "./scripts/slider";
-import "./scripts/setupCart";
+import "./scripts/cart/setupCart";
 
 import { allCategoriesURL, getElement } from "./scripts/assets";
 import "./scripts/cart";

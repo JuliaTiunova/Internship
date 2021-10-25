@@ -2,7 +2,7 @@ import * as $ from "jquery";
 import "../styles/products.scss";
 import "./burger";
 import "./cart";
-import "./setupCart";
+import "./cart/setupCart";
 import { allCategoriesURL, getElement } from "./assets";
 import displayList from "./display/displayList";
 import { display } from "./products/displayProd";
