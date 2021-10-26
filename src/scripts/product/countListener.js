@@ -28,7 +28,7 @@ export function countListener(element) {
             2
           )}`;
           target.previousElementSibling.innerHTML = count;
-          addAmount(cartItem, true);
+          addAmount(cartItem, false, true);
         } else if (target.classList.contains(`${element}__less`)) {
           let count = target.nextElementSibling.innerHTML * 1;
           if (count == 1) {
@@ -39,7 +39,7 @@ export function countListener(element) {
 
           target.nextElementSibling.innerHTML = count;
           item.nextElementSibling.innerHTML = `$${(price * count).toFixed(2)}`;
-          reduceAmount(cartItem, true);
+          reduceAmount(cartItem, false, true);
         }
       });
     });

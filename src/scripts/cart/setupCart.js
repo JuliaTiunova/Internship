@@ -17,7 +17,7 @@ const wishlistTotalDOM = getElement(".subtotal__price_wishlist");
 let cart = getStorageItem("cart");
 let wishlist = getStorageItem("wishlist");
 
-export const addToCart = (id) => {
+export const addToCart = (id, amount) => {
   let item = cart.find((cartItem) => cartItem.id == id);
   let product = new XMLHttpRequest();
   let link = `${API_URL}?id=${id}`;
@@ -27,12 +27,16 @@ export const addToCart = (id) => {
   product.onload = function() {
     let element = product.response;
     element = element.data[0];
-    element.amount = 1;
+    if (amount) {
+      element.amount = amount;
+    } else {
+      element.amount = 1;
+    }
     if (!item) {
       cart = [...cart, element];
       addToCartDOM(element);
     } else {
-      addAmount(element);
+      addAmount(element, amount);
       setAmount(element.id, cart);
     }
     displayTotal(cart, cartTotalDOM);
@@ -55,11 +59,15 @@ function displayItems(el, func) {
   });
 }
 
-export function addAmount(item, cartPage) {
+export function addAmount(item, amount, cartPage) {
   let newAmount = 0;
   cart = cart.map((cartItem) => {
     if (cartItem.id === item.id) {
-      newAmount = cartItem.amount + 1;
+      if (amount) {
+        newAmount = cartItem.amount + amount;
+      } else {
+        newAmount = cartItem.amount + 1;
+      }
       cartItem.amount = newAmount;
     }
     return cartItem;
