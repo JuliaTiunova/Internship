@@ -1,5 +1,5 @@
 import "../styles/forms.scss";
-import "./setupCart";
+import "./cart/setupCart";
 
 import { allCategoriesURL, getElement } from "./assets";
 import datepicker from "js-datepicker";

@@ -36,6 +36,7 @@
 
     &.cart-open {
       opacity: 1;
+      pointer-events: initial;
     }
   }
 
@@ -68,6 +69,15 @@
 
       margin-bottom: 50px;
     }
+  }
+}
+
+.cart__link {
+  text-decoration: none;
+  color: $black-text;
+
+  &:hover {
+    color: $green;
   }
 }
 

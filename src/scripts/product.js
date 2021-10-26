@@ -1,7 +1,7 @@
 import "../styles/product.scss";
 import "./burger";
 import "./cart";
-import "./setupCart";
+import "./cart/setupCart";
 
 import { allCategoriesURL } from "./assets";
 import { displayMenu } from "./display/displayMenu";

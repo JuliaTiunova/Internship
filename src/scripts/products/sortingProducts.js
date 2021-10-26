@@ -23,9 +23,9 @@ export function sortButtonListener() {
       );
       let price = [ranges[0].value, ranges[1].value];
       if (company) {
-        display(0, company, price, buttonDefault);
+        display(0, company, price, buttonDefault, true);
       } else {
-        display(0, false, price, buttonDefault);
+        display(0, false, price, buttonDefault, true);
       }
     });
   });

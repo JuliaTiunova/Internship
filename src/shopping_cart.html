@@ -14,10 +14,10 @@
       type="text/css"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-    <title>Muse's product details</title>
+    <title>Muse's cart</title>
   </head>
   <body>
-    <header class="header products__header">
+    <header class="shopping__cart header products__header">
         <div class="cart__frame">
           <aside class="cart">
             <div class="cart__top">
@@ -33,7 +33,7 @@
                 <p class="subtotal__title title_cart">Subtotal</p>
                 <p class="subtotal__price">$135.0</p>
               </div>
-              <a href="./shopping_cart.html" class="subtotal__button subtotal__button_top link">View cart</a>
+              <a href="#" class="subtotal__button subtotal__button_top link">View cart</a>
               <a href="./forms.html" class="subtotal__button link">Checkout</a>
             </div>
         </aside>
@@ -76,8 +76,8 @@
                   <div class="option__item item-currency"><i class="icon-coin"></i> USD <i class="fas fa-angle-down"></i></div>
                 </div>
               </div>
-            </div>
-            <div class="header__wrapper_nav wrapper">
+          </div>
+          <div class="header__wrapper_nav wrapper">
               <nav class="header__nav nav">
                 <div class="header__burger burger">
                   <button class="burger__button" id="forms-burger"><span></span>
@@ -136,29 +136,40 @@
                 </div>
               </nav>
           
-            </div>
+          </div>
     </header>
     <nav class="breadcrumb wrapper">
-        <h2 class="breadcrumb__title title2">Product Detail</h2>
-        <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Product Detail</span></p>
+        <h2 class="breadcrumb__title title2">Shop Cart</h2>
+        <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Shop Cart</span></p>
     </nav>
-    <main class="main">
-        <section class="details wrapper">
-            <div class="details__pic pic">
-                <div class="pic__slider_top"></div>
-                <div class="pic__slider_bottom"></div>
+    <main>
+      <section class="shopper wrapper">
+        <div class="shopper__top">
+          <div class="top__name">Product name</div>
+          <div class="top__price">Price</div>
+          <div class="top__quantity">Quantity</div>
+          <div class="top__total">Total</div>
+        </div>
+        <div class="shopper__basket basket"></div>
+        <div class="shopper__bottom bottom">
+          <div class="bottom__buttons">
+            <button class="bottom__button bottom__button_update button">update cart</button>
+            <button class="bottom__button button">continue shopping</button>
+          </div>
+          <div class="bottom__totals">
+            <p class="bottom__name">Cart totals</p>
+            <div class="bottom__total_wrapper">
+              <p class="bottom__total">Total</p>
+              <p class="bottom__price">$565.0</p>
             </div>
-            <div class="details__info">
-            </div>
-        </section>
-        <section class="related wrapper">
-            <h2 class="related__title title2">Related Products</h2>
-            <div class="related__slider"></div>
-        </section>
-        <section class="view wrapper">
-            <h2 class="view__title title2">Last Viewed</h2>
-            <div class="view__slider"></div>
-        </section>
+            <div class="bottom__button_checkout button">Proceed to Checkout</div>
+          </div>
+        </div>
+      </section>
+      <section class="shopper__also_wrapper wrapper">
+        <div class="shoper__also_title title2">You might also like</div>
+        <div class="shopper__also"></div>
+      </section>
     </main>
     <footer class="footer products__footer footer_black">
         <div class="footer__info_wrapper wrapper">

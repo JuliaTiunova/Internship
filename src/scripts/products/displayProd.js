@@ -8,10 +8,11 @@ import { addPagination } from "./addPagination";
 import { showTotal } from "./showTotal";
 import { getLayout, getNumber } from "./getLayout";
 import { buildLink, openRequest } from "../openRequest";
+import { buttonsListenerCart } from "../display/listeners";
 
 export const API_URL = `http://localhost:3030/products`;
 
-export const display = (skip, manufacturer, price, button) => {
+export const display = (skip, manufacturer, price, button, filters) => {
   const input = getElement(".filters__search");
   const element = getElement(".products__display");
   const item = getElement(".category__button_active");
@@ -134,6 +135,8 @@ export const display = (skip, manufacturer, price, button) => {
       }
       addPagination(total, skip);
       showTotal(total, skip);
+      if (filters) return;
+      buttonsListenerCart(element);
     }
   };
 };

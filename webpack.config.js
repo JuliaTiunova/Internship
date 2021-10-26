@@ -52,7 +52,7 @@ const jsLoaders = () => {
   }
   return loader;
 };
-let htmlPageNames = ["forms", "products", "product"];
+let htmlPageNames = ["forms", "products", "product", "shopping_cart"];
 
 let multipleHtmlPlugins = htmlPageNames.map((name) => {
   return new HtmlWebpackPlugin({
@@ -70,6 +70,7 @@ module.exports = {
     forms: "./scripts/forms.js",
     products: "./scripts/products.js",
     product: "./scripts/product.js",
+    shopping_cart: "./scripts/shopping_cart.js",
   },
   optimization: optimization(),
   devServer: {
@@ -136,10 +137,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        {
-          from: path.resolve(__dirname, "src/beetroot.png"),
-          to: path.resolve(__dirname, "dist"),
-        },
         {
           from: path.resolve(__dirname, "src/img"),
           to: path.resolve(__dirname, "dist/img"),

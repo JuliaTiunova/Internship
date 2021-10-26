@@ -1,0 +1,34 @@
+import "../styles/shopping_cart.scss";
+import "./burger";
+import "./cart";
+import "./cart/setupCart";
+
+import { allCategoriesURL, getElement } from "./assets";
+import { displayMenu } from "./display/displayMenu";
+import { countListener } from "./product/countListener";
+import { displayCart } from "./cart/displayCart";
+import { deleteComma } from "./product/deleteComma";
+import { setupCartFunc } from "./cart/setupCart";
+import { displayAlso } from "./cart/displayAlso";
+
+const init = () => {
+  let categories = new XMLHttpRequest();
+  categories.open("GET", allCategoriesURL);
+  categories.responseType = "json";
+  categories.send();
+  categories.onload = function() {
+    let result = categories.response;
+    displayCart();
+
+    const categoriesProduct = document.querySelectorAll(".basket__category");
+    const cartItems = getElement(".shopper__basket");
+
+    setupCartFunc(cartItems);
+    deleteComma(categoriesProduct);
+    displayMenu(result);
+    countListener("basket");
+    displayAlso();
+  };
+};
+
+window.addEventListener("DOMContentLoaded", init);

@@ -10,14 +10,14 @@
     <p class="info__categories">Categories: {{#each categories}}{{name}}, {{/each}}</p>
     <p class="info__tags">Shipping: <span>{{shipping}}</span></p>
 </div>
-<div class="info__quantity quantity">
+<div class="info__quantity quantity ">
     <p class="quantity__text">Quantity:</p>
     <div class="quantity__button_wrapper">
         <button class="quantity__button quantity__less">4</button>
         <p class="quantity__count">1</p>
         <button class="quantity__button quantity__more">5</button>
     </div>
-    <button class="quantity__add button button_product">add to cart</button>
+    <button class="quantity__add cart__button button button_product" data-id="{{id}}">add to cart</button>
     <button class="quantity__button_box quantity__button_like"><i class="icon-like"></i></button>
     <button class="quantity__button_box quantity__button_reload"><i class="icon-reload"></i></button>
 </div>

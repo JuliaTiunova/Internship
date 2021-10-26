@@ -1,21 +1,63 @@
-import { getElement } from "../assets";
+import { getElement, getStorageItem } from "../assets";
+import { addAmount, reduceAmount } from "../cart/setupCart";
 
-export function countListener() {
-  const buttonWrapper = getElement(".quantity__button_wrapper");
-  const counter = getElement(".quantity__count");
-  let count = 1;
+let cart = getStorageItem("cart");
 
-  buttonWrapper.addEventListener("click", (e) => {
-    let target = e.target;
-    if (target.classList.contains("quantity__more")) {
-      count += 1;
-    } else if (target.classList.contains("quantity__less")) {
-      if (count == 1) {
-        count = 1;
-      } else {
-        count -= 1;
+export function countListener(element) {
+  const counterButton = document.querySelectorAll(
+    `.${element}__button_wrapper`
+  );
+
+  const buttonWrapper = getElement(`.${element}__button_wrapper`);
+  const counter = getElement(`.${element}__count`);
+
+  if (element == "basket") {
+    counterButton.forEach((item) => {
+      let price = item.previousElementSibling.innerHTML;
+      price = price.split("$").join("") * 1;
+      item.addEventListener("click", (e) => {
+        let parentItem = item.parentElement;
+        let cartItem = cart.find(
+          (item) => item.id === parentItem.dataset.id * 1
+        );
+        let target = e.target;
+        if (target.classList.contains(`${element}__more`)) {
+          let count = target.previousElementSibling.innerHTML * 1;
+          count += 1;
+          item.nextElementSibling.textContent = `$${(price * count).toFixed(
+            2
+          )}`;
+          target.previousElementSibling.innerHTML = count;
+          addAmount(cartItem, true);
+        } else if (target.classList.contains(`${element}__less`)) {
+          let count = target.nextElementSibling.innerHTML * 1;
+          if (count == 1) {
+            count = 1;
+          } else {
+            count -= 1;
+          }
+
+          target.nextElementSibling.innerHTML = count;
+          item.nextElementSibling.innerHTML = `$${(price * count).toFixed(2)}`;
+          reduceAmount(cartItem, true);
+        }
+      });
+    });
+  } else {
+    let count = 1;
+    buttonWrapper.addEventListener("click", (e) => {
+      let target = e.target;
+      if (target.classList.contains(`${element}__more`)) {
+        count += 1;
+      } else if (target.classList.contains(`${element}__less`)) {
+        if (count == 1) {
+          count = 1;
+        } else {
+          count -= 1;
+        }
       }
-    }
-    counter.innerHTML = count;
-  });
+
+      counter.innerHTML = count;
+    });
+  }
 }
