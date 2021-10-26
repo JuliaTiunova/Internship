@@ -1,5 +1,10 @@
-import { getElement } from "./assets";
-import { display } from "./displayProd";
+import { getElement } from "../assets";
+import { openRequest } from "../openRequest";
+import { API_URL, display } from "./displayProd";
+
+const paramsCategory = (textId) => `category.id=${textId}`;
+const paramsLow = `&$sort[price]=1&$select[]=price`;
+const paramsHigh = `&$sort[price]=-1&$select[]=price`;
 
 export function getPriceRange() {
   const ranges = document.querySelectorAll(".filters__input");
@@ -53,17 +58,17 @@ export function getPriceRange() {
 
 export function getMaxPrice(price, textId, manufacturer) {
   const ranges = document.querySelectorAll(".filters__input");
+  let link = "";
   let pricesRangeMax = new XMLHttpRequest();
   if (manufacturer) {
-    pricesRangeMax.open(
-      "GET",
-      `http://localhost:3030/products?category.id=${textId}&manufacturer=${manufacturer}&$sort[price]=-1&$select[]=price`
-    );
+    link = `${API_URL}?${paramsCategory(
+      textId
+    )}&manufacturer=${manufacturer}${paramsHigh}`;
+
+    pricesRangeMax.open = openRequest(pricesRangeMax, link);
   } else {
-    pricesRangeMax.open(
-      "GET",
-      `http://localhost:3030/products?category.id=${textId}&$sort[price]=-1&$select[]=price`
-    );
+    link = `${API_URL}?${paramsCategory(textId)}${paramsHigh}`;
+    pricesRangeMax.open = openRequest(pricesRangeMax, link);
   }
   pricesRangeMax.responseType = "json";
   pricesRangeMax.send();
@@ -79,17 +84,17 @@ export function getMaxPrice(price, textId, manufacturer) {
 
 export function getMinPrice(price, textId, manufacturer) {
   const ranges = document.querySelectorAll(".filters__input");
+  let link = "";
   let pricesRangeMax = new XMLHttpRequest();
   if (manufacturer) {
-    pricesRangeMax.open(
-      "GET",
-      `http://localhost:3030/products?category.id=${textId}&&manufacturer=${manufacturer}&$sort[price]=1&$select[]=price`
-    );
+    link = `${API_URL}?${paramsCategory(
+      textId
+    )}&manufacturer=${manufacturer}${paramsLow}`;
+
+    pricesRangeMax.open = openRequest(pricesRangeMax, link);
   } else {
-    pricesRangeMax.open(
-      "GET",
-      `http://localhost:3030/products?category.id=${textId}&$sort[price]=1&$select[]=price`
-    );
+    link = `${API_URL}?${paramsCategory(textId)}${paramsLow}`;
+    pricesRangeMax.open = openRequest(pricesRangeMax, link);
   }
   pricesRangeMax.responseType = "json";
   pricesRangeMax.send();

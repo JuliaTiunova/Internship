@@ -16,6 +16,17 @@
   align-content: center;
 }
 
+@mixin center-position {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin center-position-left {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 @mixin not-last-child {
   &:not(:last-child) {
     @content;

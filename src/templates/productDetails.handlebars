@@ -1,0 +1,74 @@
+
+<div class="info__name">
+    <h2 class="info__name_title">{{name}}</h2>
+    <div class="info__name_ratings"></div>
+    <p class="info__name_price">${{price}}</p>
+</div>
+<div class="info__about">
+    <p class="info__text">{{description}}</p>
+    <p class="info__model">Model: {{model}}</p>
+    <p class="info__categories">Categories: {{#each categories}}{{name}}, {{/each}}</p>
+    <p class="info__tags">Shipping: <span>{{shipping}}</span></p>
+</div>
+<div class="info__quantity quantity">
+    <p class="quantity__text">Quantity:</p>
+    <div class="quantity__button_wrapper">
+        <button class="quantity__button quantity__less">4</button>
+        <p class="quantity__count">1</p>
+        <button class="quantity__button quantity__more">5</button>
+    </div>
+    <button class="quantity__add button button_product">add to cart</button>
+    <button class="quantity__button_box quantity__button_like"><i class="icon-like"></i></button>
+    <button class="quantity__button_box quantity__button_reload"><i class="icon-reload"></i></button>
+</div>
+<div class="info__descript descript">
+    <div class="descript__button_wrapper">
+        <button class="descript__button descript__button_active" value="description">Description</button>
+        <button class="descript__button" value="addition">Additional information</button>
+        <button class="descript__button" value="review">Reviews <span></span></button>
+    </div>
+    <div class="descript__text descript__change descript_visible">
+        <p>{{description}}</p>
+    </div>
+    <div class="descript__add descript__change add">
+        <p class="add__model">Model: {{model}}</p>
+        <p class="add__manufacturer">Manufacturer: {{manufacturer}}</p>
+        <p class="add__shipping">Shipping: <span>{{shipping}}</span></p>
+    </div>
+    <div class="descript__review descript__change review">
+        <div class="review__customer"></div>
+        <div class="review__pagination"></div>
+        <p class="review__explain">Your email address will not be published. Required fields are marked</p>
+        <p class="review__rating">Your rating</p>
+        <div class="review__stars">
+            <i class="review__star far fa-star"></i>
+            <i class="review__star far fa-star"></i>
+            <i class="review__star far fa-star"></i>
+            <i class="review__star far fa-star"></i>
+            <i class="review__star far fa-star"></i>
+        </div>
+        <form class="review__form" novalidate>
+            <div class="error-message">Error message</div>
+            <div class="review__input_wrapper">
+                <div class="inputs">
+                    <input class="inputs__name" type="text" name="name" id="">
+                    <label for="name">Name</label>
+                </div>
+                <div class="inputs">
+                    <input class="inputs__email" type="email" name="email" id="">
+                    <label for="email">Email</label>
+                </div>
+                <div class="inputs">
+                    <textarea class="inputs__message" name="message" id="" cols="30" rows="3"></textarea>
+                    <label for="message">Your review</label>
+                </div>
+            </div>
+            <button type="submit" class="review__button button button_product">Submit</button>
+            <div class="checkbox_wrapper">
+                    <input class="input__checkbox" type="checkbox" name="save" id="save">
+                    <span class="check"></span>
+                <label for="save"> Save my name, email, and website in this browser for the next time I comment.</label>
+            </div>
+        </form>
+    </div>
+</div>

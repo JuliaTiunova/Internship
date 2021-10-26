@@ -8,12 +8,12 @@
           <div class="hover__bottom">
               <div class="hover__box box_reload"><i class="icon-reload"></i></div>
               <button class="hover__button button_small" data-id="{{id}}"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</button>
-              <a href="#" class="hover__box box_search box__link link"><i class="icon-search"></i></a>
+              <a href="./product.html?id={{id}}" class="hover__box box_search box__link link" title="product details"><i class="icon-search"></i></a>
           </div>
         </div>
         </div>
         <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
-        <p class="product__name">{{name}}</p>
+        <a href="./product.html?id={{id}}" class="product__name" title="product details">{{name}}</a>
         <p class="product__price">${{price}}</p>
         </div>
       </article>

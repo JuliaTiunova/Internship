@@ -1,4 +1,4 @@
-import { getElement } from "./assets";
+import { getElement } from "../assets";
 import { display } from "./displayProd";
 
 export function sortButtonListener() {

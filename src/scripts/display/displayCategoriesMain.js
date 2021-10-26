@@ -1,4 +1,5 @@
-import { sliderHeader } from "./slider";
+import { API_URL } from "../products/displayProd";
+import { sliderHeader } from "../slider";
 
 const displayCategory = (arr, element) => {
   element.innerHTML = arr
@@ -23,10 +24,7 @@ const displayCategory = (arr, element) => {
 
 function oneCategoryTotal(id) {
   let oneCategory = new XMLHttpRequest();
-  oneCategory.open(
-    "GET",
-    `http://localhost:3030/products?$limit=25&category.id=${id}`
-  );
+  oneCategory.open("GET", `${API_URL}?$limit=25&category.id=${id}`);
   oneCategory.responseType = "json";
   oneCategory.send();
   oneCategory.onload = function() {
@@ -43,10 +41,7 @@ function oneCategoryTotal(id) {
 function oneCategoryImage(id) {
   let oneCategory = new XMLHttpRequest();
 
-  oneCategory.open(
-    "GET",
-    `http://localhost:3030/products?$limit=25&category.id=${id}`
-  );
+  oneCategory.open("GET", `${API_URL}?$limit=25&category.id=${id}`);
 
   oneCategory.responseType = "json";
   oneCategory.send();
