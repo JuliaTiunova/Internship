@@ -3,11 +3,13 @@ import "./burger";
 import "./cart";
 import "./cart/setupCart";
 
-import { allCategoriesURL } from "./assets";
+import { allCategoriesURL, getElement } from "./assets";
 import { displayMenu } from "./display/displayMenu";
 import { countListener } from "./product/countListener";
 import { displayCart } from "./cart/displayCart";
 import { deleteComma } from "./product/deleteComma";
+import { setupCartFunc } from "./cart/setupCart";
+import { displayAlso } from "./cart/displayAlso";
 
 const init = () => {
   let categories = new XMLHttpRequest();
@@ -19,9 +21,13 @@ const init = () => {
     displayCart();
 
     const categoriesProduct = document.querySelectorAll(".basket__category");
+    const cartItems = getElement(".shopper__basket");
+
+    setupCartFunc(cartItems);
     deleteComma(categoriesProduct);
     displayMenu(result);
     countListener("basket");
+    displayAlso();
   };
 };
 

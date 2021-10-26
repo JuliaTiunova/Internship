@@ -480,6 +480,17 @@
   margin-bottom: 44px;
 }
 
+.view__slider {
+  & .slick-slide {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  & .product__wrapper {
+    padding: 10px;
+  }
+}
+
 .related {
   margin-bottom: 80px;
 

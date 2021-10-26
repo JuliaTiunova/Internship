@@ -6,11 +6,11 @@ import { API_URL } from "../products/displayProd";
 import { openRequest } from "../openRequest";
 import { displayTotal } from "./displayTotal";
 import { displayWishlistItemCount, setupWishlistFunc } from "./setupWishlist";
+import { setAmount } from "./setAmount";
 
 const cartItemCountDOM = getElement(".cart__counter");
 const cartItemsDOM = getElement(".cart__items");
 const cartTotalDOM = getElement(".subtotal__price");
-// const cartItems = getElement(".shopper__basket");
 
 const wishlistTotalDOM = getElement(".subtotal__price_wishlist");
 
@@ -33,6 +33,7 @@ export const addToCart = (id) => {
       addToCartDOM(element);
     } else {
       addAmount(element);
+      setAmount(element.id, cart);
     }
     displayTotal(cart, cartTotalDOM);
     setStorageItem("cart", cart);
@@ -54,7 +55,7 @@ function displayItems(el, func) {
   });
 }
 
-function addAmount(item) {
+export function addAmount(item, cartPage) {
   let newAmount = 0;
   cart = cart.map((cartItem) => {
     if (cartItem.id === item.id) {
@@ -63,6 +64,31 @@ function addAmount(item) {
     }
     return cartItem;
   });
+  if (cartPage) {
+    const total = getElement(".bottom__price");
+    displayTotal(cart, total);
+  }
+
+  return newAmount;
+}
+
+export function reduceAmount(item, cartPage) {
+  let newAmount = 0;
+  cart = cart.map((cartItem) => {
+    if (cartItem.id === item.id) {
+      newAmount = cartItem.amount - 1;
+      if (newAmount === 0) {
+        newAmount = 1;
+      }
+      cartItem.amount = newAmount;
+    }
+    return cartItem;
+  });
+  if (cartPage) {
+    const total = getElement(".bottom__price");
+    displayTotal(cart, total);
+  }
+
   return newAmount;
 }
 
@@ -70,11 +96,10 @@ function removeItemCart(id) {
   cart = cart.filter((cartItem) => cartItem.id !== id);
 }
 
-function setupCartFunc(section) {
+export function setupCartFunc(section) {
   section.addEventListener("click", (e) => {
     const element = e.target;
     const id = element.dataset.id;
-    console.log(id);
     if (element.classList.contains("fa-times-circle")) {
       removeItemCart(id * 1);
       element.parentElement.parentElement.remove();
@@ -92,7 +117,6 @@ const init = () => {
   displayItems(wishlist, addToWishlistDOM);
 
   setupCartFunc(cartItemsDOM);
-  // setupCartFunc(cartItems);
   setupWishlistFunc();
 
   displayTotal(cart, cartTotalDOM);

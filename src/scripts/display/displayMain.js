@@ -18,7 +18,6 @@ export const displayMain = (slider, arr, filters) => {
     while (random >= ids.length) {
       random = Math.floor(Math.random() * 100).toFixed();
     }
-    console.log(random);
     productsAll.open("GET", `${API_URL}?$limit=4&category.id=${ids[random]}`);
   } else {
     productsAll.open("GET", `${API_URL}?$limit=25&category.id=${textId}`);

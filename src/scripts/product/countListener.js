@@ -1,5 +1,5 @@
-import { getElement, getStorageItem, setStorageItem } from "../assets";
-import { displayTotal } from "../cart/displayTotal";
+import { getElement, getStorageItem } from "../assets";
+import { addAmount, reduceAmount } from "../cart/setupCart";
 
 let cart = getStorageItem("cart");
 
@@ -12,7 +12,6 @@ export function countListener(element) {
   const counter = getElement(`.${element}__count`);
 
   if (element == "basket") {
-    const total = getElement(".bottom__price");
     counterButton.forEach((item) => {
       let price = item.previousElementSibling.innerHTML;
       price = price.split("$").join("") * 1;
@@ -29,7 +28,7 @@ export function countListener(element) {
             2
           )}`;
           target.previousElementSibling.innerHTML = count;
-          addAmount(cartItem);
+          addAmount(cartItem, true);
         } else if (target.classList.contains(`${element}__less`)) {
           let count = target.nextElementSibling.innerHTML * 1;
           if (count == 1) {
@@ -40,11 +39,8 @@ export function countListener(element) {
 
           target.nextElementSibling.innerHTML = count;
           item.nextElementSibling.innerHTML = `$${(price * count).toFixed(2)}`;
-          reduceAmount(cartItem);
+          reduceAmount(cartItem, true);
         }
-
-        setStorageItem("cart", cart);
-        displayTotal(cart, total);
       });
     });
   } else {
@@ -64,31 +60,4 @@ export function countListener(element) {
       counter.innerHTML = count;
     });
   }
-}
-
-function addAmount(item) {
-  let newAmount = 0;
-  cart = cart.map((cartItem) => {
-    if (cartItem.id === item.id) {
-      newAmount = cartItem.amount + 1;
-      cartItem.amount = newAmount;
-    }
-    return cartItem;
-  });
-  return newAmount;
-}
-
-function reduceAmount(item) {
-  let newAmount = 0;
-  cart = cart.map((cartItem) => {
-    if (cartItem.id === item.id) {
-      newAmount = cartItem.amount - 1;
-      if (newAmount === 0) {
-        newAmount = 1;
-      }
-      cartItem.amount = newAmount;
-    }
-    return cartItem;
-  });
-  return newAmount;
 }

@@ -3,13 +3,11 @@
             <div class="basket__info">
               <div class="basket__img"><img src="{{image}}" alt="{{name}}"></div>
               <div class="basket__name_wrapper">
-                <a href="../product.html?id={{id}}" class="basket__name link">{{name}}</a>
+                <a href="../product.html?id={{id}}" class="basket__name link" data-id="{{id}}">{{name}}</a>
                 <div class="basket__category">{{#each categories}}{{name}}, {{/each}}</div>
               </div>
             </div>
-            <div class="basket__price">
-              ${{price}}
-            </div>
+            <div class="basket__price">${{price}}</div>
             <div class="basket__button_wrapper">
               <button class="basket__button basket__less">4</button>
               <p class="basket__count">{{amount}}</p>
