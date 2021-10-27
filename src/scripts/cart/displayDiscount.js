@@ -35,10 +35,11 @@ export const displayDiscount = (coupon) => {
   }, 0);
   const discount = (amount * number).toFixed(2);
   const newAmount = amount - discount;
-  total.innerHTML = amount;
+  total.innerHTML = `$${amount.toFixed(2)}`;
   total.style.textDecoration = "line-through";
   discountText.innerHTML = `- $${discount}`;
   newTotal.innerHTML = `$${newAmount}`;
+  newTotal.style.display = "block";
   newTotal.style.paddingTop = "15px";
   newTotal.style.borderTop = "1px solid #ececec";
 };

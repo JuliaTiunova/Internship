@@ -51,7 +51,7 @@
 
 .coupon {
   @include flex-start;
-
+  position: relative;
   font-family: $jost;
   font-size: 18px;
   color: $black-text;
@@ -60,6 +60,24 @@
     font-size: 18px;
     color: $black-text;
     margin-right: 20px;
+  }
+
+  &__center {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__message {
+    background: 0;
+    outline: 0;
+    border: 0;
+    color: $red-sale;
+    margin-bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__decor {
@@ -72,14 +90,14 @@
     font-family: $qsand;
     font-size: 22px;
     color: $black-text;
-    text-shadow: 1px 1px 2px $white;
+    text-shadow: 1px 1px 1px $white;
     text-transform: uppercase;
     margin-right: 10px;
 
     &_wrapper {
       @include flex-between;
       margin: -2px;
-      padding: 4px;
+      padding: 4px 10px 4px 4px;
       border: 8px dotted $white;
     }
   }
@@ -90,12 +108,13 @@
     border: 0;
     &:hover {
       cursor: pointer;
-      animation: rotate 1.5s linear infinite;
     }
 
     & i {
+      display: block;
       &:hover {
         cursor: pointer;
+        animation: rotate 1.5s linear infinite;
       }
     }
   }
@@ -267,6 +286,13 @@
 }
 
 .bottom {
+  &__buttons {
+    display: flex;
+    & a {
+      text-decoration: none;
+      color: $black;
+    }
+  }
   &__button {
     background-image: linear-gradient(-145deg, $white 50%, $grey-border 50%);
     border: 1px solid transparent;

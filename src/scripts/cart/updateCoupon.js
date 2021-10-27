@@ -1,4 +1,4 @@
-import { getElement, setStorageItem } from "../assets";
+import { getElement } from "../assets";
 import { displayCoupon } from "./coupons";
 
 export const updateCoupon = () => {
@@ -8,7 +8,6 @@ export const updateCoupon = () => {
     if (input.value) {
       input.value = "";
     }
-    setStorageItem("coupon", []);
     displayCoupon();
   };
 };
