@@ -2,6 +2,7 @@ import "../styles/shopping_cart.scss";
 import "./burger";
 import "./cart";
 import "./cart/setupCart";
+import "./cart/coupons";
 
 import { allCategoriesURL, getElement } from "./assets";
 import { displayMenu } from "./display/displayMenu";
@@ -10,6 +11,9 @@ import { displayCart } from "./cart/displayCart";
 import { deleteComma } from "./product/deleteComma";
 import { setupCartFunc } from "./cart/setupCart";
 import { displayAlso } from "./cart/displayAlso";
+import { displayCoupon } from "./cart/coupons";
+import { updateCoupon } from "./cart/updateCoupon";
+import { updateListener } from "./cart/updateListener";
 
 const init = () => {
   let categories = new XMLHttpRequest();
@@ -28,6 +32,9 @@ const init = () => {
     displayMenu(result);
     countListener("basket");
     displayAlso();
+    displayCoupon();
+    updateCoupon();
+    updateListener();
   };
 };
 

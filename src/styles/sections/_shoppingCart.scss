@@ -17,6 +17,10 @@
     color: $black;
   }
 
+  &__coupon {
+    margin-bottom: 30px;
+  }
+
   &__also {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -41,6 +45,72 @@
     padding-top: 40px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.coupon {
+  @include flex-start;
+
+  font-family: $jost;
+  font-size: 18px;
+  color: $black-text;
+  &__option {
+    font-family: $jost;
+    font-size: 18px;
+    color: $black-text;
+    margin-right: 20px;
+  }
+
+  &__decor {
+    background: linear-gradient(45deg, #ffefdc 0%, #fadddd 100%);
+    margin-right: 20px;
+    width: 310px;
+  }
+
+  &__name {
+    font-family: $qsand;
+    font-size: 22px;
+    color: $black-text;
+    text-shadow: 1px 1px 2px $white;
+    text-transform: uppercase;
+    margin-right: 10px;
+
+    &_wrapper {
+      @include flex-between;
+      margin: -2px;
+      padding: 4px;
+      border: 8px dotted $white;
+    }
+  }
+
+  &__button {
+    background: 0;
+    outline: none;
+    border: 0;
+    &:hover {
+      cursor: pointer;
+      animation: rotate 1.5s linear infinite;
+    }
+
+    & i {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    min-width: 200px;
+    background: 0;
+    text-transform: uppercase;
+
+    &::placeholder {
+      font-size: 16px;
+      text-transform: initial;
+    }
   }
 }
 
@@ -242,17 +312,33 @@
     border-bottom: 1px solid $grey-border;
   }
 
-  &__total {
+  &__total,
+  &__discount {
     font-weight: normal;
     font-size: 15px;
     line-height: 22px;
     &_wrapper {
       @include flex-between;
-      padding-top: 25px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
   }
-  &__price {
+
+  &__total {
+    &_wrapper {
+      padding-top: 25px;
+    }
+  }
+
+  &__newtotal {
+    text-align: right;
+    margin-bottom: 30px;
+  }
+  &__discount_price {
+    color: $red-sale;
+  }
+
+  &__price,
+  &__newtotal {
     font-weight: 600;
     font-size: 18px;
     line-height: 26px;
@@ -262,5 +348,14 @@
 .shopping__cart {
   & .button-cart {
     pointer-events: none;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

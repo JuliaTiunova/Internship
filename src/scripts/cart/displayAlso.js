@@ -11,7 +11,16 @@ export function displayAlso() {
   item.send();
   item.onload = function() {
     let result = item.response;
-    let category = result.data[0].categories[1].id;
+    let category;
+    (function findCategory() {
+      for (let i = 4; i >= 0; i--) {
+        if (result.data[0].categories[i]) {
+          category = result.data[0].categories[i].id;
+          return category;
+        }
+      }
+    })();
+
     let products = new XMLHttpRequest();
     products.open("GET", `${API_URL}?$limit=3&category.id=${category}`);
     products.responseType = "json";
