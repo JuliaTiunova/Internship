@@ -7,12 +7,16 @@
         <div class="hover__bottom">
             <button class="hover__button_round" data-id="{{id}}"><i class="icon-like"></i></button>
             <button class="hover__button_round"><i class="icon-reload"></i></button>
-            <button class="hover__button_round cart__button" data-id="{{id}}"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i></button>
+            {{#if also}}
+            {{else}}
+            <button class="hover__button_round cart__button" value="{{stock}}" data-id="{{id}}"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i></button>
+            {{/if}}
             <a href="./product.html?id={{id}}" class="hover__button_round" title="product details"><i class="icon-search"></i></a>
         </div>
       </div>
       </div>
-      <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
+      <div class="products__message" data-id="{{id}}"></div>
+      <p class="product__stock" style="color: {{color stock}}">{{stockNumber stock}}</p>
       <a href="./product.html?id={{id}}" class="product__name" title="product details">{{name}}</a>
       <p class="product__price">${{price}}</p>
     </div>

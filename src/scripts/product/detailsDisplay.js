@@ -1,4 +1,4 @@
-import { getElement } from "../assets";
+import { getElement, getStorageItem } from "../assets";
 import productSliderTop from "../../templates/productSliderTop.handlebars";
 import productSliderBottom from "../../templates/productSliderBottom.handlebars";
 import productDetails from "../../templates/productDetails.handlebars";
@@ -14,6 +14,7 @@ import { postReview } from "./review/postReview";
 import { buttonsListenerCart } from "../display/listeners";
 
 export function displayProduct() {
+  const stock = getStorageItem("stock");
   const sliderTop = getElement(".pic__slider_top");
   const sliderBottom = getElement(".pic__slider_bottom");
   const detailsInfo = getElement(".details__info");
@@ -32,12 +33,12 @@ export function displayProduct() {
   product.onload = function() {
     let response = product.response;
     let data = response.data[0];
+    let item = stock.find((ent) => ent.id === data.id);
+    data.stock = item.stock;
     sliderTop.innerHTML = productSliderTop(data);
     sliderBottom.innerHTML = productSliderBottom(data);
     detailsInfo.innerHTML = productDetails(data);
-    import("slick-carousel").then(() => {
-      sliderProduct();
-    });
+    sliderProduct();
     sliderViewedProd();
     countListener("quantity");
     descriptListener();

@@ -28,9 +28,7 @@ const init = () => {
     displayList(result, getElement(".feature__list"));
     displayMenu(result);
     displayCategory(arr, getElement(".header__categories"));
-    displayMain(getElement(".arrival__slider"));
-    displayMain(getElement(".feature__products"));
-    displayMain(getElement(".deals__products"), arr);
+    displayMain(arr);
     buttonListener(
       getElement(".arrival__list"),
       getElement(".arrival__slider")

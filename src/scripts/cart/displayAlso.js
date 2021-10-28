@@ -1,6 +1,9 @@
-import { getElement } from "../assets";
+import { getElement, getStorageItem, setStorageItem } from "../assets";
 import { API_URL } from "../products/displayProd";
 import product from "../../templates/products.handlebars";
+import { setStock } from "./setStock";
+
+let stock = getStorageItem("stock");
 
 export function displayAlso() {
   const name = getElement(".basket__name");
@@ -11,6 +14,7 @@ export function displayAlso() {
   item.send();
   item.onload = function() {
     let result = item.response;
+
     let category;
     (function findCategory() {
       for (let i = 4; i >= 0; i--) {
@@ -27,6 +31,21 @@ export function displayAlso() {
     products.send();
     products.onload = function() {
       let item = products.response;
+      item.data.forEach((item) => {
+        let is = stock.find((ent) => ent.id === item.id);
+        item.also = true;
+        if (is) {
+          item.stock = is.stock;
+          setStorageItem("stock", stock);
+        } else {
+          item.stock = setStock() * 1;
+          stock = [
+            ...stock,
+            { id: item.id, name: item.name, stock: item.stock },
+          ];
+          setStorageItem("stock", stock);
+        }
+      });
       wrapper.innerHTML = product(item);
     };
   };

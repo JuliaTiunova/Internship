@@ -7,13 +7,15 @@
       <div class="product__description">
             <a href="./product.html?id={{id}}" class="product__name" title="product details">{{name}}</a>
             <p class="product__price">${{price}}</p>
+            <div class="products__message" data-id="{{id}}"></div>
+            <p class="product__stock" style="color: {{color stock}}">{{stockNumber stock}}</p>
             <p>{{description}}</p>
       </div>
       <div class="product__hover hover">
         <div class="hover__bottom">
             <button class="hover__button_round"><i class="icon-like"></i></button>
             <button class="hover__button_round"><i class="icon-reload"></i></button>
-            <button class="hover__button_round cart__button" data-id="{{id}}"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i></button>
+            <button class="hover__button_round cart__button" value="{{stock}}" data-id="{{id}}"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i></button>
             <a href="./product.html?id={{id}}" class="hover__button_round" title="product details"><i class="icon-search"></i></a>
         </div>
       </div>

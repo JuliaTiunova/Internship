@@ -34,7 +34,7 @@ export const displayDiscount = (coupon) => {
     return (total += item.price * item.amount);
   }, 0);
   const discount = (amount * number).toFixed(2);
-  const newAmount = amount - discount;
+  const newAmount = (amount - discount).toFixed(2);
   total.innerHTML = `$${amount.toFixed(2)}`;
   total.style.textDecoration = "line-through";
   discountText.innerHTML = `- $${discount}`;

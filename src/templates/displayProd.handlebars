@@ -10,12 +10,13 @@
                   <div class="hover__box box_like" data-id="{{id}}"><i class="icon-like"></i></div>
                   <div class="hover__bottom">
                       <div class="hover__box box_reload" data-id="{{id}}"><i class="icon-reload"></i></div>
-                      <button class="hover__button cart__button button_small" data-id="{{id}}"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</button>
+                      <button class="hover__button cart__button button_small" value="{{stock}}" data-id="{{id}}"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</button>
                       <a href="./product.html?id={{id}}" class="hover__box box_search" data-id="{{id}}" title="product details"><i class="icon-search"></i></a href="./product.html?id={{id}}">
                   </div>
                 </div>
               </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
+                <div class="products__message" data-id="{{id}}"></div>
+                <p class="product__stock" style="color: {{color stock}}">{{stockNumber stock}}</p>
                 <a href="./product.html?id={{id}}" class="product__name" title="product details" title="product details">{{name}}</a>
                 <p class="product__price">${{price}}<span>${{price}}</span></p>
               </div>
@@ -28,12 +29,13 @@
                   <div class="hover__box box_like" data-id="{{id}}"><i class="icon-like"></i></div>
                   <div class="hover__bottom">
                       <div class="hover__box box_reload" data-id="{{id}}"><i class="icon-reload"></i></div>
-                      <button class="hover__button cart__button button_small" data-id="{{id}}"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</button>
+                      <button class="hover__button cart__button button_small" value="{{stock}}" data-id="{{id}}"><i class="hover__button_img icon-cart" src="img/cart.png" alt="cart"></i>Add to cart</button>
                       <a href="./product.html?id={{id}}" class="hover__box box_search" data-id="{{id}}" title="product details"><i class="icon-search"></i></a href="./product.html?id={{id}}">
                   </div>
                 </div>
                 </div>
-                <div class="product__ratings ratings"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><i class="far fa-star"></i></div>
+                <div class="products__message" data-id="{{id}}"></div>
+                <p class="product__stock" style="color: {{color stock}}">{{stockNumber stock}}</p>
                 <a href="./product.html?id={{id}}" class="product__name" title="product details">{{name}}</a>
                 <p class="product__price">${{price}} <span>${{price}}</span></p>
               </div>

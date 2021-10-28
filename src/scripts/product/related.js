@@ -1,12 +1,14 @@
-import { getElement } from "../assets";
+import { getElement, getStorageItem, setStorageItem } from "../assets";
 import products from "../../templates/products.handlebars";
 import { sliderRelatedProd } from "../slider";
 import { deleteComma } from "./deleteComma";
 import { buttonsListenerCart } from "../display/listeners";
-// import jQuery from "jquery";
+import { setStock } from "../cart/setStock";
+import { valueSet } from "../cart/setupCart";
 
 export function getRelated(id) {
   const sliderRelated = getElement(".related__slider");
+  let stock = getStorageItem("stock");
   let related = new XMLHttpRequest();
   related.open(
     "GET",
@@ -18,33 +20,21 @@ export function getRelated(id) {
     let line = getElement(".info__categories");
     deleteComma(line);
     let info = related.response;
+    info.data.forEach((item) => {
+      let is = stock.find((ent) => ent.id === item.id);
+      if (is) {
+        item.stock = is.stock;
+        setStorageItem("stock", stock);
+      } else {
+        item.stock = setStock() * 1;
+        stock = [...stock, { id: item.id, name: item.name, stock: item.stock }];
+        setStorageItem("stock", stock);
+      }
+    });
     sliderRelated.innerHTML = products(info);
     sliderRelatedProd();
+
+    valueSet();
     buttonsListenerCart(sliderRelated);
   };
 }
-
-// jQuery.event.special.touchstart = {
-//   setup: function(_, ns, handle) {
-//     this.addEventListener("touchstart", handle, {
-//       passive: !ns.includes("noPreventDefault"),
-//     });
-//   },
-// };
-// jQuery.event.special.touchmove = {
-//   setup: function(_, ns, handle) {
-//     this.addEventListener("touchmove", handle, {
-//       passive: !ns.includes("noPreventDefault"),
-//     });
-//   },
-// };
-// jQuery.event.special.wheel = {
-//   setup: function(_, ns, handle) {
-//     this.addEventListener("wheel", handle, { passive: true });
-//   },
-// };
-// jQuery.event.special.mousewheel = {
-//   setup: function(_, ns, handle) {
-//     this.addEventListener("mousewheel", handle, { passive: true });
-//   },
-// };

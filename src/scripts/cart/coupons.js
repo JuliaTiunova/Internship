@@ -21,7 +21,6 @@ export function displayCoupon() {
       index = Math.floor(Math.random() * 10).toFixed();
     }
     couponWrapper.innerHTML = coupons[index];
-    // setStorageItem("coupon", coupons[index]);
     $(message).hide();
   } else {
     couponWrapper.innerHTML = coupon;

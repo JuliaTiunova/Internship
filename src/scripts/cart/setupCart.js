@@ -1,23 +1,21 @@
 import { getElement, getStorageItem, setStorageItem } from "../assets";
 import { openCart } from "../cart";
 import addToCartDOM from "./addtocartDOM";
-import addToWishlistDOM from "../addtoWishlistDOM";
 import { API_URL } from "../products/displayProd";
 import { openRequest } from "../openRequest";
 import { displayTotal } from "./displayTotal";
 import { displayWishlistItemCount, setupWishlistFunc } from "./setupWishlist";
 import { setAmount } from "./setAmount";
+import { addValue, amountMap } from "./cartMapping";
 
 const cartItemCountDOM = getElement(".cart__counter");
 const cartItemsDOM = getElement(".cart__items");
 const cartTotalDOM = getElement(".subtotal__price");
 
-const wishlistTotalDOM = getElement(".subtotal__price_wishlist");
-
 let cart = getStorageItem("cart");
-let wishlist = getStorageItem("wishlist");
 
-export const addToCart = (id, amount) => {
+export const addToCart = (id, amount, stockNumber) => {
+  let stock = getStorageItem("stock");
   let item = cart.find((cartItem) => cartItem.id == id);
   let product = new XMLHttpRequest();
   let link = `${API_URL}?id=${id}`;
@@ -27,6 +25,7 @@ export const addToCart = (id, amount) => {
   product.onload = function() {
     let element = product.response;
     element = element.data[0];
+    element.stock = stockNumber;
     if (amount) {
       element.amount = amount;
     } else {
@@ -35,14 +34,17 @@ export const addToCart = (id, amount) => {
     if (!item) {
       cart = [...cart, element];
       addToCartDOM(element);
-    } else {
-      addAmount(element, amount);
-      setAmount(element.id, cart);
+    } else if (item && element.stock != 0) {
+      addAmount(element, amount, false, stock);
+      setAmount(element.id, cart, stock);
     }
-    displayTotal(cart, cartTotalDOM);
-    setStorageItem("cart", cart);
-    displayCartItemCount();
-    openCart();
+
+    if (element.stock != 0) {
+      displayTotal(cart, cartTotalDOM);
+      setStorageItem("cart", cart);
+      displayCartItemCount();
+      openCart();
+    }
   };
 };
 
@@ -61,47 +63,28 @@ function displayItems(el, func) {
 
 export function addAmount(item, amount, cartPage) {
   let newAmount = 0;
-  cart = cart.map((cartItem) => {
-    if (cartItem.id === item.id) {
-      if (amount) {
-        newAmount = cartItem.amount + amount;
-      } else {
-        newAmount = cartItem.amount + 1;
-      }
-      cartItem.amount = newAmount;
-    }
-    return cartItem;
-  });
+  amountMap(cart, item.id, amount, newAmount);
   if (cartPage) {
     const total = getElement(".bottom__price");
     displayTotal(cart, total);
   }
-
   return newAmount;
 }
 
 export function reduceAmount(item, cartPage) {
   let newAmount = 0;
-  cart = cart.map((cartItem) => {
-    if (cartItem.id === item.id) {
-      newAmount = cartItem.amount - 1;
-      if (newAmount === 0) {
-        newAmount = 1;
-      }
-      cartItem.amount = newAmount;
-    }
-    return cartItem;
-  });
+  amountMap(cart, item.id, false, newAmount, true);
   if (cartPage) {
     const total = getElement(".bottom__price");
     displayTotal(cart, total);
   }
-
   return newAmount;
 }
 
 function removeItemCart(id) {
+  let product = cart.find((item) => (item.id === id ? item : ""));
   cart = cart.filter((cartItem) => cartItem.id !== id);
+  addValue(id, product);
 }
 
 export function setupCartFunc(section) {
@@ -118,17 +101,26 @@ export function setupCartFunc(section) {
   });
 }
 
+export const valueSet = () => {
+  const cartButton = document.querySelectorAll(".cart__button");
+  cartButton.forEach((button) => {
+    let cartItem = cart.find((item) => item.id === button.dataset.id * 1);
+    if (cartItem) {
+      let number = button.value * 1;
+      button.value = number - cartItem.amount;
+    }
+  });
+};
+
 const init = () => {
   displayCartItemCount();
   displayWishlistItemCount();
   displayItems(cart, addToCartDOM);
-  displayItems(wishlist, addToWishlistDOM);
 
   setupCartFunc(cartItemsDOM);
   setupWishlistFunc();
 
   displayTotal(cart, cartTotalDOM);
-  displayTotal(wishlist, wishlistTotalDOM);
 };
 
 init();

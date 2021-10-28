@@ -7,7 +7,7 @@ export const updateListener = () => {
   const storage = getStorageItem("coupon");
   update.onclick = () => {
     const input = getElement(".coupon__input");
-    const coupon = input.value;
+    const coupon = input.value.toUpperCase();
     if (coupon) {
       validateCoupon(coupon, input);
     } else if (coupon == "" && storage.length == 0) {

@@ -142,6 +142,12 @@
       top: 0;
     }
   }
+
+  &__stock {
+    font-family: $jost;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
 }
 
 .products__display.product__list {
@@ -211,6 +217,26 @@
     &__bottom {
       padding-left: 50px;
     }
+  }
+}
+
+.products__message {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translate(50%, -5px);
+  font-family: $jost;
+  font-size: 16px;
+  background: linear-gradient(to right, #aaffb5 0%, #defff4 100%);
+  line-height: 30px;
+  border-left: 3px solid #6cb375;
+  opacity: 0;
+  transition: transform ease-in-out 1s, opacity 0.5s;
+
+  &.open {
+    transform: translate(-50%, -5px);
+    opacity: 1;
   }
 }
 
