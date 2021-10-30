@@ -15,6 +15,7 @@ import { displayCoupon } from "./cart/coupons";
 import { updateCoupon } from "./cart/updateCoupon";
 import { updateListener } from "./cart/updateListener";
 import { servicesListeners } from "./cart/services";
+import { totalListener } from "./cart/payments";
 
 const init = () => {
   let cart = getStorageItem("cart");
@@ -30,6 +31,7 @@ const init = () => {
     displayCoupon();
     updateCoupon();
     updateListener();
+    totalListener();
 
     if (cart.length >= 1) {
       const categoriesProduct = document.querySelectorAll(".basket__category");
@@ -40,10 +42,7 @@ const init = () => {
       setupCartFunc(cartItems);
       deleteComma(categoriesProduct);
       servicesListeners();
-
-      console.log(cart.length);
     } else {
-      console.log(cart.length);
       shopperAlso.style.display = "none";
     }
   };

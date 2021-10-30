@@ -1,6 +1,6 @@
 .shopper {
   padding-top: 80px;
-  padding-bottom: 90px;
+  padding-bottom: 30px;
 
   &__basket {
     display: grid;
@@ -591,6 +591,73 @@
   &__price,
   &__corner {
     pointer-events: none;
+  }
+}
+.payments {
+  padding-bottom: 80px;
+
+  &_top {
+    text-transform: uppercase;
+  }
+}
+
+.payment {
+  display: grid;
+  grid-template-columns: auto repeat(6, 1fr);
+  align-items: center;
+  font-family: $jost;
+  color: $black-text;
+  margin-bottom: 20px;
+  &:not(:first-child) {
+    border: 1px solid $grey-border-input;
+    box-shadow: 0 5px 5px 1px $grey-border-input;
+  }
+
+  &__logo {
+    padding: 30px;
+    min-width: 80px;
+    & img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &__name {
+    grid-column: 2/5;
+    font-size: 24px;
+
+    & span {
+      font-size: 16px;
+    }
+  }
+
+  &__part {
+    &_top {
+      text-align: center;
+    }
+
+    &_value {
+      & select {
+        background-color: $grey-input-bg;
+        border: none;
+        color: $black-text;
+        padding: 10px;
+        outline: none;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      & option {
+        background-color: $grey-input-bg;
+      }
+    }
+  }
+
+  &__month,
+  &__total,
+  &__part {
+    text-align: center;
   }
 }
 

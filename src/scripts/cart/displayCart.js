@@ -5,7 +5,6 @@ import { displayTotal } from "./displayTotal";
 import { addTotalStyles, displayDiscount } from "./displayDiscount";
 import { getInnerPrice } from "./getInnerPrice";
 import * as $ from "jquery";
-import { servicesListeners } from "./services";
 
 Handlebars.registerHelper("times", function(a, b) {
   return (a * b).toFixed(2);
@@ -23,6 +22,13 @@ export function displayCart() {
   cart = [];
   cart.data = data;
   cartWrapper.innerHTML = cartDisplay(cart);
+
+  if (discount.length == 0) {
+    displayTotal(cart.data, total);
+  } else {
+    displayDiscount(discount.toUpperCase());
+  }
+
   if (servicesStorage.length > 0) {
     const basketServices = document.querySelectorAll(".basket__services");
     const basketTotal = document.querySelectorAll(".basket__total");
@@ -53,7 +59,10 @@ export function displayCart() {
       servicesStorage.forEach((service) => {
         if (total.dataset.id == service.hash) {
           let item = cart.find((ent) => ent.id === service.hash);
-          total.innerHTML = `$${item.amount * item.price + service.name}`;
+          total.innerHTML = `$${(
+            item.amount * item.price +
+            service.name
+          ).toFixed(2)}`;
         }
       });
     });
@@ -62,10 +71,4 @@ export function displayCart() {
   } else {
     $(bottomWrapper).hide();
   }
-  if (discount.length == 0) {
-    displayTotal(cart.data, total);
-  } else {
-    displayDiscount(discount.toUpperCase());
-  }
-  servicesListeners();
 }

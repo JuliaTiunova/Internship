@@ -1,4 +1,5 @@
 import { getElement, getStorageItem } from "../assets";
+import { getInnerPrice } from "../cart/getInnerPrice";
 import { openMessage, setMessage } from "../cart/openMessage";
 import { addAmount, reduceAmount } from "../cart/setupCart";
 
@@ -16,22 +17,46 @@ export function countListener(element) {
     counterButton.forEach((item) => {
       setMessage(item);
       let price = item.previousElementSibling.innerHTML;
-      price = price.split("$").join("") * 1;
+      price = getInnerPrice(price);
       item.addEventListener("click", (e) => {
+        const newTotal = getElement(".bottom__newtotal");
+        let servicesStorage = getStorageItem("services");
         let parentItem = item.parentElement;
         let id = parentItem.dataset.id * 1;
         let cartItem = cart.find((item) => item.id === id);
         let target = e.target;
         let number = cartItem.stock - cartItem.amount;
+        let sum = 0;
+        let serviceThis = servicesStorage.find((ent) => ent.hash == id);
+
+        servicesStorage.forEach((ent) => {
+          sum += ent.name;
+        });
+
         if (target.classList.contains(`${element}__more`)) {
           let count = target.previousElementSibling.innerHTML * 1;
           if (number > count) {
             count += 1;
-            item.nextElementSibling.textContent = `$${(price * count).toFixed(
-              2
-            )}`;
+
+            if (serviceThis) {
+              item.nextElementSibling.textContent = `$${(
+                price * count +
+                serviceThis.name
+              ).toFixed(2)}`;
+            } else {
+              item.nextElementSibling.textContent = `$${(price * count).toFixed(
+                2
+              )}`;
+            }
+
             target.previousElementSibling.innerHTML = count;
             addAmount(cartItem, false, true);
+            const bottomTotal = getElement(".bottom__price");
+            let priceNew = bottomTotal.innerHTML;
+            priceNew = getInnerPrice(priceNew);
+            if (servicesStorage.length > 0) {
+              newTotal.innerHTML = `$${(priceNew + sum).toFixed(2)}`;
+            }
           } else {
             openMessage(id);
           }
@@ -43,10 +68,24 @@ export function countListener(element) {
           } else {
             count -= 1;
             target.nextElementSibling.innerHTML = count;
-            item.nextElementSibling.innerHTML = `$${(price * count).toFixed(
-              2
-            )}`;
+            if (serviceThis) {
+              item.nextElementSibling.innerHTML = `$${(
+                price * count +
+                serviceThis.name
+              ).toFixed(2)}`;
+            } else {
+              item.nextElementSibling.innerHTML = `$${(price * count).toFixed(
+                2
+              )}`;
+            }
+
             reduceAmount(cartItem, true);
+            const bottomTotal = getElement(".bottom__price");
+            let priceNew = bottomTotal.innerHTML;
+            priceNew = getInnerPrice(priceNew);
+            if (servicesStorage.length > 0) {
+              newTotal.innerHTML = `$${(priceNew + sum).toFixed(2)}`;
+            }
           }
         }
       });
