@@ -9,9 +9,10 @@
     <p class="info__model">Model: {{model}}</p>
     <p class="info__categories">Categories: {{#each categories}}{{name}}, {{/each}}</p>
     <p class="info__tags">Shipping: <span>{{shipping}}</span></p>
+    <div class="products__message" data-id="{{id}}"></div>
     <p class="info__stock" style="color: {{color stock}}">{{detailStock stock}}</p>
 </div>
-<div class="info__quantity quantity ">
+<div class="info__quantity quantity" data-id="{{id}}">
     <p class="quantity__text">Quantity:</p>
     <div class="quantity__button_wrapper">
         <button class="quantity__button quantity__less">4</button>

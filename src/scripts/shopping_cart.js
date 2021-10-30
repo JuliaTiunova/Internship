@@ -14,6 +14,7 @@ import { displayAlso } from "./cart/displayAlso";
 import { displayCoupon } from "./cart/coupons";
 import { updateCoupon } from "./cart/updateCoupon";
 import { updateListener } from "./cart/updateListener";
+import { servicesListeners } from "./cart/services";
 
 const init = () => {
   let cart = getStorageItem("cart");
@@ -38,6 +39,7 @@ const init = () => {
       displayAlso();
       setupCartFunc(cartItems);
       deleteComma(categoriesProduct);
+      servicesListeners();
     } else {
       shopperAlso.style.display = "none";
     }

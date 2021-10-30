@@ -1,8 +1,11 @@
 import { getElement, getStorageItem } from "../assets";
+import * as $ from "jquery";
+import { getInnerPrice } from "./getInnerPrice";
 
 export const displayDiscount = (coupon) => {
   const total = getElement(".bottom__price");
   const discountText = getElement(".bottom__discount_price");
+  const bottom = getElement(".bottom__services_price");
   const newTotal = getElement(".bottom__newtotal");
   let cart = getStorageItem("cart");
 
@@ -30,16 +33,24 @@ export const displayDiscount = (coupon) => {
       number = 0;
   }
 
-  const amount = cart.reduce((total, item) => {
+  let services = bottom.innerHTML;
+  services = getInnerPrice(services);
+  let amount = cart.reduce((total, item) => {
     return (total += item.price * item.amount);
   }, 0);
-  const discount = (amount * number).toFixed(2);
-  const newAmount = (amount - discount).toFixed(2);
+  let discount = ((amount + services) * number).toFixed(2);
+  let newAmount = (amount - discount).toFixed(2);
+
   total.innerHTML = `$${amount.toFixed(2)}`;
   total.style.textDecoration = "line-through";
+  bottom.style.textDecoration = "line-through";
   discountText.innerHTML = `- $${discount}`;
   newTotal.innerHTML = `$${newAmount}`;
-  newTotal.style.display = "block";
-  newTotal.style.paddingTop = "15px";
-  newTotal.style.borderTop = "1px solid #ececec";
+  addTotalStyles(newTotal);
+  $(newTotal).slideDown(300);
+};
+
+export const addTotalStyles = (total) => {
+  total.style.paddingTop = "15px";
+  total.style.borderTop = "1px solid #ececec";
 };

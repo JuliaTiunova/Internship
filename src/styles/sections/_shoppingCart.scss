@@ -179,6 +179,37 @@
     position: relative;
     margin-bottom: 39px;
   }
+
+  &__services {
+    background: 0;
+    border: 0;
+    outline: none;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: left;
+    font-family: $jost;
+    font-size: 18px;
+    color: $white;
+    background-image: -webkit-linear-gradient(
+      45deg,
+      $green 0%,
+      $grey-input-bg 32%,
+      $white 33%,
+      $grey-input-bg 34%,
+      $green 66%,
+      $grey-input-bg 100%
+    );
+    background-size: 300%;
+    background-position: center right;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: moveShadow 3s linear infinite;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &__button {
     font-family: $icons;
     color: $grey;
@@ -260,6 +291,8 @@
 
     &_wrapper {
       padding-right: 30px;
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -281,6 +314,19 @@
     &:hover {
       cursor: pointer;
       color: $grey;
+    }
+  }
+
+  &__window {
+    &_stock {
+      text-align: center;
+      font-family: $lobster;
+      font-size: 18px;
+      line-height: 42px;
+      color: $red-sale;
+      background-color: lighten($color: $red-sale, $amount: 42);
+      width: 100%;
+      grid-column: 3 /5;
     }
   }
 }
@@ -339,7 +385,8 @@
   }
 
   &__total,
-  &__discount {
+  &__discount,
+  &__services {
     font-weight: normal;
     font-size: 15px;
     line-height: 22px;
@@ -377,11 +424,190 @@
   }
 }
 
+.services {
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: $jost;
+    font-size: 16px;
+    color: $grey;
+    background: 0;
+    border: 0;
+    outline: 0;
+
+    &:hover {
+      cursor: pointer;
+      color: $black-text;
+    }
+  }
+
+  &__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 120;
+    background-color: rgba(53, 53, 53, 0.13);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s;
+  }
+
+  &__window {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    background-color: $white;
+    box-shadow: 0 0 30px 2px $grey-bg;
+    text-align: left;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s;
+  }
+
+  &__title {
+    font-family: $qsand;
+    font-size: 36px;
+    color: $black-text;
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    width: 50%;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &_add {
+      margin-bottom: 10px;
+      background-image: linear-gradient(-145deg, $green 50%, $white 50%);
+      color: $green;
+      border: 1px solid $green;
+
+      &:hover {
+        color: $white;
+      }
+      &:active {
+        background-image: linear-gradient(-145deg, $green 50%, $white 50%);
+      }
+    }
+
+    &_no {
+      background: none;
+
+      &:hover {
+        color: $grey;
+      }
+
+      &:active {
+        background: none;
+      }
+    }
+  }
+}
+
+.open .services__window {
+  @include center-position;
+}
+
+.open.services__wrapper {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.choice {
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 0 0 5px 1px $grey-border-input;
+  font-family: $jost;
+  color: $black-text;
+  transition: all 0.3s;
+  border-radius: 5px;
+  position: relative;
+
+  &__name {
+    margin-bottom: 20px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin-bottom: 50px;
+  }
+
+  &_active,
+  &:hover {
+    background-color: $green;
+    transform: scale(1.2);
+    color: $white;
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px $grey-border-input;
+
+    & .choice__corner {
+      background-color: $white;
+      color: $black-text;
+      box-shadow: 0 0 10px 1px #718575;
+    }
+  }
+
+  &__price {
+    font-weight: 600;
+
+    & span {
+      font-weight: 400;
+      font-size: 16px;
+      text-decoration: line-through;
+    }
+  }
+
+  &__corner {
+    position: absolute;
+    top: -10px;
+    right: -20%;
+    width: 100%;
+    background-color: $green;
+    color: $white;
+    text-align: right;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px 1px #b4b4b4;
+
+    & p {
+      margin-right: 11px;
+      font-family: $jost;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  &__name,
+  &__price,
+  &__corner {
+    pointer-events: none;
+  }
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes moveShadow {
+  from {
+    background-position: center right;
+  }
+  to {
+    background-position: center left;
   }
 }

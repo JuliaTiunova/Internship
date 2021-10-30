@@ -5,6 +5,7 @@ export const displayOutOfStock = (id) => {
     if (item.dataset.id == id) {
       item.innerHTML = message;
       item.classList.add("open");
+      setTimeout(() => item.classList.remove("open"), 2500);
     }
   });
 };

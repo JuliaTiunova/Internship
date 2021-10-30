@@ -1,25 +1,26 @@
 import { getElement, getStorageItem } from "../assets";
+import { openMessage, setMessage } from "../cart/openMessage";
 import { addAmount, reduceAmount } from "../cart/setupCart";
 
 let cart = getStorageItem("cart");
+let stock = getStorageItem("stock");
 
 export function countListener(element) {
   const counterButton = document.querySelectorAll(
     `.${element}__button_wrapper`
   );
-
   const buttonWrapper = getElement(`.${element}__button_wrapper`);
   const counter = getElement(`.${element}__count`);
 
   if (element == "basket") {
     counterButton.forEach((item) => {
+      setMessage(item);
       let price = item.previousElementSibling.innerHTML;
       price = price.split("$").join("") * 1;
       item.addEventListener("click", (e) => {
         let parentItem = item.parentElement;
-        let cartItem = cart.find(
-          (item) => item.id === parentItem.dataset.id * 1
-        );
+        let id = parentItem.dataset.id * 1;
+        let cartItem = cart.find((item) => item.id === id);
         let target = e.target;
         let number = cartItem.stock - cartItem.amount;
         if (target.classList.contains(`${element}__more`)) {
@@ -31,6 +32,8 @@ export function countListener(element) {
             )}`;
             target.previousElementSibling.innerHTML = count;
             addAmount(cartItem, false, true);
+          } else {
+            openMessage(id);
           }
         } else if (target.classList.contains(`${element}__less`)) {
           let count = target.nextElementSibling.innerHTML * 1;
@@ -50,15 +53,23 @@ export function countListener(element) {
     });
   } else {
     let count = 1;
+    setMessage(buttonWrapper);
     buttonWrapper.addEventListener("click", (e) => {
-      let cartItem = cart.find(
-        (item) => item.id === buttonWrapper.nextElementSibling.dataset.id * 1
-      );
+      let id = buttonWrapper.nextElementSibling.dataset.id * 1;
+      let cartItem = cart.find((item) => item.id === id);
+      let stockItem = stock.find((item) => item.id === id);
       let target = e.target;
-      let number = cartItem.stock - cartItem.amount;
+      let number = 0;
+      if (cartItem) {
+        number = cartItem.stock - cartItem.amount;
+      } else {
+        number = stockItem.stock;
+      }
       if (target.classList.contains(`${element}__more`)) {
         if (number > count) {
           count += 1;
+        } else {
+          openMessage(id);
         }
       } else if (target.classList.contains(`${element}__less`)) {
         if (count == 1) {

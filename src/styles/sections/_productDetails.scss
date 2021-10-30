@@ -62,6 +62,7 @@
     font-size: 15px;
     line-height: 25px;
     color: $black-text;
+    position: relative;
   }
 
   &__text {
@@ -182,6 +183,20 @@
     font-weight: 600;
     font-size: 15px;
     line-height: 25px;
+  }
+}
+
+.basket {
+  &__window {
+    &_stock {
+      text-align: center;
+      font-family: $lobster;
+      font-size: 18px;
+      line-height: 42px;
+      color: $red-sale;
+      background-color: lighten($color: $red-sale, $amount: 42);
+      width: 100%;
+    }
   }
 }
 

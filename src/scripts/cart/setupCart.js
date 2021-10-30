@@ -92,7 +92,11 @@ export function setupCartFunc(section) {
     const element = e.target;
     const id = element.dataset.id;
     if (element.classList.contains("fa-times-circle")) {
+      let services = getStorageItem("services");
+      services = services.filter((ent) => ent.hash != id);
+      setStorageItem("services", services);
       removeItemCart(id * 1);
+
       element.parentElement.parentElement.remove();
     }
     setStorageItem("cart", cart);

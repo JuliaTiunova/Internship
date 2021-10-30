@@ -16,7 +16,7 @@ export const buttonsListenerCart = (element) => {
       let stock = e.target.value * 1;
       if (stock != 0) {
         addToCart(e.target.dataset.id, amount, stock);
-        e.target.value = e.target.value * 1 - 1;
+        e.target.value = e.target.value * 1 - amount;
       } else {
         displayOutOfStock(e.target.dataset.id);
       }
