@@ -30,8 +30,6 @@ const displayParts = (total) => {
   const monthPay = document.querySelectorAll(".payment__month_value");
   const inputs = document.querySelectorAll(".payment__part_value");
 
-  console.log(total);
-
   totalPay.forEach((item) => {
     item.innerHTML = `$${total}`;
   });
