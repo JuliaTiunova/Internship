@@ -5,16 +5,14 @@ import { closeServices } from "./closeServices";
 export const servicesListeners = () => {
   const services = document.querySelectorAll(".basket__services");
 
-  if (services.length > 1) {
-    services.forEach((service) => {
-      service.addEventListener("click", () => {
-        {
-          let id = service.dataset.id * 1;
-          openServices(id);
-        }
-      });
+  services.forEach((service) => {
+    service.addEventListener("click", () => {
+      {
+        let id = service.dataset.id * 1;
+        openServices(id);
+      }
     });
-  }
+  });
 };
 
 export const openServices = (id) => {

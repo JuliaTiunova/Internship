@@ -5,6 +5,7 @@ import { displayTotal } from "./displayTotal";
 import { addTotalStyles, displayDiscount } from "./displayDiscount";
 import { getInnerPrice } from "./getInnerPrice";
 import * as $ from "jquery";
+import { servicesListeners } from "./services";
 
 Handlebars.registerHelper("times", function(a, b) {
   return (a * b).toFixed(2);
@@ -66,4 +67,5 @@ export function displayCart() {
   } else {
     displayDiscount(discount.toUpperCase());
   }
+  servicesListeners();
 }

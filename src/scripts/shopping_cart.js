@@ -40,7 +40,10 @@ const init = () => {
       setupCartFunc(cartItems);
       deleteComma(categoriesProduct);
       servicesListeners();
+
+      console.log(cart.length);
     } else {
+      console.log(cart.length);
       shopperAlso.style.display = "none";
     }
   };
