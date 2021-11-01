@@ -69,6 +69,11 @@ export function displayCart() {
 
     bottom.innerHTML = `+$${sum.toFixed(2)}`;
   } else {
+    if (discount.length == 0) {
+      displayTotal(cart.data, total);
+    } else {
+      displayDiscount(discount.toUpperCase());
+    }
     $(bottomWrapper).hide();
   }
 }
