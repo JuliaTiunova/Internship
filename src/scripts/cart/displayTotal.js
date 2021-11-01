@@ -13,6 +13,7 @@ export function displayTotalAfter() {
   const discountText = getElement(".bottom__discount_price");
   const newTotal = getElement(".bottom__newtotal");
   const bottom = getElement(".bottom__services_price");
+  let services = getStorageItem("services");
   let cart = getStorageItem("cart");
 
   const amount = cart.reduce((total, item) => {
@@ -23,5 +24,7 @@ export function displayTotalAfter() {
   total.style.textDecoration = "none";
   bottom.style.textDecoration = "none";
   discountText.innerHTML = `$0`;
-  $(newTotal).slideUp(300);
+  if (services.length == 0) {
+    $(newTotal).slideUp(300);
+  }
 }
