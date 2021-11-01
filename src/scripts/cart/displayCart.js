@@ -3,7 +3,6 @@ import cartDisplay from "../../templates/cartDisplay.handlebars";
 import Handlebars from "handlebars/runtime";
 import { displayTotal } from "./displayTotal";
 import { addTotalStyles, displayDiscount } from "./displayDiscount";
-import { getInnerPrice } from "./getInnerPrice";
 import * as $ from "jquery";
 
 Handlebars.registerHelper("times", function(a, b) {
@@ -23,16 +22,9 @@ export function displayCart() {
   cart.data = data;
   cartWrapper.innerHTML = cartDisplay(cart);
 
-  if (discount.length == 0) {
-    displayTotal(cart.data, total);
-  } else {
-    displayDiscount(discount.toUpperCase());
-  }
-
   if (servicesStorage.length > 0) {
     const basketServices = document.querySelectorAll(".basket__services");
     const basketTotal = document.querySelectorAll(".basket__total");
-    const bottomTotal = getElement(".bottom__price");
     const bottomWrapper = getElement(".bottom__services_wrapper");
     const bottom = getElement(".bottom__services_price");
     const newTotal = getElement(".bottom__newtotal");
@@ -43,8 +35,10 @@ export function displayCart() {
         }
       });
     });
-    let price = bottomTotal.innerHTML;
-    price = getInnerPrice(price);
+    const price = cart.data.reduce((total, item) => {
+      return (total += item.price * item.amount);
+    }, 0);
+
     let sum = 0;
     servicesStorage.forEach((ent) => {
       sum += ent.name;
@@ -53,6 +47,12 @@ export function displayCart() {
     newTotal.innerHTML = `$${(price + sum).toFixed(2)}`;
     addTotalStyles(newTotal);
     $(newTotal).slideDown(300);
+
+    if (discount.length == 0) {
+      displayTotal(cart.data, total);
+    } else {
+      displayDiscount(discount.toUpperCase());
+    }
 
     basketTotal.forEach((total) => {
       const cart = getStorageItem("cart");
