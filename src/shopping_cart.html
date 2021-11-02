@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/music_blue.png" type="image/png" />
+    <script
+      src="https://kit.fontawesome.com/4e5db1bd51.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <title>Muse's cart</title>
+  </head>
+  <body>
+    <header class="shopping__cart header products__header">
+        <div class="cart__frame">
+          <aside class="cart">
+            <div class="cart__top">
+             <div class="cart__title_wrap">
+            <p class="cart__title title_cart">Shopping cart</p>
+            <button class="cart__button-close button_close">close</button>
+          </div>
+            <div class="cart__items">
+            </div>
+            </div>
+            <div class="cart__subtotal subtotal">
+              <div class="subtotal__name">
+                <p class="subtotal__title title_cart">Subtotal</p>
+                <p class="subtotal__price">$135.0</p>
+              </div>
+              <a href="#" class="subtotal__button subtotal__button_top link">View cart</a>
+              <a href="./forms.html" class="subtotal__button link">Checkout</a>
+            </div>
+        </aside>
+      </div>
+        <div class="wishlist__frame">
+          <aside class="wishlist">
+            <div class="wishlist__top">
+             <div class="wishlist__title_wrap">
+            <p class="wishlist__title title_wishlist">Wishlist</p>
+            <button class="wishlist__button-close button_close">close</button>
+          </div>
+          <div class="wishlist__items">
+            </div>
+          </div>
+            <div class="wishlist__subtotal subtotal">
+              <div class="subtotal__name">
+                <p class="subtotal__title title_wishlist">Subtotal</p>
+                <p class="subtotal__price subtotal__price_wishlist">$135.0</p>
+              </div>
+              <a href="#" class="subtotal__button subtotal__button_top link">View wishlist</a>
+            </div>
+        </aside>
+      </div>
+          <div class="header__wrapper_top top_black wrapper">
+              <div class="header__top top">
+                <ul class="top__info-list info-list">
+                  <li class="info-list__info info info_phone">
+                    <a class="info__link link" href="tel:+800345678"
+                      ><i class="icon-phone_call"></i> (+800) 345 678</a
+                    >
+                  </li>
+                  <li class="info-list__info info info_mail">
+                    <a class="info__link link" href="mailto:Museinspired@gmail.com"
+                      ><i class="icon-envelope"></i> Museinspired@gmail.com</a
+                    >
+                  </li>
+                </ul>
+                <div class="top__options option">
+                  <div class="option__item item-lang"><i class="icon-lang"></i> English <i class="fas fa-angle-down"></i></div>
+                  <div class="option__item item-currency"><i class="icon-coin"></i> USD <i class="fas fa-angle-down"></i></div>
+                </div>
+              </div>
+          </div>
+          <div class="header__wrapper_nav wrapper">
+              <nav class="header__nav nav">
+                <div class="header__burger burger">
+                  <button class="burger__button" id="forms-burger"><span></span>
+                  </button>
+                  <nav class="burger__menu">
+                    <ul class="burger__list">
+                      <li class="burger__item"><a href="index.html" class="burger__link link">Home</a></li>
+                      <li class="burger__item"><a href="#" class="burger__link link">Shop</a></li>
+                      <li class="burger__item"><a href="#" class="burger__link link">About</a></li>
+                      <li class="burger__item"><a href="#" class="burger__link link">Blog</a></li>
+                      <li class="burger__item"><a href="#" class="burger__link link">Contact</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                <ul class="nav__menu menu">
+                  <li class="menu__item item"><a href="index.html" class="item__link link">Home</a></li>
+                  <li class="menu__item item_active item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
+                    <div class="shop__dropdown">
+                      <div class="dropdown__content dropdown__content_main">
+                      </div>
+                      <div class="dropdown__content">
+                        <h5 class="dropdown__title title5">Shop Layout</h5>
+                        <ul class="dropdown__list">
+                          <li class="dropdown__item"><a href="#">Shop Grid Fullwidth</a></li>
+                          <li class="dropdown__item"><a href="./products.html?grid">Shop Grid Sidebar</a></li>
+                      <li class="dropdown__item"><a href="./products.html?list">Shop List Sidebar</a></li>
+                        </ul>
+                      </div>
+                      <div class="dropdown__content">
+                        <h5 class="dropdown__title title5">Shop</h5>
+                        <ul class="dropdown__list">
+                          <li class="dropdown__item"><a href="#">Pages</a></li>
+                          <li class="dropdown__item"><a href="./forms.html">Checkout</a></li>
+                          <li class="dropdown__item"><a href="#">Wishlist</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="menu__item item"><a href="#about" class="item__link link">About</a></li>
+                  <li class="menu__item item"><a href="#blog" class="item__link link">Blog</a></li>
+                  <li class="menu__item item"><a href="#contact" class="item__link link">Contact</a></li>
+                </ul>
+                <img src="img/Logo.png" alt="FreshMuse logo" class="nav__logo" />
+                <div class="header__icons nav__icons icons">
+                  <button class="header__icon-buttons icon-buttons">
+                    <i class="icon-search "></i>
+                  </button>
+                  <button class="header__icon-buttons icon-buttons button-like">
+                    <i class="icon-like header__icon header__icons_active"></i>
+                    <span class="icon__counter wishlist__counter">0</span>
+                  </button>
+                  <button class="header__icon-buttons icon-buttons button-cart">
+                    <i class="icon-cart header__icon header__icons_active"></i>
+                    <span class="icon__counter cart__counter">0</span>
+                  </button>
+                </div>
+              </nav>
+          
+          </div>
+    </header>
+    <nav class="breadcrumb wrapper">
+        <h2 class="breadcrumb__title title2">Shop Cart</h2>
+        <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Shop Cart</span></p>
+    </nav>
+    <main>
+      <section class="shopper wrapper">
+        <div class="shopper__top">
+          <div class="top__name">Product name</div>
+          <div class="top__price">Price</div>
+          <div class="top__quantity">Quantity</div>
+          <div class="top__total">Total</div>
+        </div>
+        <div class="services__wrapper">
+          <div class="services__window">
+              <button class="services__close">close</button>
+              <h2 class="services__title">Choose service</h2>
+              <div class="choice__wrapper">
+                  <div class="choice" data-id="1">
+                      <p class="choice__name">1 Year <br> Protection Plan</p>
+                      <div class="choice__price">$30</div>
+                  </div>
+                  <div class="choice choice_active" data-id="2">
+                      <p class="choice__name">2 Year <br> Protection Plan</p>
+                      <div class="choice__price">$55 <span>$60</span></div>
+                      <div class="choice__corner"><p>Best seller</p></div>
+                  </div>
+                  <div class="choice" data-id="3">
+                      <p class="choice__name">3 Year <br> Protection Plan</p>
+                      <div class="choice__price">$70 <span>$90</span></div>
+                      <div class="choice__corner"><p>Best value</p></div>
+                  </div>
+              </div>
+              <button class="services__button services__button_add button">Add service</button>
+              <button class="services__button services__button_no button">No, thanks</button>
+          </div>
+      </div>
+        <div class="shopper__basket basket"></div>
+        <div class="shopper__bottom bottom">
+          <div class="bottom__left">
+            <div class="shopper__coupon coupon">
+              <p class="coupon__option">Try that: </p>
+              <div class="coupon__center">
+                <button class="coupon__message">Remove discount</button>
+                <div class="coupon__decor">
+                  <div class="coupon__name_wrapper">
+                    <p class="coupon__name"></p>
+                    <button class="coupon__button">
+                      <i class="icon-reload"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <input class="coupon__input" type="text" name="coupon" id="coupon" placeholder="Enter your price cutter">
+            </div>
+            <div class="bottom__buttons">
+              <button class="bottom__button bottom__button_update button">update cart</button>
+              <div class="bottom__button button"><a href="./products.html"> continue shopping</a></div>
+            </div>
+          </div>
+          <div class="bottom__totals">
+            <p class="bottom__name">Cart totals</p>
+            <div class="bottom__total_wrapper">
+              <p class="bottom__total">Total</p>
+              <p class="bottom__price">$0</p>
+            </div>
+            <div class="bottom__services_wrapper">
+              <p class="bottom__services">Services</p>
+              <p class="bottom__services_price">$0</p>
+            </div>
+            <div class="bottom__discount_wrapper">
+              <p class="bottom__discount">Discount</p>
+              <p class="bottom__discount_price">$0</p>
+            </div>
+            <p class="bottom__newtotal"></p>
+            <div class="bottom__button_checkout button">Proceed to Checkout</div>
+          </div>
+        </div>
+      </section>
+      <section class="payments wrapper">
+        <div class="payment payments__top">
+          <div class="payment__logo"></div>
+          <div class="payment__name"></div>
+          <div class="payment__part payment__part_top">months</div>
+          <div class="payment__month">per month</div>
+          <div class="payment__total">total</div>
+        </div>
+        <div class="payment payment__privat">
+          <div class="payment__logo"><img src="./img/bank_green.png" alt="bank-logo"></div>
+          <div class="payment__name payment__name_value">Privat Bank <br> <span>possible payments: 6, 12, 24</span></div>
+          <div class="payment__part payment__part_value">
+            <select name="payment" id="">
+              <option value="6">6 months</option>
+              <option value="12">12 months</option>
+              <option value="24">24 months</option>
+            </select>
+          </div>
+          <div class="payment__month payment__month_value">0</div>
+          <div class="payment__total payment__total_value">0</div>
+        </div>
+        <div class="payment payment__ukrsib">
+          <div class="payment__logo"><img src="./img/bank_red.png" alt="bank-logo"></div>
+          <div class="payment__name payment__name_value">Ukrsib Bank <br> <span>possible payments: 4, 6, 12</span></div>
+          <div class="payment__part payment__part_value">
+            <select name="payment" id="">
+              <option value="4">4 months</option>
+              <option value="6">6 months</option>
+              <option value="12">12 months</option>
+            </select>
+          </div>
+          <div class="payment__month payment__month_value">0</div>
+          <div class="payment__total payment__total_value">0</div>
+        </div>
+        <div class="payment payment__mono">
+          <div class="payment__logo"><img src="./img/bank_yellow.png" alt="bank-logo"></div>
+          <div class="payment__name payment__name_value">Mono Bank <br> <span>possible payments: 3, 6, 8, 12</span></div>
+          <div class="payment__part payment__part_value">
+            <select name="payment" id="">
+              <option value="3">3 months</option>
+              <option value="6">6 months</option>
+              <option value="8">8 months</option>
+              <option value="12">12 months</option>
+            </select>
+          </div>
+          <div class="payment__month payment__month_value">0</div>
+          <div class="payment__total payment__total_value">0</div>
+        </div>
+      </section>
+      <section class="shopper__also_wrapper wrapper">
+        <div class="shoper__also_title title2">You might also like</div>
+        <div class="shopper__also"></div>
+      </section>
+    </main>
+    <footer class="footer products__footer footer_black">
+        <div class="footer__info_wrapper wrapper">
+          <div class="footer__info">
+            <div class="footer__icon"><i class="icon-headphone"></i></div>
+            <div class="footer__content">
+              <h4 class="footer__title title4">Call us 24/7</h4>
+              <div class="footer__text footer__text_left">
+                You have questions, contact us immediately for answers.
+              </div>
+              <a href="tel:+33983564793" class="footer__phone link_phone link"
+                >+3 398 356 4793</a
+              >
+            </div>
+          </div>
+          <div class="footer__info">
+            <div class="footer__icon"><i class="icon-letter"></i></div>
+            <div class="footer__content">
+              <h4 class="footer__title title4">Subscribe Newsletter</h4>
+              <div class="footer__text">
+                Sign up for weekly newsletter and better ecommercestores
+              </div>
+              <form action="#" class="footer__form">
+                <input type="email" name="email" placeholder="Enter your email" required />
+                <button class="footer__button button">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer__about about wrapper">
+          <div class="about__name">
+            <p class="about__logo about__logo_black" ><span>Fresh</span>Muse</p>
+            <div class="about__text">
+              <p>Monday – Saturday: 8:00 am – 4:00pm</p>
+              <p>Sunday: 9:00 am – 5:00pm</p>
+            </div>
+          </div>
+          <div class="about__content">
+            <div class="about__table">
+              <div class="table__content">
+                <h5 class="about__title title5">Quick links</h5>
+                <ul class="about__list">
+                  <li class="about__item"><a href="#">About us</a></li>
+                  <li class="about__item"><a href="#">Blog</a></li>
+                  <li class="about__item"><a href="./forms.html">Check out</a></li>
+                  <li class="about__item"><a href="#">Contact</a></li>
+                  <li class="about__item"><a href="#">Service</a></li>
+                </ul>
+              </div>
+              <div class="table__content table__content_dynamic">
+              </div>
+              <div class="table__content">
+                <h5 class="about__title title5">Help Center</h5>
+                <ul class="about__list">
+                  <li class="about__item"><a href="#">Help & FAQsr</a></li>
+                  <li class="about__item"><a href="#">Returns Policy</a></li>
+                  <li class="about__item"><a href="#">Terms & Conditions</a></li>
+                  <li class="about__item"><a href="#"> Privacy Policy</a></li>
+                  <li class="about__item"><a href="#">Support Cente</a></li>
+                </ul>
+              </div>
+              <div class="table__content">
+                <h5 class="about__title title5">Contact info</h5>
+                <p class="about__adress">
+                  29 Rue du Bourg Tibourg, 75004 Paris, France
+                </p>
+                <a href="mailto:Museinspired@gmail.com">Museinspired@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__copyright copyright wrapper">
+          <p class="copyright__text">
+            Copyright © 2020 Avitexthemes Inc. All rights reserved
+          </p>
+          <div class="copyright__icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </footer>
+  </body>
+</html>

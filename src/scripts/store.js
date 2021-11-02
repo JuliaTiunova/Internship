@@ -10,8 +10,8 @@ const setUpOptions = (products) => {
   setStorageItem("categories", categories);
 };
 
-const findProduct = (id, name) => {
-  let store = getStorageItem(name);
+const findProduct = (id) => {
+  let store = getStorageItem(id);
   for (let product of store) {
     if (product.id == id) {
       return product;

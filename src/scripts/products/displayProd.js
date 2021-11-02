@@ -1,4 +1,4 @@
-import { getElement } from "../assets";
+import { getElement, getStorageItem, setStorageItem } from "../assets";
 import products from "../../templates/products.handlebars";
 import productsList from "../../templates/productsList.handlebars";
 
@@ -8,10 +8,13 @@ import { addPagination } from "./addPagination";
 import { showTotal } from "./showTotal";
 import { getLayout, getNumber } from "./getLayout";
 import { buildLink, openRequest } from "../openRequest";
+import { buttonsListenerCart } from "../display/listeners";
+import { setStock } from "../cart/setStock";
+import { valueSet } from "../cart/setupCart";
 
 export const API_URL = `http://localhost:3030/products`;
 
-export const display = (skip, manufacturer, price, button) => {
+export const display = (skip, manufacturer, price, button, filters) => {
   const input = getElement(".filters__search");
   const element = getElement(".products__display");
   const item = getElement(".category__button_active");
@@ -19,6 +22,8 @@ export const display = (skip, manufacturer, price, button) => {
   const textId = item.dataset.id;
   const priceDisplay = document.querySelectorAll(".filters__price span");
   let productsAll = new XMLHttpRequest();
+
+  let stock = getStorageItem("stock");
 
   let list = getLayout();
   let number = getNumber(list);
@@ -71,7 +76,20 @@ export const display = (skip, manufacturer, price, button) => {
     if (productsAll.status == 200) {
       let info = productsAll.response;
       let total = info.total;
-
+      info.data.forEach((item) => {
+        let is = stock.find((ent) => ent.id === item.id);
+        if (is) {
+          item.stock = is.stock;
+          setStorageItem("stock", stock);
+        } else {
+          item.stock = setStock() * 1;
+          stock = [
+            ...stock,
+            { id: item.id, name: item.name, stock: item.stock },
+          ];
+          setStorageItem("stock", stock);
+        }
+      });
       if (!manufacturer) {
         link = `${API_URL}?$limit=25&category.id=${textId}&$select[]=manufacturer`;
         let comp = new XMLHttpRequest();
@@ -132,8 +150,11 @@ export const display = (skip, manufacturer, price, button) => {
         element.innerHTML = products(info);
         element.classList.remove("product__list");
       }
+      valueSet();
       addPagination(total, skip);
       showTotal(total, skip);
+      if (filters) return;
+      buttonsListenerCart(element);
     }
   };
 };

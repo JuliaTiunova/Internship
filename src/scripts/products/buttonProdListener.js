@@ -57,6 +57,6 @@ export const buttonListenerProducts = (categoriesDOM) => {
       }
     }
 
-    display(0, "", "", sortingButton);
+    display(0, "", "", sortingButton, true);
   });
 };

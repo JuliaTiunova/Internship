@@ -16,6 +16,6 @@ export const buttonCompany = () => {
     );
     let price = [ranges[0].value, ranges[1].value];
     element.classList.add("company__button_active");
-    display(0, element.innerHTML, price, sortingButton);
+    display(0, element.innerHTML, price, sortingButton, true);
   });
 };

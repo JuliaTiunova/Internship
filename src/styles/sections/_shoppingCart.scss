@@ -1,0 +1,680 @@
+.shopper {
+  padding-top: 80px;
+  padding-bottom: 30px;
+
+  &__basket {
+    display: grid;
+
+    border-bottom: 1px solid $grey-border;
+  }
+
+  &__top {
+    margin-bottom: 41px;
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: $black;
+  }
+
+  &__coupon {
+    margin-bottom: 30px;
+  }
+
+  &__also {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    &_wrapper {
+      padding-top: 80px;
+      background: $bread-bg;
+    }
+
+    & .product {
+      padding: 20px;
+      margin: 0;
+      margin: 20px;
+    }
+
+    & .hover {
+      justify-content: flex-end;
+      padding-bottom: 18px;
+    }
+  }
+
+  &__bottom {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.coupon {
+  @include flex-start;
+  position: relative;
+  font-family: $jost;
+  font-size: 18px;
+  color: $black-text;
+  &__option {
+    font-family: $jost;
+    font-size: 18px;
+    color: $black-text;
+    margin-right: 20px;
+  }
+
+  &__center {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__message {
+    background: 0;
+    outline: 0;
+    border: 0;
+    color: $red-sale;
+    margin-bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__decor {
+    background: linear-gradient(45deg, #ffefdc 0%, #fadddd 100%);
+    margin-right: 20px;
+    width: 310px;
+  }
+
+  &__name {
+    font-family: $qsand;
+    font-size: 22px;
+    color: $black-text;
+    text-shadow: 1px 1px 1px $white;
+    text-transform: uppercase;
+    margin-right: 10px;
+
+    &_wrapper {
+      @include flex-between;
+      margin: -2px;
+      padding: 4px 10px 4px 4px;
+      border: 8px dotted $white;
+    }
+  }
+
+  &__button {
+    background: 0;
+    outline: none;
+    border: 0;
+    &:hover {
+      cursor: pointer;
+    }
+
+    & i {
+      display: block;
+      &:hover {
+        cursor: pointer;
+        animation: rotate 1.5s linear infinite;
+      }
+    }
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    min-width: 200px;
+    background: 0;
+    text-transform: uppercase;
+
+    &::placeholder {
+      font-size: 16px;
+      text-transform: initial;
+    }
+  }
+}
+
+.hover__button {
+  &_round {
+    position: relative;
+    margin: 0 5px;
+    width: 35px;
+    height: 35px;
+    background-color: $white;
+    border-radius: 50%;
+    border: 0;
+    outline: none;
+    color: $black;
+    box-shadow: 0px 1px 4px rgba(138, 159, 168, 0.15);
+
+    &:hover {
+      background-color: $green;
+      color: $white;
+      cursor: pointer;
+    }
+
+    & i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.shopper__top,
+.basket__product {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+}
+
+.top {
+  &__name {
+    grid-column: 1 / 4;
+  }
+}
+
+.basket {
+  &__product {
+    position: relative;
+    margin-bottom: 39px;
+  }
+
+  &__services {
+    background: 0;
+    border: 0;
+    outline: none;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: left;
+    font-family: $jost;
+    font-size: 18px;
+    color: $white;
+    background-image: -webkit-linear-gradient(
+      45deg,
+      $green 0%,
+      $grey-input-bg 32%,
+      $white 33%,
+      $grey-input-bg 34%,
+      $green 66%,
+      $grey-input-bg 100%
+    );
+    background-size: 300%;
+    background-position: center right;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: moveShadow 3s linear infinite;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__button {
+    font-family: $icons;
+    color: $grey;
+    background: none;
+    outline: none;
+    border: 0;
+    transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      color: $black;
+      transform: scale(2);
+    }
+
+    &_wrapper {
+      @include center-flex;
+      width: 130px;
+      height: max-content;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      margin-right: 20px;
+      border: 1px solid $grey-border;
+
+      @include xxl {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__count {
+    font-family: $jost;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  &__info {
+    grid-column: 1 / 4;
+  }
+
+  &__img {
+    min-width: 130px;
+    max-width: 130px;
+    height: 130px;
+    object-fit: contain;
+    background-color: $grey-input-bg;
+    border: 1px solid $grey-border-input;
+    margin-right: 30px;
+    padding: 5px;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: $white;
+    }
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__name,
+  &__price,
+  &__total {
+    font-family: $jost;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: $black-text;
+  }
+
+  &__name {
+    &:hover {
+      cursor: pointer;
+      color: $green;
+    }
+
+    &_wrapper {
+      padding-right: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__category {
+    font-family: $jost;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: $grey;
+  }
+
+  &__delete {
+    position: absolute;
+    font-size: 25px;
+    color: $red-sale;
+    right: 0;
+    transition: color 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      color: $grey;
+    }
+  }
+
+  &__window {
+    &_stock {
+      text-align: center;
+      font-family: $lobster;
+      font-size: 18px;
+      line-height: 42px;
+      color: $red-sale;
+      background-color: lighten($color: $red-sale, $amount: 42);
+      width: 100%;
+      grid-column: 3 /5;
+    }
+  }
+}
+
+.bottom {
+  &__buttons {
+    display: flex;
+    & a {
+      text-decoration: none;
+      color: $black;
+    }
+  }
+  &__button {
+    background-image: linear-gradient(-145deg, $white 50%, $grey-border 50%);
+    border: 1px solid transparent;
+    letter-spacing: 0.1em;
+
+    &:first-of-type {
+      margin-right: 20px;
+    }
+
+    &:hover {
+      border: 1px solid $grey-border;
+    }
+
+    &_checkout {
+      background-image: linear-gradient(-145deg, $white 50%, $black-text 50%);
+      border: 1px solid transparent;
+      letter-spacing: 0.1em;
+      color: $white;
+
+      &:hover {
+        border: 1px solid $black-text;
+        color: $black;
+      }
+    }
+  }
+
+  &__totals {
+    padding: 12px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    font-family: $jost;
+    color: $black-text;
+    background: $grey-input-bg;
+  }
+
+  &__name {
+    padding-bottom: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid $grey-border;
+  }
+
+  &__total,
+  &__discount,
+  &__services {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    &_wrapper {
+      @include flex-between;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__total {
+    &_wrapper {
+      padding-top: 25px;
+    }
+  }
+
+  &__newtotal {
+    text-align: right;
+    margin-bottom: 30px;
+  }
+  &__discount_price {
+    color: $red-sale;
+  }
+
+  &__price,
+  &__newtotal {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+.shopping__cart {
+  & .button-cart {
+    pointer-events: none;
+  }
+}
+
+.services {
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: $jost;
+    font-size: 16px;
+    color: $grey;
+    background: 0;
+    border: 0;
+    outline: 0;
+
+    &:hover {
+      cursor: pointer;
+      color: $black-text;
+    }
+  }
+
+  &__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 120;
+    background-color: rgba(53, 53, 53, 0.13);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s;
+  }
+
+  &__window {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    background-color: $white;
+    box-shadow: 0 0 30px 2px $grey-bg;
+    text-align: left;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s;
+  }
+
+  &__title {
+    font-family: $qsand;
+    font-size: 36px;
+    color: $black-text;
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    width: 50%;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &_add {
+      margin-bottom: 10px;
+      background-image: linear-gradient(-145deg, $green 50%, $white 50%);
+      color: $green;
+      border: 1px solid $green;
+
+      &:hover {
+        color: $white;
+      }
+      &:active {
+        background-image: linear-gradient(-145deg, $green 50%, $white 50%);
+      }
+    }
+
+    &_no {
+      background: none;
+
+      &:hover {
+        color: $grey;
+      }
+
+      &:active {
+        background: none;
+      }
+    }
+  }
+}
+
+.open .services__window {
+  @include center-position;
+}
+
+.open.services__wrapper {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.choice {
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 0 0 5px 1px $grey-border-input;
+  font-family: $jost;
+  color: $black-text;
+  transition: all 0.3s;
+  border-radius: 5px;
+  position: relative;
+
+  &__name {
+    margin-bottom: 20px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin-bottom: 50px;
+  }
+
+  &_active,
+  &:hover {
+    background-color: $green;
+    transform: scale(1.2);
+    color: $white;
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px $grey-border-input;
+
+    & .choice__corner {
+      background-color: $white;
+      color: $black-text;
+      box-shadow: 0 0 10px 1px #718575;
+    }
+  }
+
+  &__price {
+    font-weight: 600;
+
+    & span {
+      font-weight: 400;
+      font-size: 16px;
+      text-decoration: line-through;
+    }
+  }
+
+  &__corner {
+    position: absolute;
+    top: -10px;
+    right: -20%;
+    width: 100%;
+    background-color: $green;
+    color: $white;
+    text-align: right;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px 1px #b4b4b4;
+
+    & p {
+      margin-right: 11px;
+      font-family: $jost;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  &__name,
+  &__price,
+  &__corner {
+    pointer-events: none;
+  }
+}
+.payments {
+  padding-bottom: 80px;
+
+  &_top {
+    text-transform: uppercase;
+  }
+}
+
+.payment {
+  display: grid;
+  grid-template-columns: auto repeat(6, 1fr);
+  align-items: center;
+  font-family: $jost;
+  color: $black-text;
+  margin-bottom: 20px;
+  &:not(:first-child) {
+    border: 1px solid $grey-border-input;
+    box-shadow: 0 5px 5px 1px $grey-border-input;
+  }
+
+  &__logo {
+    padding: 30px;
+    min-width: 80px;
+    & img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &__name {
+    grid-column: 2/5;
+    font-size: 24px;
+
+    & span {
+      font-size: 16px;
+    }
+  }
+
+  &__part {
+    &_top {
+      text-align: center;
+    }
+
+    &_value {
+      & select {
+        background-color: $grey-input-bg;
+        border: none;
+        color: $black-text;
+        padding: 10px;
+        outline: none;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      & option {
+        background-color: $grey-input-bg;
+      }
+    }
+  }
+
+  &__month,
+  &__total,
+  &__part {
+    text-align: center;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveShadow {
+  from {
+    background-position: center right;
+  }
+  to {
+    background-position: center left;
+  }
+}

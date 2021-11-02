@@ -12,9 +12,9 @@ export const buttonSearchListener = (button) => {
         : item
     );
     if (company.length == 1) {
-      display(0, company[0]);
+      display(0, company[0], false, false, true);
     } else {
-      display(0);
+      display(0, false, false, false, true);
     }
   });
 };
