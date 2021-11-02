@@ -1,0 +1,28 @@
+{{#each data}}
+<div class="checkout__reserve reserve">
+    <div class="reserve__img" >
+        <img src="{{image}}" alt="{{name}}">
+    </div>
+    <div class="reserve__info">
+        <a href="../product.html?id={{id}}" class="reserve__name link">{{name}}</a>
+        <div class="reserve__count"><span>{{amount}}x</span></div>
+    </div>
+        <p class="reserve__count">${{price}}</p>
+</div>
+{{/each}}
+<div class="checkout__count">
+    <div class="count__names">
+        <p class="count__name">Subtotal</p>
+        <p class="count__name">Shipping</p>
+        <p class="count__name">Taxes</p>
+    </div>
+    <div class="count__values">
+        <p class="count__value">${{totalCount data}}</p>
+        <p class="count__value">Calculated at next step</p>
+        <p class="count__value">${{taxes data}}</p>
+    </div>
+</div>
+<div class="checkout__total">
+    <p class="total__name">Total</p>
+    <p class="total__value"><span>USD </span>${{newTotal data}}</p>
+</div>

@@ -9,10 +9,15 @@
       src="https://kit.fontawesome.com/4e5db1bd51.js"
       crossorigin="anonymous"
     ></script>
-    <title>Muse's product</title>
+    
+    <title>FreshMuse checkout</title>
   </head>
   <body>
-    <header class="header products__header">
+    <div class="page-loading">
+      <img src="./img/alto-clef.png" alt="alto clef">
+      <h2 class="loader">Loading...</h2>
+    </div>
+    <header class="header checkout__header">
       <div class="cart__frame">
         <aside class="cart">
           <div class="cart__top">
@@ -29,7 +34,7 @@
               <p class="subtotal__price">$135.0</p>
             </div>
             <a href="./shopping_cart.html" class="subtotal__button subtotal__button_top link">View cart</a>
-            <a href="./checkout.html" class="subtotal__button link">Checkout</a>
+            <a href="./forms.html" class="subtotal__button link">Checkout</a>
           </div>
       </aside>
     </div>
@@ -80,7 +85,7 @@
                 <nav class="burger__menu">
                   <ul class="burger__list">
                     <li class="burger__item"><a href="index.html" class="burger__link link">Home</a></li>
-                    <li class="burger__item"><a href="#" class="burger__link link">Shop</a></li>
+                    <li class="burger__item"><a href="products.html" class="burger__link link">Shop</a></li>
                     <li class="burger__item"><a href="#" class="burger__link link">About</a></li>
                     <li class="burger__item"><a href="#" class="burger__link link">Blog</a></li>
                     <li class="burger__item"><a href="#" class="burger__link link">Contact</a></li>
@@ -89,7 +94,7 @@
               </div>
               <ul class="nav__menu menu">
                 <li class="menu__item item"><a href="index.html" class="item__link link">Home</a></li>
-                <li class="menu__item item_active item__shop shop item item__link"><p> Shop <span>&#x33</span></p>
+                <li class="menu__item item__shop shop item item__link"><a href="products.html" class="item__link link"><p> Shop <span>&#x33</span></p></a> 
                   <div class="shop__dropdown">
                     <div class="dropdown__content dropdown__content_main">
                     </div>
@@ -105,7 +110,7 @@
                       <h5 class="dropdown__title title5">Shop</h5>
                       <ul class="dropdown__list">
                         <li class="dropdown__item"><a href="#">Pages</a></li>
-                        <li class="dropdown__item"><a href="./checkout.html">Checkout</a></li>
+                        <li class="dropdown__item"><a href="#">Checkout</a></li>
                         <li class="dropdown__item"><a href="#">Wishlist</a></li>
                       </ul>
                     </div>
@@ -134,51 +139,99 @@
           </div>
     </header>
     <nav class="breadcrumb wrapper">
-      <h2 class="breadcrumb__title title2">Shop Grid Sidebar</h2>
-      <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Shop Grid Sidebar</span></p>
+        <h2 class="breadcrumb__title title2">Checkout</h2>
+        <p class="breadcrumb__path"><a class="breadcrumb__link link" href="./index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Checkout</span></p>
     </nav>
-    <main>
-      <section class="products wrapper">
-        <div class="filters">
-          <form class="filters__form">
-            <input class="filters__search" type="search" name="search" id="search" placeholder="Search">
-            <button class="filters__search-button" ><i class="icon-search"></i></button>
-          </form>
-          <h3 class="filters__title">Product Categories</h3>
-          <article class="filters__categories"></article>
-          <h3 class="filters__title">Companies</h3>
-          <article class="filters__companies">
-          </article>
-          <h3 class="filters__title">Filter by price</h3>
-          <div class="filters__form-price">
-            <input class="filters__input" type="range" name="price">
-            <input class="filters__input" type="range" name="price">
-          </div>
-          <p class="filters__price">Price: <span>$25</span> &#9866 <span>$75</span> </p>
-        </div>
-        <div class="products__container">
-          <div class="products__top">
-            <p class="products__result"></p>
-            <div class="products__buttons_wrapper">
-              <button class="products__layout layout_grid"><i class="fas fa-th-large"></i></button>
-              <button class="products__layout layout_list"><i class="fas fa-list"></i></button>
-              <div class="products__sorting_wrapper">
-                <button class="products__sorting" value="default" name="sorting">Default sorting <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="products__sorting-option_wrapper">
-                    <button class="products__sorting-option" value="priceLow">Price: low to high</button>
-                    <button class="products__sorting-option" value="priceHigh">Price: high to low</button>
-                </div>
-              </div>
+    <section class="checkout wrapper">
+     <div class="login__window">
+       <div class="login__page">
+         <button class="login__button_close button_close">Close</button>
+         <form  class="login__form" name="login__form">
+           <label class="login__form-title form-title">Log in</label>
+           <div class="input__wrapper">
+             <input class="input__full login__username" type="text" name="username" minlength="4" placeholder="User name" required>
+             <input class="input__full login__password" type="password" name="loginPassword" id="loginPassword" minlength="8" placeholder="Password" required>
+             <button class="button login__button" type="submit">Submit</button>
+             <button class="button login__button" type="reset">Reset</button>           
             </div>
-          </div>
-          <div class="products__display display">
-          </div>
-          <div class="pagination"></div>
+            <div class="login__text_wrapper">
+              <p class="login__text form-text">Not a member yet?
+              <a href="#" class="login__link link">Register</a></p>
+            </div>
+         </form>
+       </div>
+     </div>
+      <form  class="checkout__form" name="checkout__form">
+        <div class="error-message">Error message</div>
+        <p class="checkout__text form-text">Already have an account? <a class="checkout__link link-to-login link">Log in</a></p>
+        <label class="checkout__form-title form-title">Contact information</label>
+        <input class="input__adress checkout-mail" type="email" name="e-mail" placeholder="Email" required>
+        <div class="checkout__box">
+            <input class="checkout__input" type="checkbox" name="keepUpTo" id="keepUpTo">
+            <span class="check"></span>
+            <label for="keepUpTo"> Keep me up to date on news and exclusive offers</label>
         </div>
-      </section>
-    </main>
-    <footer class="footer products__footer footer_black">
+        <label class="checkout__form-title form-title">Choose a delivery method</label>
+        <div class="delivery__wrapper">
+            <input class="delivery__radio" type="radio" name="delivery" id="ukrPost">
+            <span class="check"></span>
+            <label for="ukrPost"> Pick up</label>
+        </div>
+        <div class="delivery__options">
+            <input type="text" id="autocomplete">
+        </div>
+        <div class="delivery__wrapper">
+            <input class="delivery__radio" type="radio" name="delivery" id="novaPost">
+            <span class="check"></span>
+            <label for="novaPost"> Nova Poshta</label>
+        </div>
+        <div class="delivery__options">
+            <!-- <input type="text" id="autocomplete"> -->
+        </div>
+        <div class="delivery__wrapper">
+            <input class="delivery__radio" type="radio" name="delivery" id="courier">
+            <span class="check"></span>
+            <label for="courier"> Adress delivery</label>
+        </div>
+        <div class="delivery__options">
+            <!-- <input type="text" id="autocomplete"> -->
+        </div>
+        <label class="checkout__form-title form-title">Shipping address</label>
+        <div class="input__wrapper">
+          <input class="first-name" type="text" minlength="3" maxlength="15" name="firstName" id="firstName" placeholder="First name">
+          <input class="last-name" type="text" minlength="3" maxlength="15" name="lastName" id="lastName" placeholder="Last name">
+          <input class="input__full adress" type="text" name="adress" placeholder="Address">
+          <input class="input__full apartment" type="text" name="apartment" placeholder="Apartment, suite, etc">
+          <select class="input__full city" name="city" id="" placeholder="Enter a city">
+            <option value="Kyiv">Kyiv</option>
+            <option value="Lviv">Lviv</option>
+            <option value="Kharkiv">Kharkiv</option>
+            <option value="Chernivtsi">Chernivtsi</option>
+          </select>
+          <input type="text"  name="country" placeholder="Coundtry/Region" value="Ukraine">
+          <input class="postal-code" name="postal" minlength="5" type="text" placeholder="Postal code">
+          <input class="input__full phone" name="tel" type="text" minlength="12"  id="tel" placeholder="Phone number">
+         </div>
+        <label class="checkout__form-title form-title">Billing info</label>
+        <div class="input__wrapper">
+          <label class="input__full"><input type="radio" name="card" value="Master Card" checked> Master Card</label>
+          <label class="input__full"><input type="radio" name="card" value="Visa"> Visa</label>
+          <input class="input__full card-number" name="cardNumber" type="text" minlength="16" placeholder="Card number">
+          <input class="input__full card-full-name" name="fullNameCard" type="text" placeholder="Full Name">
+          <input class="card-exp" name="cardExp" type="text" minlength="6" placeholder="Expiration date mm / yyyy">
+          <input class="card-password" name="cardPass" type="password" minlength="3" placeholder="CVV">
+          </div>
+        <div class="checkout__button_wrapper">
+          <button type="submit" class="button checkout__button">Submit</button>
+          <button type="reset" class="button checkout__button">Reset</button>
+        </div>
+        <a href="./shopping_cart.html" class="checkout__return_link return_link link"><span>J</span> Return cart</a>
+      </form>
+      <div class="checkout__bill bill">
+      </div>
+    </section>
+    <div class="map" id="map"></div>
+    <footer class="footer checkout__footer footer_black">
       <div class="footer__info_wrapper wrapper">
         <div class="footer__info">
           <div class="footer__icon"><i class="icon-headphone"></i></div>
@@ -221,7 +274,7 @@
               <ul class="about__list">
                 <li class="about__item"><a href="#">About us</a></li>
                 <li class="about__item"><a href="#">Blog</a></li>
-                <li class="about__item"><a href="./forms.html">Check out</a></li>
+                <li class="about__item"><a href="#">Check out</a></li>
                 <li class="about__item"><a href="#">Contact</a></li>
                 <li class="about__item"><a href="#">Service</a></li>
               </ul>
