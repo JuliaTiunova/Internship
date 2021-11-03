@@ -8,7 +8,7 @@ import {
 const email = getElement(".checkout-mail");
 const firstName = getElement(".first-name");
 const lastName = getElement(".last-name");
-const adress = getElement(".adress");
+const address = getElement(".address");
 const apartment = getElement(".apartment");
 const postalCode = getElement(".postal-code");
 const phoneNumber = getElement(".phone");
@@ -70,11 +70,11 @@ lastName.addEventListener("input", function() {
   }
 });
 
-adress.addEventListener("input", function() {
-  if (adress.value === "") {
-    showErrorMessage(`Please enter an adress`);
+address.addEventListener("input", function() {
+  if (address.value === "") {
+    showErrorMessage(`Please enter an address`);
   } else {
-    removeError(adress);
+    removeError(address);
   }
 });
 

@@ -5,7 +5,7 @@ import { getData } from "./getDataForm";
 const email = getElement(".checkout-mail");
 const firstName = getElement(".first-name");
 const lastName = getElement(".last-name");
-const adress = getElement(".adress");
+const address = getElement(".address");
 const apartment = getElement(".apartment");
 const postalCode = getElement(".postal-code");
 const phoneNumber = getElement(".phone");
@@ -37,9 +37,9 @@ form.addEventListener("submit", (e) => {
   } else if (lastName.classList.contains("error")) {
     e.preventDefault();
     showErrorMessage(`Please check your last name`, lastName);
-  } else if (adress.value === "") {
+  } else if (address.value === "") {
     e.preventDefault();
-    showErrorMessage("Please enter an adress", adress);
+    showErrorMessage("Please enter an address", address);
   } else if (apartment.value === "") {
     e.preventDefault();
     showErrorMessage("Please enter an apartment", apartment);

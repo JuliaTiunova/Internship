@@ -14,11 +14,15 @@
     <div class="count__names">
         <p class="count__name">Subtotal</p>
         <p class="count__name">Shipping</p>
+        <p class="count__name">Services</p>
+        <p class="count__name">Discount</p>
         <p class="count__name">Taxes</p>
     </div>
     <div class="count__values">
         <p class="count__value">${{totalCount data}}</p>
-        <p class="count__value">Calculated at next step</p>
+        <p class="count__value">${{shippingCount data}}</p>
+        <p class="count__value">${{#with other}}{{services}}{{/with}}</p>
+        <p class="count__value">-${{#with other}}{{discount}}{{/with}}</p>
         <p class="count__value">${{taxes data}}</p>
     </div>
 </div>

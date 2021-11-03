@@ -8,6 +8,10 @@ import "./checkout/cardListeners";
 import "./checkout/infoListeners";
 import "./checkout/masks";
 import "./checkout/google";
+import "./checkout/mapPickUp";
+import "./checkout/mapNova";
+import "./checkout/mapAddress";
+import "./checkout/radioListeners";
 
 import { allCategoriesURL, getElement } from "./assets";
 import { displayMenu } from "./display/displayMenu";

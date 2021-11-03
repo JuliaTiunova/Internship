@@ -165,7 +165,7 @@
         <div class="error-message">Error message</div>
         <p class="checkout__text form-text">Already have an account? <a class="checkout__link link-to-login link">Log in</a></p>
         <label class="checkout__form-title form-title">Contact information</label>
-        <input class="input__adress checkout-mail" type="email" name="e-mail" placeholder="Email" required>
+        <input class="input__address checkout-mail" type="email" name="e-mail" placeholder="Email" required>
         <div class="checkout__box">
             <input class="checkout__input" type="checkbox" name="keepUpTo" id="keepUpTo">
             <span class="check"></span>
@@ -173,12 +173,30 @@
         </div>
         <label class="checkout__form-title form-title">Choose a delivery method</label>
         <div class="delivery__wrapper">
-            <input class="delivery__radio" type="radio" name="delivery" id="ukrPost">
+            <input class="delivery__radio" type="radio" name="delivery" id="pickUp">
             <span class="check"></span>
-            <label for="ukrPost"> Pick up</label>
+            <label for="pickUp"> Pick up from store</label>
         </div>
         <div class="delivery__options">
-            <input type="text" id="autocomplete">
+            <p class="delivery__options_title">Choose a store</p>
+            <div class="map__wrapper">
+                <div class="map__info">
+                    <div class="shop__wrapper vault">
+                        <h4>Guitar Vault</h4>
+                        <p></p>
+                    </div>
+                    <div class="shop__wrapper monkey">
+                        <h4>Monkey Music</h4>
+                        <p></p>
+                    </div>
+                    <div class="shop__wrapper music">
+                        <h4>Musician</h4>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="map__pickup" id="mapSet"></div>
+            </div>
+            <div class="details"></div>
         </div>
         <div class="delivery__wrapper">
             <input class="delivery__radio" type="radio" name="delivery" id="novaPost">
@@ -186,36 +204,36 @@
             <label for="novaPost"> Nova Poshta</label>
         </div>
         <div class="delivery__options">
-            <!-- <input type="text" id="autocomplete"> -->
+            <input class="delivery__nova" type="text" id="search">
+            <div class="map" id="mapNova"></div>
         </div>
         <div class="delivery__wrapper">
             <input class="delivery__radio" type="radio" name="delivery" id="courier">
             <span class="check"></span>
-            <label for="courier"> Adress delivery</label>
+            <label for="courier"> Address delivery</label>
         </div>
         <div class="delivery__options">
-            <!-- <input type="text" id="autocomplete"> -->
+            <input class="delivery__address" type="text" id="autocomplete">
+            <div class="map" id="map"></div>
         </div>
-        <label class="checkout__form-title form-title">Shipping address</label>
-        <div class="input__wrapper">
-          <input class="first-name" type="text" minlength="3" maxlength="15" name="firstName" id="firstName" placeholder="First name">
-          <input class="last-name" type="text" minlength="3" maxlength="15" name="lastName" id="lastName" placeholder="Last name">
-          <input class="input__full adress" type="text" name="adress" placeholder="Address">
-          <input class="input__full apartment" type="text" name="apartment" placeholder="Apartment, suite, etc">
-          <select class="input__full city" name="city" id="" placeholder="Enter a city">
-            <option value="Kyiv">Kyiv</option>
-            <option value="Lviv">Lviv</option>
-            <option value="Kharkiv">Kharkiv</option>
-            <option value="Chernivtsi">Chernivtsi</option>
-          </select>
-          <input type="text"  name="country" placeholder="Coundtry/Region" value="Ukraine">
-          <input class="postal-code" name="postal" minlength="5" type="text" placeholder="Postal code">
-          <input class="input__full phone" name="tel" type="text" minlength="12"  id="tel" placeholder="Phone number">
-         </div>
+        <div class="shipping">
+            <label class="checkout__form-title form-title">Shipping address</label>
+            <div class="input__wrapper">
+                <input class="first-name" type="text" minlength="3" maxlength="15" name="firstName" id="firstName" placeholder="First name">
+                <input class="last-name" type="text" minlength="3" maxlength="15" name="lastName" id="lastName" placeholder="Last name">
+                <input class="input__full address" type="text" name="address" placeholder="Address">
+                <input class="input__full novaPost" type="text" name="novaPost" placeholder="Nova Poshta">
+                <input class="input__full apartment" type="text" name="apartment" placeholder="Apartment, suite, etc">
+                <input class="input__full city" name="city" id="" placeholder="Enter a city">
+                <input class="country" type="text"  name="country" placeholder="Coundtry/Region">
+                <input class="postal-code" name="postal" minlength="5" type="text" placeholder="Postal code">
+                <input class="input__full phone" name="tel" type="text" minlength="12"  id="tel" placeholder="Phone number">
+            </div>
+        </div>
         <label class="checkout__form-title form-title">Billing info</label>
         <div class="input__wrapper">
-          <label class="input__full"><input type="radio" name="card" value="Master Card" checked> Master Card</label>
-          <label class="input__full"><input type="radio" name="card" value="Visa"> Visa</label>
+          <label class="input__full label__radio"><input class="billing__radio" type="radio" name="card" value="Master Card" checked> Master Card <span class="check"></span></label>
+          <label class="input__full label__radio"><input class="billing__radio" type="radio" name="card" value="Visa"> Visa <span class="check"></span></label>
           <input class="input__full card-number" name="cardNumber" type="text" minlength="16" placeholder="Card number">
           <input class="input__full card-full-name" name="fullNameCard" type="text" placeholder="Full Name">
           <input class="card-exp" name="cardExp" type="text" minlength="6" placeholder="Expiration date mm / yyyy">
@@ -230,7 +248,6 @@
       <div class="checkout__bill bill">
       </div>
     </section>
-    <div class="map" id="map"></div>
     <footer class="footer checkout__footer footer_black">
       <div class="footer__info_wrapper wrapper">
         <div class="footer__info">
@@ -293,7 +310,7 @@
             </div>
             <div class="table__content">
               <h5 class="about__title title5">Contact info</h5>
-              <p class="about__adress">
+              <p class="about__address">
                 29 Rue du Bourg Tibourg, 75004 Paris, France
               </p>
               <a href="mailto:Museinspired@gmail.com">Museinspired@gmail.com</a>
