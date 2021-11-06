@@ -3,8 +3,8 @@ export const coordinatesMusician = {
   lng: 30.474831045804006,
 };
 export const coordinatesMonkeyMusic = {
-  lat: 50.50883352312825,
-  lng: 30.50842402576799,
+  lat: 50.50881300938923,
+  lng: 30.508417236452182,
 };
 export const coordinatesGuitarVault = {
   lat: 50.41798119447867,

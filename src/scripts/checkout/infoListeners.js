@@ -12,6 +12,9 @@ const address = getElement(".address");
 const apartment = getElement(".apartment");
 const postalCode = getElement(".postal-code");
 const phoneNumber = getElement(".phone");
+const novaNumber = getElement(".novaPost");
+const city = getElement(".city");
+const pickUpAdress = getElement(".pickupAddress");
 
 email.addEventListener("input", function() {
   let emailValue = email.value.split("@");
@@ -70,11 +73,41 @@ lastName.addEventListener("input", function() {
   }
 });
 
+pickUpAdress.addEventListener("change", function() {
+  if (pickUpAdress.value !== "") {
+    removeError(pickUpAdress);
+  }
+});
+
 address.addEventListener("input", function() {
   if (address.value === "") {
     showErrorMessage(`Please enter an address`);
   } else {
     removeError(address);
+  }
+});
+
+novaNumber.addEventListener("input", function() {
+  if (novaNumber.value === "") {
+    showErrorMessage(`Please enter Nova Poshta number`);
+  } else {
+    removeError(novaNumber);
+  }
+});
+
+address.addEventListener("input", function() {
+  if (address.value === "") {
+    showErrorMessage(`Please enter an address`);
+  } else {
+    removeError(address);
+  }
+});
+
+city.addEventListener("input", function() {
+  if (city.value === "") {
+    showErrorMessage(`Please enter an city`);
+  } else {
+    removeError(city);
   }
 });
 

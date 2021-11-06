@@ -1,5 +1,4 @@
 import { initMapAddress } from "./mapAddress";
-import { initMapNova } from "./mapNova";
 import { initPickUp } from "./mapPickUp";
 import { getElement } from "../assets";
 import * as $ from "jquery";
@@ -7,11 +6,18 @@ import * as $ from "jquery";
 const radioButtons = document.querySelectorAll(".delivery__radio");
 const deliveryWindow = document.querySelectorAll(".delivery__options");
 const shipping = getElement(".shipping");
-const nova = getElement(".novaPost");
-const apartment = getElement(".apartment");
+const pickUpAddress = getElement(".pickupAddress__wrapper");
+const pickUpAddressInput = getElement(".pickupAddress");
+const select = getElement(".list__cities");
+const toClear = document.querySelectorAll(".toClear");
+const novaType = document.querySelectorAll(".novaType");
+const addressType = document.querySelectorAll(".addressType");
+const postMessage = getElement(".novaPost__message");
 
 hide();
 $(shipping).hide();
+$(select).hide();
+$(postMessage).hide();
 
 function hide() {
   deliveryWindow.forEach((item) => {
@@ -24,24 +30,44 @@ function hideAndShow(button) {
   $(button.parentElement.nextElementSibling).slideDown(300);
 }
 
+function clearInput() {
+  toClear.forEach((input) => {
+    input.value = "";
+  });
+}
+
 radioButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    console.log(button);
     if (button.id == "pickUp") {
+      clearInput();
       hideAndShow(button);
+      $(select).hide();
       $(shipping).hide(300);
       initPickUp();
     } else if (button.id == "novaPost") {
-      hideAndShow(button);
+      pickUpAddressInput.value = "";
+      clearInput();
+      hide();
+      $(pickUpAddress).hide();
       $(shipping).show(300);
-      $(nova).show(200);
-      $(apartment).hide(200);
-      initMapNova();
+      addressType.forEach((item) => {
+        $(item).hide(300);
+      });
+      novaType.forEach((item) => {
+        $(item).show(300);
+      });
     } else if (button.id == "courier") {
+      pickUpAddressInput.value = "";
+      clearInput();
       hideAndShow(button);
+      $(pickUpAddress).hide();
       $(shipping).show(300);
-      $(apartment).show(200);
-      $(nova).hide(200);
+      novaType.forEach((item) => {
+        $(item).hide(300);
+      });
+      addressType.forEach((item) => {
+        $(item).show(300);
+      });
       initMapAddress();
     }
   });

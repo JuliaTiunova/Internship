@@ -1,3 +1,4 @@
+import { displayAddress } from "./displayAddress";
 import { loader, mapSetOptions } from "./google";
 
 if (navigator) {
@@ -63,43 +64,19 @@ export function initMapAddress() {
 
       function onPlaceChanged() {
         let place = autocomplete.getPlace();
-        console.log(place);
 
         if (!place.geometry) {
           document.getElementById("autocomplete").placeholder = "Enter a place";
         } else {
-          let address = document.querySelector(".address");
-          place.address_components.forEach((item) => {
-            item.types.forEach((type) => {
-              switch (type) {
-                case "street_number":
-                  address.value = `${item.long_name} `;
-                  break;
-                case "locality":
-                  document.querySelector(".city").value = item.long_name;
-                  break;
-                case "postal_code":
-                  document.querySelector(".postal-code").value = item.long_name;
-                  break;
-                case "postal_code_suffix":
-                  document.querySelector(".postal-code").value = item.long_name;
-                  break;
-                case "route":
-                  address.value += `${item.long_name}`;
-                  break;
-                case "country":
-                  document.querySelector(".country").value = item.long_name;
-              }
-              document.querySelector(".apartment").focus();
-            });
-          });
-          mapSetOptions.center.lng = place.geometry.viewport.Pa.g;
-          mapSetOptions.center.lat = place.geometry.viewport.yb.g;
+          displayAddress(place.address_components);
           map.setZoom(11);
-          map.setCenter(mapSetOptions.center);
-          new google.maps.Marker({
-            position: mapSetOptions.center,
+          map.setCenter(place.geometry.location);
+          let marker = new google.maps.Marker({
+            position: place.geometry.location,
             map: map,
+          });
+          marker.addListener("click", () => {
+            displayAddress(place.address_components);
           });
         }
       }

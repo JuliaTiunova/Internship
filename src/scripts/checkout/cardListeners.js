@@ -19,8 +19,7 @@ cardNumber.addEventListener("input", function() {
 
 cardFullName.addEventListener("input", () => {
   let nameLength = cardFullName.value.split(" ");
-  let regExp = /^[a-zA-Z]+$/;
-
+  let regExp = /^[a-zA-Z\s]+$/;
   if (cardFullName.value === "") {
     showErrorMessage(`Please enter the full name`, cardFullName);
   } else if (nameLength.length < 2) {

@@ -5,8 +5,10 @@ const errorMessage = getElement(".error-message");
 export function showErrorMessage(message, element) {
   errorMessage.className = "error-message active";
   errorMessage.textContent = message;
-  element.classList.add("error");
-  element.focus();
+  if (element) {
+    element.classList.add("error");
+    element.focus();
+  }
 }
 
 export function removeError(element) {

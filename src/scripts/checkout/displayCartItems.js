@@ -85,7 +85,6 @@ export const displayCartItems = () => {
   let total = findTotal(cart);
 
   newCart.data = data;
-  console.log(newCart);
   newCart.other = {
     services: sum.toFixed(2),
     discount: ((total + sum) * number).toFixed(2),
