@@ -167,13 +167,14 @@
         <p class="checkout__text form-text">Already have an account? <a class="checkout__link link-to-login link">Log in</a></p>
         <label class="checkout__form-title form-title">Contact information</label>
         <div class="input__wrapper">
-            <input class="first-name" type="text" minlength="3" maxlength="15" name="firstName" id="firstName" placeholder="First name">
-            <input class="last-name" type="text" minlength="3" maxlength="15" name="lastName" id="lastName" placeholder="Last name">
-            <input class="input__full input__address checkout-mail" type="email" name="e-mail" placeholder="Email" required>
-            <input class="input__full phone" name="tel" type="text" minlength="12"  id="tel" placeholder="Phone number">
+            <!--setting autocomlete "off" attr. to form did not work, found autocomplete="nope" solution on internet -->
+            <input class="first-name" type="text" minlength="3" maxlength="15" name="firstName" id="firstName" placeholder="First name" autocomplete="nope">
+            <input class="last-name" type="text" minlength="3" maxlength="15" name="lastName" id="lastName" placeholder="Last name" autocomplete="nope">
+            <input class="input__full input__address checkout-mail" type="email" name="e-mail" placeholder="Email" required autocomplete="nope">
+            <input class="input__full phone" name="tel" type="text" minlength="12"  id="tel" placeholder="Phone number" autocomplete="nope">
         </div>
         <div class="checkout__box">
-            <input class="checkout__input" type="checkbox" name="keepUpTo" id="keepUpTo">
+            <input class="checkout__input" type="checkbox" name="keepUpTo" id="keepUpTo" >
             <span class="check"></span>
             <label for="keepUpTo"> Keep me up to date on news and exclusive offers</label>
         </div>
@@ -214,7 +215,7 @@
             <label for="novaPost"> Nova Poshta</label>
         </div>
         <div class="list__cities novaType">
-            <input class="search__filter" type="text" name="city" id="searchFilter" placeholder="Choose your city">
+            <input class="search__filter" type="text" name="city" id="searchFilter" placeholder="Choose your city" autocomplete="nope">
             <select class="toClear deilvery__nova_cities delivery__nova" name="cities" id="cities" multiple>
             </select>
             <div class="novaPost__message">Sorry, Nova Poshta is not there yet</div>
@@ -230,19 +231,19 @@
             <label for="courier"> Address delivery</label>
         </div>
         <div class="delivery__options">
-            <input class="delivery__address" type="text" id="autocomplete">
+            <input class="delivery__address" type="text" id="autocomplete" autocomplete="nope">
             <div class="map" id="map"></div>
         </div>
         <div class="shipping">
             <label class="checkout__form-title form-title">Shipping address</label>
             <div class="input__wrapper">
-                <input class="toClear errorRemoval input__full novaPost novaType" type="text" name="nova_poshta_number" placeholder="Nova Poshta">
-                <input class="toClear errorRemoval input__full address" type="text" name="address" placeholder="Address">
-                <input class="toClear errorRemoval input__full apartment addressType" type="text" name="apartment" placeholder="Apartment, suite, etc">
-                <input class="toClear errorRemoval input__full city" name="city" id="" placeholder="Enter a city">
-                <input class="toClear errorRemoval input__full region novaType" type="text"  name="region" placeholder="Region">
-                <input class="toClear errorRemoval country addressType" type="text"  name="country" placeholder="Country">
-                <input class="toClear errorRemoval postal-code addressType" name="postal" minlength="5" type="text" placeholder="Postal code">
+                <input class="toClear errorRemoval input__full novaPost novaType" type="text" name="nova_poshta_number" placeholder="Nova Poshta" autocomplete="nope">
+                <input class="toClear errorRemoval input__full address" type="text" name="address" placeholder="Address" autocomplete="nope">
+                <input class="toClear errorRemoval input__full apartment addressType" type="text" name="apartment" placeholder="Apartment, suite, etc" autocomplete="nope">
+                <input class="toClear errorRemoval input__full city" name="city" id="" placeholder="Enter a city" autocomplete="nope">
+                <input class="toClear errorRemoval input__full region novaType" type="text"  name="region" placeholder="Region" autocomplete="nope">
+                <input class="toClear errorRemoval country addressType" type="text"  name="country" placeholder="Country" autocomplete="nope">
+                <input class="toClear errorRemoval postal-code addressType" name="postal" minlength="5" type="text" placeholder="Postal code" autocomplete="nope">
             </div>
         </div>
         <label class="checkout__form-title form-title payment">Choose payment method</label>
@@ -259,10 +260,10 @@
         <div class="billing">
             <label class="checkout__form-title form-title">Billing info</label>
             <div class="input__wrapper">
-                <input class="input__full card-number" name="cardNumber" type="text" minlength="16" placeholder="Card number">
-                <input class="input__full card-full-name" name="fullNameCard" type="text" placeholder="Full Name">
-                <input class="card-exp" name="cardExp" type="text" minlength="6" placeholder="Expiration date mm / yyyy">
-                <input class="card-password" name="cardPass" type="password" minlength="3" placeholder="CVV">
+                <input class="input__full card-number" name="cardNumber" type="text" minlength="16" placeholder="Card number" autocomplete="nope">
+                <input class="input__full card-full-name" name="fullNameCard" type="text" placeholder="Full Name" autocomplete="nope">
+                <input class="card-exp" name="cardExp" type="text" minlength="6" placeholder="Expiration date mm / yyyy" autocomplete="nope">
+                <input class="card-password" name="cardPass" type="password" minlength="3" placeholder="CVV" autocomplete="nope">
             </div>
         </div>
         <div class="checkout__box">

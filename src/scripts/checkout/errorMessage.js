@@ -1,5 +1,7 @@
 import { getElement } from "../assets";
 
+// error message for form validation
+
 const errorMessage = getElement(".error-message");
 
 export function showErrorMessage(message, element) {

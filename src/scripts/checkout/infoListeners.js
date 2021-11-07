@@ -16,6 +16,8 @@ const novaNumber = getElement(".novaPost");
 const city = getElement(".city");
 const pickUpAdress = getElement(".pickupAddress");
 
+// form validation for personal info and shipping
+
 email.addEventListener("input", function() {
   let emailValue = email.value.split("@");
   let beforeDot;

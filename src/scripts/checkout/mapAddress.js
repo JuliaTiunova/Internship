@@ -1,6 +1,11 @@
 import { displayAddress } from "./displayAddress";
 import { loader, mapSetOptions } from "./google";
 
+// leave logs for errors display
+
+// display google map if courier option is chosen
+
+// ask for location
 if (navigator) {
   navigator.geolocation.getCurrentPosition(success, error);
 }
@@ -61,6 +66,8 @@ export function initMapAddress() {
       }
 
       autocomplete.addListener("place_changed", onPlaceChanged);
+
+      //get info when place is chosen
 
       function onPlaceChanged() {
         let place = autocomplete.getPlace();

@@ -47,6 +47,8 @@ function prevAndMessage(e, message, element) {
   showErrorMessage(message, element);
 }
 
+// card validation on form submit
+
 function checkCard(e) {
   if (cardNumber.value === "") {
     prevAndMessage(e, "Please enter your card number", cardNumber);

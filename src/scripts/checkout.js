@@ -13,24 +13,18 @@ import "./checkout/mapNova";
 import "./checkout/mapAddress";
 import "./checkout/radioListeners";
 import "./checkout/billing";
-import * as $ from "jquery";
 
 import { allCategoriesURL, getElement, getStorageItem } from "./assets";
 import { displayMenu } from "./display/displayMenu";
 import { displayCartItems } from "./checkout/displayCartItems";
+import message from "../templates/checkoutEmptyCart.handlebars";
 
 let cart = getStorageItem("cart");
 
 const loading = getElement(".page-loading");
-const pickUpAddress = getElement(".pickupAddress__wrapper");
 const checkoutWrapper = getElement(".checkout");
 
-if (cart.length == 0) {
-  checkoutWrapper.innerHTML = "working";
-}
-
-$(pickUpAddress).hide();
-
+// get categories for head menu
 let categories = new XMLHttpRequest();
 categories.open("GET", allCategoriesURL);
 categories.responseType = "json";
@@ -38,7 +32,12 @@ categories.send();
 categories.onload = function() {
   let result = categories.response;
   displayMenu(result);
-  displayCartItems();
+  if (cart.length != 0) {
+    displayCartItems();
+  } else {
+    // display message if the cart is empty
+    checkoutWrapper.innerHTML = message();
+  }
 };
 
 loading.style.display = "none";

@@ -4,45 +4,26 @@ import optionsRender from "../../templates/options.handlebars";
 import optionsWarehouseRender from "../../templates/optionsWarehouse.handlebars";
 import { getElement } from "../assets";
 import { displayAddressNova } from "./displayAddress";
+import { fixPosition, formSettings } from "./mapNovaFunc";
 
 const selectWrapper = getElement(".list__cities");
 const select = getElement("#cities");
 const warehouse = document.querySelector("#warehouse");
 const input = getElement(".search__filter");
 const postMessage = getElement(".novaPost__message");
+const API_NOVA = "16a99a981883e32fe079045f4e009382";
 
-function fixPosition(response, map, zoom) {
-  let positionNew = {
-    lat: response.data[0].Latitude * 1,
-    lng: response.data[0].Longitude * 1,
-  };
-  map.setCenter(positionNew);
-  map.setZoom(zoom);
-}
-
-function formSettings(data) {
-  let settings = {
-    async: true,
-    crossDomain: true,
-    url: "https://api.novaposhta.ua/v2.0/json/",
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    processData: false,
-    data: data,
-  };
-  return settings;
-}
 let data;
 
+// get cities from nova poshta api
 $(function() {
-  data =
-    '{\r\n"apiKey": "16a99a981883e32fe079045f4e009382",\r\n "modelName": "AddressGeneral",\r\n "calledMethod": "getCities"\r\n}';
+  data = `{\r\n"apiKey": "${API_NOVA}",\r\n "modelName": "AddressGeneral",\r\n "calledMethod": "getCities"\r\n}`;
   let settings = formSettings(data);
 
   $.ajax(settings).done(function(response) {
     select.innerHTML = optionsRender(response);
+
+    // filter cities list
     let optionsCache = [];
 
     for (let i = 0, iLength = select.options.length; i < iLength; i++) {
@@ -80,11 +61,20 @@ $(function() {
   });
 });
 
+function showErrorMessage() {
+  $(postMessage)
+    .show(300)
+    .delay(900)
+    .hide(300);
+}
+
+// display map if city is chosen from the list
 select.onchange = () => {
   initMapNova();
   input.value = select.value;
 };
 
+// display map
 export function initMapNova() {
   loader.load().then((google) => {
     let mapNova;
@@ -94,9 +84,10 @@ export function initMapNova() {
       mapSetOptions
     );
 
+    // get warehouses list depending on chosen city
     $(function() {
       let city = select.value;
-      data = `{\r\n"apiKey": "16a99a981883e32fe079045f4e009382",\r\n "modelName": "AddressGeneral",\r\n "calledMethod": "getWarehouses",\r\n "methodProperties": {\r\n "CityName": "${city}"\r\n }\r\n}`;
+      data = `{\r\n"apiKey": "${API_NOVA}",\r\n "modelName": "AddressGeneral",\r\n "calledMethod": "getWarehouses",\r\n "methodProperties": {\r\n "CityName": "${city}"\r\n }\r\n}`;
       let settings = formSettings(data);
 
       $.ajax(settings).done(function(response) {
@@ -105,13 +96,17 @@ export function initMapNova() {
           $(select).hide(300);
           warehouse.innerHTML = optionsWarehouseRender(response);
           warehouse.onchange = () => {
+            // get warehouse info to display on map and fill in inputs in shipping section
             $(function() {
-              data = `{\r\n"apiKey": "",\r\n "modelName": "Address",\r\n "calledMethod": "getWarehouses",\r\n "methodProperties": {\r\n "Ref": "${warehouse.value}"\r\n }\r\n}`;
+              data = `{\r\n"apiKey": "${API_NOVA}",\r\n "modelName": "Address",\r\n "calledMethod": "getWarehouses",\r\n "methodProperties": {\r\n "Ref": "${warehouse.value}"\r\n }\r\n}`;
               let settings = formSettings(data);
 
               $.ajax(settings).done(function(response) {
                 if (response.data.length > 0) {
+                  // fill in inputs
                   displayAddressNova(response.data[0]);
+
+                  // add marker for warehouse
                   let pos = {
                     lat: response.data[0].Latitude * 1,
                     lng: response.data[0].Longitude * 1,
@@ -122,9 +117,11 @@ export function initMapNova() {
                     id: response.data[0].Ref,
                     optimized: false,
                   });
+                  // fill in / change inputs if marker is clicked
+                  // can be multiple markers on map if different warehouses were chosen
                   marker.addListener("click", () => {
                     $(function() {
-                      data = `{\r\n"apiKey": "",\r\n "modelName": "Address",\r\n "calledMethod": "getWarehouses",\r\n "methodProperties": {\r\n "Ref": "${marker.id}"\r\n }\r\n}`;
+                      data = `{\r\n"apiKey": "${API_NOVA}",\r\n "modelName": "Address",\r\n "calledMethod": "getWarehouses",\r\n "methodProperties": {\r\n "Ref": "${marker.id}"\r\n }\r\n}`;
                       let settings = formSettings(data);
 
                       $.ajax(settings).done(function(response) {
@@ -136,20 +133,15 @@ export function initMapNova() {
 
                   fixPosition(response, mapNova, 13);
                 } else {
-                  $(postMessage)
-                    .show(300)
-                    .delay(900)
-                    .hide(300);
+                  // error message, if there are no warehouses in the city
+                  showErrorMessage();
                 }
               });
             });
           };
           fixPosition(response, mapNova, 12);
         } else {
-          $(postMessage)
-            .show(300)
-            .delay(900)
-            .hide(300);
+          showErrorMessage();
         }
       });
     });

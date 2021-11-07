@@ -3,6 +3,8 @@ import orderRender from "../../templates/order.handlebars";
 import Handlebars from "handlebars/runtime";
 import { setOrder } from "./setOrder";
 
+// helpers for displaying order after submit
+
 Handlebars.registerHelper("servicesSum", function(arr) {
   return getServiceSum(arr);
 });
@@ -41,6 +43,7 @@ Handlebars.registerHelper("getDiscount", function(arr, arrCart, str) {
   return discount;
 });
 
+// order number is for appearence, I don't save it
 Handlebars.registerHelper("orderNumber", function() {
   let number = Math.floor(Math.random() * 100000).toFixed();
   while (number >= 100000 || number <= 9999) {
@@ -62,6 +65,8 @@ function getServiceSum(arr) {
   return sum.toFixed(2);
 }
 
+// gather data and display order
+
 export function getData(form) {
   const orderWrapper = getElement(".order__wrapper");
   let data = {};
@@ -78,7 +83,8 @@ export function getData(form) {
   let services = getStorageItem("services");
 
   let products = [];
-  let order = [];
+  let order = {};
+  let orders = [];
   products = [...cart];
   order.products = products;
 
@@ -92,5 +98,6 @@ export function getData(form) {
   }
   orderWrapper.innerHTML = orderRender(order);
   orderWrapper.classList.add("open");
-  setOrder(order);
+  orders.push(order);
+  setOrder(orders);
 }

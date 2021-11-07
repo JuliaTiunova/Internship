@@ -1,3 +1,5 @@
+// shops coordinates
+
 export const coordinatesMusician = {
   lat: 50.42890326107253,
   lng: 30.474831045804006,

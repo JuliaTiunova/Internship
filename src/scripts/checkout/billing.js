@@ -1,6 +1,8 @@
 import { getElement } from "../assets";
 import * as $ from "jquery";
 
+// hide billing section if cash is checked, show if credit
+
 const cash = getElement("#cash");
 const card = getElement("#credit");
 const billing = getElement(".billing");

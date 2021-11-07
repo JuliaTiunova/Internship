@@ -9,6 +9,29 @@
     padding-bottom: 20px;
   }
 
+  &__empty {
+    font-family: $lobster;
+    font-size: 42px;
+    line-height: 55px;
+    @include center-flex-column;
+
+    &_link {
+      text-decoration: none;
+      font-family: $jost;
+      color: $black-text;
+      font-size: 15px;
+
+      &:hover {
+        color: $green;
+      }
+    }
+
+    &_animate {
+      position: relative;
+      animation: messageMove 2s;
+    }
+  }
+
   &__link {
     color: $green;
     &:hover {
@@ -543,17 +566,15 @@ input[type="radio"].payment__radio {
   }
 
   &__window {
-    position: fixed;
+    position: absolute;
     overflow: scroll;
     top: 0;
     bottom: 0;
-    left: 0;
-    transform: translateX(100%);
+    @include center-position;
     background-color: $white;
     padding: 40px;
     width: 50%;
     height: 100%;
-    transition: all 0.5s;
   }
 
   &__phonenumber {
@@ -633,11 +654,6 @@ input[type="radio"].payment__radio {
   opacity: 1;
   pointer-events: initial;
   transition: all 1s;
-
-  & .order__window {
-    @include center-position;
-    transition: all 0.5s;
-  }
 }
 
 .order__items .reserve {
@@ -657,5 +673,14 @@ input[type="radio"].payment__radio {
 
   &__count {
     font-size: 16px;
+  }
+}
+
+@keyframes messageMove {
+  from {
+    transform: translateX(80%);
+  }
+  to {
+    transform: translateX(0);
   }
 }

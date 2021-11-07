@@ -2,6 +2,8 @@ import { getElement, getStorageItem } from "../assets";
 import displayItems from "../../templates/checkoutCart.handlebars";
 import Handlebars from "handlebars/runtime";
 
+// display cart Items, get all totals for "bill" section
+
 const services = getStorageItem("services");
 const discount = getStorageItem("coupon");
 
@@ -47,6 +49,7 @@ Handlebars.registerHelper("taxes", function(arr) {
   findTaxes(arr);
   return findTaxes(arr);
 });
+
 Handlebars.registerHelper("newTotal", function(arr) {
   let total = findTotal(arr);
   let taxes = findTaxes(arr);

@@ -1,5 +1,7 @@
 import { Loader } from "@googlemaps/js-api-loader";
 
+// constructor for maps
+
 export const loader = new Loader({
   apiKey: "AIzaSyAv16WqGNDpE3DNmnzBnrSOEx8hdpnGNzo",
   version: "weekly",

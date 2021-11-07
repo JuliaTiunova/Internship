@@ -1,6 +1,8 @@
 import { getElement } from "../assets";
 import { removeError, showErrorMessage } from "./errorMessage";
 
+//form validation for billing section
+
 const cardNumber = getElement(".card-number");
 const cardFullName = getElement(".card-full-name");
 const cardExpiration = getElement(".card-exp");

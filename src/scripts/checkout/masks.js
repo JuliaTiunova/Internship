@@ -35,5 +35,3 @@ $(".card-password").mask("ZZZ", {
     },
   },
 });
-
-$(".checkout__form").attr("autocomplete", "off");

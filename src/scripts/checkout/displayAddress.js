@@ -6,6 +6,9 @@ const novaPost = document.querySelector(".novaPost");
 const apartment = document.querySelector(".apartment");
 const region = document.querySelector(".region");
 
+// displaying address after choosing option in autocomplete input
+
+//for Nova Poshta
 export const displayAddressNova = (obj) => {
   let descript = obj.Description.split(":");
   address.value = descript[1];
@@ -14,6 +17,7 @@ export const displayAddressNova = (obj) => {
   region.value = obj.SettlementAreaDescription;
 };
 
+//for courier
 export const displayAddress = (place) => {
   address.value = "";
   place.forEach((item) => {

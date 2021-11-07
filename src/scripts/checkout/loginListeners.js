@@ -8,6 +8,8 @@ const username = getElement(".login__username");
 const password = getElement(".login__password");
 const formLogin = getElement(".login__form");
 
+// login form validation
+
 loginButton.addEventListener("click", () => {
   loginWindow.classList.toggle("login_open");
 });

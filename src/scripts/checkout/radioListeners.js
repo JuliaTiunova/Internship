@@ -14,10 +14,14 @@ const novaType = document.querySelectorAll(".novaType");
 const addressType = document.querySelectorAll(".addressType");
 const postMessage = getElement(".novaPost__message");
 
+// listeners for delivery options
+
+//hiding unnecessary fields
 hide();
 $(shipping).hide();
 $(select).hide();
 $(postMessage).hide();
+$(pickUpAddress).hide();
 
 function hide() {
   deliveryWindow.forEach((item) => {
@@ -35,6 +39,10 @@ function clearInput() {
     input.value = "";
   });
 }
+
+// swapping needed fields with unneeded,
+// clearing unneeded fields so they will not interfere with form data gathering
+// shipping address is one block, only inputs are changing (groupped for courier and nova poshta)
 
 radioButtons.forEach((button) => {
   button.addEventListener("click", () => {

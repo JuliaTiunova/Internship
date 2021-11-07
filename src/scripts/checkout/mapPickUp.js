@@ -8,6 +8,8 @@ import * as $ from "jquery";
 import { getElement } from "../assets";
 import shopDetails from "../../templates/shopDetails.handlebars";
 
+// for focus on map
+
 const mapSetOptions = {
   center: {
     lat: 50.50883352312825,
@@ -16,6 +18,8 @@ const mapSetOptions = {
   zoom: 10,
   gestureHandling: "greedy",
 };
+
+// show map with pickup options
 
 export function initPickUp() {
   const shops = document.querySelectorAll(".shop__wrapper");
@@ -35,6 +39,7 @@ export function initPickUp() {
     requestShop(coordinatesMonkeyMusic, "monkey music");
     requestShop(coordinatesMusician, "musician");
 
+    // get music shops, based on names and coordinates
     function requestShop(coords, name) {
       let request = {
         query: name,
@@ -47,6 +52,8 @@ export function initPickUp() {
 
       function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
+          // gather info and set markers
+          // set id, so can gather info, when clicking on name or marker
           let info = results[0];
           let marker = new google.maps.Marker({
             position: info.geometry.location,
@@ -82,6 +89,7 @@ export function initPickUp() {
       };
     });
 
+    // display shop details
     function requestShopInfo(element) {
       let request = {
         placeId: element.dataset.id,
@@ -110,6 +118,7 @@ export function initPickUp() {
           weekday_text.splice(0, 7);
           results.weekday_text = weekday_text;
           element.nextElementSibling.innerHTML = shopDetails(results);
+          // fill in input with address so can be gathered later
           pickUpAddressInput.value = results.formatted_address;
         }
       });
