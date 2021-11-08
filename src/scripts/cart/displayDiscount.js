@@ -9,6 +9,7 @@ export const displayDiscount = (coupon) => {
   const newTotal = getElement(".bottom__newtotal");
   let cart = getStorageItem("cart");
 
+  // get percent amount
   let number = 0;
   switch (coupon) {
     case "MUSICWAVE2021":
@@ -33,6 +34,7 @@ export const displayDiscount = (coupon) => {
       number = 0;
   }
 
+  // count discount depending on amount of services
   let services = bottom.innerHTML;
   services = getInnerPrice(services);
   let amount = cart.reduce((total, item) => {

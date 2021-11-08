@@ -52,6 +52,7 @@ Handlebars.registerHelper("orderNumber", function() {
   return number;
 });
 
+// to hide card number
 Handlebars.registerHelper("transformNumbers", function(str) {
   str = str.split(" ");
   str[1] = "****";

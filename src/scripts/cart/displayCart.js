@@ -5,6 +5,7 @@ import { displayTotal } from "./displayTotal";
 import { addTotalStyles, displayDiscount } from "./displayDiscount";
 import * as $ from "jquery";
 
+// to count product total if there is more then 1
 Handlebars.registerHelper("times", function(a, b) {
   return (a * b).toFixed(2);
 });
@@ -16,12 +17,15 @@ export function displayCart() {
   const bottomWrapper = getElement(".bottom__services_wrapper");
   let cart = getStorageItem("cart");
   let servicesStorage = getStorageItem("services");
+
+  // wrap cart items in data for handlebars iteration
   let data = [];
   data = [...cart];
   cart = [];
   cart.data = data;
   cartWrapper.innerHTML = cartDisplay(cart);
 
+  // display totals
   if (servicesStorage.length > 0) {
     const basketServices = document.querySelectorAll(".basket__services");
     const basketTotal = document.querySelectorAll(".basket__total");

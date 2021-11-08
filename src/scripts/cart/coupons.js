@@ -14,8 +14,10 @@ export const coupons = [
 export function displayCoupon() {
   let coupon = getStorageItem("coupon");
   const couponWrapper = getElement(".coupon__name");
+  // remove button
   const message = getElement(".coupon__message");
   if (coupon.length == 0) {
+    //to display random coupon generate random index
     let index = Math.floor(Math.random() * 10).toFixed();
     while (index > coupons.length - 1) {
       index = Math.floor(Math.random() * 10).toFixed();

@@ -17,6 +17,7 @@ let cart = getStorageItem("cart");
 export const addToCart = (id, amount, stockNumber) => {
   let stock = getStorageItem("stock");
   let item = cart.find((cartItem) => cartItem.id == id);
+  // request product info
   let product = new XMLHttpRequest();
   let link = `${API_URL}?id=${id}`;
   product.open = openRequest(product, link);
@@ -31,6 +32,8 @@ export const addToCart = (id, amount, stockNumber) => {
     } else {
       element.amount = 1;
     }
+
+    // if it's not in the cart
     if (!item) {
       cart = [...cart, element];
       addToCartDOM(element);
