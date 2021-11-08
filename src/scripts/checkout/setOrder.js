@@ -36,7 +36,7 @@ export const setOrder = (orders) => {
     let orderStorage = getStorageItem("order");
     e.preventDefault();
 
-    if (orderStorage.length > 0) {
+    if (orderStorage) {
       orderStorage = [...orderStorage, orders];
       setStorageItem("order", orderStorage);
       clearStorage();

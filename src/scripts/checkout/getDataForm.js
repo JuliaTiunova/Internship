@@ -84,7 +84,6 @@ export function getData(form) {
 
   let products = [];
   let order = {};
-  let orders = [];
   products = [...cart];
   order.products = products;
 
@@ -98,6 +97,5 @@ export function getData(form) {
   }
   orderWrapper.innerHTML = orderRender(order);
   orderWrapper.classList.add("open");
-  orders.push(order);
-  setOrder(orders);
+  setOrder(order);
 }
