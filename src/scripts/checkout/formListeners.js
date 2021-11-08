@@ -115,9 +115,7 @@ form.addEventListener("submit", (e) => {
       prevAndMessage(e, "Please enter an address", address);
     } else if (city.value === "") {
       prevAndMessage(e, "Please enter a city name", city);
-    }
-
-    if (credit.checked) {
+    } else if (credit.checked) {
       checkCard(e);
     } else {
       e.preventDefault();
@@ -132,9 +130,7 @@ form.addEventListener("submit", (e) => {
       prevAndMessage(e, "Please enter postcode", postalCode);
     } else if (postalCode.classList.contains("error")) {
       prevAndMessage(e, "Please enter a real postcode", postalCode);
-    }
-
-    if (credit.checked) {
+    } else if (credit.checked) {
       checkCard(e);
     } else {
       e.preventDefault();

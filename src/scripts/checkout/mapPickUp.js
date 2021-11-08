@@ -9,7 +9,6 @@ import { getElement } from "../assets";
 import shopDetails from "../../templates/shopDetails.handlebars";
 
 // for focus on map
-
 const mapSetOptions = {
   center: {
     lat: 50.50883352312825,

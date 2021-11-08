@@ -6,6 +6,7 @@ import { loader, mapSetOptions } from "./google";
 // display google map if courier option is chosen
 
 // ask for location
+let nav;
 if (navigator) {
   navigator.geolocation.getCurrentPosition(success, error);
 }
@@ -27,6 +28,8 @@ function success(pos) {
     zoom: 11,
     gestureHandling: "greedy",
   };
+
+  nav = true;
 }
 
 function error(err) {
@@ -52,7 +55,8 @@ export function initMapAddress() {
         }
       );
       let map;
-      if (navigator) {
+      // if location is allowed
+      if (nav) {
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         new google.maps.Marker({
           position: mapOptions.center,
