@@ -1,6 +1,5 @@
 import { getElement } from "../assets";
 import { closeServices } from "./closeServices";
-// import { getInnerPrice } from "./getInnerPrice";
 
 export const servicesListeners = () => {
   const services = document.querySelectorAll(".basket__services");

@@ -1,0 +1,78 @@
+<div class="order__window">
+    {{#with info}}
+    <h4 class="order__name">{{firstName}} {{lastName}}</h4>
+    <p class="order__phonenumber">{{tel}}</p>
+    <p class="order__number">Your order number: {{orderNumber}}</p>
+    {{/with}}
+
+    <div class="order__items">
+        {{#each products}}
+        <div class="order__reserve">
+            <div class="reserve__img">
+                <img src="{{image}}" alt="item">
+            </div>
+            <div class="reserve__info">
+                <p class="reserve__name cart__link">{{name}}</p>
+                <div class="reserve__count"><span class="reserve__count_price">{{amount}}x</span> ${{price}}</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="order__money">
+    <p class="order__total">Total: <span>${{totalCount products}}</span></p>
+    <p class="order__shipping">Shipping: <span>${{shippingCount products}}</span></p>
+    {{#if services}}
+    <p class="order__services">Services: <span>${{servicesSum services}}</span></p>
+    {{/if}}
+    {{#if discount}}
+    <p class="order__discount">Discount: <span>-${{getDiscount services products discount}}</span></p>
+    {{/if}}
+    <p class="order__taxes">Taxes: <span>${{taxes products}}</span></p>
+    </div>
+    <p class="order__grand_total">${{newTotal products}}</p>
+
+    <div class="order__shipping_wrapper">
+            {{#with info}}
+            {{#if pickupAddress}}
+            <h4>Pickup address</h4>
+            <p class="order__pickup_address">{{pickupAddress}}</p>{{/if}}
+        
+            {{#if nova_poshta_number}}
+            <h4>Delivery by Nova Poshta</h4>
+            <p class="order__nov_poshta">{{nova_poshta_number}}</p>
+            {{/if}}
+            {{#if apartment}} 
+            <h4>Delivery by courier</h4>
+            {{/if}}
+            <p class="order__address">{{address}}</p>
+            {{#if apartment}}
+            <p class="order__apartment">{{apartment}}</p>
+            {{/if}}
+            <p class="order__city">{{city}}</p>
+            {{#if region}}
+            <p class="order__region">обл. {{region}}</p>
+            {{/if}}
+            {{#if country}}
+            <p class="order__country">{{country}}</p>
+            {{/if}}
+            {{#if postal}}
+            <p class="order__postal">{{postal}}</p>
+            {{else}}
+        {{/if}}
+        {{/with}}
+    </div>
+    {{#with info}}
+    <div class="order__billing">
+        <h4>Billing Info</h4>
+        <p class="order__payment">Payment by: {{payment}}</p>
+        {{#if cardNumber}}
+        <div class="order__payment_credit">
+            <p class="order__card_name">Name: {{fullNameCard}}</p>
+            <p class="order__card_number">Card: {{transformNumbers cardNumber}}</p>
+        </div>
+        {{/if}}
+    </div>
+    {{/with}}
+    <button class="order__button button" type="submit">Confirm</button>
+    <button class="order__button_back button">Go back</button>
+</div>

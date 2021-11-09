@@ -52,7 +52,13 @@ const jsLoaders = () => {
   }
   return loader;
 };
-let htmlPageNames = ["forms", "products", "product", "shopping_cart"];
+let htmlPageNames = [
+  "forms",
+  "products",
+  "product",
+  "shopping_cart",
+  "checkout",
+];
 
 let multipleHtmlPlugins = htmlPageNames.map((name) => {
   return new HtmlWebpackPlugin({
@@ -71,6 +77,7 @@ module.exports = {
     products: "./scripts/products.js",
     product: "./scripts/product.js",
     shopping_cart: "./scripts/shopping_cart.js",
+    checkout: "./scripts/checkout.js",
   },
   optimization: optimization(),
   devServer: {

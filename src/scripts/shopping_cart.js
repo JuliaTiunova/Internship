@@ -20,7 +20,6 @@ import { totalListener } from "./cart/payments";
 const init = () => {
   let cart = getStorageItem("cart");
   let shopperAlso = getElement(".shopper__also_wrapper");
-  // let services = getStorageItem("services");
   let categories = new XMLHttpRequest();
   categories.open("GET", allCategoriesURL);
   categories.responseType = "json";
