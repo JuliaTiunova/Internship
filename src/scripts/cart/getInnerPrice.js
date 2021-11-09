@@ -1,10 +1,5 @@
 // get price from elements innerHTML
 export const getInnerPrice = (price) => {
-  return (
-    price
-      .split("$")
-      .join("")
-      .split(" ")
-      .join("") * 1
-  );
+  price = price.split("$");
+  return parseFloat(price[1]);
 };

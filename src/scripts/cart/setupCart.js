@@ -3,10 +3,11 @@ import { openCart } from "../cart";
 import addToCartDOM from "./addtocartDOM";
 import { API_URL } from "../products/displayProd";
 import { openRequest } from "../openRequest";
-import { displayTotal } from "./displayTotal";
+import { displayTotal, displayTotals } from "./displayTotal";
 import { displayWishlistItemCount, setupWishlistFunc } from "./setupWishlist";
 import { setAmount } from "./setAmount";
 import { addValue, amountMap } from "./cartMapping";
+import { getTotals } from "./getTotals";
 
 const cartItemCountDOM = getElement(".cart__counter");
 const cartItemsDOM = getElement(".cart__items");
@@ -68,8 +69,8 @@ export function addAmount(item, amount, cartPage) {
   let newAmount = 0;
   amountMap(cart, item.id, amount, newAmount);
   if (cartPage) {
-    const total = getElement(".bottom__price");
-    displayTotal(cart, total);
+    const totals = getTotals(cart);
+    displayTotals(totals);
   }
   return newAmount;
 }
@@ -78,8 +79,8 @@ export function reduceAmount(item, cartPage) {
   let newAmount = 0;
   amountMap(cart, item.id, false, newAmount, true);
   if (cartPage) {
-    const total = getElement(".bottom__price");
-    displayTotal(cart, total);
+    const totals = getTotals(cart);
+    displayTotals(totals);
   }
   return newAmount;
 }

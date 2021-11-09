@@ -1,14 +1,11 @@
 import { getElement, getStorageItem } from "../assets";
 import cartDisplay from "../../templates/cartDisplay.handlebars";
-import Handlebars from "handlebars/runtime";
+// import Handlebars from "handlebars/runtime";
 import { displayTotal } from "./displayTotal";
 import { addTotalStyles, displayDiscount } from "./displayDiscount";
 import * as $ from "jquery";
 
 // to count product total if there is more then 1
-Handlebars.registerHelper("times", function(a, b) {
-  return (a * b).toFixed(2);
-});
 
 export function displayCart() {
   const cartWrapper = getElement(".shopper__basket");

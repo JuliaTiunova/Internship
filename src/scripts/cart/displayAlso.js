@@ -5,7 +5,7 @@ import { setStock } from "./setStock";
 
 let stock = getStorageItem("stock");
 
-// display sectio "you might also like"
+// display section "you might also like"
 export function displayAlso() {
   const name = getElement(".basket__name");
   const wrapper = getElement(".shopper__also");

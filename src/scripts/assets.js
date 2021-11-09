@@ -1,3 +1,5 @@
+import Handlebars from "handlebars/runtime";
+
 const allCategoriesURL =
   "http://localhost:3030/categories?$limit=25&name=Guitars&name=Amps %26 Effects&name=Folk Instruments&name=Drums %26 Percussion&name=String Instruments";
 
@@ -22,5 +24,13 @@ const getStorageItem = (item) => {
   }
   return storageItem;
 };
+
+Handlebars.registerHelper("times", function(a, b) {
+  let number;
+  b != 0.2
+    ? (number = (a * b).toFixed(2))
+    : (number = (a - a * 0.2).toFixed(2));
+  return Number(number);
+});
 
 export { allCategoriesURL, getElement, setStorageItem, getStorageItem };
