@@ -1,3 +1,4 @@
+// add and reduce amount of items in the cart
 export const amountMap = (cart, id, amount, newAmount, sign) => {
   cart = cart.map((cartItem) => {
     if (cartItem.id === id) {

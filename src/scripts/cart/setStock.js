@@ -8,6 +8,7 @@ export const setStock = () => {
   return random;
 };
 
+// set stock message on products and main page depending on amount
 Handlebars.registerHelper("stockNumber", function(stock) {
   let text = "";
   if (stock == 0) {
@@ -22,6 +23,7 @@ Handlebars.registerHelper("stockNumber", function(stock) {
   return text;
 });
 
+// set color of stock message
 Handlebars.registerHelper("color", function(stock) {
   let color;
   if (stock == 0) {
@@ -36,6 +38,7 @@ Handlebars.registerHelper("color", function(stock) {
   return color;
 });
 
+// set stock message in product page
 Handlebars.registerHelper("detailStock", function(stock) {
   let message = "";
   if (stock == 0) {

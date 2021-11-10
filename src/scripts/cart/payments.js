@@ -1,9 +1,11 @@
 import { getElement } from "../assets";
 import { getInnerPrice } from "./getInnerPrice";
 
+// for payment in installments
 export const totalListener = () => {
   const allDoc = getElement(".shopper");
 
+  // if click anywhere in the cart section payment is calculated
   let total = findTotal();
   displayParts(total);
   allDoc.onclick = () => {
@@ -11,6 +13,8 @@ export const totalListener = () => {
     displayParts(total);
   };
 };
+
+// get total from html element
 const findTotal = () => {
   const button = getElement(".bottom__price");
   const buttonBottom = getElement(".bottom__newtotal");
@@ -39,6 +43,7 @@ const displayParts = (total) => {
     item.innerHTML = `$${(total / input).toFixed(2)}`;
   });
 
+  // calculate when change amount of months
   inputs.forEach((input) => {
     input.onchange = () => {
       let perMonth = input.nextElementSibling;

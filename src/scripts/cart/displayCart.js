@@ -1,33 +1,26 @@
 import { getElement, getStorageItem } from "../assets";
 import cartDisplay from "../../templates/cartDisplay.handlebars";
-import Handlebars from "handlebars/runtime";
-import { displayTotal } from "./displayTotal";
-import { addTotalStyles, displayDiscount } from "./displayDiscount";
+import { displayTotals } from "./displayTotal";
 import * as $ from "jquery";
-
-Handlebars.registerHelper("times", function(a, b) {
-  return (a * b).toFixed(2);
-});
+import { getTotals } from "./getTotals";
 
 export function displayCart() {
   const cartWrapper = getElement(".shopper__basket");
-  const total = getElement(".bottom__price");
-  const discount = getStorageItem("coupon");
   const bottomWrapper = getElement(".bottom__services_wrapper");
   let cart = getStorageItem("cart");
   let servicesStorage = getStorageItem("services");
-  let data = [];
-  data = [...cart];
-  cart = [];
-  cart.data = data;
-  cartWrapper.innerHTML = cartDisplay(cart);
 
+  // wrap cart items in data for handlebars iteration
+  let data = [];
+  let cartTemplate = [];
+  data = [...cart];
+  cartTemplate.data = data;
+  cartWrapper.innerHTML = cartDisplay(cartTemplate);
+
+  // display totals
   if (servicesStorage.length > 0) {
     const basketServices = document.querySelectorAll(".basket__services");
     const basketTotal = document.querySelectorAll(".basket__total");
-    const bottomWrapper = getElement(".bottom__services_wrapper");
-    const bottom = getElement(".bottom__services_price");
-    const newTotal = getElement(".bottom__newtotal");
     basketServices.forEach((basket) => {
       servicesStorage.forEach((item) => {
         if (basket.dataset.id == item.hash) {
@@ -35,24 +28,6 @@ export function displayCart() {
         }
       });
     });
-    const price = cart.data.reduce((total, item) => {
-      return (total += item.price * item.amount);
-    }, 0);
-
-    let sum = 0;
-    servicesStorage.forEach((ent) => {
-      sum += ent.name;
-    });
-    $(bottomWrapper).show();
-    newTotal.innerHTML = `$${(price + sum).toFixed(2)}`;
-    addTotalStyles(newTotal);
-    $(newTotal).slideDown(300);
-
-    if (discount.length == 0) {
-      displayTotal(cart.data, total);
-    } else {
-      displayDiscount(discount.toUpperCase());
-    }
 
     basketTotal.forEach((total) => {
       const cart = getStorageItem("cart");
@@ -66,14 +41,10 @@ export function displayCart() {
         }
       });
     });
-
-    bottom.innerHTML = `+$${sum.toFixed(2)}`;
   } else {
-    if (discount.length == 0) {
-      displayTotal(cart.data, total);
-    } else {
-      displayDiscount(discount.toUpperCase());
-    }
     $(bottomWrapper).hide();
   }
+
+  let totals = getTotals(cart);
+  displayTotals(totals);
 }

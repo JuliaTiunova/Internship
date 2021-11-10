@@ -1,3 +1,4 @@
+// display out of stock message on products when trying to press "add to cart" button
 export const displayOutOfStock = (id) => {
   const messageWrapper = document.querySelectorAll(".products__message");
   let message = `There's not enough product`;

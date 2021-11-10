@@ -22,7 +22,7 @@
         <p class="count__value">${{totalCount data}}</p>
         <p class="count__value">${{shippingCount data}}</p>
         <p class="count__value">${{#with other}}{{services}}{{/with}}</p>
-        <p class="count__value">-${{#with other}}{{discount}}{{/with}}</p>
+        <p class="count__value">-${{countDiscount data}}</p>
         <p class="count__value">${{taxes data}}</p>
     </div>
 </div>

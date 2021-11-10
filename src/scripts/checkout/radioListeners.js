@@ -16,7 +16,7 @@ const postMessage = getElement(".novaPost__message");
 
 // listeners for delivery options
 
-//hiding unnecessary fields
+// hiding unnecessary fields
 hide();
 $(shipping).hide();
 $(select).hide();

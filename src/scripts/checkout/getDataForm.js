@@ -9,40 +9,6 @@ Handlebars.registerHelper("servicesSum", function(arr) {
   return getServiceSum(arr);
 });
 
-Handlebars.registerHelper("getDiscount", function(arr, arrCart, str) {
-  let number = 0;
-  switch (str) {
-    case "MUSICWAVE2021":
-      number = 0.05;
-      break;
-    case "WAHWAH10":
-      number = 0.1;
-      break;
-    case "STRINGSATTACHED20":
-      number = 0.2;
-      break;
-    case "STRINGSATTACHED25":
-      number = 0.25;
-      break;
-    case "GUITARFINGERS30":
-      number = 0.3;
-      break;
-    case "SUPERDUPERDISCOUNT":
-      number = 0.5;
-      break;
-    default:
-      number = 0;
-  }
-  let total = arrCart.reduce(
-    (total, item) => total + item.price * item.amount,
-    0
-  );
-  let sum = arr.reduce((total, item) => total + item.name, 0);
-
-  let discount = ((total + sum) * number).toFixed(2);
-  return discount;
-});
-
 // order number is for appearence, I don't save it
 Handlebars.registerHelper("orderNumber", function() {
   let number = Math.floor(Math.random() * 100000).toFixed();
@@ -52,6 +18,7 @@ Handlebars.registerHelper("orderNumber", function() {
   return number;
 });
 
+// to hide card number
 Handlebars.registerHelper("transformNumbers", function(str) {
   str = str.split(" ");
   str[1] = "****";

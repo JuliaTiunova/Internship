@@ -117,7 +117,7 @@ export function initMapNova() {
                     id: response.data[0].Ref,
                     optimized: false,
                   });
-                  // fill in / change inputs if marker is clicked
+                  // fill in or change inputs if marker is clicked
                   // can be multiple markers on map if different warehouses were chosen
                   marker.addListener("click", () => {
                     $(function() {
