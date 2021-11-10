@@ -20,7 +20,11 @@ export const getTotals = (cart) => {
   totals.newTotal = newTotal;
 
   function getTotal() {
-    return cart.reduce((total, item) => total + item.price * item.amount, 0);
+    let total = cart.reduce(
+      (total, item) => total + item.price * item.amount,
+      0
+    );
+    return total;
   }
   function getServiceTotal() {
     return services.reduce((total, item) => total + item.name, 0);
