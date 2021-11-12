@@ -16,29 +16,21 @@ if (services) {
   });
 }
 
+export function getPercent(coupon) {
+  const coupon2Mapping = {
+    MUSICWAVE2021: 0.05,
+    WAHWAH10: 0.1,
+    STRINGSATTACHED20: 0.2,
+    STRINGSATTACHED25: 0.25,
+    GUITARFINGERS30: 0.3,
+    SUPERDUPERDISCOUNT: 0.5,
+  };
+
+  return coupon2Mapping[coupon] ?? 0;
+}
+
 if (discount) {
-  switch (discount) {
-    case "MUSICWAVE2021":
-      number = 0.05;
-      break;
-    case "WAHWAH10":
-      number = 0.1;
-      break;
-    case "STRINGSATTACHED20":
-      number = 0.2;
-      break;
-    case "STRINGSATTACHED25":
-      number = 0.25;
-      break;
-    case "GUITARFINGERS30":
-      number = 0.3;
-      break;
-    case "SUPERDUPERDISCOUNT":
-      number = 0.5;
-      break;
-    default:
-      number = 0;
-  }
+  number = getPercent(discount);
 }
 
 Handlebars.registerHelper("totalCount", function(arr) {
@@ -51,12 +43,12 @@ Handlebars.registerHelper("taxes", function(arr) {
 });
 
 Handlebars.registerHelper("newTotal", function(arr) {
-  let total = findTotal(arr);
-  let taxes = findTaxes(arr);
+  let total = Number(findTotal(arr));
+  let taxes = Number(findTaxes(arr));
   let shipping = findShipping(arr);
   let rest = (total + sum + shipping) * number;
   total = total + sum + shipping - rest;
-  return (total + taxes * 1).toFixed(2);
+  return (total + taxes).toFixed(2);
 });
 
 Handlebars.registerHelper("shippingCount", function(arr) {
@@ -64,12 +56,18 @@ Handlebars.registerHelper("shippingCount", function(arr) {
   return shipping;
 });
 
+Handlebars.registerHelper("countDiscount", function(arr) {
+  let total = Number(findTotal(arr));
+  return ((total + sum) * number).toFixed(2);
+});
+
 function findTotal(arr) {
-  return arr.reduce((total, item) => total + item.price * item.amount, 0);
+  let total = arr.reduce((total, item) => total + item.price * item.amount, 0);
+  return total.toFixed(2);
 }
 
 function findTaxes(arr) {
-  let total = findTotal(arr);
+  let total = Number(findTotal(arr));
   let rest = (total + sum) * number;
   total = total + sum - rest;
   return (total * 0.1).toFixed(2);
@@ -85,12 +83,10 @@ export const displayCartItems = () => {
 
   let data = [...cart];
   let newCart = [];
-  let total = findTotal(cart);
 
   newCart.data = data;
   newCart.other = {
     services: sum.toFixed(2),
-    discount: ((total + sum) * number).toFixed(2),
   };
 
   bill.innerHTML = displayItems(newCart);

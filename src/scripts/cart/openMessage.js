@@ -1,5 +1,6 @@
 import * as $ from "jquery";
 
+// when adding product directly in the cart, show message, when there's not enough in stock
 export const setMessage = (element) => {
   let wrapper = document.createElement("div");
   let p = document.createElement("p");

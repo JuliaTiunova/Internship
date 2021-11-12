@@ -38,6 +38,7 @@ export const openServices = (id) => {
     };
   });
 
+  // when closing window make calculations
   button.onclick = () => {
     closeServices(number, id);
   };

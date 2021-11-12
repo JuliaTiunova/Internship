@@ -25,7 +25,7 @@
     <p class="order__services">Services: <span>${{servicesSum services}}</span></p>
     {{/if}}
     {{#if discount}}
-    <p class="order__discount">Discount: <span>-${{getDiscount services products discount}}</span></p>
+    <p class="order__discount">Discount: <span>-${{countDiscount products}}</span></p>
     {{/if}}
     <p class="order__taxes">Taxes: <span>${{taxes products}}</span></p>
     </div>
